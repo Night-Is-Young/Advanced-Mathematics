@@ -1,0 +1,55 @@
+\documentclass[b5paper,oneside]{ctexart}
+\usepackage{amsmath, amsthm, amssymb,geometry,enumerate}
+\geometry{left=2cm, right=2cm, top=3cm, bottom=3cm}
+\newcommand{\e}{\mathrm{e}}
+\linespread{1.55}
+\date{\today}
+\begin{document}
+\pagestyle{empty}
+\begin{center}\Large Lecture 5 Derivative and differential(导数)\end{center}
+\begin{enumerate}[1.]
+    \item 判断符合以下要求的函数是否存在,并说明理由.
+        \begin{enumerate}[(1)]
+            \item 在全体实数定义的函数,其仅在一点一阶可导,其余点均不连续.
+            \item 在全体实数定义的函数,其仅在一点一阶可导,其余点均不连续.
+        \end{enumerate}
+    \newpage\item 
+        \begin{enumerate}[(1)]
+        \item 设$f(x)=\left\lvert \ln\left\lvert x\right\rvert \right\rvert $,求$f'(x)$.
+        \item 在$(0,1)$上定义以下两个分段函数\\$\displaystyle g_1(x)= \left\{\begin{array}{l} \frac{1}{2^{2n}},\ x\neq \frac{1}{2^n},n \in \mathbb{N}^* \\ 0,\ 其他点 \end{array}\right.$
+                                         和$\displaystyle g_2(x)= \left\{\begin{array}{l} \frac{1}{2^{n+1}},\ x\neq \frac{1}{2^n},n \in \mathbb{N}^* \\ 0,\ 其他点 \end{array}\right.$\\
+                                         问$g_1(x)$和$g_2(x)$在$x=0$处是否右可导.
+        \end{enumerate}
+    \newpage\item 求参数$a,b,c$使得$f(x)$在全体实数上可导,其中$\displaystyle f(x)= \left\{\begin{array}{l} \frac{1}{\mathrm{e}^{x^2-1}},\ \left\lvert x\right\rvert<1\\ ax^4-bx^2+c,\ \left\lvert x\right\rvert \geqslant1 \end{array}\right.$.
+    \newpage\item 设$f(x)=(\arcsin{x})^2$,求$f^{(n)}(0)$,其中$n\in\mathbb{N}^*$.
+    \newpage\item 考虑分段函数$\displaystyle f(x)= \left\{\begin{array}{l} \mathrm{e}^{-\frac{1}{x^2}},\ x\neq 0\\ 0,\ x=0 \end{array}\right.$\\,求高阶导数$f^{(2021)}(0)$.
+    \newpage\item 计算题.
+        \begin{enumerate}[(1)]
+            \item 设$f(x)=x^{x^x}$,求$f'(x)$.
+            \item 设$f(x)=2\arctan{\frac{x^2-1}{\sqrt{2}x}}-\ln{\frac{x^2-\sqrt{2}x+1}{x^2+\sqrt{2}x+1}}$,求$f'(x)$.
+            \item 定义$g(x)=f(\frac{x-1}{x+1})$,其中$f(x)$可导且$f'(x)=\arctan{x}$,求$g'(x)$.
+            \item 设隐函数$y=y(x)$,其中$x^{y^2}+y^2\ln{x}+4=0,x>0$,求$y'(x)$.
+        \end{enumerate}
+    \newpage\item 设$f(x)$是在$x=0$的某个邻域定义的函数,据此回答下列问题.
+        \begin{enumerate}[(1)]
+            \item 如果$f'(0)$存在,证明$\lim_{\Delta x\to 0}{\frac{f(\Delta x)-f(-\Delta x)}{2\Delta x}}=f'(0)$.
+            \item 如果$\lim_{\Delta x\to 0}{\frac{f(\Delta x)-f(-\Delta x)}{2\Delta x}}=f'(0)$存在,能否说明$f'(0)$存在?说明理由.
+        \end{enumerate}
+    \newpage\item 计算$n$阶导数,其中$n \in \mathbb{N}^*$.
+        \begin{enumerate}[(1)]
+            \item $f(x)=\sin^3{x}$.
+            \item $f(x)=\frac{x^n}{1-x}$.
+            \item $f(x)=x^{n-1}\ln{x}$.
+        \end{enumerate}
+    \newpage\item 设$f(x)$是在$\mathbb{R}$定义的函数,且$f'(0)$存在,据此回答下列问题.
+        \begin{enumerate}[(1)]
+            \item 如果正序列$\left\{x_n\right\}$和负序列$\left\{y_n\right\}$均收敛于$0$,证明$\lim_{n \to\infty}{\frac{f(x_n)-f(y_n)}{x_n-y_n}}=f'(0)$.
+            \item 如果两个正序列$\left\{x_n\right\}$和$\left\{z_n\right\}$均收敛于,问$\lim_{n \to\infty}{\frac{f(x_n)-f(z_n)}{x_n-z_n}}=f'(0)$是否总成立?说明理由.
+        \end{enumerate}
+    \newpage\item 设$f(x)$是在$[-1,1]$定义的函数,且$f'(0)$存在,据此回答下列问题.
+        \begin{enumerate}[(1)]
+            \item 证明:$\lim_{n\to\infty}{\sum_{k=1}^{n}{f\left(\frac{k}{n^2}\right)-nf(0)}}=\frac{f'(0)}{2}$.
+            \item 计算$\lim_{n\to\infty}{\prod_{k=1}^{n}{\left( 1+\frac{k}{n^2}\right)}}$.
+        \end{enumerate}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,80 @@
+\documentclass[a4paper,oneside]{ctexart}
+\usepackage{amsmath, amsthm, amssymb,geometry,enumerate,color,xcolor}
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\di}{\mathrm{d}}
+\linespread{1.55}
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large Stirling 近似\end{center}
+\textbf{前言}:在统计物理学等多个领域中,我们常常需要估计$N!$的值,其中$N$是一个相当大的整数.
+按照定义的连乘算法通常并不高效,其复杂度为$O(N)$,而且一般的计算工具也难以存储如此巨大的数据.
+因此,我们需要一个良好的近似来估计${N!}$的值.Stirling近似正是实现了这一目标的方法,
+它以$O(\log{n})$的复杂度对$N!$进行了较为精确的估计.\\
+下面是Stirling近似的具体内容和推广.
+我们首先采取积分近似法对$\ln{N!}$进行估计.\\
+以下是采用矩形放缩得到的结果.\\
+\colorbox{lightgray}{\textbf{证明}:$\ln{N!}\approx N\ln{N}-N$}
+$$\begin{aligned}
+    \ln{N!} &=\sum_{i=1}^{N}{\ln i}\approx \int_{1}^{N} \ln{x}\mathrm{d}x \\
+            &=\left.x\ln{x}-x\right|_{1}^{N} \\
+            &=N\ln{N}-N+1\approx N\ln{N}-N.
+\end{aligned}$$
+这就是最常用的Stirling近似的结果.
+为了更精确的进行估计,我们可以采取梯形放缩.\\
+\colorbox{lightgray}{\textbf{证明}:$\ln{N!}\approx (N+\frac{1}{2})\ln{N}-N$}
+$$\begin{aligned}
+    \int_{1}^{N} \ln{x}\mathrm{d}x  &\approx \sum_{i=1}^{N-1}{\frac{\ln{i}+\ln{(i+1)}}{2}} \\
+    N\ln{N}-N+1                     &\approx \sum_{i=1}^{N}{\ln i}-\frac{\ln{N}}{2} \\
+    N\ln{N}-N+1                     &\approx \ln{N!}-\frac{\ln{N}}{2}.
+\end{aligned}$$
+对上式整理并忽略常数$1$可得$\ln{N!}\approx (N+\frac{1}{2})\ln{N}-N$.\\
+然而,积分放缩法仍然不是最精确的方法.我们在用积分代替离散图形的面积求和时总有剩余的部分.
+为了确定这一偏差,我们可以对梯形放缩的结果进一步优化,即更精准地确定上面式子中的常数项.\\
+不妨设$\ln{N!}\approx (N+\frac{1}{2})\ln{N}-N+C$,如果常数$C$是收敛的,那么我们就相当于找到了一个合理的近似方法.
+对上式两边取指数运算有$N!=\frac{N^N\sqrt{N}\e^C}{\e^N}.$\\
+不妨记序列$\left\{a_n\right\}$满足$a_n=\frac{\e^nn!}{n^n\sqrt{n}}$.\\
+\colorbox{lightgray}{\textbf{证明}:$\lim_{n\to\infty}{a_n}$存在,并求其值.}\\
+下面首先证明$\lim_{n\to\infty}{a_n}$存在.\\
+$$\begin{aligned}
+    \frac{a_{n+1}}{a_n} &= \dfrac{\frac{\e^{n+1}(n+1)!}{(n+1)^{n+1}\sqrt{n+1}}}{\frac{e^nn!}{n^n\sqrt{n}}}
+                         = \dfrac{\e^{n+1}(n+1)!n^{n+\frac{1}{2}}}{\e^nn!(n+1)^{n+\frac{3}{2}}} \\
+                        &= \e\cdot\left(\frac{n}{n+1}\right)^{n+\frac{1}{2}}
+\end{aligned}$$
+上述式子与$1$的大小关系并不是显然的.我们把它改写为$\dfrac{\e}{\left(1+\frac{1}{n}\right)^{n+\frac{1}{2}}}$,
+记$\phi(x)=\left(1+\frac{1}{x}\right)^{x+\frac{1}{2}}.$\\
+\colorbox{lightgray}{\textbf{引理}:$\forall x\in [1,+\infty),\phi(x)>\e.$}\\
+\textbf{证明}:$\phi(x)>e \Leftrightarrow \ln\left(1+\frac{1}{x}\right)>\frac{2}{2x+1}.$\\
+记$\varphi(x)=\ln\left(1+\frac{1}{x}\right)-\frac{x}{2x+1},\varphi(1)=\ln{2}-\frac{1}{3}>0$.\\
+令$u=\frac{1}{x}\in(0,1]$,则$\varphi(x)=\ln{(1+u)-\frac{2u}{u+2}}\equiv v(u).$\\
+$v'(u)=\frac{1}{u+1}-\frac{4}{(u+2)^2}=\frac{u^2}{(u+1)(u+2)^2}>0.$\\
+则$\forall u\in(0,1],v(u)>v(1)>0$.从而原命题得证.\\
+因此$\frac{a_{n+1}}{a_n}<1$,又$a_n>0$,故$\left\{a_n\right\}$为单调递减且有下界的序列,其极限必然存在.\\
+不妨设$\lim_{n\to\infty}{a_n}=A$.\\
+为了求出$A$,我们先来考虑Wallis公式.\\
+\colorbox{lightgray}{\textbf{证明}:$\dfrac{\pi}{2}=\lim_{n\to\infty}\dfrac{\left[(2n)!!\right]^2}{(2n-1)!!(2n+1)!!}$}\\
+此处暂时略去证明.\\
+我们有$(2n)!!=n!\cdot2^n,(2n-1)!!=\dfrac{(2n)!}{(2n)!!}=\dfrac{(2n)!}{n!\cdot2^n},(2n+1)!!=\dfrac{(2n+1)!}{n!\cdot2^n}$.\\
+将它们代入Wallis公式中有
+$$\begin{aligned}
+    \dfrac{\pi}{2} &= \lim_{n\to\infty}{\dfrac{n!\cdot2^n}{\dfrac{(2n)!}{n!\cdot2^n}}\cdot\dfrac{n!\cdot2^n}{\dfrac{(2n+1)!}{n!\cdot2^n}}} \\
+                   &= \lim_{n\to\infty}{\dfrac{(n!)^4\cdot 2^{4n}}{\left[(2n)!\right]^2\cdot (2n+1)}} \\
+                   &= \lim_{n\to\infty}{\dfrac{\left[\dfrac{n^{n+\frac{1}{2}}}{\e^n}\right]^4\cdot 2^{4n}}{\left[\dfrac{(2n)^{2n+1}}{\e^{2n}}\right]^2\cdot(2n+1)}}
+                      \cdot\left(\lim_{n\to\infty}{\dfrac{n!\e^n}{n^{n+\frac{1}{2}}}}\right)^4
+                      \cdot\dfrac{1}{\left(\lim_{n\to\infty}{\dfrac{(2n)!\e^{2n}}{(2n)^{2n+1}}}\right)^2} \\
+                   &= A^2\cdot\lim_{n\to\infty}{\dfrac{n}{2(2n+1)}} \\
+                   &= \dfrac{A^2}{4}
+\end{aligned}$$
+从而有$A=\sqrt{2\pi}$.因此$C=\ln{\lim_{n\to\infty}{a_n}}=\ln{\sqrt{2\pi}}$.\\
+回到Stirling近似中,我们相当于证明了$n!\sim \dfrac{\sqrt{2\pi n}\cdot n^n}{\e^n}$,即这两者是等价无穷大.
+实际上在$n>9$时使用这一式子估计的误差就已经小于$1\%$,在取对数之后误差更是可以忽略不计.所以用这个式子是十分合适的.\\
+对于Stirling近似的各种形式,我们还要做一些额外的说明.\\
+\colorbox{lightgray}{\textbf{引理}:$\lim_{n\to\infty}{\dfrac{\ln{n!}}{n\ln{n}-n}}=\lim_{n\to\infty}{\dfrac{\ln{n!}}{n\ln{n}-n+\ln{\sqrt{2\pi n}}}}=1$}.\\
+注意到$$\begin{aligned}
+    \lim_{n\to\infty}{\dfrac{\ln{n!}}{n\ln{n}-n+\ln{\sqrt{2\pi n}}}} &= \lim_{n\to\infty}{\dfrac{\ln{n!}}{n\ln{n}-n}}\cdot\lim_{n\to\infty}{\dfrac{n\ln{n}-n}{n\ln{n}-n+\ln{\sqrt{2\pi n}}}} \\
+                                                                     &= \lim_{n\to\infty}{\dfrac{\ln{n!}}{n\ln{n}-n}}
+\end{aligned}$$
+然而我们却知道$\lim_{n\to\infty}{\dfrac{n!\e^n}{n^n}}$是不存在的.
+因此,不能在极限的四则运算中使用$\lim_{n\to\infty}{\dfrac{n!\e^n}{n^n}}=1$.这两者不是等价无穷大.\\
+与之对应的是$\lim_{n\to\infty}{\dfrac{n}{\sqrt[n]{n!}}}=\e$.
+\end{document}

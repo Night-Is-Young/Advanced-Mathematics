@@ -1,0 +1,63 @@
+\documentclass[a4paper,oneside]{ctexart}
+\usepackage{amsmath,amsthm,amssymb,geometry,enumerate,color,xcolor}
+\usepackage{array}
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\di}{\mathrm{d}}
+\linespread{1.55}
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+    \large Cauchy命题与Stolz定理
+\end{center}
+关于数列$\left\{ a_n\right\}$前$n$项的均值与$\left\{ a_n\right\}$的关系,我们有如下命题:
+\begin{center}
+    \colorbox{lightgray}{若数列$\left\{ a_n\right\}$满足$\lim_{n\to\infty}{a_n}=A$,则$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{a_i}}{n}}=A$.}
+\end{center}
+这就是Cauchy命题.下面我们给出这个命题的证明.\\
+\textbf{证明:}由$\lim_{n\to\infty}{a_n}=A$有
+$$\forall\varepsilon>0,\exists N\in\mathbb{N}^*,s.t.\forall n\geqslant N,\left\lvert a_n-A\right\rvert\leqslant\varepsilon.$$
+记满足上述条件的$\varepsilon,N$为$\varepsilon_a,N_a$.记$n<N_a$时$\left\lvert a_n-A\right\rvert$取得的最大值为$M_a$.则有
+$$\sum_{i=1}^{n}{\left\lvert a_i-A\right\rvert}\leqslant M_a(N_a-1)+\varepsilon_a(n+1-N_a)=(M_a-\varepsilon_a)(N_a-1)+n\varepsilon_a$$
+现在我们证明$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{a_i}}{n}}=A$.\\
+$\forall\varepsilon>0$,取$0<\varepsilon_a<\varepsilon$和对应的$N_a,M_a$.\\
+要使$\left\lvert \dfrac{\sum_{i=1}^{n}{a_i}}{n}-A\right\rvert\leqslant\varepsilon$,根据绝对值三角不等式有
+$$\left\lvert \dfrac{\sum_{i=1}^{n}{a_i}}{n}-A\right\rvert=\dfrac{1}{n}\left\lvert \sum_{i=1}^{n}{(a_i-A)}\right\rvert\leqslant\dfrac{1}{n}\sum_{i=1}^{n}{\left\lvert a_i-A\right\rvert}$$
+又$n\geqslant N_a$时$$\dfrac{1}{n}\sum_{i=1}^{n}{\left\lvert a_i-A\right\rvert}\leqslant\dfrac{(M_a-\varepsilon_a)(N_a-1)}{n}+\varepsilon_a$$
+令$$\dfrac{(M_a-\varepsilon_a)(N_a-1)}{n}+\varepsilon_a\leqslant\varepsilon$$
+解得$$n\geqslant\dfrac{(M_a-\varepsilon_a)(N_a-1)}{\varepsilon-\varepsilon_a}$$\\
+则$\exists N=\max\left\{\left[\dfrac{(M_a-\varepsilon_a)(N_a-1)}{\varepsilon-\varepsilon_a}\right]+1,N_a\right\}$,$s.t.$
+$$\forall n\geqslant N,\left\lvert \dfrac{\sum_{i=1}^{n}{a_i}}{n}-A\right\rvert
+\leqslant\dfrac{1}{n}\sum_{i=1}^{n}{\left\lvert a_i-A\right\rvert}<\dfrac{(M_a-\varepsilon_a)(N_a-1)+N\varepsilon_a}{N}\leqslant\varepsilon$$
+从而原命题得证.\\
+\newpage\noindent
+\textbf{例1(24.10.09 SJTU数分小测):}\\
+数列$\left\{ x_n\right\}$满足对于$\left\{ x_n\right\}$的任意子列$\left\{ x_{n_k}\right\}$均有$\lim_{k\to\infty}{\dfrac{\sum_{i=1}^{k}{x_{n_i}}}{k}}=1$.\textbf{试证明:}$\lim_{n\to\infty}{x_n}=1$.\\
+\textbf{证明:}采取反证法.假定$\left\{ x_n\right\}$不收敛或不收敛于$1$,则有
+$$\exists\varepsilon>0,\forall N\in\mathbb{N}^*,s.t.\exists n\geqslant N,\left\lvert x_n-1\right\rvert>\varepsilon$$
+也即$\left\{ x_n\right\}$中有无穷多项$x_i$满足$\left\lvert x_n-1\right\rvert>\varepsilon$.\\
+我们将这些项分为$\left\{ x_n\right\}$的两个子序列$\left\{ x_{n_+}\right\},\left\{ x_{n_-}\right\}$,
+满足$$\begin{aligned}
+    \forall x_i\in\left\{ x_{n_+}\right\},x_i>1+\varepsilon \\
+    \forall x_j\in\left\{ x_{n_-}\right\},x_j<1-\varepsilon
+\end{aligned}$$
+则$\left\{ x_{n_+}\right\},\left\{ x_{n_-}\right\}$中至少有一个为无穷序列.\\
+当$\left\{ x_{n_+}\right\}$或$\left\{ x_{n_-}\right\}$为无穷序列时有
+$$\lim_{k\to\infty}{\dfrac{\sum_{i=1}^{k}{x_{n_{+,i}}}}{k}}\geqslant \lim_{k\to\infty}{\dfrac{\sum_{i=1}^{k}{1+\varepsilon}}{k}}=1+\varepsilon>1$$
+$$\lim_{k\to\infty}{\dfrac{\sum_{i=1}^{k}{x_{n_{-,i}}}}{k}}\leqslant \lim_{k\to\infty}{\dfrac{\sum_{i=1}^{k}{1-\varepsilon}}{k}}=1-\varepsilon<1$$
+而根据题意,若$\left\{ x_{n_+}\right\}$或$\left\{ x_{n_-}\right\}$为无穷序列,则有
+$$\lim_{k\to\infty}{\dfrac{\sum_{i=1}^{k}{x_{n_{+,i}}}}{k}}=\lim_{k\to\infty}{\dfrac{\sum_{i=1}^{k}{x_{n_{-,i}}}}{k}=1}$$
+矛盾.故$\lim_{n\to\infty}{x_n}=1$.
+\newpage\noindent
+\textbf{例2(24.10.09 SJTU数分小测):}\\
+正项数列$\left\{ x_n\right\}$满足$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_i}}{n}}=a,a\in\mathbb{R}$.\textbf{试证明:}$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_i^2}}{n^2}}=0$.\\
+\textbf{证明(解法一):}我们有
+$$\begin{aligned}
+    \lim_{n\to\infty}{\dfrac{x_n}{n}} &= \lim_{n\to\infty}{\left(\dfrac{\sum_{i=1}^{n}{x_i}}{n}-\dfrac{n-1}{n}\cdot\dfrac{\sum_{i=1}^{n-1}{x_i}}{n-1}\right)} \\\
+                                      &= a-1\cdot a= 0
+\end{aligned}$$
+根据收敛序列的有界性,$\exists M\in\mathbb{R}\ s.t.\dfrac{\sum_{i=1}^{n}{x_i}}{n}<M$\\
+则$$0<\dfrac{\sum_{i=1}^{n}{x_i^2}}{n^2}=M\cdot\dfrac{\sum_{i=1}^{n}{\dfrac{x_i^2}{n}}}{Mn}<M\cdot\dfrac{\sum_{i=1}^{n}{\dfrac{x_i^2}{i}}}{\sum_{i=1}^{n}{x_i}}$$
+依Stolz定理$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{\dfrac{x_i^2}{i}}}{\sum_{i=1}^{n}{x_i}}}=\lim_{n\to\infty}{\dfrac{\dfrac{x_n^2}{n}}{x_n}}=\lim_{n\to\infty}{\dfrac{x_n}{n}}=0$$
+依夹逼准则$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_i^2}}{n^2}}=0$,证毕.\\
+\end{document}

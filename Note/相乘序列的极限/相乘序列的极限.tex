@@ -1,0 +1,254 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\di}{\mathrm{d}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\st}{,\text{s.t.}}
+\newcommand{\dx}{\di x}
+
+% 定义 formal 文本框
+\definecolor{formalshade}{rgb}{0.95,0.97,1}
+\newenvironment{formal}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{DarkBlue}\vrule width 2pt}%
+{\color{formalshade}\vrule width 4pt}%
+\colorbox{formalshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+% 定义 solution 文本框
+\definecolor{solutionshade}{rgb}{1,0.97,0.97}
+\definecolor{solutionline}{rgb}{0.7,0.02,0.02}
+\newenvironment{solution}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{solutionline}\vrule width 2pt}%
+{\color{solutionshade}\vrule width 4pt}%
+\colorbox{solutionshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+% 定义 analyze 文本框
+\definecolor{analyzeshade}{rgb}{0.95,0.95,0.95}
+\definecolor{analyzeline}{rgb}{0.45,0.45,0.45}
+\newenvironment{analyze}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{analyzeline}\vrule width 2pt}%
+{\color{analyzeshade}\vrule width 4pt}%
+\colorbox{analyzeshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+% 定义 problem 文本框
+\definecolor{problemshade}{rgb}{0.98,0.96,1}
+\definecolor{problemline}{rgb}{0.27,0.2,0.55}
+\newenvironment{problem}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{problemline}\vrule width 2pt}%
+{\color{problemshade}\vrule width 4pt}%
+\colorbox{problemshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+% 定义 theorem 文本框
+\definecolor{theoremshade}{rgb}{0.98,0.94,0.96}
+\definecolor{theoremline}{rgb}{0.8,0.5,0.7}
+\newenvironment{theorem}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{theoremline}\vrule width 2pt}%
+{\color{theoremshade}\vrule width 4pt}%
+\colorbox{theoremshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+    \large 相乘序列的极限
+\end{center}
+\begin{formal}
+    设序列$\left\{a_n\right\},\left\{b_n\right\}$满足$\displaystyle\lim_{n\to\infty}{a_n}=\lim_{n\to\infty}{b_n}=0$,\\
+    则有$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{a_ib_{n+1-i}}}{n}}=0$$
+\end{formal}
+\begin{analyze}[Analysis.]
+    我们把和式拆成两部分,有
+    \begin{align*}
+        \dfrac{\sum_{i=1}^{n}{a_ib_{n+1-i}}}{n}
+        &= \dfrac{\sum_{i=1}^{j}{a_ib_{n+1-i}}}{n}+\dfrac{\sum_{i=j+1}^{n}{a_ib_{n+1-i}}}{n}
+    \end{align*}
+    注意到两部分中分别可以令$a_i$和$b_i$很小,且$\left\{a_n\right\},\left\{b_n\right\}$有界,放缩即可证明.
+\end{analyze}
+\begin{solution}[Proof.]
+    由题意$$\forall \varepsilon_a>0,\exists N_a\in\mathbb{N}^*\st\forall n\geqslant N_a,\left\lvert a_n\right\rvert\leqslant\varepsilon_a$$
+    $$\forall \varepsilon_b>0,\exists N_b\in\mathbb{N}^*\st\forall n\geqslant N_b,\left\lvert b_n\right\rvert\leqslant\varepsilon_b$$
+    且由收敛序列有界可知$$\exists M_a\in\R\st\forall n\in\N^*,\left|a_n\right|\leqslant M_a$$
+    $$\exists M_b\in\R\st\forall n\in\N^*,\left|a_n\right|\leqslant M_b$$
+    对于给定的$\ep_a,\ep_b$和对应的$N_a,N_b$,$\forall n>N_a+N_b$有
+    \begin{align*}
+        \left|\dfrac{\sum_{i=1}^{n}{a_ib_{n+1-i}}}{n}\right|
+        &= \left|\dfrac{\sum_{i=1}^{N_a-1}{a_ib_{n+1-i}}}{n}+\dfrac{\sum_{i=N_a}^{n}{a_ib_{n+1-i}}}{n}\right| \\
+        &\leqslant \left|M_a\cdot\dfrac{\sum_{i=n+2-N_a}^{n}{b_i}}{n}+M_b\cdot\dfrac{\sum_{i=N_a}^{n}{a_i}}{n}\right| \\
+        &\leqslant M_a\cdot\dfrac{N_a-1}{n}\cdot\ep_b+M_b\cdot\dfrac{n-N_a+1}{n}\cdot\ep_a \\
+        &\leqslant M_a\ep_b+M_b\ep_a
+    \end{align*}
+    现在,对于任意$\ep>0$,取$0<\ep_a<\ep,0<\ep_b<\dfrac{\ep-M_b\ep_a}{M_a}$和对应的$N_a,N_b$ \\
+    令$N=N_a+N_b+1$,则$\forall n>N$有$$\left|\dfrac{\sum_{i=1}^{n}{a_ib_{n+1-i}}}{n}\right|\leqslant M_a\ep_b+M_b\ep_a<\ep$$
+    从而$\displaystyle\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{a_ib_{n+1-i}}}{n}}=0$,证毕.
+\end{solution}
+\begin{formal}[Enhanced Proposition.]
+    设序列$\left\{a_n\right\},\left\{b_n\right\}$满足$\displaystyle\lim_{n\to\infty}{a_n}=A,\lim_{n\to\infty}{b_n}=B,A,B\in\R$,\\
+    则有$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{a_ib_{n+1-i}}}{n}}=AB$$
+\end{formal}
+\begin{solution}[Proof.]
+    我们记序列$\left\{x_n\right\}$满足$x_n=a_n-A$,序列$\left\{y_n\right\}$满足$y_n=b_n-B$.\\
+    则$\displaystyle\lim_{n\to\infty}{x_n}=\lim_{n\to\infty}{x_n}=0$.\\
+    据Cauchy命题有$\displaystyle\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_i}}{n}}=\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{y_i}}{n}}=0$.\\
+    则\begin{align*}
+        \lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{a_ib_{n+1-i}}}{n}}
+        &= \lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{(x_i+A)(y_{n+1-i}+B)}}{n}} \\
+        &= AB+A\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{y_i}}{n}}+B\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_i}}{n}}+\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_iy_{n+1-i}}}{n}} \\
+        &= AB
+    \end{align*}
+    从而原命题得证.
+\end{solution}
+\begin{problem}[例1(24.10.09 SJTU数分小测):]
+    数列$\left\{ x_n\right\}$有$\displaystyle\lim_{n\to\infty}{x_n}=A$.
+    正项数列$\left\{ y_n\right\}$有$\displaystyle\lim_{n\to\infty}\dfrac{y_n}{\sum_{i=1}^{n}{y_i}}=0$.\\
+    \textbf{试证明:}$\displaystyle\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{y_ix_{n+1-i}}}{\sum_{i=1}^{n}{y_i}}}=A.$\\
+\end{problem}\noindent
+\begin{solution}[Proof.]
+    记序列$\left\{ a_n\right\}$满足$a_n=x_n-A$.则$\displaystyle\lim_{n\to\infty}{a_n}=\lim_{n\to\infty}{x_n}-A=0$.\\
+    则$\forall \varepsilon_a>0,\exists N_a\in\mathbb{N}^*\st\forall n\geqslant N_a,\left\lvert a_n\right\rvert\leqslant\varepsilon_a$\\
+    且$\exists M_a\in\R\st\forall n\in\N^*,\left|a_n\right|<M_a$.\\
+    又$\displaystyle\lim_{n\to\infty}\dfrac{y_n}{\sum_{i=1}^{n}{y_i}}=0$,则$\forall\ep_y>0,\exists N_y\in\N^*\st\forall n\geqslant N_y,\left|\dfrac{y_n}{\sum_{i=1}^{n}{y_i}}\right|<\ep_y$\\
+    则$n>N_a$且$n+2-N_a>N_y$时有\begin{align*}
+        \left|\dfrac{\sum_{i=1}^{n}{y_ix_{n+1-i}}}{\sum_{i=1}^{n}{y_i}}-A\right|
+        &= \left|\dfrac{\sum_{i=1}^{n}{y_ia_{n+1-i}}}{\sum_{i=1}^{n}{y_i}}\right| \\
+        &= \left|\dfrac{\sum_{i=1}^{n+1-N_a}{y_ia_{n+1-i}}}{\sum_{i=1}^{n}{y_i}}+\dfrac{\sum_{i=n+2-N_a}^{n}{y_ia_{n+1-i}}}{\sum_{i=1}^{n}{y_i}}\right| \\
+        &\leqslant \left|\dfrac{\sum_{i=1}^{n+1-N_a}{y_i}}{\sum_{i=1}^{n}{y_i}}\ep_a+\dfrac{\sum_{i=n+2-N_a}^{n}{y_i}}{\sum_{i=1}^{n}{y_i}}M_a\right| \\
+        &\leqslant \ep_a+M_a\ep_b 
+    \end{align*}
+    从而对于任意$\ep>0$,取$0<\ep_a<\ep,0<\ep_b<\dfrac{\ep-\ep_a}{M_a}$和对应的$N_a,N_y$\\
+    令$N=N_a+N_y+2$,则$\forall n\geqslant N$有\begin{align*}
+        \left|\dfrac{\sum_{i=1}^{n}{y_ix_{n+1-i}}}{\sum_{i=1}^{n}{y_i}}-A\right|
+        &\leqslant \ep_a+M_a\ep_b \\
+        &< \ep_a+M_a\cdot\dfrac{\ep-\ep_a}{M_a} \\
+        &= \ep
+    \end{align*}
+    从而$\displaystyle\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{y_ix_{n+1-i}}}{\sum_{i=1}^{n}{y_i}}}=A,$证毕.
+\end{solution}
+\begin{problem}
+    \textbf{例2(2023Fall PKU高等数学B期中考试):} \\
+    序列$\left\{ a_n\right\}$有$\displaystyle\lim_{n\to\infty}{a_n}=A$,$0<q<1$.\\
+    \textbf{试证明:}$\displaystyle\lim_{n\to\infty}{\sum_{i=1}^{n}{a_iq^{n-i}}}=\dfrac{A}{1-q}$.\\
+\end{problem}
+\begin{solution}
+    \textbf{证明:}记序列$\left\{ x_n\right\}$满足$x_n=a_n-A$.\\
+    则$$\begin{aligned}
+        \sum_{i=1}^{n}{a_iq^{n-i}} 
+        &= \sum_{i=1}^{n}{(x_i+A)q^{n-i}} \\
+        &= \sum_{i=1}^{n}{x_iq^{n-i}}+A\sum_{i=1}^{n}{y_n} \\
+        &= \sum_{i=1}^{n}{x_iq^{n-i}}+A\cdot\dfrac{1-q^n}{1-q}
+    \end{aligned}$$
+    下面证明$\displaystyle\lim_{n\to\infty}{\sum_{i=1}^{n}{x_iq^{n-i}}}=0$.\\
+    由于$\displaystyle\lim_{n\to\infty}{x_n}=0$,则$\forall\ep_x>0,\exists N_x\in\N^*\st\forall n\geqslant N_x,\left|x_n\right|<\ep$
+    且$\exists M_x\in\R\st\forall n\in\N^*,\left|x_n\right|<M_x$.\\
+    则$\forall n>$有
+    \begin{align*}
+        \left|\sum_{i=1}^{n}{x_iq^{n-i}}\right|
+        &= \left|\sum_{i=1}^{N_x-1}{x_iq^{n-i}}+\sum_{i=N_x}^{n}{x_iq^{n-i}}\right| \\
+        &= M_x\sum_{i=1}^{N_x-1}{q^{n-i}}+\ep_x\sum_{i=N_x}^{n}{q^{n-i}} \\
+        &= M_x\cdot\dfrac{q^{n-N_x+1}-q^n}{1-q}+\ep_x\cdot\dfrac{1-q^{n-N_x+1}}{1-q} \\
+        &< M_xq^n\cdot\dfrac{1-q^{N_x-1}}{q^{N_x-1}(1-q)}+\dfrac{\ep_x}{1-q} \\
+        &< \dfrac{M_xq^n}{q^{N_x}(1-q)}+\dfrac{\ep_x}{1-q} \\
+        &= \dfrac{1}{1-q}\left(M_xq^{n-N_x}+\ep_x\right)
+    \end{align*}
+    对于任意$\ep>0$,取$0<\ep_x<(1-q)\ep$和对应的$N_x$.\\
+    令$N=\left[\log_q{\dfrac{(1-q)\ep-\ep_x}{M_x}}\right]+N_x$,则$\forall n>N$有
+    \begin{align*}
+        \left|\sum_{i=1}^{n}{x_iq^{n-i}}\right|
+        &< \dfrac{1}{1-q}\left(M_xq^{n-N_x}+\ep_x\right) \\
+        &< \dfrac{1}{1-q}\left(M_xq^{N-N_x}+\ep_x\right) \\
+        &\leqslant \dfrac{1}{1-q}((1-q)\ep-\ep_x+\ep_x) \\
+        &= \ep
+    \end{align*}
+    从而原命题得证.
+\end{solution}
+\end{document}

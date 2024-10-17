@@ -1,0 +1,321 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\di}{\mathrm{d}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\st}{,\text{s.t.}}
+\newcommand{\dx}{\di x}
+
+% 定义 formal 文本框
+\definecolor{formalshade}{rgb}{0.95,0.97,1}
+\newenvironment{formal}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{DarkBlue}\vrule width 2pt}%
+{\color{formalshade}\vrule width 4pt}%
+\colorbox{formalshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+% 定义 solution 文本框
+\definecolor{solutionshade}{rgb}{1,0.97,0.97}
+\definecolor{solutionline}{rgb}{0.7,0.02,0.02}
+\newenvironment{solution}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{solutionline}\vrule width 2pt}%
+{\color{solutionshade}\vrule width 4pt}%
+\colorbox{solutionshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+% 定义 analyze 文本框
+\definecolor{analyzeshade}{rgb}{0.95,0.95,0.95}
+\definecolor{analyzeline}{rgb}{0.45,0.45,0.45}
+\newenvironment{analyze}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{analyzeline}\vrule width 2pt}%
+{\color{analyzeshade}\vrule width 4pt}%
+\colorbox{analyzeshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+% 定义 problem 文本框
+\definecolor{problemshade}{rgb}{0.98,0.96,1}
+\definecolor{problemline}{rgb}{0.27,0.2,0.55}
+\newenvironment{problem}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{problemline}\vrule width 2pt}%
+{\color{problemshade}\vrule width 4pt}%
+\colorbox{problemshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+% 定义 theorem 文本框
+\definecolor{theoremshade}{rgb}{0.98,0.94,0.96}
+\definecolor{theoremline}{rgb}{0.8,0.5,0.7}
+\newenvironment{theorem}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{theoremline}\vrule width 2pt}%
+{\color{theoremshade}\vrule width 4pt}%
+\colorbox{theoremshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 中值定理\end{center}
+也许您在高等数学的学习过程中见到了各种各样的中值定理(Mean Value Theorem),它们也构成了微积分的重要组成部分.
+下面我们就来列举并证明这些中值定理.\\
+一.微分中值定理\\
+(1).\textbf{Rolle's Mean Value Theorem}(罗尔中值定理)
+\begin{formal}[Rolle's Mean Value Theorem]
+    如果函数$f(x)$满足
+    \begin{enumerate}[leftmargin=*,label=(\alph*)]
+        \item $f(x)$在$[a,b]$连续.
+        \item $f(x)$在$(a,b)$可导.
+        \item $f(x)$在端点的函数值满足$f(a)=f(b)$.
+    \end{enumerate}
+    则$\exists\xi\in(a,b)\st f'(\xi)=0.$
+\end{formal}
+\begin{solution}[Proof.]
+    首先,由于$f(x)$在$[a,b]$连续,可知$f(x)$在$[a,b]$上有最大值和最小值.\\
+    若最大值和最小值均在端点处取得,又$f(a)=f(b)$,则$\forall \xi\in[a,b],f(x)=f(a)$.\\
+    从而$f(x)$为常函数,$\forall\xi\in[a,b],f'(\xi)=0$.\\
+    若最大值在$(a,b)$上取到,设最大值点为$\xi$,下面证明$f'(\xi)=0$.\\
+    由题意$$\forall x\in(a,\xi),\dfrac{f(x)-f(\xi)}{x-\xi}\geqslant 0$$
+    $$\forall x\in(\xi,b),\dfrac{f(x)-f(\xi)}{x-\xi}\leqslant 0$$
+    则$$f'(\xi-0)=\lim_{\Delta x\to 0-0}{\dfrac{f(\xi+\Delta x)-f(\xi)}{\Delta x}}\geqslant 0$$
+    $$f'(\xi+0)=\lim_{\Delta x\to 0+0}{\dfrac{f(\xi+\Delta x)-f(\xi)}{\Delta x}}\leqslant 0$$
+    又$f(x)$在$x=\xi$处可导,则$f'(\xi-0)=f'(\xi+0)=0$,从而$f'(\xi)=0$.\\
+    若最小值在$(a,b)$上取到,可以通过类似的方法证明之.\\
+    综上所述,原定理得证.
+\end{solution}\noindent
+(2).\textbf{Lagrange's Mean Value Theorem}(拉格朗日中值定理)
+\begin{formal}[Lagrange's Mean Value Theorem]
+    如果函数$f(x)$满足
+    \begin{enumerate}[leftmargin=*,label=(\alph*)]
+        \item $f(x)$在$[a,b]$连续.
+        \item $f(x)$在$(a,b)$可导.
+    \end{enumerate}
+    则$\exists\xi\in(a,b)\st f'(\xi)=\dfrac{f(b)-f(a)}{b-a}.$
+\end{formal}
+\begin{solution}[Proof.]
+    令$g(x)=\dfrac{f(b)-f(a)}{b-a}\cdot(x-a)+f(a)-f(x)$\\
+    显然,$g(x)$满足Rolle's Theorem的条件,则$\exists\xi\in(a,b)\st g'(\xi)=0$\\
+    即$g'(\xi)=\dfrac{f(b)-f(a)}{b-a}-f'(\xi)=0$\\
+    即$f'(\xi)=\dfrac{f(b)-f(a)}{b-a}$,从而原定理得证.
+\end{solution}\noindent
+(3).\textbf{Cauchy's Mean Value Theorem}(柯西中值定理)
+\begin{formal}[Cauchy's Mean Value Theorem]
+    如果函数$f(x)$和$g(x)$满足
+    \begin{enumerate}[leftmargin=*,label=(\alph*)]
+        \item $f(x)$和$g(x)$在$[a,b]$连续.
+        \item $f(x)$和$g(x)$在$(a,b)$可导.
+        \item $\forall x\in(a,b),g'(x)\neq 0$.
+    \end{enumerate}
+    则$\exists\xi\in(a,b)\st\dfrac{f(b)-f(a)}{g(b)-g(a)}=\dfrac{f'(\xi)}{g'(\xi)}.$
+\end{formal}
+\begin{solution}[Proof.]
+    令$h(x)=f(x)-\dfrac{f(b)-f(a)}{g(b)-g(a)}\cdot g(x)$\\
+    显然,$h(x)$满足Rolle's Theorem的条件,则$\exists\xi\in(a,b)\st h'(\xi)=0$\\
+    即$h'(\xi)=f'(\xi)-\dfrac{f(b)-f(a)}{g(b)-g(a)}\cdot g'(\xi)=0$\\
+    即$\dfrac{f(b)-f(a)}{g(b)-g(a)}=\dfrac{f'(\xi)}{g'(\xi)}$,从而原定理得证.
+\end{solution}\noindent
+我们可以发现,上述定理是逐渐推广的,但不管形式如何,都可以通过构造辅助函数,进而利用Rolle's Theorem进行证明.\\
+\\
+二.积分中值定理 \\
+(1).积分第一中值定理
+\begin{formal}[积分第一中值定理]
+    设$f:[a,b]\to\R$在$[a,b]$上连续,$g:[a,b]\to\R$在$[a,b]$上可积且不变号,则
+    $$\exists\xi\in(a,b)\st\int_{a}^{b}{f(x)g(x)\dx}=f(\xi)\int_{a}^{b}{g(x)\dx}$$
+\end{formal}
+\begin{solution}[Proof.]
+    不失一般性的,假定$g(x)\geqslant 0$.\\
+    由于$f(x)$在$[a,b]$上连续,因此$f(x)$存在最大值和最小值,分别记为$M,m$.\\
+    于是有$mg(x)\leqslant f(x)g(x)\leqslant Mg(x)$.对不等式求积分有
+    $$\int_{a}^{b}{mg(x)\dx}\leqslant\int_{a}^{b}{f(x)g(x)\dx}\leqslant\int_{a}^{b}{Mg(x)\dx}$$
+    即$$m\int_{a}^{b}{g(x)\dx}\leqslant\int_{a}^{b}{f(x)g(x)\dx}\leqslant M\int_{a}^{b}{g(x)\dx}$$
+    若$\displaystyle\int_{a}^{b}{g(x)\dx}=0$,则$\displaystyle\forall\xi\in(a,b),\int_{a}^{b}{f(x)g(x)\dx}=f(\xi)\int_{a}^{b}{g(x)\dx}=0$\\
+    若$\displaystyle\int_{a}^{b}{g(x)\dx}\neq 0$,则由$g(x)\geqslant 0$可得$\displaystyle\int_{a}^{b}{g(x)\dx}>0$.于是
+    $$m\leqslant\dfrac{\int_{a}^{b}{f(x)g(x)\dx}}{\int_{a}^{b}{g(x)\dx}}\leqslant M$$.
+    又$m\leqslant f(x)\leqslant M$,根据介值定理,$\exists\xi\in(a,b)\st f(\xi)=\dfrac{\int_{a}^{b}{f(x)g(x)\dx}}{\int_{a}^{b}{g(x)\dx}}$.\\
+    即$\displaystyle\int_{a}^{b}{f(x)g(x)\dx}=f(\xi)\int_{a}^{b}{g(x)\dx}$.\\
+    对于$g(x)\leqslant 0$,可以采取相似的方法证明.\\
+    综上所述,原定理得证.
+\end{solution}\noindent
+(2).积分第二中值定理
+\begin{formal}[积分第二中值定理]
+    若函数$f:[a,b]\to\R$在$[a,b]$上黎曼可积,$g:[a,b]\to\R$在$[a,b]$上单调有界,则
+    $$\exists\xi\in[a,b]\st\int_{a}^{b}{f(x)g(x)\dx}=g(a)\int_{a}^{\xi}{f(x)\dx}+g(b)\int_{\xi}^{b}{f(x)\dx}$$
+\end{formal}
+\begin{solution}[Proof(Method I).]
+    该方法只适用于研究的函数较为理想的情况,需要$g(x)$在$[a,b]$上可微.\\
+    记$\displaystyle F(x)=\int_{a}^{x}{f(x)\dx}$,则
+    $$\begin{aligned}
+        \int_{a}^{b}{f(x)g(x)\dx}
+        &= \int_{a}^{b}{g(x)\di F(x)} \\
+        &= \left.F(x)g(x)\right|_{a}^{b}-\int_{a}^{b}{F(x)\di g(x)} \\
+        &= F(b)g(b)-F(a)g(a)-\int_{a}^{b}{F(x)g'(x)\dx} \\
+        &= g(b)\int_{a}^{x}{f(x)\dx}-\int_{a}^{b}{F(x)g'(x)\dx}
+    \end{aligned}$$
+    由于$g(x)$在$[a,b]$上单调,则$g'(x)$在$[a,b]$上不变号.\\
+    根据积分第一中值定理,$$\exists\xi\in(a,b)\st\int_{a}^{b}{F(x)g'(x)\dx}=F(\xi)\int_{a}^{b}{g'(x)\dx}=F(\xi)(g(b)-g(a))$$
+    则有$$\begin{aligned}
+        \int_{a}^{b}{f(x)g(x)\dx}
+        &= g(b)\int_{a}^{x}{f(x)\dx}-\int_{a}^{b}{F(x)g'(x)\dx} \\
+        &= g(b)\int_{a}^{x}{f(x)\dx}-F(\xi)(g(b)-g(a)) \\
+        &= g(b)\int_{a}^{x}{f(x)\dx}-(g(b)-g(a))\int_{a}^{\xi}{f(x)\dx} \\
+        &= g(a)\int_{a}^{\xi}{f(x)\dx}+g(b)\int_{\xi}^{b}{f(x)\dx}
+    \end{aligned}$$
+    从而原定理得证.
+\end{solution}\noindent
+然而这种方法并不适用于所有情况(例如更一般的不可导的$g(x)$).为此,我们需要采取另外的证法.\\
+首先,我们来证明Bonnet Theorem.
+\begin{formal}[Bonnet Theorem]
+    若函数$f:[a,b]\to\R$在$[a,b]$上黎曼可积,$g:[a,b]\to\R$在$[a,b]$上单调递减且非负,则
+    $$\exists\xi\in[a,b]\st\int_{a}^{b}{f(x)g(x)\dx}=g(a)\int_{a}^{\xi}{f(x)\dx}$$
+\end{formal}
+\begin{solution}[Proof.]
+    \textbf{证明:}记$\displaystyle F(x)=\int_{a}^{x}{f(x)\dx}$,则$F(x)$在$[a,b]$上连续.
+    记$$a=x_0<x_1<x_2<\cdots<x_n=b,\xi=\max_{1\leqslant i\leqslant n}{\left|x_i-x_{i-1}\right|}$$
+    记$g(x)$在$[x_{i-1},x_i]$上的振幅(即最值之差)为$w_i(g)$.\\
+    则有
+    \begin{align*}
+        \int_{a}^{b}{f(x)g(x)\dx}
+        &= \lim_{\xi\to 0^+}{\sum_{i=1}^{n}{\int_{x_{i-1}}^{x_i}{f(x)g(x)\dx}}} \\
+        &= \lim_{\xi\to 0^+}{\sum_{i=1}^{n}{\int_{x_{i-1}}^{x_i}{f(x)\left[g(x)-g(x_i)\right]\dx}}}+\lim_{\xi\to 0^+}{\sum_{i=1}^{n}{\int_{x_{i-1}}^{x_i}{f(x)g(x_i)\dx}}} \\
+        &= \lim_{\xi\to 0^+}{\sum_{i=1}^{n}{\int_{x_{i-1}}^{x_i}{\left|f(x)\left[g(x)-g(x_i)\right]\dx\right|}}}+\lim_{\xi\to 0^+}{\sum_{i=1}^{n}{\int_{x_{i-1}}^{x_i}{f(x)g(x_i)\dx}}} \\
+        &= \lim_{\xi\to 0^+}{\sum_{i=1}^{n}{\int_{x_{i-1}}^{x_i}{f(x)g(x_i)\dx}}} \\
+        &= \lim_{\xi\to 0^+}{\sum_{i=1}^{n}{g(x_i)\left(F(x_i)-F(x_{i-1})\right)}} \\
+        &= \lim_{\xi\to 0^+}{\sum_{i=1}^{n}\left[g(x_i)F(x_i)-g(x_{i-1})F(x_{i-1})\right]}+\lim_{\xi\to 0^+}{\sum_{i=1}^{n}\left[g(x_{i-1})-g(x_i)\right]F(x_{i-1})} \\
+        &= \left.g(x)F(x)\right|_a^b+\lim_{\xi\to 0^+}{\sum_{i=1}^{n}\left[g(x_{i-1})-g(x_i)\right]F(x_{i-1})} \\
+        &= g(b)F(b)-\lim_{\xi\to 0^+}{\sum_{i=1}^{n}\left[g(x_{i})-g(x_{i-1})\right]F(x_{i-1})}
+    \end{align*}
+    这其中用到了
+    $$0\leqslant \lim_{\xi\to 0^+}{\sum_{i=1}^{n}{\int_{x_{i-1}}^{x_i}{\left|f(x)\left[g(x)-g(x_i)\right]\dx\right|}}}\leqslant \lim_{\xi\to 0^+}\max_{[a,b]}{\left|f(x)\right|}{\sum_{i=1}^{n}{w_i(g)(x_i-x_{i-1})}}=0$$
+    由于$F(x)$在$[a,b]$连续,不妨设$\displaystyle\max_{[a,b]}F(x)=M_F,\min_{[a,b]}F(x)=m_F$,则
+    $$g(b)F(b)-\lim_{\xi\to 0^+}{\sum_{i=1}^{n}\left[g(x_{i})-g(x_{i-1})\right]F(x_{i-1})}\leqslant M_Fg(b)-M_F\sum_{i=1}^{n}{g(x_i)-g(x_{i-1})}=M_Fg(a)$$
+    $$g(b)F(b)-\lim_{\xi\to 0^+}{\sum_{i=1}^{n}\left[g(x_{i})-g(x_{i-1})\right]F(x_{i-1})}\geqslant m_Fg(b)-m_F\sum_{i=1}^{n}{g(x_i)-g(x_{i-1})}=m_Fg(a)$$
+    从而根据介值定理有
+    $$\displaystyle\exists\xi\in[a,b]\st g(b)F(b)-\lim_{\xi\to 0^+}{\sum_{i=1}^{n}\left[g(x_{i})-g(x_{i-1})\right]F(x_{i-1})}=F(\xi)g(a)$$
+    整理可得$$\int_{a}^{b}{f(x)g(x)\dx}=g(a)\int_{a}^{\xi}{f(x)\dx}$$
+    原定理得证.
+\end{solution}\noindent
+该定理还有一个等价的形式.
+\begin{theorem}[Bonnet Theorem]
+    若函数$f:[a,b]\to\R$在$[a,b]$上黎曼可积,$g:[a,b]\to\R$在$[a,b]$上单调递增且非负,则
+    $$\exists\xi\in[a,b]\st\int_{a}^{b}{f(x)g(x)\dx}=g(b)\int_{\xi}^{b}{f(x)\dx}$$
+\end{theorem}\noindent
+下面我们据此证明积分中值第二定理.
+\begin{solution}[Proof(Method II).]
+    \textbf{证明:}不失一般性的,假定$g(x)$单调递增.则根据Bonnet Theorem有
+    $$\exists\xi\in[a,b]\st\int_{a}^{b}{f(x)\left[g(b)-g(x)\right]\dx}=\left[g(b)-g(a)\right]\int_{a}^{\xi}{f(x)\dx}$$
+    整理可得$$\int_{a}^{b}{f(x)g(x)\dx}=g(a)\int_{a}^{\xi}{f(x)\dx}+g(b)\int_{\xi}^{b}{f(x)\dx}$$
+    原定理得证.
+\end{solution}\noindent
+现在我们来看一道例题.
+\begin{problem}[例1(2021Fall PKU高等数学B期中考试)]
+    \textbf{证明:}对于$[0,1]$上的任何连续函数$f(x)$,
+    都有$\displaystyle\lim_{n\to\infty}{\int_{0}^{1}{f(x)\sin(nx)\dx}}=0$.\\
+    \textbf{注意:}本题中没有假定$f(x)$的导函数$f'(x)$存在.
+\end{problem}
+\begin{solution}
+    \textbf{证明:}由$f(x)$在$[0,1]$连续可得$f(x)$在$\left[\dfrac{j}{k},\dfrac{j+1}{k}\right]$上也连续,其中$k,j\in\N^*,0\leqslant j<m$.\\
+    记$f(x)$在$\left[\dfrac{j}{k},\dfrac{j+1}{k}\right]$的上下界分别为$M_j,m_j$.\\
+    由于$f(x)$在$[0,1]$连续,故$\displaystyle\int_{0}^{1}{f(x)\dx}$存在.设$\displaystyle\int_{0}^{1}{f(x)\dx}=A$,则Rieman和的极限有
+    $$\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{M_j}{k}}}=\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{m_j}{k}}}=A$$
+    从而$$\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}}=A-A=0$$
+    即$\displaystyle\forall\ep>0,\exists K>0\st\forall k>K,\left|\sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}\right|<\dfrac{\ep}{2}$.\\
+    由$f(x)$在$[0,1]$连续可得$\exists B>0\st\left|f(x)\right|<B$.\\
+    现在,$\forall n\in\N^*$有
+    \begin{align*}
+        \left|\int_{0}^{1}{f(x)\sin(nx)\dx}\right|
+        &= \left|\sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{f(x)\sin(nx)\dx}}\right| \\
+        &= \left|\sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left(f(x)-f\left(\dfrac{j}{k}\right)\right)\sin(nx)\dx}}+\int_{\frac{j}{k}}^{\frac{j+1}{k}}{f\left(\dfrac{j}{k}\right)\sin(nx)\dx}\right| \\
+        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|f(x)-f\left(\dfrac{j}{k}\right)\right|\left|\sin(nx)\right|\dx}}+\sum_{j=0}^{k-1}{f\left(\dfrac{j}{k}\right)\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\sin(nx)\dx}} \\
+        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|f(x)-f\left(\dfrac{j}{k}\right)\right|\dx}}+\sum_{j=0}^{k-1}{f\left(\dfrac{j}{k}\right)\cdot\dfrac{1}{n}\left(\cos{\dfrac{j}{k}}-\cos{\dfrac{j+1}{k}}\right)} \\
+        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|M_j-m_j\right|\dx}}+\dfrac{2Bk}{n} \\
+        &\leqslant \sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}+\dfrac{2Bk}{n} \\
+        &< \dfrac{\ep}{2}+\dfrac{2Bk}{n}
+    \end{align*}
+    从而$\forall\ep>0,\exists N=\max\left\{K,\dfrac{4Bk}{\ep}\right\}\st\forall n>N$,
+    $$\left|\lim_{n\to\infty}{\int_{0}^{1}{f(x)\sin(nx)\dx}}\right|<\dfrac{\ep}{2}+\dfrac{2Bk}{N}<\ep$$
+    从而$\displaystyle\lim_{n\to\infty}{\int_{0}^{1}{f(x)\sin(nx)\dx}}=0$,证毕.
+\end{solution}
+\end{document}

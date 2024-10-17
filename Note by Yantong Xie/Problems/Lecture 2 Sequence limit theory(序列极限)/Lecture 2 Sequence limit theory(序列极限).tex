@@ -1,0 +1,57 @@
+\documentclass[b5paper,oneside]{ctexart}
+\usepackage{amsmath, amsthm, amssymb,geometry,enumerate}
+\geometry{left=2cm, right=2cm, top=3cm, bottom=3cm}
+\newcommand{\e}{\mathrm{e}}
+\linespread{1.55}
+\date{\today}
+\begin{document}
+\pagestyle{empty}
+\begin{center}\Large Lecture 2 Sequence limit theory(序列极限)\end{center}
+\begin{enumerate}[1.]
+    \item 计算下列和式型极限.
+        \begin{enumerate}[(1)]
+            \item $\lim_{n \to \infty}  \sum_{k=1}^{n}  \frac{1}{(k+1)\sqrt{k}+k\sqrt{k+1}}$
+            \item $\lim_{n \to \infty}  \prod_{k=1}^{n}  \cos{\frac{1}{2^k}}$
+            \item $\lim_{n \to \infty}  \sum_{k=n^2}^{(n+1)^2}  \frac{1}{\sqrt{k}}$
+            \item $\lim_{n \to \infty}  \frac{1}{n^2} \sum_{k=1}^{n}  \sqrt{(2n+k)(2n+k+1)}$
+        \end{enumerate}
+    \newpage
+    \item 计算下列极限.
+        \begin{enumerate}[(1)]
+            \item $\lim_{n \to \infty} \sqrt{n}(\sqrt[n]{n}-1)$
+            \item $\lim_{n \to \infty} \sqrt{n}(\sqrt{n+1}+2\sqrt{n+2}-3\sqrt{n+3})$
+            \item $\lim_{n \to \infty} \sin{\pi\sqrt{4n^2+1}}$
+            \item $\lim_{n \to \infty} \frac{1}{n} \ln{(\sum_{k=3}^{2021} k^n)}$
+        \end{enumerate}
+    \newpage
+    \item 证明序列$x_n=\tan n$发散.
+    \item 设$x_n$是方程$\sum_{k=1}^{n} x^k=1$在$(0,1)$上唯一的根,证明$\lim_{n \to \infty} x_n=\frac{1}{2}$.
+    \newpage
+    \item 证明:$\mathrm{e}=\lim_{n \to \infty} \sum_{k=0}^{n} \frac{1}{k!}$.
+    \newpage
+    \item 用柯西命题证明或计算:
+        \begin{enumerate}[(1)]
+            \item 设序列$\left\{ a_n \right\}$满足$\lim_{n \to \infty} (a_{n+1}-a_n)=A$,那么$\lim_{n \to \infty} \frac{a_n}{n}=A$.
+            \item 设正序列$\left\{ a_n \right\}$满足$\lim_{n \to \infty} \frac{a_{n+1}}{a_n}=A$,那么$\lim_{n \to \infty} \sqrt[n]{a_n}=A$.
+            \item 求极限$\lim_{n \to \infty} \frac{n}{\sqrt[n]{n!}}$.
+        \end{enumerate}
+    \newpage
+        \item 计算下列极限.
+        \begin{enumerate}[(1)]
+            \item $\lim_{n \to \infty} \sin^2{(\pi\sqrt{n^2+n})}$.
+            \item $\lim_{n \to \infty} (\frac{n-2}{n-1})^{2n+1}$.
+            \item $\lim_{n \to \infty} \sqrt[3]{n}(\sqrt[3]{n+1}-\sqrt[3]{n})$.
+            \item $\lim_{n \to \infty} \frac{2^nn!}{n^n}$.
+        \end{enumerate}
+    \newpage
+    \item 设$x_1>0$,且对一切$n \in \mathbb{N}^*$有$x_{n+1}=\frac{1}{2}(x_n+\frac{1}{x_n})$,求证$\lim_{n \to \infty} x_n$存在并求该极限的值.
+    \newpage
+    \item 考虑序列$\left\{ a_n \right\}$,定义$S_n=\sum_{k=1}^{n}a_k$,回答下列问题.
+        \begin{enumerate}[(1)]
+            \item 如果$S_n$收敛,证明$\lim_{n \to \infty} a_n=0$.
+            \item 如果$\lim_{n \to \infty} a_n=0$,$\lim_{n \to \infty} S_n$是否一定存在?
+        \end{enumerate}
+    \newpage
+    \item 定义Fibonacci数列$F_{n+1}=F_n+F_{n-1}$对一切$n \in \mathbb{N}^*$成立,且$F_0=F_1=1$,设$x_n=\frac{F_n}{F_{n+1}}$,问序列$\left\{ x_n \right\}$是否收敛,如收敛请计算其极限,如发散请说明理由.
+\end{enumerate}
+\end{document}

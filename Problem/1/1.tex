@@ -1,0 +1,87 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\di}{\mathrm{d}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\st}{,\text{s.t.}}
+\newcommand{\dx}{\di x}
+
+% 定义 solution 文本框
+\definecolor{solutionshade}{rgb}{1,0.97,0.97}
+\definecolor{solutionline}{rgb}{0.7,0.02,0.02}
+\newenvironment{solution}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{solutionline}\vrule width 2pt}%
+{\color{solutionshade}\vrule width 4pt}%
+\colorbox{solutionshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+% 定义 problem 文本框
+\definecolor{problemshade}{rgb}{0.98,0.96,1}
+\definecolor{problemline}{rgb}{0.27,0.2,0.55}
+\newenvironment{problem}[1][]{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{problemline}\vrule width 2pt}%
+{\color{problemshade}\vrule width 4pt}%
+\colorbox{problemshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{1pt}%
+\setlength{\parindent}{0pt}% 移除段落缩进
+\vspace{3pt}% 在内容顶部添加垂直空间
+\ifx&#1&\else % 检查参数是否为空
+    \textbf{#1}\par\vspace{1pt}%
+\fi
+}
+{%
+\vspace{2pt}% 在内容底部添加垂直空间
+\end{adjustwidth}\endMakeFramed%
+}
+
+\begin{document}
+\pagestyle{empty}
+\begin{problem}[2020Fall PKU高等数学B期中考试]
+    已知$\displaystyle y=(\arcsin x)^2$,求$y^{(n)}(0)$.
+\end{problem}
+\begin{solution}[Solution.]
+    由题意有$$y'=2\arcsin x\cdot\dfrac{1}{\sqrt{1-x^2}}$$
+    即$$4y=(1-x^2){y'^2}$$
+    由于$y'^2$的存在,我们不能对等式两端直接使用Leibniz公式进行展开.\\
+    因此,我们再对等式两端求一次导,即
+    $$4y'=2y'y''(1-x^2)-2xy'^2$$
+    整理后有$$y''(1-x^2)=2+xy'$$
+    对等式两端求$n$阶导,使用Leibniz公式展开有
+    $$(1-x^2)y^{(n+2)}-2nxy^{(n+1)}-n(n-1)y^{(n)}=xy^{(n+1)}+ny^{(n)}$$
+    整理可得$$(1-x^2)y^{(n+2)}=(2n+1)xy^{(n+1)}+n^2y^{(n)}$$
+    代入$x=0$有$$y^{(n+2)}(0)=n^2y^{(n)}(0)$$
+    从而$$y^{(n)}(0)= \left\{\begin{array}{l} [(n-2)!!]^2,\ 2\mid x\\ 0,\ 2\nmid x\end{array}\right.$$
+\end{solution}
+\end{document}

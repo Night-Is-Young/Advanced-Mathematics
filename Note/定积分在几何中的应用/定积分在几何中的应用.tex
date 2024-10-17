@@ -1,0 +1,50 @@
+\documentclass[a4paper,oneside]{ctexart}
+\usepackage{amsmath, amsthm, amssymb,geometry,enumerate,color,xcolor}
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\di}{\mathrm{d}}
+\newcommand{\arccot}{\mathrm{ arccot}}
+\linespread{1.55}
+\begin{document}
+\begin{center}定积分在几何中的应用\end{center}
+\textbf{一.曲线的弧长}\\
+我们假定平面中的曲线$l$由以下参数方程给出:
+$$\begin{aligned}
+    \displaystyle \left\{\begin{array}{l}x=x(t)\\ y=y(t)\end{array}\right.
+\end{aligned}$$
+其中$t\in[\alpha,\beta]$.当$x'(t),y'(t)$均存在时,曲线上每一点都可以作出对应的切线,我们称这样的曲线是光滑的.光滑曲线的弧长总是可以计算的.\\
+下面我们来详细推导曲线弧长的计算公式.将$[\alpha,\beta]$分为$n$份,满足
+\begin{center}$\alpha<t_1<t_2<\cdots<t_{n-1}<\beta$\end{center}
+设$t_0=\alpha,t_n=\beta$,并记$t_i$对应的点为$x_i,y_i$.则弧长$s$可以近似的表示为下式:
+$$\begin{aligned}
+    s &\approx \sum_{i=1}^{n}{\sqrt{(x_i-x_{i-1})^2+(y_i-y_{i-1})^2}} \\
+\end{aligned}$$
+当$n$充分大,即$t_{i-1}$与$t_i$充分接近时有
+$$\begin{aligned}
+    x_i-x_{i-1} &= x'(t_i)(t_i-t_{i-1}) \\
+    y_i-y_{i-1} &= y'(t_i)(t_i-t_{i-1})
+\end{aligned}$$
+记$\Delta t_i=t_i-t_{i-1}$代入原式,对$n$取极限有
+$$\begin{aligned}
+    s &= \lim_{n\to\infty}{\sum_{i=1}^{n}{\sqrt{(x'(t_i))^2+(y'(t_i))^2}\Delta t_i}} \\
+      &= \int_{\alpha}^{\beta}{\sqrt{(x'(t))^2+(y'(t))^2}\di t}
+\end{aligned}$$
+由此,我们可以给出其它表达形式下曲线的弧长公式
+$$\begin{aligned}
+    \text{一般形式} : s &= \int_{a}^{b}{\sqrt{1+(y')^2}\di x} \\
+    \text{极坐标形式} : s &= \int_{\alpha}^{\beta}{\sqrt{(r(\theta))^2+(r'(\theta))^2}\di\theta}
+\end{aligned}$$
+\textbf{二.旋转体的体积}\\
+这一部分并不难理解,推导过程也略去,仅给出结果.实际上,这与积分求面积采取的思想是一样的.\\
+曲线$l:y=f(x),x\in[a,b]$绕$x$轴旋转一周形成旋转体的体积为
+$$\begin{aligned}
+    V &= \pi\int_{a}^{b}{f^2(x)\di x}
+\end{aligned}$$
+\textbf{三.旋转体的侧面积}\\
+容易想到将旋转体分为小段的圆柱体并将其侧面积求和,具体算法与曲线弧长相似.下面给出结果.\\
+曲线$l:y=f(x),x\in[a,b]$绕$x$轴旋转一周形成旋转体的侧面积为
+$$\begin{aligned}
+    S &= 2\pi\int_{a}^{b}{f(x)\sqrt{1+(f'(x))^2}\di x}
+\end{aligned}$$
+参数方程和极坐标方程亦是同理,在此不再赘述.
+\end{document}
