@@ -173,5 +173,123 @@
     =\dfrac{\di\int_{0}^{y}{\sqrt{1+\e^t}\di t}}{\di y}\cdot\dfrac{1}{x}
     =\dfrac{\sqrt{1+\e^y}}{x}=\dfrac{\sqrt{1+x}}{x}$$
 \end{solution}
-
+\begin{problem}[4.(10分)]
+    求不定积分$$\int{\dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}\dx}$$
+\end{problem}
+\begin{solution}[Solution.]
+    设
+    \begin{align*}
+        \dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}
+        &= \dfrac{A}{2x-1}+\dfrac{B}{2x+3}+\dfrac{C}{2x-5} \\
+        &= \dfrac{A(4x^2-4x-15)+B(4x^2-12x+5)+C(4x^2+4x-3)}{(2x-1)(2x+3)(2x-5)} \\
+        &= \dfrac{4(A+B+C)x^2+4(C-A-3B)x+(5B-15A-3C)}{(2x-1)(2x+3)(2x-5)}
+    \end{align*}
+    从而$$\left\{\begin{array}{l}
+        A+B+C=1 \\
+        C-A-3B=1 \\
+        5B-15A-3C=-11
+    \end{array}\right.$$
+    解得$A=\dfrac{1}{2},B=-\dfrac{1}{4},C=\dfrac{3}{4}$.\\
+    从而\begin{align*}
+        \int{\dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}\dx}
+        &= \int\left(\dfrac{1}{2}\cdot\dfrac{1}{2x-1}-\dfrac{1}{4}\cdot\dfrac{1}{2x+3}+\dfrac{3}{4}\cdot\dfrac{1}{2x-5}\right)\dx\\
+        &= -\dfrac{1}{2}\int{\dfrac{\dx}{2x-1}}+\dfrac{1}{4}\int{\dfrac{\dx}{2x+3}}+\dfrac{3}{4}\int{\dfrac{\dx}{2x-5}} \\
+        &= -\dfrac{1}{4}\ln{\left|2x-1\right|}+\dfrac{1}{8}\ln{\left|2x+3\right|}+\dfrac{3}{8}\ln{\left|2x-5\right|}+C
+    \end{align*}
+\end{solution}
+\begin{problem}[5.(10分)]
+    求欧氏平面直角坐标系中曲线$$y=\dfrac{1}{2}x\sqrt{x^2-1}-\dfrac{1}{2}\ln{\left(x+\sqrt{x^2-1}\right)}$$在$x=1$到$x=2$的弧长.
+\end{problem}
+\begin{solution}[Solution.]
+    \begin{align*}
+        y'
+        &= \dfrac{1}{2}\left(\sqrt{x^2-1}+\dfrac{x^2}{\sqrt{x^2-1}}-\dfrac{1}{x+\sqrt{x^2-1}}\cdot\left(1+\dfrac{x}{\sqrt{x^2-1}}\right)\right) \\
+        &= \dfrac{1}{2}\left(\sqrt{x^2-1}+\dfrac{x^2}{\sqrt{x^2-1}}-\dfrac{1}{\sqrt{x^2-1}}\right) \\
+        &= \sqrt{x^2-1}
+    \end{align*}
+    故$$s=\int_{1}^{2}{\sqrt{1+y'^2}\dx}=\int_{1}^{2}{x\dx}=\left.\dfrac{x^2}{2}\right|_1^2=\dfrac{3}{2}$$
+\end{solution}
+\begin{problem}[6.(10分)]
+    设欧氏空间中$V$是曲线弧$\displaystyle y=\dfrac{\ln{x}}{\sqrt{2\pi}}(1\leqslant x\leqslant 2)$与直线$x=1,x=2$围成的曲边三角形绕$x$轴旋转一周形成的旋转体,求$V$的体积.
+\end{problem}
+\begin{solution}[Solution.]
+    \begin{align*}
+        V
+        &= \pi\int_1^2{y^2\dx}=\pi\int_1^2{\dfrac{\left(\ln x\right)^2\dx}{2\pi}}=\dfrac{1}{2}\int_1^2\left(\ln x\right)^2\dx \\
+        &= \dfrac{1}{2}\left(\left.x\left(\ln x\right)^2\right|_1^2+\int_1^2x\di\left(\ln x\right)^2\right) \\
+        &= \dfrac{1}{2}\left(2\left(\ln 2\right)^2+\int_1^2 2\ln x\dx\right) \\
+        &= \left(\ln 2\right)^2+\left.\left(x\ln x-x\right)\right|_1^2 \\
+        &= \left(\ln 2\right)^2+2\ln2-1
+    \end{align*}
+\end{solution}
+\begin{problem}[7.(10分)]
+    无穷序列$\left\{a_n\right\},\left\{a_n\right\}$满足$0<b_1<a_1$,且有以下递推关系$$a_{n+1}=\dfrac{a_n+b_n}{2},b_{n+1}=\sqrt{a_nb_n}$$试证明$\displaystyle\lim_{n\to\infty}{a_n}$存在.
+\end{problem}
+\begin{solution}[Proof.]
+    据均值不等式有$a_{n+1}=\dfrac{a_n+b_n}{2}\geqslant\sqrt{a_nb_n}=b_{n+1}$,当且仅当$a_n=b_n$时取等.\\
+    由$a_1>b_1>0$有$\forall n\in\N^*,a_n>b_n>0.$\\
+    从而$$a_{n+1}-a_n=\dfrac{a_n+b_n}{2}-a_n=\dfrac{b_n-a_n}{2}<0$$
+    从而$\left\{a_n\right\}$递减且有界,故$\displaystyle\lim_{n\to\infty}{a_n}$存在.
+\end{solution}
+\begin{problem}[8.(20分)]
+    本题中每个小问都要求给出证明和计算过程.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item (2分)\ 试证明:当$x\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$时有$$-1<\dfrac{4\sin{x}}{3+\sin^2{x}}<1$$
+            \item (8分)\ 当$x\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$时,求函数$$f(x)=\arcsin{\left(\dfrac{4\sin{x}}{3+\sin^2{x}}\right)}$$的导函数.
+            \item (10分)\ 试证明$$\int_{0}^{\frac{\pi}{2}}{\dfrac{\dx}{\sqrt{4\cos^2{x}+\sin^2{x}}}}=\int_{0}^{\frac{\pi}{2}}{\dfrac{\dx}{\sqrt{\frac{9}{4}\cos^2{x}+2\sin^2{x}}}}$$
+        \end{enumerate}
+\end{problem}
+\begin{solution}[Solution.]
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Proof.}\\
+            记$\phi(x)=\dfrac{4\sin x}{3+\sin^2 x}$,则$\phi(-x)=\phi(x)$.当$x=0$时原式显然成立.\\
+            当$x\in\left(0,\dfrac{\pi}{2}\right)$时$\sin x\in(0,1)$,则$\phi(x)=\dfrac{4}{\sin{x}+\dfrac{3}{\sin x}}<\dfrac{4}{4}=1$.\\
+            同理当$x\in\left(-\dfrac{\pi}{2},0\right)$时$\phi(x)>-1$.综上可知原命题成立.
+        \item \textbf{Solution.}\\
+            \begin{align*}
+                f'(x)
+                &= \dfrac{1}{\sqrt{1-\left(\dfrac{4\sin x}{3+\sin^2 x}\right)^2}}\cdot\dfrac{4\cos x\left(3+\sin^2 x\right)-4\sin x\left(2\sin x\cos x\right)}{\left(3+\sin^2 x\right)^2} \\
+                &= \dfrac{3+\sin^2 x}{\sqrt{\sin^4 x-10\sin^2 x+9}}\cdot\dfrac{4\cos x\left(3-\sin^2 x\right)}{\left(3+\sin^2 x\right)^2} \\
+                &= \dfrac{4\cos x\left(3-\sin^2 x\right)}{\sqrt{1-\sin^2 x}\cdot\sqrt{9-\sin^2 x}\cdot\left(3+\sin^2 x\right)} \\
+                &= \dfrac{4\left(3-\sin^2 x\right)}{\left(3+\sin^2 x\right)\sqrt{9-\sin^2 x}}
+            \end{align*}
+        \item \textbf{Proof.}
+            $$\dfrac{1}{\sqrt{4\cos^2 x+\sin^2 x}}=\dfrac{1}{\sqrt{4-3\sin^2 x}}$$
+            $$\dfrac{1}{\sqrt{\frac{9}{4}\cos^2 x+2\sin^2 x}}=\dfrac{1}{\sqrt{\frac{9}{4}-\frac{1}{4}\sin^2 x}}=\dfrac{2}{\sqrt{9-\sin^2 x}}$$
+            从而\begin{align*}
+                \int_{0}^{\frac{\pi}{2}}{\dfrac{\dx}{\sqrt{\frac{9}{4}\cos^2{x}+2\sin^2{x}}}}
+                &= \int_{0}^{\frac{\pi}{2}}\dfrac{1}{\sqrt{\frac{9}{4}-\frac{1}{4}\sin^2 x}}=\dfrac{2}{\sqrt{9-\sin^2 x}} \\
+                &= \int_{0}^{\frac{\pi}{2}}\dfrac{f'(x)\left(3+\sin^2 x\right)}{2\left(3-\sin^2 x\right)}\dx\\
+                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}\dfrac{\left(3+\sin^2 x\right)}{2\left(3-\sin^2 x\right)}\di f(x)
+            \end{align*}
+            而\begin{align*}
+                \int_{0}^{\frac{\pi}{2}}{\dfrac{\dx}{\sqrt{4\cos^2{x}+\sin^2{x}}}}
+                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}{\dfrac{\di f(x)}{\sqrt{4-3\sin^2{f(x)}}}} \\
+                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}{\dfrac{\di f(x)}{\sqrt{4-3\sin^2{f(x)}}}} \\
+                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}{\dfrac{\di f(x)}{\sqrt{4-3\left(\dfrac{4\sin x}{3+\sin^2 x}\right)^2}}} \\
+                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}{\dfrac{\left(3+\sin^2 x\right)\di f(x)}{2\sqrt{\sin^4 x+6\sin^2 x+9-12\sin^2 x}}} \\
+                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}\dfrac{\left(3+\sin^2 x\right)}{2\left(3-\sin^2 x\right)}\di f(x)
+            \end{align*}
+            从而原命题得证.
+    \end{enumerate}
+\end{solution}
+\begin{problem}[9.(10分)]
+    设函数$f:[0,1]\to\R,g:[0,1]\to\R$在$[0,1]$上连续,满足$f(0)=g(0),\sin(f(1))=\sin(g(1)),\cos(f(1))=\cos(g(1))$,且
+    $$\forall x\in[0,1],\left(\cos(f(x))+\cos(g(x))\right)^2+\left(\sin(f(x))+\sin(g(x))\right)^2\neq 0$$
+    证明:$f(1)=g(1)$.
+\end{problem}
+\begin{solution}[Proof.]
+    置$h(x)=f(x)-g(x)$,则$h(x)$在$[0,1]$连续.下面证明$h(1)=0$.\\
+    由题意$$\sin h(1)=\sin \left(f(1)-g(1)\right)=\sin f(1)\cos g(1)-\sin g(1)\cos f(1)=0$$
+    $$\cos h(1)=\cos \left(f(1)-g(1)\right)=\cos f(1)\cos g(1)+\sin f(1)\sin g(1)=1$$
+    从而$\exists n\in\N^*\st h(1)=2n\pi$.\\
+    下面采取反证法说明$n=0$.\\
+    若$n>0$,则有$$h(0)=0<\pi\leqslant 2n\pi=h(1)$$
+    据介值定理,$\exists a\in[0,1]\st h(a)=\pi$,从而
+    $$\sin g(a)=\sin f(a)\cos h(a)-\sin h(a)\cos f(a)=-\sin f(a)$$
+    $$\cos g(a)=\cos f(a)\cos h(a)+\sin f(a)\sin h(a)=-\cos f(a)$$
+    则$$\left(\cos(f(x))+\cos(g(x))\right)^2+\left(\sin(f(x))+\sin(g(x))\right)^2=0$$与题设矛盾.\\
+    若$n<0$,同理亦可推出矛盾.\\
+    从而$n=0$,即$f(1)=g(1)$,原命题得证.
+\end{solution}
 \end{document}
