@@ -6,136 +6,9 @@
 \usepackage{enumerate}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{enumitem}
+\usepackage{template}
 
-\allowdisplaybreaks
 \geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
-
-\newcommand{\e}{\mathrm{e}}
-\newcommand{\di}{\mathrm{d}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\ep}{\varepsilon}
-\newcommand{\st}{,\text{s.t.}}
-\newcommand{\dx}{\di x}
-
-% 定义 formal 文本框
-\definecolor{formalshade}{rgb}{0.95,0.97,1}
-\newenvironment{formal}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{DarkBlue}\vrule width 2pt}%
-{\color{formalshade}\vrule width 4pt}%
-\colorbox{formalshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
-
-% 定义 solution 文本框
-\definecolor{solutionshade}{rgb}{1,0.97,0.97}
-\definecolor{solutionline}{rgb}{0.7,0.02,0.02}
-\newenvironment{solution}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{solutionline}\vrule width 2pt}%
-{\color{solutionshade}\vrule width 4pt}%
-\colorbox{solutionshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
-
-% 定义 analyze 文本框
-\definecolor{analyzeshade}{rgb}{0.95,0.95,0.95}
-\definecolor{analyzeline}{rgb}{0.45,0.45,0.45}
-\newenvironment{analyze}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{analyzeline}\vrule width 2pt}%
-{\color{analyzeshade}\vrule width 4pt}%
-\colorbox{analyzeshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
-
-% 定义 problem 文本框
-\definecolor{problemshade}{rgb}{0.98,0.96,1}
-\definecolor{problemline}{rgb}{0.27,0.2,0.55}
-\newenvironment{problem}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{problemline}\vrule width 2pt}%
-{\color{problemshade}\vrule width 4pt}%
-\colorbox{problemshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
-
-% 定义 theorem 文本框
-\definecolor{theoremshade}{rgb}{0.98,0.94,0.96}
-\definecolor{theoremline}{rgb}{0.8,0.5,0.7}
-\newenvironment{theorem}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{theoremline}\vrule width 2pt}%
-{\color{theoremshade}\vrule width 4pt}%
-\colorbox{theoremshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
 
 \begin{document}\pagestyle{empty}
 \begin{center}\Large
@@ -159,7 +32,7 @@
 \begin{solution}[Solution.]
     由$[x]\leqslant x<[x]+1$有
     $$[x]\sin{\dfrac{1}{[x]}}\leqslant x\sin{\dfrac{1}{[x]}}<([x]+1)\sin{\dfrac{1}{[x]}}$$
-    置$y=\dfrac{1}{x}$,则有$$\lim_{x\to+\infty}{x\sin{\dfrac{1}{x}}}=\lim_{y\to 0^+}{dfrac{\sin y}{y}}=1$$
+    置$y=\dfrac{1}{x}$,则有$$\lim_{x\to+\infty}{x\sin{\dfrac{1}{x}}}=\lim_{y\to 0^+}{\dfrac{\sin y}{y}}=1$$
     从而$$\lim_{x\to+\infty}{[x]\sin{\dfrac{1}{[x]}}}=1$$
     $$\lim_{x\to+\infty}{([x]+1)\sin{\dfrac{1}{[x]}}}=1+\lim_{x\to+\infty}{\sin{\dfrac{1}{[x]}}}=1$$
     由夹逼准则可知$$\lim_{x\to+\infty}{x\sin{\dfrac{1}{[x]}}}=1$$
@@ -245,7 +118,7 @@
             记$\phi(x)=\dfrac{4\sin x}{3+\sin^2 x}$,则$\phi(-x)=\phi(x)$.当$x=0$时原式显然成立.\\
             当$x\in\left(0,\dfrac{\pi}{2}\right)$时$\sin x\in(0,1)$,则$\phi(x)=\dfrac{4}{\sin{x}+\dfrac{3}{\sin x}}<\dfrac{4}{4}=1$.\\
             同理当$x\in\left(-\dfrac{\pi}{2},0\right)$时$\phi(x)>-1$.综上可知原命题成立.
-        \item \textbf{Solution.}\\
+        \item \textbf{Solution.}
             \begin{align*}
                 f'(x)
                 &= \dfrac{1}{\sqrt{1-\left(\dfrac{4\sin x}{3+\sin^2 x}\right)^2}}\cdot\dfrac{4\cos x\left(3+\sin^2 x\right)-4\sin x\left(2\sin x\cos x\right)}{\left(3+\sin^2 x\right)^2} \\

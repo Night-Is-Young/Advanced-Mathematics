@@ -6,137 +6,9 @@
 \usepackage{enumerate}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{enumitem}
+\usepackage{template}
 
-\allowdisplaybreaks
 \geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
-
-\newcommand{\e}{\mathrm{e}}
-\newcommand{\di}{\mathrm{d}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\ep}{\varepsilon}
-\newcommand{\st}{,\text{s.t.}}
-\newcommand{\dx}{\di x}
-
-% 定义 formal 文本框
-\definecolor{formalshade}{rgb}{0.95,0.97,1}
-\newenvironment{formal}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{DarkBlue}\vrule width 2pt}%
-{\color{formalshade}\vrule width 4pt}%
-\colorbox{formalshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
-
-% 定义 solution 文本框
-\definecolor{solutionshade}{rgb}{1,0.97,0.97}
-\definecolor{solutionline}{rgb}{0.7,0.02,0.02}
-\newenvironment{solution}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{solutionline}\vrule width 2pt}%
-{\color{solutionshade}\vrule width 4pt}%
-\colorbox{solutionshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
-
-% 定义 analyze 文本框
-\definecolor{analyzeshade}{rgb}{0.95,0.95,0.95}
-\definecolor{analyzeline}{rgb}{0.45,0.45,0.45}
-\newenvironment{analyze}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{analyzeline}\vrule width 2pt}%
-{\color{analyzeshade}\vrule width 4pt}%
-\colorbox{analyzeshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
-
-% 定义 problem 文本框
-\definecolor{problemshade}{rgb}{0.98,0.96,1}
-\definecolor{problemline}{rgb}{0.27,0.2,0.55}
-\newenvironment{problem}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{problemline}\vrule width 2pt}%
-{\color{problemshade}\vrule width 4pt}%
-\colorbox{problemshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
-
-% 定义 theorem 文本框
-\definecolor{theoremshade}{rgb}{0.98,0.94,0.96}
-\definecolor{theoremline}{rgb}{0.8,0.5,0.7}
-\newenvironment{theorem}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{theoremline}\vrule width 2pt}%
-{\color{theoremshade}\vrule width 4pt}%
-\colorbox{theoremshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
-
 
 \begin{document}
 \pagestyle{empty}
@@ -219,8 +91,8 @@
     序列$\left\{ a_n\right\}$有$\displaystyle\lim_{n\to\infty}{a_n}=A$,$0<q<1$.\\
     \textbf{试证明:}$\displaystyle\lim_{n\to\infty}{\sum_{i=1}^{n}{a_iq^{n-i}}}=\dfrac{A}{1-q}$.\\
 \end{problem}
-\begin{solution}
-    \textbf{证明:}记序列$\left\{ x_n\right\}$满足$x_n=a_n-A$.\\
+\begin{solution}[Proof.]
+    记序列$\left\{ x_n\right\}$满足$x_n=a_n-A$.\\
     则$$\begin{aligned}
         \sum_{i=1}^{n}{a_iq^{n-i}} 
         &= \sum_{i=1}^{n}{(x_i+A)q^{n-i}} \\
