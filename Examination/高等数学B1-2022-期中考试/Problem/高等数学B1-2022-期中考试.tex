@@ -1,0 +1,49 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\di}{\mathrm{d}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\st}{,\text{s.t.}}
+\newcommand{\dx}{\di x}
+
+\begin{document}\pagestyle{empty}
+
+\begin{center}\Large
+    北京大学数学科学学院2022-23高等数学B1期中考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(20\songti{分})}
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(6\songti{分})}\ 求序列极限$$\lim_{n\to\infty}{\sqrt[n]{2+\cos n}}$$
+            \item \textbf{(7\songti{分})}\ 求序列极限$$\lim_{n\to\infty}{\dfrac{1}{n}\sum_{i=1}^{n}{\sin\left(\dfrac{i}{n}-\dfrac{1}{2n^i}\right)}}$$
+            \item \textbf{(7\songti{分})}\ 求函数极限$$\lim_{x\to0}{\left(1+\tan^2 x\right)^{\frac{1}{\sin^2 x}}}$$
+        \end{enumerate}
+    \item \textbf{(20\songti{分})}
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(6\songti{分})}\ 设$x>0$,求出函数$$f(x)=x^{\sqrt{x}}$$的导函数$f'(x)$.
+            \item \textbf{(7\songti{分})}\ 设$x<1$,求出函数$$g(x)=\int_0^{\sin x}\dfrac{\di t}{\sqrt{1-t^3}}$$的导函数$g'(x)$.
+            \item \textbf{(7\songti{分})}\ 设$x\neq\pm 1$,求出函数$$h(x)=\dfrac{1}{x^2-1}$$的四阶导函数$h^{(4)}(x)$.
+        \end{enumerate}
+    \item \textbf{(15\songti{分})}\ 求不定积分$$\int{\dfrac{\dx}{\sqrt[3]{(x+1)(x-1)^5}}}$$
+    \item \textbf{(15\songti{分})}\ 设$K$是曲线弧$y=\e^x\ (0\leqslant x\leqslant 1)$与直线$x=0,x=1,y=0$围成的曲边梯形绕$x$轴旋转一周形成的旋转体,求$K$的侧面积.
+    \item \textbf{(10\songti{分})}\ 设$a,b,c\in\R$且$a,b,c>0$,$f:\R\to\R$在$\R$上连续,且$$f(0)=-a,lim_{x\to-\infty}f(x)=b,\lim{x\to+\infty}f(x)=c$$求证$f(x)=0$在$\R$上至少有两个不相等的实根$r_1,r_2$.
+    \item \textbf{(20\songti{分})}\ 设$$A(r)=\int_0^{2\pi}\ln(1-2r\cos x+r^2)\dx$$
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(12\songti{分})}\ 试证明$\displaystyle\forall r\in(-1,1),A(r^2)=2A(r)$.
+            \item \textbf{(4\songti{分})}\ 试证明$A(r)$在$\left(-\dfrac{1}{2},\dfrac{1}{2}\right)$上有界.
+            \item \textbf{(4\songti{分})}\ 试计算$r\in(-1,1)$时$A(r)$的值.
+        \end{enumerate}
+\end{enumerate}
+\end{document}
