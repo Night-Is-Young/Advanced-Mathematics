@@ -1,0 +1,80 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2023-24高等数学B1期中考试
+\end{center}
+\begin{problem}[1.(20\songti{分})]
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{(6\songti{分})}\ 求序列极限$$\lim_{n\to\infty}{\sqrt[n]{2+\cos n}}$$
+        \item \textbf{(7\songti{分})}\ 求序列极限$$\lim_{n\to\infty}{\dfrac{1}{n}\sum_{i=1}^{n}{\sin\left(\dfrac{i}{n}-\dfrac{1}{2n^i}\right)}}$$
+        \item \textbf{(7\songti{分})}\ 求函数极限$$\lim_{x\to0}{\left(1+\tan^2 x\right)^{\frac{1}{\sin^2 x}}}$$
+    \end{enumerate}
+\end{problem}
+\begin{solution}[Solution.]
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{Solution.}\\
+            由$-1\leqslant \cos n\leqslant 1$有
+            $$\sqrt[n]{1}\leqslant\sqrt[n]{2+\cos n}\leqslant\sqrt[n]{3}$$
+            而$$\lim_{n\to\infty}{\sqrt[n]{1}}=\lim_{n\to\infty}{\sqrt[n]{3}}=1$$
+            夹逼可得$$\lim_{n\to\infty}{\sqrt[n]{2+\cos n}}=1$$
+        \item \textbf{Solution.}\\
+        \item \textbf{Solution.}
+            \begin{align*}
+                \lim_{x\to0}{\left(1+\tan^2 x\right)^{\frac{1}{\sin^2 x}}}
+                &= \lim_{x\to0}{\left(1+\tan^2 x\right)^{1+\frac{1}{\tan^2 x}}} \\
+                &= \lim_{x\to0}{\left(1+\tan^2 x\right)^{\frac{1}{\tan^2 x}}}\cdot\lim_{x\to0}{\left(1+\tan^2 x\right)} \\
+                &= \e\cdot 1 \\
+                &= \e
+            \end{align*}
+    \end{enumerate}
+\end{solution}
+\begin{problem}[2.(20\songti{分})]
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{(6\songti{分})}\ 设$x>0$,求出函数$$f(x)=x^{\sqrt{x}}$$的导函数$f'(x)$.
+        \item \textbf{(7\songti{分})}\ 设$x<1$,求出函数$$g(x)=\int_0^{\sin x}\dfrac{\di t}{\sqrt{1-t^3}}$$的导函数$g'(x)$.
+        \item \textbf{(7\songti{分})}\ 设$x\neq\pm 1$,求出函数$$h(x)=\dfrac{1}{x^2-1}$$的四阶导函数$h^{(4)}(x)$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}[Solution.]
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{Solution.}\\
+            置$y=\ln(f(x))=\sqrt{x}\ln x$,则
+            \begin{align*}
+                f'(x)
+                &= \dfrac{\di f(x)}{\dx}=\dfrac{\di f(x)}{\di y}\cdot\dfrac{\di y}{\dx}=\dfrac{\di \e^y}{\di y}\cdot\dfrac{\di y}{\di x} \\
+                &= \e^y\left(\dfrac{\ln x}{2\sqrt{x}}+\dfrac{\sqrt{x}}{x}\right) \\
+                &= \dfrac{x^{\sqrt{x}}\left(\ln x+2\right)}{2\sqrt{x}}
+            \end{align*}
+        \item \textbf{Solution.}\\
+            置$y=\sin x$,则有
+            \begin{align*}
+                g'(x)
+                &= \dfrac{\di g(x)}{\di y}\cdot\dfrac{\di y}{\dx} \\
+                &= \dfrac{1}{\sqrt{1-y^3}}\cdot\cos x \\
+                &= \dfrac{\cos x}{\sqrt{1-\sin^3 x}}
+            \end{align*}
+        \item \textbf{Solution.}\\
+            由$$h(x)=\dfrac{1}{x^2-1}=\dfrac{1}{2}\left(\dfrac{1}{x-1}-\dfrac{1}{x+1}\right)$$
+            有\begin{align*}
+                h^{(4)}(x)
+                &= \dfrac{1}{2}\left[\left(\dfrac{1}{x-1}\right)^{(4)}-\left(\dfrac{1}{x+1}\right)^{(4)}\right] \\
+                &= \dfrac{1}{2}\left[12\left(x-1\right)^{-5}-12\left(x+1\right)^{-5}\right] \\
+                &= \dfrac{6}{(x-1)^5}-\dfrac{6}{(x+1)^5}
+            \end{align*}
+    \end{enumerate}
+\end{solution}
+\begin{problem}
+    
+\end{problem}
+\end{document}
