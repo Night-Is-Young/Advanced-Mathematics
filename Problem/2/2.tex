@@ -1,0 +1,19 @@
+\documentclass{ctexart}
+\usepackage{template}
+
+\begin{document}
+\pagestyle{empty}
+\begin{problem}[例2.]
+    求序列极限$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^n}}{\sum_{i=1}^n{n^i}}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    对原式变形有
+    \begin{align*}
+        \lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^n}}{\sum_{i=1}^n{n^i}}}
+        &= \lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^n}}{\dfrac{n^{n+1}-1}{n-1}}} \\
+        &= \lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^n}}{n^n}}\cdot\lim_{n\to\infty}{\dfrac{n^{n+1}-n^n}{n^{n+1}-1}} \\
+        &= \lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^n}}{n^n}}\cdot\lim_{n\to\infty}{\dfrac{1-\dfrac{1}{n}}{1-\dfrac{1}{n^{n+1}}}} \\
+        &= \lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^n}}{n^n}}
+    \end{align*}
+\end{solution}
+\end{document}

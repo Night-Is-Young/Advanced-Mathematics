@@ -1,0 +1,106 @@
+\documentclass[a4paper]{ctexart}
+\usepackage{template}
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+\begin{document}\pagestyle{empty}
+\begin{center}
+    \large Stolz定理
+\end{center}
+作为序列极限中的L'Hôpital定理,Stolz定理没有出现在高等数学教材中实在是一个遗憾.
+在解决$\dfrac{0}{0},\dfrac{\infty}{\infty}$等类型的序列极限时,
+恰当地运用Stolz定理可以大大简化计算和思维难度,为您带来更好的体验.
+下面我们就来介绍Stolz定理.
+\begin{formal}[Stolz Theorem]
+    \begin{enumerate}[leftmargin=*,label=\textbf{(\arabic*)}]
+        \item $\dfrac{*}{\infty}$型:设数列$\left\{a_n\right\},\left\{b_n\right\}$满足
+            \begin{enumerate}[leftmargin=*,label=\textbf{(\alph*)}]
+                \item $\{b_n\}$单调递增.
+                \item $\displaystyle\lim_{n\to\infty}{b_n}=+\infty$.
+                \item $\displaystyle\lim_{n\to\infty}{\dfrac{a_{n+1}-a_n}{b_{n+1}-b_n}}=L$,其中$L$可为有限数,$+\infty$或$-\infty$,但不能为$\infty$.
+            \end{enumerate}
+            那么有$\displaystyle\lim_{n\to\infty}{\dfrac{a_n}{b_n}}=L$.
+        \item $\dfrac{0}{0}$型:设数列$\left\{a_n\right\},\left\{b_n\right\}$满足
+            \begin{enumerate}[leftmargin=*,label=\textbf{(\alph*)}]
+                \item $\{b_n\}$单调递减.
+                \item $\displaystyle\lim_{n\to\infty}{a_n}=\lim_{n\to\infty}{b_n}=0$.
+                \item $\displaystyle\lim_{n\to\infty}{\dfrac{a_{n+1}-a_n}{b_{n+1}-b_n}}=L$,其中$L$可为有限数,$+\infty$或$-\infty$,但不能为$\infty$.
+            \end{enumerate}
+            那么有$\displaystyle\lim_{n\to\infty}{\dfrac{a_n}{b_n}}=L$.
+    \end{enumerate}
+\end{formal}\noindent
+由于$\dfrac{*}{\infty}$对$\left\{a_n\right\}$没有要求,因而在实际使用中更常用该形式的Stolz定理.\\
+下面我们来证明这两种形式的Stolz定理.
+\begin{solution}[Form(1) Proof.]
+    \begin{enumerate}[leftmargin=*,label=\textbf{(\alph*)}]
+        \item 若$L$为有限实数.\\
+            由$\displaystyle\lim_{n\to\infty}{\dfrac{a_{n+1}-a_n}{b_{n+1}-b_n}}=L$有$\forall\ep>0,\exists N_1\in\N^*\st\forall n>N_1,\left|\dfrac{a_{n+1}-a_n}{b_{n+1}-b_n}-L\right|<\ep$,即
+            $$L-\ep<\dfrac{a_{n+1}-a_n}{b_{n+1}-b_n}<L+\ep$$
+            由于$\left\{b_n\right\}$递增,则有$b_{n+1}-b_n>0$,于是有
+            $$(L-\ep)(b_{n+1}-b_n)<a_{n+1}-a_n<(L+\ep)(b_{n+1}-b_n)$$
+            由$\displaystyle\lim_{n\to\infty}{b_n}=+\infty$有$\forall\ep>0,\exists N_2\in\N^*\st\forall n>N_2,b_n>\ep$\\
+            对于给定的$\ep$和对应的$N_1,N_2$,取$N=\max\left\{N_1,N_2\right\}$,将上述不等式从第$N+1$项累加至第$n$项,有
+            $$(L-\ep)\sum_{i=N+1}^{n}{(b_{n+1}-b_n)}<\sum_{i=N+1}^{n}{(a_{n+1}-a_n)}<(L+\ep)\sum_{i=N+1}^{n}{(b_{n+1}-b_n)}$$
+            即$$(L-\ep)(b_{n+1}-b_{N+1})<a_{n+1}-a_{N+1}<(L+\ep)(b_{n+1}-b_{N+1})$$
+            整理可得$$L-\ep<\dfrac{\dfrac{a_{n+1}}{b_{n+1}}-\dfrac{a_{N+1}}{b_{n+1}}}{1-\dfrac{b_{N+1}}{b_{n+1}}}<L+\ep$$
+            从而$\displaystyle\lim_{n\to\infty}{\dfrac{\dfrac{a_{n+1}}{b_{n+1}}-\dfrac{a_{N+1}}{b_{n+1}}}{1-\dfrac{b_{N+1}}{b_{n+1}}}}=L$\\
+            由$\displaystyle\lim_{n\to\infty}{b_n}=+\infty$有$\displaystyle\lim_{n\to\infty}{\dfrac{1}{b_n}}=0$.\\
+            而$a_{N+1},b_{N+1}$均为固定的有限数,从而$\displaystyle\lim_{n\to\infty}{\dfrac{a_{N+1}}{b_{n+1}}}=\lim_{n\to\infty}{\dfrac{b_{N+1}}{b_{n+1}}}=0$.\\
+            故$\displaystyle\lim_{n\to\infty}{\dfrac{\dfrac{a_{n+1}}{b_{n+1}}-\dfrac{a_{N+1}}{b_{n+1}}}{1-\dfrac{b_{N+1}}{b_{n+1}}}}=\lim_{n\to\infty}{\dfrac{\dfrac{a_{n+1}}{b_{n+1}}-0}{1-0}}=\lim_{n\to\infty}{\dfrac{a_{n+1}}{b_{n+1}}}=L$\\
+            从而$\displaystyle\lim_{n\to\infty}{\dfrac{a_n}{b_n}}=L$,原命题得证.
+        \item 若$L$为$+\infty$或$-\infty$,证明过程类似.
+    \end{enumerate}
+\end{solution}\noindent
+形式\textbf{(2)}的证明留待读者自己思考.下面我们来运用Stolz定理解决一些问题.
+\begin{formal}[Cauchy's Proposition]
+    若数列$\left\{ a_n\right\}$满足$\displaystyle\lim_{n\to\infty}{a_n}=A$,则$\displaystyle\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{a_i}}{n}}=A$.
+\end{formal}\noindent
+在之前的讲义中,我们已经用$\ep-N$语言严格证明了Cauchy命题.然而用Stolz定理可以很快地解决这一问题.
+\begin{solution}[Proof.(Stolz ver.)]
+    依Stolz定理有$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{a_i}}{n}}=\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n+1}{a_i}-\sum_{i=1}^{n}{a_i}}{(n+1)-n}}=\lim_{n\to\infty}{\dfrac{a_{n+1}}{1}}=A$$
+    证毕.
+\end{solution}\noindent
+在\textbf{\songti 相乘序列的极限}一讲中,我们提到了如下命题:
+\begin{formal}
+    设序列$\left\{a_n\right\},\left\{b_n\right\}$满足$\displaystyle\lim_{n\to\infty}{a_n}=A,\lim_{n\to\infty}{b_n}=B,A,B\in\R$,\\
+    则有$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{a_ib_{n+1-i}}}{n}}=AB$$
+\end{formal}\noindent
+我们当时给出的证法的核心在于证明：
+\begin{formal}
+    设序列$\left\{a_n\right\},\left\{b_n\right\}$满足$\displaystyle\lim_{n\to\infty}{a_n}=\lim_{n\to\infty}{b_n}=0$,\\
+    则有$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{a_ib_{n+1-i}}}{n}}=0$$
+\end{formal}\noindent
+下面我们用另一种方式来证明这个命题.
+\begin{solution}[Proof.(Stolz ver.)]
+    依Cauchy-Schwarz不等式有
+    $$0\leqslant\left(\dfrac{\sum_{i=1}^{n}{a_ib_{n+1-i}}}{n}\right)^2\leqslant\left(\dfrac{\sum_{i=1}^n{a_i^2}}{n}\right)\left(\dfrac{\sum_{i=1}^n{b_i^2}}{n}\right)$$
+    依Stolz定理$$\lim_{n\to\infty}\dfrac{\sum_{i=1}^n{a_i^2}}{n}=\lim_{n\to\infty}{\left(a_{n+1}^2-a_n^2\right)}=\left(\lim_{n\to\infty}{a_{n+1}}\right)^2-\left(\lim_{n\to\infty}{a_n}\right)^2=0-0=0$$
+    同理有$$\lim_{n\to\infty}\dfrac{\sum_{i=1}^n{a_i^2}}{n}=0$$
+    夹逼可得$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{a_ib_{n+1-i}}}{n}}=0$,原命题得证.
+\end{solution}\noindent
+上述命题告诉我们,有关\textbf{\songti 求平均}的序列极限问题都可以尝试着使用Stolz定理简化计算.\\
+下面我们再来看一些有关的例题.
+\begin{problem}[例1(24.10.09 SJTU数分小测).]
+    正项数列$\left\{ x_n\right\}$满足$\displaystyle\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_i}}{n}}=a,a\in\mathbb{R}$.\\
+    \textbf{试证明:}$\displaystyle\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_i^2}}{n^2}}=0$.
+\end{problem}
+\begin{solution}[Proof.]
+    我们有
+    \begin{align*}
+    \lim_{n\to\infty}{\dfrac{x_n}{n}} 
+    &= \lim_{n\to\infty}{\left(\dfrac{\sum_{i=1}^{n}{x_i}}{n}-\dfrac{n-1}{n}\cdot\dfrac{\sum_{i=1}^{n-1}{x_i}}{n-1}\right)} \\
+    &= a-1\cdot a= 0
+    \end{align*}
+    根据收敛序列的有界性,$\exists M\in\mathbb{R}\st\dfrac{\sum_{i=1}^{n}{x_i}}{n}<M$\\
+    则$$0<\dfrac{\sum_{i=1}^{n}{x_i^2}}{n^2}=M\cdot\dfrac{\sum_{i=1}^{n}{\dfrac{x_i^2}{n}}}{Mn}<M\cdot\dfrac{\sum_{i=1}^{n}{\dfrac{x_i^2}{i}}}{\sum_{i=1}^{n}{x_i}}$$
+    依Stolz定理$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{\dfrac{x_i^2}{i}}}{\sum_{i=1}^{n}{x_i}}}=\lim_{n\to\infty}{\dfrac{\dfrac{x_n^2}{n}}{x_n}}=\lim_{n\to\infty}{\dfrac{x_n}{n}}=0$$
+    依夹逼准则$\displaystyle\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_i^2}}{n^2}}=0$,证毕.\\
+\end{solution}
+\begin{problem}[例2.]
+    求序列极限$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^k}}{n^{k+1}}}$$
+\end{problem}
+\begin{solution}[Solution (Method I).]
+    依积分的Liemann和有$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^k}}{n^{k+1}}}=\lim_{n\to\infty}{\left(\dfrac{1}{n}\sum_{i=1}^{n}{\left(\dfrac{i}{n}\right)^k}\right)}=\int_0^1{x^k\dx}=\dfrac{1}{k+1}$$
+\end{solution}
+\begin{solution}[Solution (Method II).]
+    依Stolz定理有$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^k}}{n^{k+1}}}=\lim_{n\to\infty}{\dfrac{(n+1)^k}{(n+1)^{k+1}-n^{k+1}}}=\lim_{n\to\infty}{\dfrac{(n+1)^k}{(k+1)(n+1)^k+\cdots}}=\dfrac{1}{k+1}$$
+\end{solution}
+\end{document}
