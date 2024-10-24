@@ -1,152 +1,226 @@
-\documentclass[a4paper,oneside]{ctexart}
-\usepackage{amsmath, amsthm, amssymb,geometry,enumerate,color,xcolor}
-\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
-\newcommand{\e}{\mathrm{e}}
-\newcommand{\di}{\mathrm{d}}
+\documentclass{ctexart}
+\usepackage{template}
 \newcommand{\arccot}{\mathrm{ arccot}}
-\linespread{1.55}
-\begin{document}
-\pagestyle{empty}
-\begin{center}\large 反三角函数及其在不定积分中的运用\end{center}
+\begin{document}\pagestyle{empty}
+\begin{center}\large
+    反三角函数及其在不定积分中的运用
+\end{center}
 \textbf{前言:}在高中时,我们已经熟知正弦,余弦,正切三种三角函数.在高等数学中,
 我们将会学习更多三角函数以及它们的反函数,并以此为工具解决一些问题.\\
-首先,我们引入以下三种新的三角函数.
-\begin{center}
-正割函数$\sec{x}=\dfrac{1}{\cos{x}}$,余割函数$\csc{x}=\dfrac{1}{\sin{x}}$,余切函数$\cot{x}=\dfrac{1}{\tan{x}}$.
-\end{center}
-现在,我们首先来求反三角函数的导数.根据反函数的求导法则有$f'(x)=\dfrac{1}{g'(f(x))}$,其中$g(x)$是$f(x)$的反函数.\\
-我们以$y=\arcsin{x}$为例.
-$\dfrac{\di y}{\di x}=\dfrac{1}{\cos{y}}=\dfrac{1}{\cos{(\arcsin(x))}}=\dfrac{1}{\sqrt{1-x^2}}$.
-同理可得$\dfrac{\di \arccos{x}}{\di x}=-\dfrac{1}{\sqrt{1-x^2}}$.
-而$\dfrac{\di \arctan{x}}{\di x}=\dfrac{1}{\cos^2{(\arctan{x})}}=\dfrac{1}{1+x^2}$.
-同理可得$\dfrac{\di\ \arccot{\ x}}{\di x}=-\dfrac{1}{1+x^2}$.\\
-然后,我们就可以开始求不定积分的漫漫征程了.\\
-\colorbox{lightgray}{\textbf{例1:}求不定积分$\int{\tan{x}\di x}$.}\\
-\textbf{解:}$$\begin{aligned}
-  \int \tan{x}\di x &= \int \dfrac{\sin{x}}{\cos{x}}\di x
-                     = -\int \dfrac{\di(\cos{x})}{\cos{x}}
-                     = -\ln\left\lvert{\cos{x}}\right\rvert+C
-\end{aligned}$$
-\colorbox{lightgray}{\textbf{例2:}求不定积分$\int{\dfrac{\di x}{a^2-x^2}}$.}\\
-\textbf{解:}
-$$\begin{aligned}
-  \int \dfrac{\di x}{a^2-x^2} &= \dfrac{1}{2a}\int\left(\dfrac{1}{a+x}+\dfrac{1}{a-x}\right)\di x\\
-                              &= \dfrac{1}{2a}\left(\int\dfrac{1}{a+x}\di(a+x)-\int\dfrac{1}{a-x}\di(a-x)\right)\\
-                              &= \dfrac{1}{2a}\left(\ln\left\lvert a+x\right\rvert-\ln\left\lvert a-x\right\rvert\right)+C\\
-                              &= \dfrac{1}{2a}\ln{\left\lvert\dfrac{a+x}{a-x}\right\rvert}+C
-\end{aligned}$$
-\colorbox{lightgray}{\textbf{例3:}求不定积分$\int{\dfrac{\di x}{a^2+x^2}}$.}\\
-\textbf{解:}
-$$\begin{aligned}
-  \int \dfrac{\di x}{a^2+x^2} &= \dfrac{1}{a^2}\int\dfrac{\di x}{1+\left(\dfrac{x}{a}\right)^2}\\
-                              &= \dfrac{1}{a}\int\dfrac{\di\dfrac{x}{a}}{1+\left(\dfrac{x}{a}\right)^2}\\
-                              &= \dfrac{1}{a}\arctan{\dfrac{x}{a}}+C
-\end{aligned}$$
-\colorbox{lightgray}{\textbf{例4:}求不定积分$\int{\dfrac{\di x}{\sqrt{a^2-x^2}}}$.}\\
-\textbf{解:}
-$$\begin{aligned}
-  \int{\dfrac{\di x}{\sqrt{a^2-x^2}}} &= \int{\dfrac{\di\left(\dfrac{x}{a}\right)}{\sqrt{1-\left(\dfrac{x}{a}\right)^2}}}\\
-                                      &= \arcsin{\dfrac{x}{a}}
-\end{aligned}$$
-\colorbox{lightgray}{\textbf{例5:}求不定积分$\int{\dfrac{\di x}{\sin{x}}}$.}\\
-\textbf{解:}
-$$\begin{aligned}
-  \int{\dfrac{\di x}{\sin x}} &= \int{\dfrac{\sin{x}\di x}{\sin^2{x}}}\\
-                              &= -\int{\dfrac{\di(\cos{x})}{1-\cos^2{x}}}\\
-                              &= \dfrac{1}{2}\ln\left\lvert\dfrac{1-\cos{x}}{1+\cos{x}}\right\rvert+C
-\end{aligned}$$
-\colorbox{lightgray}{\textbf{例6:}求不定积分$\int{\dfrac{\di x}{\cos{x}}}$.}\\
-\textbf{解:}
-$$\begin{aligned}
-  \int{\dfrac{\di x}{\cos x}} &= \int{\dfrac{\cos{x}\di x}{\cos^2{x}}}\\
-                              &= \int{\dfrac{\di(\sin{x})}{1-\sin^2{x}}}\\
-                              &= \dfrac{1}{2}\ln\left\lvert\dfrac{1+\sin{x}}{1-\sin{x}}\right\rvert+C\\
-                              &= \ln\left\lvert\sec{x}+\tan{x}\right\rvert+C
-\end{aligned}$$
-\colorbox{lightgray}{\textbf{例7:}求不定积分$\int{\sqrt{a^2-x^2}\di x}$.}\\
-\textbf{解法一:}采取换元法.令$x=a\sin{t}$,则$\di x=a\cos{t}\ \di t$.
-$$\begin{aligned}
-  \int{\sqrt{a^2-x^2}\di x} &= \int{a\cos{t}\cdot a\cos{t}\di t} = a^2\int{\cos^2{t}\di t} \\
-                            &= \dfrac{a^2}{2}\int{(1+\cos{2t})\di t} \\
-                            &= \dfrac{a^2}{2}\left(t+\dfrac{1}{2}\sin{2t}\right)+C \\
-                            &= \dfrac{a^2}{2}\left(\arcsin{\dfrac{x}{a}}+\dfrac{x}{a}\sqrt{1-\dfrac{x^2}{a^2}}\right)+C \\
-                            &= \dfrac{a^2}{2}\arcsin{\dfrac{x}{a}}+\dfrac{x}{2}\sqrt{a^2-x^2}+C
-\end{aligned}$$
-\textbf{解法二:}采取分部积分法.
-$$\begin{aligned}
-  \int{\sqrt{a^2-x^2}\di x} &= x\sqrt{a^2-x^2}-\int{x\di\left(\sqrt{a^2-x^2}\right)} \\
-                            &= x\sqrt{a^2-x^2}+\int{\dfrac{x^2\di x}{\sqrt{a^2-x^2}}} \\
-                            &= x\sqrt{a^2-x^2}+\int{\dfrac{(x^2-a^2)+a^2}{\sqrt{a^2-x^2}}\di x} \\
-                            &= x\sqrt{a^2-x^2}-\int{\sqrt{a^2-x^2}\di x}+a^2\int{\dfrac{\di x}{\sqrt{a^2-x^2}}}
-\end{aligned}$$
-可知
-$$\begin{aligned}
-  \int{\sqrt{a^2-x^2}\di x} &= \dfrac{1}{2}\left( x\sqrt{a^2-x^2}+a^2\int{\dfrac{\di x}{\sqrt{a^2-x^2}}}\right) \\
-                            &= \dfrac{a^2}{2}\arcsin{\dfrac{x}{a}}+\dfrac{x}{2}\sqrt{a^2-x^2}+C
-\end{aligned}$$
-\colorbox{lightgray}{\textbf{例8:}求不定积分$\int{\dfrac{\di x}{\sqrt{a^2+x^2}}}$.}\\
-\textbf{解:}采取换元法.令$x=a\tan{t}$,则$\di x=\dfrac{a\di t}{\cos^2{t}}$.
-$$\begin{aligned}
-  \int{\dfrac{\di x}{\sqrt{a^2+x^2}}} &= \int{\dfrac{\dfrac{a\di t}{\cos^2{t}}}{a\cdot\dfrac{1}{\cos{t}}}} = \int{\dfrac{\di t}{\cos{t}}} \\
-                                      &= \dfrac{1}{2}\ln\left\lvert\dfrac{1+\sin{t}}{1-\sin{t}}\right\rvert+C \\
-                                      &= \ln{\left\lvert\dfrac{1}{\cos{t}}+\tan{t}\right\rvert}+C \\
-                                      &= \ln{\left\lvert\dfrac{x}{a}+\sqrt{1+\dfrac{x^2}{a^2}}\right\rvert}+C \\
-\end{aligned}$$
-亦可以写作$\ln{\left\lvert x+\sqrt{a^2+x^2}\right\rvert}+C$.\\
-\colorbox{lightgray}{\textbf{例9:}求不定积分$\int{\sqrt{a^2+x^2}\di x}$.}\\
-\textbf{解:}采取换元法和分部积分法结合的方法.$x=a\tan{t}$,则$\di x=\dfrac{a\di t}{\cos^2{t}}$.
-$$\begin{aligned}
-  \int{\sqrt{a^2+x^2}\di x} &= \int \dfrac{a}{\cos{t}}\cdot\dfrac{a\di t}{\cos^2{t}} = \int{\dfrac{a^2\di t}{\cos^3{t}}} 
-\end{aligned}$$
-我们记$I=\int{\dfrac{\di t}{\cos^3{t}}}$,则
-$$\begin{aligned}
-  I = \int{\dfrac{\di t}{\cos^3{t}}} &= \int{\dfrac{\di\left(\tan{t}\right)}{\cos{t}}} \\
-                                     &= \dfrac{\tan{t}}{\cos{t}}-\int{\tan{t}\di\left(\dfrac{1}{\cos{t}}\right)} \\
-                                     &= \dfrac{\tan{t}}{\cos{t}}-\int{\dfrac{\sin{t}}{\cos{t}}\cdot\dfrac{\sin{t}}{\cos^2{t}}\di t} \\
-                                     &= \dfrac{\tan{t}}{\cos{t}}-\int{\dfrac{1-\cos^2{t}}{\cos^3{t}}\di t}\\
-                                     &= \dfrac{\tan{t}}{\cos{t}}+\int{\dfrac{\di t}{\cos{t}}}-I
-\end{aligned}$$
-则有
-$$\begin{aligned}
-  \int{\sqrt{a^2+x^2}\di x} = a^2I &= \dfrac{a^2}{2}\left(\dfrac{\tan{t}}{\cos{t}}+\int{\dfrac{\di t}{\cos{t}}}\right) \\
-                                   &= \dfrac{a^2}{2}\left(\dfrac{x}{a}\sqrt{1+\dfrac{x^2}{a^2}}+\ln{\left\lvert\dfrac{x}{a}+\sqrt{1+\dfrac{x^2}{a^2}}\right\rvert}\right)+C\\
-                                   &= \dfrac{x}{2}\sqrt{a^2+x^2}+\dfrac{a^2}{2}\ln{\left\lvert\dfrac{x}{a}+\sqrt{1+\dfrac{x^2}{a^2}}\right\rvert}+C
-\end{aligned}$$
-亦可以写作$\dfrac{x}{2}\sqrt{a^2+x^2}+\dfrac{a^2}{2}\ln{\left\lvert x+\sqrt{a^2+x^2}\right\rvert}+C$.\\
-\colorbox{lightgray}{\textbf{例10:}求不定积分$\int{\dfrac{\di x}{\sqrt{x^2-a^2}}}$.}\\
-\textbf{解:}分$x>a$和$x<-a$两种情况考虑.当$x>a$时,设$x=\dfrac{a}{\cos{t}}$,其中$t\in \left(0,\dfrac{\pi}{2}\right)$.则有
-$$\begin{aligned}
-  \int{\dfrac{\di x}{\sqrt{x^2-a^2}}} &= \int{\dfrac{1}{\sqrt{a^2\tan^2{t}}}\cdot\dfrac{a\sin{t}}{\cos^2{t}}\di t} \\
-                                      &= \int{\dfrac{\di t}{\cos{t}}} \\
-                                      &= \ln{\left\lvert \dfrac{1}{\cos{t}}+\tan{t}\right\rvert}+C
-\end{aligned}$$
-此时我们有$\tan{t}=\sqrt{\dfrac{1}{\cos^2{t}}-1}=\dfrac{1}{a}\sqrt{x^2-a^2}$.\\
-当$x<-a$时,令$x=-\dfrac{a}{\cos{t}}$可得到相同的结果.\\
-综上有$\int{\dfrac{\di x}{\sqrt{x^2-a^2}}}=\ln\left\lvert x+\sqrt{x^2-a^2}\right\rvert+C$.\\
-\colorbox{lightgray}{\textbf{例11:}求不定积分$\int{\sqrt{x^2-a^2}\di x}$.}\\
-\textbf{解:}我们直接采取分部积分法.
-$$\begin{aligned}
-  \int{\sqrt{x^2-a^2}\di x} &= x\sqrt{x^2-a^2}-\int{x\di\left(\sqrt{x^2-a^2}\right)} \\
-                            &= x\sqrt{x^2-a^2}-\int{\dfrac{x^2\di x}{\sqrt{x^2-a^2}}} \\
-                            &= x\sqrt{x^2-a^2}-\int{\dfrac{\left(x^2-a^2+a^2\right)\di x}{\sqrt{x^2-a^2}}} \\
-                            &= x\sqrt{x^2-a^2}-\int{\sqrt{x^2-a^2}\di x}-a^2\int{\dfrac{\di x}{\sqrt{x^2-a^2}}}
-\end{aligned}$$
-则有
-$$\begin{aligned}
-  \int{\sqrt{x^2-a^2}\di x} &= \dfrac{1}{2}\left( x\sqrt{x^2-a^2}-a^2\int{\dfrac{\di x}{\sqrt{x^2-a^2}}}\right) \\
-                            &= \dfrac{x}{2}\sqrt{x^2-a^2}-\dfrac{a^2}{2}\ln\left\lvert x+\sqrt{x^2-a^2}\right\rvert+C
-\end{aligned}$$
-\textbf{总结:}整理上述积分可以得出
-$$\begin{aligned}
-  \int{\tan{x}\di x} &= -\ln{\left\lvert\cos{x}\right\rvert}+C \\
-  \int{\dfrac{\di x}{\sin{x}}} &= \dfrac{1}{2}\ln\left\lvert\dfrac{1-\cos{x}}{1+\cos{x}}\right\rvert+C \\
-  \int{\dfrac{\di x}{\cos{x}}} &= \dfrac{1}{2}\ln\left\lvert\dfrac{1+\sin{x}}{1-\sin{x}}\right\rvert+C \\
-                               &= \ln\left\lvert\sec{x}+\tan{x}\right\rvert+C \\
-  \int \dfrac{\di x}{a^2-x^2} &= \dfrac{1}{2a}\ln{\left\lvert\dfrac{a+x}{a-x}\right\rvert}+C \\
-  \int \dfrac{\di x}{a^2+x^2} &= \dfrac{1}{a}\arctan{\dfrac{x}{a}}+C \\
-  \int{\dfrac{\di x}{\sqrt{x^2\pm a^2}}} &= \ln{\left\lvert x+\sqrt{x^2\pm a^2}\right\rvert}+C \\
-  \int{\dfrac{\di x}{\sqrt{a^2-x^2}}} &= \arcsin{\dfrac{x}{a}}+C \\
-  \int{\sqrt{x^2\pm a^2}\di x} &= \dfrac{x}{2}\sqrt{x^2\pm a^2}\pm\dfrac{a^2}{2}\ln\left\lvert x+\sqrt{x^2\pm a^2}\right\rvert+C \\
-  \int{\sqrt{a^2-x^2}\di x} &= \dfrac{a^2}{2}\arcsin{\dfrac{x}{a}}+\dfrac{x}{2}\sqrt{a^2-x^2}+C
-\end{aligned}$$
+首先,我们扩展一下所学的三角函的类型.
+\begin{theorem}[六种三角函数]
+        $$\text{正弦函数}\ \ \sin x\ \ \ \ \ \ \ \ \ \text{正割函数}\ \ \sec{x}=\dfrac{1}{\cos{x}}$$
+        $$\text{余弦函数}\ \ \cos x\ \ \ \ \ \ \ \ \ \text{余割函数}\ \ \csc{x}=\dfrac{1}{\sin{x}}$$
+        $$\text{正切函数}\ \ \tan x\ \ \ \ \ \ \ \ \ \text{余切函数}\ \ \cot{x}=\dfrac{1}{\tan{x}}$$
+\end{theorem}\noindent
+根据反函数的求导法则,我们可以写出反三角函数的导数.
+\begin{theorem}[反三角函数的导数]
+    $$\left(\arcsin x\right)'=\dfrac{1}{\sqrt{1-x^2}}\ \ \ \ \ \ \ \ \ \ \left(\arccos x\right)'=-\dfrac{1}{\sqrt{1-x^2}}\ \ \ \ \ \ \ \ \ \ \left(\arctan x\right)'=\dfrac{1}{1+x^2}$$
+\end{theorem}\noindent
+现在,我们来进行一系列不定积分的推导.
+\begin{problem}[Example 1.]
+    求不定积分$$\int{\tan{x}\di x}$$
+\end{problem}
+\begin{solution}[Solution.]
+    $$
+    \int \tan{x}\di x 
+    = \int \dfrac{\sin{x}}{\cos{x}}\dx
+    = -\int \dfrac{\di(\cos{x})}{\cos{x}}
+    = -\ln\left\lvert{\cos{x}}\right\rvert+C
+    $$
+\end{solution}
+\begin{problem}[Example 2.]
+    求不定积分$$\int{\dfrac{\di x}{a^2-x^2}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    $$
+    \begin{aligned}
+        \int \dfrac{\di x}{a^2-x^2} 
+        &= \dfrac{1}{2a}\int\left(\dfrac{1}{a+x}+\dfrac{1}{a-x}\right)\di x\\
+        &= \dfrac{1}{2a}\left(\int\dfrac{1}{a+x}\di(a+x)-\int\dfrac{1}{a-x}\di(a-x)\right)\\
+        &= \dfrac{1}{2a}\left(\ln\left\lvert a+x\right\rvert-\ln\left\lvert a-x\right\rvert\right)+C\\
+        &= \dfrac{1}{2a}\ln{\left\lvert\dfrac{a+x}{a-x}\right\rvert}+C
+    \end{aligned}
+    $$
+\end{solution}
+\begin{problem}[Example 3.]
+    求不定积分$$\int{\dfrac{\di x}{a^2+x^2}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    $$
+    \int \dfrac{\di x}{a^2+x^2} 
+    = \dfrac{1}{a^2}\int\dfrac{\di x}{1+\left(\dfrac{x}{a}\right)^2}\\
+    = \dfrac{1}{a}\int\dfrac{\di\dfrac{x}{a}}{1+\left(\dfrac{x}{a}\right)^2}\\
+    = \dfrac{1}{a}\arctan{\dfrac{x}{a}}+C
+    $$
+\end{solution}
+\begin{problem}[Example 4.]
+    求不定积分$$\int{\dfrac{\di x}{\sqrt{a^2-x^2}}}$$
+\end{problem}
+\ \\
+\begin{solution}[Solution.]
+    $$
+    \int{\dfrac{\di x}{\sqrt{a^2-x^2}}} 
+    = \int{\dfrac{\di\left(\dfrac{x}{a}\right)}{\sqrt{1-\left(\dfrac{x}{a}\right)^2}}}
+    = \arcsin{\dfrac{x}{a}}+C
+    $$
+\end{solution}
+\begin{problem}[Example 5.]
+    求不定积分$$\int{\dfrac{\di x}{\sin{x}}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    $$
+    \int{\dfrac{\di x}{\sin x}} 
+    = \int{\dfrac{\sin{x}\di x}{\sin^2{x}}}
+    = -\int{\dfrac{\di(\cos{x})}{1-\cos^2{x}}}
+    = \dfrac{1}{2}\ln\left\lvert\dfrac{1-\cos{x}}{1+\cos{x}}\right\rvert+C
+    $$
+\end{solution}
+\begin{problem}[Example 6.]
+    求不定积分$$\int{\dfrac{\di x}{\cos{x}}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    $$
+    \int{\dfrac{\di x}{\cos x}} 
+    = \int{\dfrac{\cos{x}\di x}{\cos^2{x}}}
+    = \int{\dfrac{\di(\sin{x})}{1-\sin^2{x}}}
+    = \dfrac{1}{2}\ln\left\lvert\dfrac{1+\sin{x}}{1-\sin{x}}\right\rvert+C
+    = \ln\left\lvert\sec{x}+\tan{x}\right\rvert+C
+    $$
+\end{solution}
+\begin{problem}[Example 7.]
+    求不定积分$$\int{\sqrt{a^2-x^2}\di x}$$
+\end{problem}
+\begin{solution}[Solution(Method I).]
+    采取换元法.令$x=a\sin{t}$,则$\di x=a\cos{t}\di t$.
+    $$\begin{aligned}
+        \int{\sqrt{a^2-x^2}\di x} 
+        &= \int{a\cos{t}\cdot a\cos{t}\di t} = a^2\int{\cos^2{t}\di t} \\
+        &= \dfrac{a^2}{2}\int{(1+\cos{2t})\di t} \\
+        &= \dfrac{a^2}{2}\left(t+\dfrac{1}{2}\sin{2t}\right)+C \\
+        &= \dfrac{a^2}{2}\left(\arcsin{\dfrac{x}{a}}+\dfrac{x}{a}\sqrt{1-\dfrac{x^2}{a^2}}\right)+C \\
+        &= \dfrac{a^2}{2}\arcsin{\dfrac{x}{a}}+\dfrac{x}{2}\sqrt{a^2-x^2}+C
+    \end{aligned}$$
+\end{solution}
+\begin{solution}[Solution(Method II).]
+    采取分部积分法.
+    $$\begin{aligned}
+        \int{\sqrt{a^2-x^2}\di x} 
+        &= x\sqrt{a^2-x^2}-\int{x\di\left(\sqrt{a^2-x^2}\right)} \\
+        &= x\sqrt{a^2-x^2}+\int{\dfrac{x^2\di x}{\sqrt{a^2-x^2}}} \\
+        &= x\sqrt{a^2-x^2}+\int{\dfrac{(x^2-a^2)+a^2}{\sqrt{a^2-x^2}}\di x} \\
+        &= x\sqrt{a^2-x^2}-\int{\sqrt{a^2-x^2}\di x}+a^2\int{\dfrac{\di x}{\sqrt{a^2-x^2}}}
+    \end{aligned}$$
+    可知
+    $$\begin{aligned}
+        \int{\sqrt{a^2-x^2}\di x} 
+        &= \dfrac{1}{2}\left( x\sqrt{a^2-x^2}+a^2\int{\dfrac{\di x}{\sqrt{a^2-x^2}}}\right) \\
+        &= \dfrac{a^2}{2}\arcsin{\dfrac{x}{a}}+\dfrac{x}{2}\sqrt{a^2-x^2}+C
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[Example 8.]
+    求不定积分$$\int{\dfrac{\di x}{\sqrt{a^2+x^2}}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    采取换元法.令$x=a\tan{t}$,则$\di x=\dfrac{a\di t}{\cos^2{t}}$.
+    $$\begin{aligned}
+        \int{\dfrac{\di x}{\sqrt{a^2+x^2}}} 
+        &= \int{\dfrac{\dfrac{a\di t}{\cos^2{t}}}{a\cdot\dfrac{1}{\cos{t}}}} = \int{\dfrac{\di t}{\cos{t}}} \\
+        &= \dfrac{1}{2}\ln\left\lvert\dfrac{1+\sin{t}}{1-\sin{t}}\right\rvert+C \\
+        &= \ln{\left\lvert\dfrac{1}{\cos{t}}+\tan{t}\right\rvert}+C \\
+        &= \ln{\left\lvert\dfrac{x}{a}+\sqrt{1+\dfrac{x^2}{a^2}}\right\rvert}+C \\
+    \end{aligned}$$
+    亦可以写作$\ln{\left\lvert x+\sqrt{a^2+x^2}\right\rvert}+C$.
+\end{solution}
+\begin{problem}[Example 9.]
+    求不定积分$$\int{\sqrt{a^2+x^2}\di x}$$
+\end{problem}
+\begin{solution}[Solution]
+    采取换元法和分部积分法结合的方法.置$x=a\tan{t}$,则$\di x=\dfrac{a\di t}{\cos^2{t}}$,从而
+    $$\int{\sqrt{a^2+x^2}\di x}=\int \dfrac{a}{\cos{t}}\cdot\dfrac{a\di t}{\cos^2{t}}=\int{\dfrac{a^2\di t}{\cos^3{t}}}$$
+    我们记$\displaystyle I=\int{\dfrac{\di t}{\cos^3{t}}}$,则
+    $$\begin{aligned}
+        I 
+        &= \int{\dfrac{\di t}{\cos^3{t}}} \\
+        &= \int{\dfrac{\di\left(\tan{t}\right)}{\cos{t}}} \\
+        &= \dfrac{\tan{t}}{\cos{t}}-\int{\tan{t}\di\left(\dfrac{1}{\cos{t}}\right)} \\
+        &= \dfrac{\tan{t}}{\cos{t}}-\int{\dfrac{\sin{t}}{\cos{t}}\cdot\dfrac{\sin{t}}{\cos^2{t}}\di t} \\
+        &= \dfrac{\tan{t}}{\cos{t}}-\int{\dfrac{1-\cos^2{t}}{\cos^3{t}}\di t}\\
+        &= \dfrac{\tan{t}}{\cos{t}}+\int{\dfrac{\di t}{\cos{t}}}-I
+    \end{aligned}$$
+    则有
+    $$\begin{aligned}
+        \int{\sqrt{a^2+x^2}\di x} = a^2I &= \dfrac{a^2}{2}\left(\dfrac{\tan{t}}{\cos{t}}+\int{\dfrac{\di t}{\cos{t}}}\right) \\
+                                        &= \dfrac{a^2}{2}\left(\dfrac{x}{a}\sqrt{1+\dfrac{x^2}{a^2}}+\ln{\left\lvert\dfrac{x}{a}+\sqrt{1+\dfrac{x^2}{a^2}}\right\rvert}\right)+C\\
+                                        &= \dfrac{x}{2}\sqrt{a^2+x^2}+\dfrac{a^2}{2}\ln{\left\lvert\dfrac{x}{a}+\sqrt{1+\dfrac{x^2}{a^2}}\right\rvert}+C
+    \end{aligned}$$
+    亦可以写作$\dfrac{x}{2}\sqrt{a^2+x^2}+\dfrac{a^2}{2}\ln{\left\lvert x+\sqrt{a^2+x^2}\right\rvert}+C$.\\
+\end{solution}
+\begin{problem}[Example 10.]
+    求不定积分$$\int{\dfrac{\di x}{\sqrt{x^2-a^2}}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    分$x>a$和$x<-a$两种情况考虑.
+    当$x>a$时,设$x=\dfrac{a}{\cos{t}}$,其中$t\in \left(0,\dfrac{\pi}{2}\right)$.则有
+    $$\begin{aligned}
+        \int{\dfrac{\di x}{\sqrt{x^2-a^2}}}
+        &= \int{\dfrac{1}{\sqrt{a^2\tan^2{t}}}\cdot\dfrac{a\sin{t}}{\cos^2{t}}\di t} \\
+        &= \int{\dfrac{\di t}{\cos{t}}} \\
+        &= \ln{\left\lvert \dfrac{1}{\cos{t}}+\tan{t}\right\rvert}+C
+    \end{aligned}$$
+    此时我们有$\tan{t}=\sqrt{\dfrac{1}{\cos^2{t}}-1}=\dfrac{1}{a}\sqrt{x^2-a^2}$.\\
+    当$x<-a$时,令$x=-\dfrac{a}{\cos{t}}$可得到相同的结果.\\
+    综上有$\displaystyle\int{\dfrac{\di x}{\sqrt{x^2-a^2}}}=\ln\left\lvert x+\sqrt{x^2-a^2}\right\rvert+C$.\\
+\end{solution}
+\begin{problem}[Example 11.]
+    求不定积分$$\int{\sqrt{x^2-a^2}\di x}$$
+\end{problem}
+\begin{solution}[Solution(Method I).]
+    采取分部积分法.
+    $$\begin{aligned}
+        \int{\sqrt{x^2-a^2}\di x} 
+        &= x\sqrt{x^2-a^2}-\int{x\di\left(\sqrt{x^2-a^2}\right)} \\
+        &= x\sqrt{x^2-a^2}-\int{\dfrac{x^2\di x}{\sqrt{x^2-a^2}}} \\
+        &= x\sqrt{x^2-a^2}-\int{\dfrac{\left(x^2-a^2+a^2\right)\di x}{\sqrt{x^2-a^2}}} \\
+        &= x\sqrt{x^2-a^2}-\int{\sqrt{x^2-a^2}\di x}-a^2\int{\dfrac{\di x}{\sqrt{x^2-a^2}}}
+    \end{aligned}$$
+    则有
+    $$\begin{aligned}
+        \int{\sqrt{x^2-a^2}\di x} 
+        &= \dfrac{1}{2}\left( x\sqrt{x^2-a^2}-a^2\int{\dfrac{\di x}{\sqrt{x^2-a^2}}}\right) \\
+        &= \dfrac{x}{2}\sqrt{x^2-a^2}-\dfrac{a^2}{2}\ln\left\lvert x+\sqrt{x^2-a^2}\right\rvert+C
+    \end{aligned}$$
+\end{solution}
+\begin{solution}[Solution(Method II).]
+    采取换元法.当$x>a$时,置$x=\dfrac{a}{\cos t},t\in\left(0,\dfrac{\pi}{2}\right)$.则
+    $$\begin{aligned}
+        \int{\sqrt{x^2-a^2}\dx}
+        &= \int{\sqrt{a^2\tan t}\cdot\dfrac{a\sin t}{\cos^2t}\di t} \\
+        &= a^2\int{\dfrac{\sin^2t}{\cos^3t}\di t} \\
+        &= a^2\left(\int{\dfrac{\di t}{\cos^3t}}-\int{\dfrac{\di t}{\cos t}}\right)
+    \end{aligned}$$
+    由\textbf{Example 9.}可知$\displaystyle\int{\dfrac{\di t}{\cos^3t}}=\dfrac{1}{2}\left(\dfrac{\tan t}{\cos t}+\int{\dfrac{\di t}{\cos t}}\right)$
+    从而
+    $$\begin{aligned}
+        \int{\sqrt{x^2-a^2}\dx}
+        &= \dfrac{a^2}{2}\left(\dfrac{\tan t}{\cos t}-\int{\dfrac{\di t}{\cos t}}\right) \\
+        &= \dfrac{a^2}{2}\left(\dfrac{\sqrt{1-\dfrac{a^2}{x^2}}}{\dfrac{a^2}{x^2}}+\ln{\left|\dfrac{x}{a}+\sqrt{1-\dfrac{a^2}{x^2}}\right|}\right)+C_0 \\
+        &= \dfrac{x^2}{2}\sqrt{x^2-a^2}-\dfrac{a^2}{2}\ln{\left|x+\sqrt{x^2-a^2}\right|}+C
+    \end{aligned}$$
+    当$x<-a$时亦可以得到相同的结果.于是
+    $$\int{\sqrt{x^2-a^2}\dx}=\dfrac{x^2}{2}\sqrt{x^2-a^2}-\dfrac{a^2}{2}\ln{\left|x+\sqrt{x^2-a^2}\right|}+C$$
+\end{solution}
+\begin{theorem}[Integral Table]
+    \begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.\ }]
+        \item $\displaystyle\int{\dfrac{\dx}{\sqrt{x^2\pm a^2}}}=\ln{\left|x+\sqrt{x^2\pm a^2}\right|}+C$
+        \item $\displaystyle\int{\sqrt{x^2\pm a^2}\dx}=\dfrac{x^2}{2}\sqrt{x^2\pm a^2}\pm\dfrac{a^2}{2}\ln{\left|x+\sqrt{x^2\pm a^2}\right|}+C$
+        \item $\displaystyle\int{\dfrac{\dx}{\sqrt{a^2-x^2}}}=\arcsin\dfrac{x}{a}+C$
+        \item $\displaystyle\int{\sqrt{a^2-x^2}}=\dfrac{a^2}{2}\arcsin{\dfrac{x}{a}}+\dfrac{x}{2}\sqrt{a^2-x^2}+C$
+        \item $\displaystyle\int{\dfrac{\dx}{a^2-x^2}}=\dfrac{1}{2a}\ln{\left|\dfrac{a+x}{a-x}\right|}+C$
+        \item $\displaystyle\int{\dfrac{\dx}{a^2+x^2}}=\dfrac{1}{a}\arctan{\dfrac{x}{a}}+C$
+        \item $\displaystyle\int{\tan x\dx}=-\ln{\left|\cos x\right|}+C$
+        \item $\displaystyle\int{\dfrac{\dx}{\sin x}}=\dfrac{1}{2}\ln{\left|\dfrac{1-\cos x}{1+\cos x}\right|}+C$
+        \item $\displaystyle\int{\dfrac{\dx}{\cos x}}=\dfrac{1}{2}\ln{\left|\dfrac{1+\sin x}{1-\sin x}\right|}+C=\ln{\left|\sec x+\tan x\right|}+C$
+    \end{enumerate}
+\end{theorem}
 \end{document}

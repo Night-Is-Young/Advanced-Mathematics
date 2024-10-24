@@ -98,7 +98,7 @@
     求序列极限$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^k}}{n^{k+1}}}$$
 \end{problem}
 \begin{solution}[Solution (Method I).]
-    依积分的Liemann和有$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^k}}{n^{k+1}}}=\lim_{n\to\infty}{\left(\dfrac{1}{n}\sum_{i=1}^{n}{\left(\dfrac{i}{n}\right)^k}\right)}=\int_0^1{x^k\dx}=\dfrac{1}{k+1}$$
+    依Riemann积分有$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^k}}{n^{k+1}}}=\lim_{n\to\infty}{\left(\dfrac{1}{n}\sum_{i=1}^{n}{\left(\dfrac{i}{n}\right)^k}\right)}=\int_0^1{x^k\dx}=\dfrac{1}{k+1}$$
 \end{solution}
 \begin{solution}[Solution (Method II).]
     依Stolz定理有$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^k}}{n^{k+1}}}=\lim_{n\to\infty}{\dfrac{(n+1)^k}{(n+1)^{k+1}-n^{k+1}}}=\lim_{n\to\infty}{\dfrac{(n+1)^k}{(k+1)(n+1)^k+\cdots}}=\dfrac{1}{k+1}$$

@@ -29,6 +29,9 @@
             而$$\lim_{n\to\infty}{\sqrt[n]{1}}=\lim_{n\to\infty}{\sqrt[n]{3}}=1$$
             夹逼可得$$\lim_{n\to\infty}{\sqrt[n]{2+\cos n}}=1$$
         \item \textbf{Solution.}\\
+            注意到$$\dfrac{i-1}{n}<\dfrac{i}{n}-\dfrac{1}{2n^i}<\dfrac{i}{n}$$
+            依Riemann积分的定义有
+            $$\lim_{n\to\infty}{\dfrac{1}{n}\sum_{i=1}^{n}{\sin\left(\dfrac{i}{n}-\dfrac{1}{2n^i}\right)}}=\int_0^1{\sin x\dx}=1-\cos1$$
         \item \textbf{Solution.}
             \begin{align*}
                 \lim_{x\to0}{\left(1+\tan^2 x\right)^{\frac{1}{\sin^2 x}}}
@@ -69,12 +72,83 @@
             有\begin{align*}
                 h^{(4)}(x)
                 &= \dfrac{1}{2}\left[\left(\dfrac{1}{x-1}\right)^{(4)}-\left(\dfrac{1}{x+1}\right)^{(4)}\right] \\
-                &= \dfrac{1}{2}\left[12\left(x-1\right)^{-5}-12\left(x+1\right)^{-5}\right] \\
-                &= \dfrac{6}{(x-1)^5}-\dfrac{6}{(x+1)^5}
+                &= \dfrac{1}{2}\left[4!\left(x-1\right)^{-5}-4!\left(x+1\right)^{-5}\right] \\
+                &= \dfrac{12}{(x-1)^5}-\dfrac{12}{(x+1)^5}
             \end{align*}
     \end{enumerate}
 \end{solution}
 \begin{problem}[3.(15\songti{分})]
     求不定积分$$\int{\dfrac{\dx}{\sqrt[3]{(x+1)(x-1)^5}}}$$
 \end{problem}
+\begin{solution}[Solution.]
+    置$\displaystyle t=\sqrt[3]{\dfrac{x+1}{x-1}}=\left(1+\dfrac{2}{x-1}\right)^{\frac{1}{3}}$,则
+    \begin{align*}
+        \dfrac{\di t}{\dx}
+        &= \dfrac{1}{3\left(1+\dfrac{2}{x-1}\right)^{\frac{2}{3}}}\cdot\left(-\dfrac{2}{(x-1)^2}\right) \\
+        &= -\dfrac{2}{3}(x+1)^{-\frac{2}{3}}(x-1)^{-\frac{4}{3}}
+    \end{align*}
+    从而$$t\di t=-\dfrac{2}{3}(x+1)^{-\frac{1}{3}}(x+1)^{-\frac{5}{3}}\dx$$
+    从而
+    \begin{align*}
+        \int{\dfrac{\dx}{\sqrt[3]{(x+1)(x-1)^5}}}
+        &= \int{-\dfrac{3}{2}t\di t} \\
+        &= -\dfrac{3}{4}t^2+C \\
+        &= -\dfrac{3}{4}\left(\dfrac{x+1}{x-1}\right)^{\frac{2}{3}}+C,C\text{为积分常数}
+    \end{align*}
+\end{solution}
+\begin{problem}[4.(15\songti{分})]
+    设$K$是曲线弧$y=\e^x\ (0\leqslant x\leqslant 1)$与直线$x=0,x=1,y=0$围成的曲边梯形绕$x$轴旋转一周形成的旋转体,求$K$的侧面积.
+\end{problem}
+\begin{solution}[Solution.]
+    由题意可得$\dfrac{\di y}{\dx}=\e^x=y$,则
+    \begin{align*}
+        S
+        &= 2\pi\int_0^1{y\sqrt{1+y'^2}\dx} \\
+        &= 2\pi\int_1^\e{\sqrt{1+y^2}\di y} \\
+    \end{align*}
+    而
+    \begin{align*}
+        \int{\sqrt{1+y^2}}\di y
+        &= y\sqrt{1+y^2}-\int y\di\sqrt{1+y^2} \\
+        &= y\sqrt{1+y^2}-\int\dfrac{y^2\di y}{\sqrt{1+y^2}} \\
+        &= y\sqrt{1+y^2}-\int{\sqrt{y^2+1}\di y}+\int\dfrac{\di y}{\sqrt{y^2+1}}
+    \end{align*}
+    从而
+    \begin{align*}
+        \int{\sqrt{1+y^2}}\di y
+        &= \dfrac{1}{2}\left(y\sqrt{y^2+1}+\int{\dfrac{\di y}{\sqrt{y^2+1}}}\right) \\
+        &= \dfrac{1}{2}\left(y\sqrt{y^2+1}+\ln\left|y+\sqrt{1+y^2}\right|\right)+C
+    \end{align*}
+    从而
+    \begin{align*}
+        S
+        &= \pi\left.\left(y\sqrt{y^2+1}+\ln\left|y+\sqrt{y^2+1}\right|\right)\right|_1^\e \\
+        &= \pi\left(\e\sqrt{1+\e^2}+\ln\left(\e+\sqrt{1+\e^2}\right)-\sqrt{2}-\ln2\right)
+    \end{align*}
+\end{solution}
+\begin{problem}[5.(10\songti{分})]
+    设$a,b,c\in\R$且$a,b,c>0$,$f:\R\to\R$在$\R$上连续,且$$f(0)=-a,\lim_{x\to-\infty}f(x)=b,\lim_{x\to+\infty}f(x)=c$$求证$f(x)=0$在$\R$上至少有两个不相等的实根$r_1,r_2$.
+\end{problem}
+\begin{solution}[Proof.]
+    由$\displaystyle\lim_{x\to-\infty}f(x)=b$可知
+    $$\forall\ep>0,\exists A\in\R\st\forall x<A,\left|f(x)-b\right|<\ep$$
+    取$\ep\in(0,b)$和对应的$A$,则$0<b-\ep<f(x)<b+\ep$.\\
+    从而$\exists x<0\st f(x)>0>f(0)=-a$.\\
+    根据连续函数的介值定理,必然$\exists\xi_1\in(-\infty,0)\st f(\xi_1)=0$.\\
+    同理亦可知$\exists\xi_2\in(0,+\infty)\st f(\xi_2)=0$.\\
+    从而原命题得证.
+\end{solution}
+\begin{problem}[6.(20\songti{分})]
+    设$$A(r)=\int_0^{2\pi}\ln(1-2r\cos x+r^2)\dx$$
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{(12\songti{分})}\ 试证明$\displaystyle\forall r\in(-1,1),A(r^2)=2A(r)$.
+        \item \textbf{(4\songti{分})}\ 试证明$A(r)$在$\left(-\dfrac{1}{2},\dfrac{1}{2}\right)$上有界.
+        \item \textbf{(4\songti{分})}\ 试计算$r\in(-1,1)$时$A(r)$的值.
+    \end{enumerate}
+\end{problem}
+\begin{solution}[Solution]
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{Proof.}\\
+    \end{enumerate}
+\end{solution}
 \end{document}
