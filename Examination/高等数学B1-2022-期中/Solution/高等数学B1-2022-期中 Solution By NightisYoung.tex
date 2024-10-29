@@ -12,7 +12,7 @@
 
 \begin{document}\pagestyle{empty}
 \begin{center}\Large
-    北京大学数学科学学院2023-24高等数学B1期中考试
+    北京大学数学科学学院2022-23高等数学B1期中考试
 \end{center}
 \begin{problem}[1.(20\songti{分})]
     \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
@@ -149,6 +149,43 @@
 \begin{solution}[Solution]
     \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
         \item \textbf{Proof.}\\
+            注意到$$1-2r\cos x+r^2=1+2r\cos(2\pi-x)+r^2$$
+            从而
+            $$\begin{aligned}
+                \int_0^{2\pi}\ln(1-2r\cos x+r^2)\dx
+                &= \int_{2\pi}^{0}\ln(1+2r\cos x+r^2)\di (2\pi-x) \\
+                &= \int_0^{2\pi}\ln(1+2r\cos x+r^2)\dx
+            \end{aligned}$$
+            从而
+            $$\begin{aligned}
+                2A(r)
+                &= \int_{0}^{2\pi}\left(\ln(1-2r\cos x+r^2)+\ln(1+2r\cos x+r^2)\right)\dx \\
+                &= \int_{0}^{2\pi}\ln(r^4+2r^2+1-4r^2\cos^2x)\dx \\
+                &= \int_{0}^{2\pi}\ln(1-2r^2\cos 2x+r^4)\dx \\
+            \end{aligned}$$
+            置$u=2x$,注意到$$1-2r^2\cos u+r^4=1-2r^2\cos (4\pi-u)+r^4$$
+            从而
+            $$\begin{aligned}
+                \int_{0}^{2\pi}\ln(1-2r^2\cos 2x+r^4)\dx
+                &= \dfrac{1}{2}\int_{0}^{4\pi}\ln(1-2r^2\cos u+r^4)\di u \\
+                &= \dfrac{1}{2}\left(\int_{0}^{2\pi}\ln(1-2r^2\cos u+r^4)\di u+\int_{2\pi}^{4\pi}\ln(1-2r^2\cos u+r^4)\di u\right) \\
+                &= \int_{0}^{2\pi}\ln(1-2r^2\cos u+r^4)\di u
+            \end{aligned}$$
+            从而原命题得证.
+        \item \textbf{Proof.}\\
+            不难发现$$1-2r\cos x+r^2=(1-r\cos x)^2+r^2(1-\cos^2 x)$$
+            当$r\in\left(-\dfrac{1}{2},\dfrac{1}{2}\right),x\in(0,2\pi)$时有
+            $$\dfrac{1}{2}<1-r\cos x<\dfrac{3}{2},0<r^2<\dfrac{1}{4},0\leqslant\cos^2x\leqslant 1$$
+            从而$$\dfrac{1}{4}<1-2r\cos x+r^2<\dfrac{5}{2}$$
+            即$$\int_0^{2\pi}\ln\dfrac{1}{4}\dx<\int_0^{2\pi}\ln(1-2r\cos x+r^2)\dx<\int_0^{2\pi}\ln\dfrac{5}{2}\dx$$
+            即$$-4\pi\ln2<A(r)<2\pi(\ln5-\ln2)$$
+            从而$A(r)$有界,原命题得证.
+        \item \textbf{Solution.}\\
+            对于任意$r\in(-1,1)$,重复应用\textbf{(1)}的结论有
+            $$A(r)=\dfrac{A\left(r^2\right)}{2}=\cdots=\dfrac{A\left(r^{2n}\right)}{2^n}$$
+            当$n$充分大时$r^{2n}\in\left(-\dfrac{1}{2},\dfrac{1}{2}\right)$,从而$A\left(r^{2n}\right)$有界.\\
+            对上式取极限有$$A(r)=\lim_{n\to\infty}\dfrac{A\left(r^{2n}\right)}{2^n}=0$$
+            从而$\forall r\in(-1,1),A(r)=0$.
     \end{enumerate}
 \end{solution}
 \end{document}

@@ -1,0 +1,196 @@
+\documentclass{ctexart}
+\usepackage{template}
+\begin{document}\pagestyle{empty}
+\begin{center}\large
+    不定积分练习
+\end{center}
+\begin{problem}[Problem 1.]
+    求不定积分$$\int{\dfrac{\sqrt{x^2-a^2}}{x}}\dx$$
+\end{problem}
+\begin{solution}[Solution(Method I).]
+    采取换元法.置$\dfrac{a}{x}=\sin t$,则
+    $$\dfrac{\dx}{\di t}=-a\cdot\dfrac{1}{\sin^2x}\cdot\cos x=-\dfrac{a\cos x}{\sin^2x}$$
+    从而
+    $$\begin{aligned}
+        \int{\dfrac{\sqrt{x^2-a^2}}{x}\dx}
+        &= \int{\dfrac{-a\cos^2t\di t}{\sin^2 t}} \\
+        &= -a\int\dfrac{1-\sin^2t}{\sin^2t}\di t \\
+        &= -a\left(\int{\dfrac{\di t}{\sin^2t}}-\int\di t\right) \\
+        &= -a\left(-\cot t-t\right)+C
+    \end{aligned}$$
+    当$x>a$时有$t\in\left(0,\dfrac{\pi}{2}\right)$,于是
+    $$\cot t=\sqrt{\dfrac{\cos^2t}{\sin^2t}}=\sqrt{\dfrac{1-\left(\dfrac{a}{x}\right)^2}{\left(\dfrac{a}{x}\right)^2}}=\dfrac{\sqrt{x^2-a^2}}{a}$$
+    当$x<-a$时亦可知$\cot t=-\dfrac{\sqrt{x^2-a^2}}{a}$.
+    于是
+    $$
+    \int{\dfrac{\sqrt{x^2-a^2}}{x}\dx}=
+        \left\{\begin{array}{l}
+            \sqrt{x^2-a^2}+a\arcsin\dfrac{a}{x}+C,x>a \\
+            -\sqrt{x^2-a^2}+a\arcsin\dfrac{a}{x}+C,x<-a \\
+        \end{array}\right.
+    $$
+\end{solution}
+\begin{solution}[Solution(Method II).]
+    采取换元法.置$\dfrac{a}{x}=\cos t$,则$\displaystyle\dfrac{\dx}{\di t}=\dfrac{a\sin t}{\cos^2t}$.
+    从而\\\ \\
+    $$\begin{aligned}
+        \int{\dfrac{\sqrt{x^2-a^2}}{x}\dx}
+        &= \int{\dfrac{a\sin^2t\di t}{\cos^2t}} \\
+        &= a\int{\dfrac{1-\cos^2t}{\cos^2t}\di t} \\
+        &= a\left(\int{\dfrac{\di t}{\cos^2t}}-\int{\di t}\right) \\
+        &= a\left(\tan t-t\right)+C
+    \end{aligned}$$
+    于是可以得到与\textbf{Method I}相似的结果.
+    $$
+    \int{\dfrac{\sqrt{x^2-a^2}}{x}\dx}=
+        \left\{\begin{array}{l}
+            \sqrt{x^2-a^2}-a\arccos\dfrac{a}{x}+C,x>a \\
+            -\sqrt{x^2-a^2}-a\arccos\dfrac{a}{x}+C,x<-a \\
+        \end{array}\right.
+    $$
+\end{solution}
+\begin{solution}[Solution(Method III).]
+    直接采取分部积分法.
+    $$\begin{aligned}
+        \int{\dfrac{\sqrt{x^2-a^2}}{x}\dx}
+        &= \sqrt{x^2-a^2}-\int x\di\left(\dfrac{\sqrt{x^2-a^2}}{x}\right) \\
+        &= \sqrt{x^2-a^2}-\int x\cdot\dfrac{x\cdot\dfrac{x}{\sqrt{x^2-a^2}}-\sqrt{x^2-a^2}}{x^2}\dx \\
+        &= \sqrt{x^2-a^2}-\int\dfrac{a^2x\dx}{x^2\sqrt{x^2-a^2}} \\
+        &= \sqrt{x^2-a^2}-\dfrac{a^2}{2}\int\dfrac{\dx^2}{x^2\sqrt{x^2-a^2}}
+    \end{aligned}$$
+    置$u=\sqrt{x^2-a^2}$,则
+    $$\begin{aligned}
+        \int\dfrac{\dx^2}{x^2\sqrt{x^2-a^2}}
+        &= \int\dfrac{\di u^2}{(u^2+a^2)u} \\
+        &= 2\int{\dfrac{\di u}{u^2+a^2}} \\
+        &= \dfrac{2}{a}\arctan{\dfrac{u}{a}}+C
+    \end{aligned}$$
+    从而$$\int{\dfrac{\sqrt{x^2-a^2}}{x}\dx}=\sqrt{x^2-a^2}-a\arctan\dfrac{\sqrt{x^2-a^2}}{a}+C$$
+\end{solution}
+\begin{problem}[Problem 2.]
+    求不定积分$$\int{\dfrac{\dx}{x^6\sqrt{1+x^2}}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    置$x=\tan t,t\in\left(0,\dfrac{\pi}{2}\right)$,从而$\dfrac{\dx}{\di t}=\dfrac{1}{\cos^2t}$.\\
+    从而
+    $$\begin{aligned}
+        \int{\dfrac{\dx}{x^6\sqrt{1+x^2}}}
+        &= \int{\dfrac{\di t}{\tan^6t\cdot\cos^2t\cdot\dfrac{1}{\cos t}}} \\
+        &= \int{\dfrac{\cos^5t}{\sin^6t}\di t}
+    \end{aligned}$$
+    置$u=\sin t$,则$u^2=\dfrac{\sin^2t}{\sin^2t+\cos^2t}=\dfrac{\tan^2t}{\tan^2t+1}=\dfrac{x^2}{x^2+1}$.\\
+    由于$x$与$u$同号,则$u=\dfrac{x}{\sqrt{1+x^2}}$.\\
+    于是
+    $$\begin{aligned}
+        \int{\dfrac{\cos^5t}{\sin^6t}\di t}
+        &= \int{\dfrac{\cos^4t\left(\cos t\di t\right)}{\sin^6t}} \\
+        &= \int{\dfrac{\left(1-u^2\right)^2\di u}{u^6}} \\
+        &= \int{\left(\dfrac{1}{u^6}-\dfrac{2}{u^4}+\dfrac{1}{u^2}\right)\di u} \\
+        &= -\dfrac{1}{5u^5}+\dfrac{2}{3u^3}-\dfrac{1}{u}+C \\
+        &= -\dfrac{\left(x^2+1\right)^\frac{5}{2}}{5x^5}+\dfrac{2\left(x^2+1\right)^\frac{3}{2}}{3x^3}-\dfrac{\left(x^2+1\right)^\frac{1}{2}}{x}+C
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[Problem 3.]
+    求不定积分$$\int{\dfrac{\dx}{\sqrt[3]{(x+1)(x-1)^5}}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    置$t=\sqrt[3]{\dfrac{x+1}{x-1}}$,则
+    $$\dfrac{\di t}{\dx}=\dfrac{1}{3}\left(\dfrac{x+1}{x-1}\right)^{-\frac{2}{3}}\dfrac{-2}{(x-1)^2}=-\dfrac{2}{3}\dfrac{1}{\sqrt[3]{(x+1)^2(x-1)^4}}$$
+    从而
+    $$\begin{aligned}
+        \int{\dfrac{\dx}{\sqrt[3]{(x+1)(x-1)^5}}}
+        &= -\dfrac{3}{2}\int t\di t \\
+        &= -\dfrac{3}{4}t^2+C \\
+        &= -\dfrac{3}{4}\left(\dfrac{x+1}{x-1}\right)^{\frac{2}{3}}+C
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[Problem 4.]
+    求不定积分$$\int\dfrac{x\arccos x}{\left(1-x^2\right)^2}\dx$$
+\end{problem}
+\begin{solution}[Solution(Method I).]
+    置$t=\arccos x$,则$x=\cos t$,从而$\dfrac{\dx}{\di t}=-\sin t$.置$u=\sin t$.\\
+    从而
+    $$\begin{aligned}
+        \int\dfrac{x\arccos x}{\left(1-x^2\right)^2}\dx
+        &= -\int{\dfrac{t\cos t\sin t\di t}{\sin^4t}} \\
+        &= -\int{\dfrac{t\di\left(\sin t\right)}{\sin^3t}}
+        = -\int{\dfrac{t\di u}{u^3}} \\
+        &= \dfrac{1}{2}\int{t\di\left(\dfrac{1}{u^2}\right)}
+        = \dfrac{1}{2}\left(\dfrac{t}{u^2}-\int{\dfrac{\di t}{u^2}}\right) \\
+        &= \dfrac{1}{2}\left(\dfrac{\arccos x}{1-x^2}-\int{\dfrac{\di t}{\sin^2 t}}\right) \\
+        &= \dfrac{1}{2}\left(\dfrac{\arccos x}{1-x^2}+\cot t\right)+C \\
+        &= \dfrac{1}{2}\left(\dfrac{\arccos x}{1-x^2}+\dfrac{x}{\sqrt{1-x^2}}\right)+C
+    \end{aligned}$$
+\end{solution}
+\begin{solution}[Solution(Method II).]
+    直接分部积分有
+    $$\begin{aligned}
+        \int\dfrac{x\arccos x}{\left(1-x^2\right)^2}\dx
+        &= \dfrac{1}{2}\int{\arccos{x}\di\left(\dfrac{1}{1-x^2}\right)} \\
+        &= \dfrac{1}{2}\left(\dfrac{\arccos{x}}{1-x^2}-\int\dfrac{\di\arccos{x}}{1-x^2}\right) \\
+        &= \dfrac{1}{2}\left(\dfrac{\arccos{x}}{1-x^2}+\int\dfrac{\dx}{\left(1-x^2\right)^\frac{3}{2}}\right) \\
+    \end{aligned}$$
+    置$x=\sin t$,则有
+    $$\int\dfrac{\dx}{\left(1-x^2\right)^\frac{3}{2}}=\int{\dfrac{\di\sin t}{\cos^3t}}=\int{\dfrac{\di t}{\cos^2t}}=\tan t+C=\dfrac{x}{\sqrt{1-x^2}}+C$$
+    于是$$\int\dfrac{x\arccos x}{\left(1-x^2\right)^2}\dx=\dfrac{1}{2}\left(\dfrac{\arccos x}{1-x^2}+\dfrac{x}{\sqrt{1-x^2}}\right)+C$$
+\end{solution}
+\begin{problem}[Problem 5.]
+    求不定积分$$\int{x\ln{\left(x+\sqrt{1+x^2}\right)}}\dx$$ 
+\end{problem}
+\begin{solution}[Solution.]
+    $$\begin{aligned}
+        \int{x\ln{\left(x+\sqrt{1+x^2}\right)}}\dx
+        &= x^2\ln{\left(x+\sqrt{1+x^2}\right)}-\int{x\di\left(x\ln{\left(x+\sqrt{1+x^2}\right)}\right)} \\
+        &= x^2\ln{\left(x+\sqrt{1+x^2}\right)}-\int{x\left(\ln{\left(x+\sqrt{1+x^2}\right)}+\dfrac{x\left(1+\dfrac{x}{\sqrt{1+x^2}}\right)}{x+\sqrt{1+x^2}}\right)\dx} \\
+        &= x^2\ln{\left(x+\sqrt{1+x^2}\right)}-\int{x\ln{\left(x+\sqrt{1+x^2}\right)}\dx}-\int{\dfrac{x^2\di x}{\sqrt{1+x^2}}}
+    \end{aligned}$$
+    而$$\int{\dfrac{x^2\dx}{\sqrt{1+x^2}}}=\int{x\di{\left(\sqrt{1+x^2}\right)}}=x\sqrt{1+x^2}-\int{\sqrt{1+x^2}\dx}$$
+    又$$\int{\dfrac{x^2\dx}{\sqrt{1+x^2}}}=\int{\dfrac{\left(x^2+1-1\right)\dx}{\sqrt{1+x^2}}}=\int{\sqrt{1+x^2}\dx}-\int{\dfrac{\dx}{\sqrt{1+x^2}}}$$
+    两式相加有$$2\int{\dfrac{x^2\dx}{\sqrt{1+x^2}}}=x\sqrt{1+x^2}-\int{\dfrac{\dx}{\sqrt{1+x^2}}}$$
+    从而$$\begin{aligned}
+        \int{x\ln{\left(x+\sqrt{1+x^2}\right)}}\dx
+        &= \dfrac{1}{2}\left(x^2\ln{\left(x+\sqrt{1+x^2}\right)}-\int{\dfrac{x^2\dx}{\sqrt{1+x^2}}}\right) \\
+        &= \dfrac{1}{2}x^2\ln{\left(x+\sqrt{1+x^2}\right)}-\dfrac{1}{4}x\sqrt{1+x^2}+\dfrac{1}{4}\int{\dfrac{\dx}{\sqrt{1+x^2}}} \\
+        &= \dfrac{1}{2}x^2\ln{\left(x+\sqrt{1+x^2}\right)}-\dfrac{1}{4}x\sqrt{1+x^2}+\dfrac{1}{4}\ln{\left(x+\sqrt{x^2+1}\right)}+C
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[Problem 6.]
+    求不定积分$$\int\dfrac{\e^{\arctan{x}}\dx}{\left(1+x^2\right)^\frac{3}{2}}$$
+\end{problem}
+\begin{solution}[Solution(Method I).]
+    注意到$\dfrac{\di\left(\e^{\arctan{x}}\right)}{\dx}=\dfrac{\e^{\arctan{x}}}{1+x^2}$,从而
+    $$\int\dfrac{\e^{\arctan{x}}\dx}{\left(1+x^2\right)^\frac{3}{2}}
+    =\int{\dfrac{\di\left(\e^{\arctan{x}}\right)}{\sqrt{1+x^2}}}
+    =\dfrac{\e^{\arctan{x}}}{\sqrt{1+x^2}}-\int{\dfrac{x\e^{\arctan{x}}\dx}{\left(1+x^2\right)^\frac{3}{2}}}$$
+    而
+    $$\int{\dfrac{x\e^{\arctan{x}}\dx}{\left(1+x^2\right)^\frac{3}{2}}}
+    =\int{\dfrac{x\di\left(\e^{\arctan{x}}\right)}{\sqrt{1+x^2}}}
+    =\dfrac{x\e^{\arctan{x}}}{\sqrt{1+x^2}}-\int{\dfrac{\e^{\arctan{x}}\dx}{\left(1+x^2\right)^\frac{3}{2}}}$$
+    两式相加可得
+    $$\int\dfrac{\e^{\arctan{x}}\dx}{\left(1+x^2\right)^\frac{3}{2}}
+    =\dfrac{\e^{\arctan{x}}(1+x)}{2\sqrt{1+x^2}}+C$$
+\end{solution}
+\begin{solution}[Solution(Method II).]
+    置$x=\tan t$,则
+    $$\begin{aligned}
+        \int\dfrac{\e^{\arctan{x}}\dx}{\left(1+x^2\right)^\frac{3}{2}}
+        &= \int{\cos^3t\e^t\di(\tan t)} \\
+        &= \int{\e^t\cos t\di t} \\
+        &= \int{\cos t\di\left(\e^t\right)} \\
+        &= \e^t\cos t+\int{\e^t\sin t\di t} \\
+        &= \e^t\cos t+\e^t\sin t-\int{\e^t\cos t\di t}
+    \end{aligned}$$
+    从而$$\begin{aligned}
+        \int\dfrac{\e^{\arctan{x}}\dx}{\left(1+x^2\right)^\frac{3}{2}}
+        &= \int{\e^t\cos t\di t} \\
+        &= \dfrac{1}{2}\left(\e^t\cos t+\e^t\sin t\right) \\
+        &= \dfrac{\e^{\arctan{x}}(1+x)}{2\sqrt{1+x^2}}+C
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[Problem 7.]
+    求不定积分$$\int{\dfrac{x\ln{x}}{\left(1+x^2\right)^2}\dx}$$
+\end{problem}
+\begin{solution}[Solution.]
+    
+\end{solution}
+\end{document}

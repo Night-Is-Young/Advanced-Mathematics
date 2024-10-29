@@ -1,0 +1,222 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2023-24高等数学A1期中考试
+\end{center}
+\begin{problem}[1.(20\songti{分})]
+    求下列各极限.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item $\displaystyle\lim_{n\to\infty}{\dfrac{3^n}{n!}}$
+        \item $\displaystyle\lim_{n\to\infty}{\sum_{i=1}^{n}{\dfrac{i}{(n+i)^3}}}$
+        \item $\displaystyle\lim_{x\to+\infty}{\sin\left(\left(\sqrt{x^2+x}-\sqrt{x^2-x}\right)\pi\right)}$
+        \item $\displaystyle\lim_{n\to\infty}\left[\dfrac{1}{n^2}\sum_{i=1}^{n}i\ln(n+i)-\dfrac{n+1}{2n}\ln{n}\right]$
+    \end{enumerate}
+\end{problem}
+\begin{solution}[Solution.]
+    \begin{enumerate}[leftmargin=*,label=\textbf{(\arabic*)}]
+        \item 当$n\geqslant6$时有
+            $$0<\dfrac{3^n}{n!}\leqslant\dfrac{3^5}{5!}\cdot\dfrac{3^{n-5}}{6^{n-5}}=\dfrac{6^5}{5!}\cdot\dfrac{1}{2^n}$$
+            而$$\lim_{n\to\infty}\left(\dfrac{6^5}{5!}\cdot\dfrac{1}{2^n}\right)=\dfrac{6^5}{5!}\cdot\lim_{n\to\infty}\dfrac{1}{2^n}=0$$
+            夹逼可得$$\lim_{n\to\infty}{\dfrac{3^n}{n!}}=0$$
+        \item 由题意$$0<\sum_{i=1}^{n}{\dfrac{i}{(n+i)^3}}<\sum_{i=1}^{n}{\dfrac{i}{n^3}}<\sum_{i=1}^{n}{\dfrac{n}{n^3}}=\dfrac{1}{n}$$
+            而$$\lim_{n\to\infty}{\dfrac{1}{n}}=0$$
+            夹逼可得$$\lim_{n\to\infty}{\sum_{i=1}^{n}{\dfrac{i}{(n+i)^3}}}=0$$
+        \item 
+            $$\begin{aligned}
+                \lim_{x\to+\infty}{\sin\left(\left(\sqrt{x^2+x}-\sqrt{x^2-x}\right)\pi\right)}
+                &= \lim_{x\to+\infty}{\sin\left(\dfrac{2x}{\sqrt{x^2+x}+\sqrt{x^2-x}}\pi\right)} \\
+                &= \lim_{x\to+\infty}{\sin\left(\dfrac{2}{\sqrt{1+\dfrac{1}{x}}+\sqrt{1-\dfrac{1}{x}}}\pi\right)} \\
+                &= \sin\pi \\
+                &= 0
+            \end{aligned}$$
+        \item 由题意有
+            $$\begin{aligned}
+                \dfrac{1}{n^2}\sum_{i=1}^{n}i\ln(n+i)-\dfrac{n+1}{2n}\ln{n}
+                &= \dfrac{1}{n^2}\sum_{i=1}^{n}i\ln(n+i)-\dfrac{1}{n^2}\sum_{i=1}^{n}i\ln{n} \\
+                &= \dfrac{1}{n^2}\sum_{i=1}^{n}{i\ln{\left(\dfrac{n+i}{n}\right)}} \\
+                &= \dfrac{1}{n}\sum_{i=1}^{n}{\dfrac{i}{n}\ln\left(1+\dfrac{i}{n}\right)}
+            \end{aligned}$$
+            根据Riemann积分的定义有
+            $$\begin{aligned}
+                \lim_{n\to\infty}{\dfrac{1}{n}\sum_{i=1}^{n}{\dfrac{i}{n}\ln\left(1+\dfrac{i}{n}\right)}}
+                &= \int_0^1x{\ln(1+x)\dx} \\
+                &= \int_1^2(x-1){\ln x\dx} \\
+                &= \left.\left(\dfrac{x^2}{2}\ln x-x\ln x-\dfrac{x^2}{4}+x\right)\right|_1^2 \\
+                &= \dfrac{1}{4}
+            \end{aligned}$$
+            从而$$\lim_{n\to\infty}\left[\dfrac{1}{n^2}\sum_{i=1}^{n}i\ln(n+i)-\dfrac{n+1}{2n}\ln{n}\right]=\dfrac{1}{4}$$
+    \end{enumerate}
+\end{solution}
+\begin{problem}[2.(20\songti{分})]
+    计算下列各题并适当化简.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item 设$y=x\sqrt{1+x^2}+\ln{\left(x+\sqrt{1+x^2}\right)}$,求$\dfrac{\di y}{\dx}$.
+        \item 设
+            $$y=\left\{
+                \begin{array}{l}
+                    x^4\sin{\dfrac{1}{x}},\ x\neq 0 \\
+                    0,\ x=0
+                \end{array}
+                \right.$$
+            求$\dfrac{\di^2 y}{\dx^2}$.
+        \item 设$\displaystyle y=\int_{\cot x}^{\tan x}\sqrt{1+t^2}\di t$,求$\dfrac{\di y}{\dx}$.
+        \item 设$F(x)=f(x)-f''(x)+f^{(4)}(x)-\cdots+(-1)^{n}f^{(2n)}(x)$,其中$f(x)=x^n(1-x)^n$,
+            \\求$\dfrac{\di}{\dx}\left(F'(x)\sin x-F(x)\cos x\right)$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}[Solution.]
+    \begin{enumerate}[leftmargin=*,label=\textbf{(\arabic*)}]
+        \item $\displaystyle\dfrac{\di y}{\dx}
+            =\sqrt{1+x^2}+\dfrac{x^2}{\sqrt{1+x^2}}+\dfrac{1}{x+\sqrt{1+x^2}}\cdot\left(1+\dfrac{x}{\sqrt{1+x^2}}\right)
+            =2\sqrt{1+x^2}$
+        \item 当$x\neq0$时有
+            $$\dfrac{\di y}{\dx}=4x^3\sin{\dfrac{1}{x}}+x^4\cos\dfrac{1}{x}\cdot\left(-\dfrac{1}{x^2}\right)=4x^3\sin{\dfrac{1}{x}}-x^2\cos{\dfrac{1}{x}}$$
+            $$\dfrac{\di^2y}{\dx^2}=12x^2\sin\dfrac{1}{x}-4x\cos\dfrac{1}{x}-2x\cos\dfrac{1}{x}+\sin\dfrac{1}{x}=\dfrac{\di^2y}{\dx^2}=12x^2\sin\dfrac{1}{x}-6x\cos\dfrac{1}{x}+\sin\dfrac{1}{x}$$
+            而$$\lim_{x\to 0}{\dfrac{4x^3\sin{\dfrac{1}{x}}-x^2\cos{\dfrac{1}{x}}-0}{x-0}}=\lim_{x\to0}\left(4x^2\sin{\dfrac{1}{x}}-x\cos\dfrac{1}{x}\right)=0$$
+            从而
+            $$\dfrac{\di^2 y}{\dx^2}=\left\{
+            \begin{array}{l}
+                12x^2\sin\dfrac{1}{x}-6x\cos\dfrac{1}{x}+\sin\dfrac{1}{x},\ x\neq 0 \\
+                0,\ x=0
+            \end{array}
+            \right.$$
+        \item 由题意$$y=\int_{\cot x}^{\tan x}\sqrt{1+t^2}\di t=\int_{0}^{\tan x}\sqrt{1+t^2}\di t-\int_{0}^{\cot x}\sqrt{1+t^2}\di t$$
+            从而$$\dfrac{\di y}{\dx}=\dfrac{\sqrt{1+\tan^2x}}{\cos^2x}+\dfrac{\sqrt{1+\cot^2x}}{\sin^2x}=\dfrac{1}{\left|\cos^3x\right|}+\dfrac{1}{\left|\sin^3x\right|}$$
+        \item 由题意$$F''(x)=f''(x)-f^{(4)}(x)+\cdots+(-1)^{2n+2}f^{(2n+2)}(x)$$
+            从而$$F(x)+F''(x)=f(x)+(-1)^{2n+2}f^{(2n+2)}(x)$$
+            而$$\dfrac{\di}{\dx}\left(F'(x)\sin x-F(x)\cos x\right)=(F(x)+F''(x))\sin x$$
+            而$f(x)=x^n(1-x)^n$为$2n$次多项式,从而$f^{(2n+2)}(x)=0$.\\
+            故$$\dfrac{\di}{\dx}\left(F'(x)\sin x-F(x)\cos x\right)=x^n(1-x)^n\sin x$$
+    \end{enumerate}
+\end{solution}
+\begin{problem}[3.(15\songti{分})]
+    计算下列不定积分.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item $\displaystyle\int\sqrt{1+x^2}\dx$
+            \item $\displaystyle\int\dfrac{\arctan \e^x}{\e^x+\e^{-x}}\dx$
+            \item 设$y=y(x)$是由方程$y^2(x-y)=x^2$确定的隐函数,求$\displaystyle\int{\dfrac{\dx}{y^2}}$.
+        \end{enumerate}
+\end{problem}
+\begin{solution}[Solution]
+    \begin{enumerate}[leftmargin=*,label=\textbf{(\arabic*)}]
+        \item 置$\displaystyle I=\int\sqrt{1+x^2}\dx$,则
+            $$\begin{aligned}
+                I
+                &= \int\sqrt{1+x^2}\dx \\
+                &= x\sqrt{1+x^2}-\int x\di\left(\sqrt{1+x^2}\right) \\
+                &= x\sqrt{1+x^2}-\int\dfrac{x^2+1-1}{\sqrt{1+x^2}}\dx \\
+                &= x\sqrt{1+x^2}+\int\dfrac{\dx}{\sqrt{1+x^2}}-I
+            \end{aligned}$$
+            从而
+            $$\int\sqrt{1+x^2}\dx=\dfrac{1}{2}\left(x\sqrt{1+x^2}+\int\dfrac{\dx}{\sqrt{1+x^2}}\right)=\dfrac{x}{2}\sqrt{x^2+1}+\dfrac{1}{2}\ln\left(x+\sqrt{1+x^2}\right)+C$$
+        \item 置$u=\e^x$,则$\dfrac{\di u}{\dx}=\e^x=u$.于是
+            $$\begin{aligned}
+                \int\dfrac{\arctan \e^x}{\e^x+\e^{-x}}\dx
+                &= \int\dfrac{\arctan u}{u\left(u+u^{-1}\right)}\di u \\
+                &= \int\dfrac{\arctan u}{u^2+1}\di u \\
+                &= \int{\arctan u\di\left(\arctan u\right)} \\
+                &= \dfrac{1}{2}\left(\arctan\e^x\right)^2+C
+            \end{aligned}$$
+        \item 置$t=\dfrac{x}{y}$,于是$x=\dfrac{t^3}{t-1},y=\dfrac{t^2}{t-1},\dfrac{\dx}{\di t}=\dfrac{3t^2(t-1)-t^3}{(t-1)^2}=\dfrac{2t^3-3t^2}{(t-1)^2}$
+            则$$\begin{aligned}
+                \int\dfrac{\dx}{y^2}
+                &= \int{\dfrac{(t-1)^2}{t^4}\cdot\dfrac{2t^3-3t^2}{(t-1)^2}\di t} \\
+                &= \int{\left(\dfrac{2}{t}-\dfrac{3}{t^2}\right)\di t} \\
+                &= 2ln\left|t\right|+\dfrac{3}{t}+C \\
+                &= 2ln\left|x\right|-2ln\left|y\right|+\dfrac{3x}{y}+C
+            \end{aligned}$$
+    \end{enumerate}
+\end{solution}
+\begin{problem}[4.(10\songti{分})]
+    试确定实数$a,b$使得函数$$f(x)=\lim_{n\to\infty}{\dfrac{x^{2n-1}+ax^2+bx}{x^{2n}+1}}$$成为$\R$上的连续函数.
+\end{problem}
+\begin{solution}[Solution.]
+    当$\left|x\right|>1$时,有$$f(x)=\lim_{n\to\infty}{\dfrac{x^{2n-1}+ax^2+bx}{x^{2n}+1}}=\lim_{n\to\infty}\left(\dfrac{1}{x+\dfrac{1}{x^{2n-1}}}+\dfrac{a}{x^{2n-2}+\dfrac{1}{x^2}}+\dfrac{b}{x^{2n-1}+\dfrac{1}{x}}\right)=\dfrac{1}{x}$$
+    当$\left|x\right|<1$时,有$$f(x)=\lim_{n\to\infty}{\dfrac{x^{2n-1}+ax^2+bx}{x^{2n}+1}}=ax^2+bx$$
+    故$f(x)$在$x=1$处的左右极限分别为$$\lim_{x\to1^+}=1,\lim_{x\to1^-}=a+b$$
+    在$x=-1$处的左右极限分别为$$\lim_{x\to-1^-}=-1,\lim_{x\to-1^+}=a-b$$
+    由于$f(x)$在$\R$上连续,则有
+    $$\left\{\begin{array}{l}
+        a+b=1 \\
+        a-b=-1
+    \end{array}
+    \right.$$
+    从而$a=0,b=1$.此时$f(1)=1,f(-1)=-1$,成立.
+\end{solution}
+\begin{problem}[5.(15\songti{分})]
+    计算下列定积分.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item $\displaystyle\int_0^1\dfrac{\sqrt{x}}{1+\sqrt{x}}\dx$
+        \item $\displaystyle\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\dfrac{\sin^2x}{1+\e^x}\dx$
+        \item $\displaystyle\int_{0}^{\pi}\left(\int_{0}^{x}\dfrac{\sin t}{\pi-t}\di t\right)\dx$
+    \end{enumerate}
+\end{problem}
+\begin{solution}[Solution.]
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item 置$t=\sqrt{x}$,则$\dfrac{\di t}{\dx}=\dfrac{1}{2\sqrt{x}}=\dfrac{1}{2t}$.于是
+            $$\int_0^1\dfrac{\sqrt{x}}{1+\sqrt{x}}\dx=2\int_0^1\dfrac{t^2\di t}{1+t}=2\left(\int_0^1(t-1)\di t+\int_0^1\dfrac{\di t}{1+t}\right)=2\ln2-1$$
+        \item 置$t=-x$,于是\\
+            $$\begin{aligned}
+                \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\dfrac{\sin^2x}{1+\e^x}\dx
+                &= \int_{-\frac{\pi}{2}}^{0}\dfrac{\sin^2x}{1+\e^x}\dx+\int_{0}^{\frac{\pi}{2}}\dfrac{\sin^2x}{1+\e^x}\dx \\
+                &= \int_{0}^{\frac{\pi}{2}}\dfrac{\sin^2t}{1+\e^{-t}}\di t+\int_{0}^{\frac{\pi}{2}}\dfrac{\sin^2x}{1+\e^x}\dx \\
+                &= \int_{0}^{\frac{\pi}{2}}\left(\dfrac{\sin^2x}{1+\e^x}-\dfrac{\sin^2x}{1+\e^{-x}}\right)\dx \\
+                &= \int_{0}^{\frac{\pi}{2}}\sin^2x\dx \\
+                &= \dfrac{\pi}{4}
+            \end{aligned}$$
+        \item 置$\displaystyle f(x)=\int_0^x\dfrac{\sin t}{\pi-t}\di t$,则
+            $$\begin{aligned}
+                \int_{0}^{\pi}\left(\int_{0}^{x}\dfrac{\sin t}{\pi-t}\di t\right)\dx
+                &= \int_{0}^{\pi}f(x)\dx \\
+                &= \left.xf(x)\right|_0^{\pi}-\int_0^\pi xf'(x)\dx \\
+                &= \pi\int_0^\pi\dfrac{\sin t}{\pi-t}\di t-\int_0^\pi\dfrac{x\sin x}{\pi-x} \\
+                &= \int_0^\pi\dfrac{(\pi-x)\sin x}{\pi-x}\dx \\
+                &= \int_0^\pi\sin x\dx \\
+                &= 2
+            \end{aligned}$$
+    \end{enumerate}
+\end{solution}
+\begin{problem}[6.(10\songti{分})]
+    设$f(x)$在$[0,1]$上Riemann可积,求$$\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}(-1)^{i-1}f\left(\dfrac{i}{n}\right)$$
+\end{problem}
+\begin{solution}[Solution.]
+    我们有
+    $$\begin{aligned}
+        \dfrac{1}{n}\sum_{i=1}^{n}(-1)^{i-1}f\left(\dfrac{i}{n}\right)
+        &= \dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i-1}{n}\right)-\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right)
+    \end{aligned}$$
+    根据Riemann积分的定义有
+    $$\int_0^1f(x)\dx=\lim_{n\to\infty}\dfrac{1}{m}\sum_{i=1}^{m}f\left(\dfrac{i}{m}\right)=\lim_{n\to\infty}{\dfrac{2}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right)}$$
+    于是
+    $$\begin{aligned}
+        \lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}(-1)^{i-1}f\left(\dfrac{i}{n}\right)
+        &= \lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i-1}{n}\right)-\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right) \\
+        &= \lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i-1}{n}\right)+\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right)-2\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right) \\
+        &= \lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}f\left(\dfrac{i}{n}\right)-\lim_{n\to\infty}\dfrac{2}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right) \\
+        &= \int_0^1f(x)\dx-\int_0^1f(x)\dx \\
+        &= 0
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[7.(10\songti{分})]
+    设$f(x)$在$[0,+\infty)$上连续,$f(0)=0$,且$\forall x>0,0<f(x)<x$.
+    令$$a_1=f(1),a_2=f(a_1),\cdots,a_n=f(a_{n-1}),n=2,3,\cdots$$
+    证明:$\displaystyle\lim_{n\to\infty}a_n=0$.
+\end{problem}
+\begin{solution}[Proof.]
+    由$\forall x>0,0<f(x)<x$有$\forall n\in\N^*,0<a_{n+1}=f(a_n)<a_n$.\\
+    即$\left\{a_n\right\}$单调递减且有下界$0$.不妨设$\displaystyle\lim_{n\to\infty}{a_n}=A$.\\
+    由$f(x)$在$[0,+\infty)$连续,对递推式求极限有$$A=\lim_{n\to\infty}f\left(a_{n-1}\right)=\lim_{n\to\infty}f\left(a_n\right)=f(A)$$
+    由题意可知当且仅当$x=0$时$f(x)=x$.于是$A=0$,即$\displaystyle\lim_{n\to\infty}a_n=0$,原命题得证.
+\end{solution}
+\end{document}

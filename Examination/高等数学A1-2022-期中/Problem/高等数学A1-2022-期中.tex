@@ -1,0 +1,68 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\di}{\mathrm{d}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\st}{,\text{s.t.}}
+\newcommand{\dx}{\di x}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2022-23高等数学A1期中考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(5\songti{分})}\ 回答下列问题.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item 有理数的有理数次幂是否一定是有理数?
+            \item 无理数的无理数次幂是否一定是无理数?
+        \end{enumerate}
+    \item \textbf{(15\songti{分})}\ 计算下列函数极限.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item $\displaystyle\lim_{x\to+\infty}\dfrac{\sqrt{x+2\sqrt{x+2\sqrt{x}}}}{\sqrt{x+4}}$
+            \item $\displaystyle\lim_{x\to1}(\dfrac{1}{x-1}-\dfrac{2}{x^2-1}+\dfrac{3}{x^3-1}-\dfrac{4}{x^4-1})$
+            \item $\displaystyle\lim_{x\to+\infty}(2021\sqrt{x+2021}+2023\sqrt{x+2023}-2\cdot2022\sqrt{x+2022})$
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 解下列微分方程.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item 已知函数$f(x)$满足$$f'(x)=1+e^{-x}$$求$f(x)$.
+            \item 已知函数$g(x)$满足$$g(x)+g'(x)=1+e^{-x}$$求$g(x)$.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}
+        是否存在实数序列$\left\{a_n\right\}$满足$\displaystyle\lim_{n\to\infty}a_n=1,\lim_{n\to\infty}a_n^n=1.001$?说明理由.
+    \item \textbf{(10\songti{分})}
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item 求函数$$f(x)=(x^2+2x+2)\e^{-x}$$的$n$阶导函数$f^{(n)}(x)$.
+            \item 求函数$$g(x)=\int_{\cot x}^{\tan x}\sqrt{1+t^2}\di t$$的导函数$g'(x)$.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 已知函数$f(x):[a,b]\to\R$.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item 若$f(x)$在$x=x_0$处可导,试证明:$f(x)$在$x=x_0$的一个邻域$(x_0-\delta,x_0+\delta)$连续.
+            \item 若$f(x)$在$x=x_0$处二阶可导,试证明:$f(x)$在$x=x_0$的一个邻域$(x_0-\delta,x_0+\delta)$连续.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 已知函数$f(x):[a,b]\to\R$在$[a,b]$上连续且Riemann可积.记$\displaystyle F(x)=\int_a^x{f(x)\dx}$.试证明:
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item $F(x)$在$[a,b]$上连续.
+            \item $F(x)$在$[a,b]$上可导,且$\forall x\in(a,b),F'(x)=f(x)$.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 序列$\left\{a_n\right\}$满足
+        $$a_1=\sqrt{2},a_2=\sqrt{2}^{a_1},\cdots,a_{n+1}=\sqrt{2}^{a_n}$$
+        判断$\displaystyle\lim_{n\to\infty}a_n$是否存在.若存在,请求出其值;若不存在,说明理由.
+    \item \textbf{(10\songti{分})}\ 求序列$\left\{\xi_n\right\}$满足
+        \begin{enumerate}[label=\textbf{(\alph*)}]
+            \item $\displaystyle\lim_{n\to\infty}\left(\xi_n-\e^n\right)=0$.
+            \item 命$f(x)=x\ln x$,$\displaystyle\lim_{n\to\infty}{\left(f(\xi_n)-f(\e^n)\right)}\neq0$.
+        \end{enumerate}
+\end{enumerate}
+\end{document}

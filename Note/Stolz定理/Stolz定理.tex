@@ -78,7 +78,7 @@
 \end{solution}\noindent
 上述命题告诉我们,有关\textbf{\songti 求平均}的序列极限问题都可以尝试着使用Stolz定理简化计算.\\
 下面我们再来看一些有关的例题.
-\begin{problem}[例1(24.10.09 SJTU数分小测).]
+\begin{problem}[Problem 1(24.10.09 SJTU数分小测).]
     正项数列$\left\{ x_n\right\}$满足$\displaystyle\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_i}}{n}}=a,a\in\mathbb{R}$.\\
     \textbf{试证明:}$\displaystyle\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_i^2}}{n^2}}=0$.
 \end{problem}
@@ -94,7 +94,7 @@
     依Stolz定理$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{\dfrac{x_i^2}{i}}}{\sum_{i=1}^{n}{x_i}}}=\lim_{n\to\infty}{\dfrac{\dfrac{x_n^2}{n}}{x_n}}=\lim_{n\to\infty}{\dfrac{x_n}{n}}=0$$
     依夹逼准则$\displaystyle\lim_{n\to\infty}{\dfrac{\sum_{i=1}^{n}{x_i^2}}{n^2}}=0$,证毕.\\
 \end{solution}
-\begin{problem}[例2.]
+\begin{problem}[Problem 2.]
     求序列极限$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^k}}{n^{k+1}}}$$
 \end{problem}
 \begin{solution}[Solution (Method I).]
@@ -102,5 +102,16 @@
 \end{solution}
 \begin{solution}[Solution (Method II).]
     依Stolz定理有$$\lim_{n\to\infty}{\dfrac{\sum_{i=1}^n{i^k}}{n^{k+1}}}=\lim_{n\to\infty}{\dfrac{(n+1)^k}{(n+1)^{k+1}-n^{k+1}}}=\lim_{n\to\infty}{\dfrac{(n+1)^k}{(k+1)(n+1)^k+\cdots}}=\dfrac{1}{k+1}$$
+\end{solution}
+\begin{problem}[Problem 3.]
+    数列$\left\{a_n\right\}$满足$0<a_1<1,a_{n+1}=a_n(1-a_n)$.试证明:$\displaystyle\lim_{n\to\infty}na_n=1.$
+\end{problem}
+\begin{solution}[Proof.]
+    由题意得$\dfrac{a_{n+1}}{a_n}=1-a_n<1$,又$a_n>0$,从而$\left\{a_n\right\}$递减且有下界.\\
+    设$\displaystyle\lim_{n\to\infty}a_n=A<1$.对递推式两端取极限有$$A=A(1-A)$$
+    解得$A=0$.从而
+    $$\lim_{n\to\infty}\dfrac{a_{n+1}}{a_n}=\lim_{n\to\infty}(1-a_n)=1-A=1$$
+    依Stolz定理有
+    $$\lim_{n\to\infty}{na_n}=\lim_{n\to\infty}\dfrac{(n+1)-n}{\dfrac{1}{a_{n+1}}-\dfrac{1}{a_n}}=\lim_{n\to\infty}\dfrac{a_na_{n+1}}{a_n-a_{n+1}}=\lim_{n\to\infty}\dfrac{a_{n+1}}{a_n}=1$$
 \end{solution}
 \end{document}
