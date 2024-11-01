@@ -1,0 +1,160 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2021-22高等数学B1期中考试
+\end{center}
+\begin{problem}[1.(15\songti{分})]
+    导数类基本计算题.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{(5\songti{分})}\ 求函数$$f(x)=x^{\arcsin x},0<x<1$$的导函数$f'(x)$.
+        \item \textbf{(5\songti{分})}\ 求函数$$f(x)=\int_{\e}^{\e^x}\dfrac{\di t}{1+\ln t}$$的导函数$f'(x)$.
+        \item \textbf{(5\songti{分})}\ 求函数$$f(x)=\arctan x$$在$x=0$处的三阶导数$f^{(3)}(0)$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Solution.}\\
+            置$y=\ln f(x)$,于是
+            $$\begin{aligned}
+                f'(x)
+                &= \dfrac{\di f(x)}{\di y}\cdot\dfrac{\di y}{\dx} \\
+                &= \dfrac{\di\left(\e^y\right)}{\di y}\cdot\dfrac{\di\left(\arcsin x\ln x\right)}{\dx} \\
+                &= \e^y\cdot\left(\dfrac{\ln x}{\sqrt{1+x^2}}+\dfrac{\arcsin x}{x}\right) \\
+                &= \dfrac{x^{\arcsin x}\left(x\ln x+\sqrt{1+x^2}\arcsin x\right)}{x\sqrt{1+x^2}}
+            \end{aligned}$$
+        \item \textbf{Solution.}\\
+            由微积分基本定理有$$f'(x)=\dfrac{\di\left(\e^x\right)}{\dx}\cdot\dfrac{1}{1+\ln\e^x}=\dfrac{\e^x}{1+x}$$
+        \item \textbf{Solution(Method I).}\\
+            我们有$$f'(x)=\dfrac{1}{1+x^2}$$
+            $$f''(x)=-\dfrac{2x}{(x^2+1)^2}$$
+            $$f^{(3)}(x)=-\left(\dfrac{2(x^2-1)^2-2x(4x^3-4x)}{(x^2-1)^4}\right)=\dfrac{6x^4-4x^2-2}{(x^2-1)^4}$$
+            于是$f^{(3)}(0)=-2$.\\
+            \textbf{Solution(Method II).}\\
+            置$y=f(x)$,由$y'=\dfrac{1}{1+x^2}$有$(x^2+1)y'=1,y'|_{x=0}=1$.
+            对上式求导有$$y''(x^2+1)+2xy'=0$$
+            再次求导有$$y'''(x^2+1)+2xy''+2y'+2xy''=0$$
+            代入$x=0,y'|_{x=0}=0$有$f^{(3)}(0)=-2$.
+    \end{enumerate}
+\end{solution}
+\begin{problem}[3.(15\songti{分})]
+    积分类基本计算题.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{(5\songti{分})}\ 求定积分$$\int_{0}^{\frac{\pi}{2}}{\dfrac{\sin x\cos x}{1+\sin^2x}\dx}$$
+        \item \textbf{(5\songti{分})}\ 求欧氏平面直角坐标系中曲线$y=\dfrac{1}{2}x^2$从$(0,0)$到$\left(1,\dfrac{1}{2}\right)$的弧长.
+        \item \textbf{(5\songti{分})}\ 设奇数$n\geqslant3$,求极坐标系$(r,\theta)$中曲线$r=\sin(n\theta),0\leqslant\theta\leqslant2\pi$围成的封闭图形的面积.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Solution.}\\
+            置$t=\sin x$,于是
+            $$\int_{0}^{\frac{\pi}{2}}{\dfrac{\sin x\cos x}{1+\sin^2x}\dx}=\int_0^1\dfrac{t\di t}{1+t^2}=\dfrac{1}{2}\int_0^1\dfrac{\di\left(t^2\right)}{1+t^2}=\left.\left(\dfrac{1}{2}\ln{(x+1)}\right)\right|_0^1=\dfrac{\ln2}{2}$$
+        \item \textbf{Solution.}\\
+            由题意$y'=x$,于是
+            $$s=\int_0^1\sqrt{1+y'^2}\dx=\int_0^1\sqrt{1+x^2}\dx=\left.\left(\dfrac{x}{2}\sqrt{x^2+1}+\dfrac{1}{2}\ln\left(x+\sqrt{1+x^2}\right)\right)\right|_0^1=\dfrac{\sqrt{2}+\ln\left(1+\sqrt{2}\right)}{2}$$
+        \item \textbf{Solution.}\\
+            置$\varphi=n\theta$,用平面下极坐标公式可得
+            $$S=2n\cdot\dfrac{1}{2}\int_{0}^{\frac{\pi}{2n}}\sin^2(n\theta)\di\theta=\int_{0}^{\frac{\pi}{2}}\sin\varphi\di\varphi=\left.\left(\dfrac{\varphi}{2}-\dfrac{\sin2\varphi}{4}\right)\right|_0^{\frac{\pi}{2}}=\dfrac{\pi}{4}$$
+    \end{enumerate}
+\end{solution}
+\begin{problem}[3.(15\songti{分})]
+    序列$\left\{x_n\right\}$满足
+    $$x_1>0,x_{n+1}=\dfrac{1}{2}\left(x_n+\dfrac{1}{x_n}\right)$$
+    试证明$\displaystyle\lim_{n\to\infty}x_n$存在,并求出其值.
+\end{problem}
+\begin{solution}[Proof.]
+    若$x_1=1$,则$\forall n\in\N^*,x_n=1$,于是$\displaystyle\lim_{n\to\infty}x_n=1$.\\
+    若$x_1\neq1$,则根据基本不等式,$\forall n\in\N^*$有$$x_{n+1}=\dfrac{1}{2}\left(x_n+\dfrac{1}{x_n}\right)>\dfrac{1}{2}\cdot2\sqrt{x_n\cdot\dfrac{1}{x_n}}=1$$
+    于是$\forall n\geqslant2,x_n>1$.则
+    $$x_{n+1}-x_n=\dfrac{1}{2}\left(\dfrac{1}{x_n}-x_n\right)<0$$
+    即$\left\{x_n\right\}_{n=2}^{\infty}$递减且有下界$1$.设$\displaystyle\lim_{n\to\infty}x_n=a\geqslant1$.对递推式两边求极限有
+    $$a=\dfrac{1}{2}\left(a+\dfrac{1}{a}\right)$$
+    解得$a=1$.于是$\displaystyle\lim_{n\to\infty}x_n=1$.
+\end{solution}
+\begin{problem}[4.(20\songti{分})]
+    设$x>0$,定义$$p(x)=\int_0^x\dfrac{\di t}{\sqrt{t^3+2021}}$$
+    试证明:方程$p(x+1)=p(x)+\sin x$有无穷多个正实数解.
+\end{problem}
+\begin{solution}[Proof.]
+    记$$P(x)=p(x+1)-p(x)=\int_x^{x+1}\dfrac{\di t}{\sqrt{t^3+2021}}$$
+    注意到$t>0$时有$$0<\dfrac{1}{\sqrt{t^3+2021}}<\dfrac{1}{\sqrt{2021}}<\dfrac{1}{2}$$
+    于是$$0<P(x)<\int_x^{x+1}\dfrac{\di t}{2}=\dfrac{1}{2}$$
+    根据定积分的定义可知$P(x)$在定义域上连续.\\
+    记$F(x)=P(x)-\sin x$,于是$F(x)$在$(0,+\infty)$连续.\\
+    注意到对于任意$k\in\N^*$有
+    $$F\left(2k\pi+\dfrac{\pi}{2}\right)=P\left(2k\pi+\dfrac{\pi}{2}\right)-1<-\dfrac{1}{2}$$
+    $$F\left(2k\pi+\dfrac{3\pi}{2}\right)=P\left(2k\pi+\dfrac{3\pi}{2}\right)+1>1$$
+    于是根据连续函数的介值定理,$\exists x_0\in\left(2k\pi+\dfrac{\pi}{2},2k\pi+\dfrac{3\pi}{2}\right)\st F(x_0)=0$,此时$x_0$即为原方程的根.\\
+    又因为这样的区间有无穷多个,于是原方程有无穷多个正实数解.证毕.
+\end{solution}
+\begin{problem}[5.(15\songti{分})]
+    证明:对于任意定义在$[0,1]$上的连续函数$f(x)$有$$\lim_{n\to\infty}\int_0^1f(x)\sin(nx)\dx=0$$
+\end{problem}
+\begin{analyze}[Analysis]
+    对于$[0,1]$上的一个分割$0=x_0<x_1<\cdots<x_n=1$和每个区间$(x_{i-1},x_{i})$上的取样点$\xi_i$,记$\lambda=\max\Delta x_i$.\\
+    根据Riemann积分的定义,我们可以得知
+    $$\int_0^1f(x)\dx=\lim_{\lambda\to0^+}\sum_{i=1}^{n}f(\xi_i)\Delta x_i$$
+    这告诉我们将$f(x)$看作各段上的常值函数后求和来求极限是可行的.\\
+    而对于一个常值$f(\xi_i)$,不难得知$$\lim_{n\to\infty}\int_{x_{i-1}}^{x_i}f(\xi_i)\sin(nx)=0$$
+    于是我们只需要证明在看作常值之后剩余的误差项也趋于$0$即可.\\
+    实际上,本题即我们所说的Riemann引理.
+\end{analyze}
+\begin{solution}[Proof.]
+    由$f(x)$在$[0,1]$连续可得$f(x)$在$\left[\dfrac{j}{k},\dfrac{j+1}{k}\right]$上也连续,其中$k,j\in\N^*,0\leqslant j<m$.\\
+    记$f(x)$在$\left[\dfrac{j}{k},\dfrac{j+1}{k}\right]$的上下界分别为$M_j,m_j$.\\
+    由于$f(x)$在$[0,1]$连续,故$\displaystyle\int_{0}^{1}{f(x)\dx}$存在.设$\displaystyle\int_{0}^{1}{f(x)\dx}=A$,则Rieman和的极限有
+    $$\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{M_j}{k}}}=\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{m_j}{k}}}=A$$
+    从而$$\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}}=A-A=0$$
+    即$\displaystyle\forall\ep>0,\exists K>0\st\forall k>K,\left|\sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}\right|<\dfrac{\ep}{2}$.\\
+    由$f(x)$在$[0,1]$连续可得$\exists B>0\st\left|f(x)\right|<B$.\\
+    现在,$\forall n\in\N^*$有
+    \begin{align*}
+        \left|\int_{0}^{1}{f(x)\sin(nx)\dx}\right|
+        &= \left|\sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{f(x)\sin(nx)\dx}}\right| \\
+        &= \left|\sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left(f(x)-f\left(\dfrac{j}{k}\right)\right)\sin(nx)\dx}}+\int_{\frac{j}{k}}^{\frac{j+1}{k}}{f\left(\dfrac{j}{k}\right)\sin(nx)\dx}\right| \\
+        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|f(x)-f\left(\dfrac{j}{k}\right)\right|\left|\sin(nx)\right|\dx}}+\sum_{j=0}^{k-1}{f\left(\dfrac{j}{k}\right)\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\sin(nx)\dx}} \\
+        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|f(x)-f\left(\dfrac{j}{k}\right)\right|\dx}}+\sum_{j=0}^{k-1}{f\left(\dfrac{j}{k}\right)\cdot\dfrac{1}{n}\left(\cos{\dfrac{j}{k}}-\cos{\dfrac{j+1}{k}}\right)} \\
+        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|M_j-m_j\right|\dx}}+\dfrac{2Bk}{n} \\
+        &\leqslant \sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}+\dfrac{2Bk}{n} \\
+        &< \dfrac{\ep}{2}+\dfrac{2Bk}{n}
+    \end{align*}
+    从而$\forall\ep>0,\exists N=\max\left\{K,\dfrac{4Bk}{\ep}\right\}\st\forall n>N$,
+    $$\left|\lim_{n\to\infty}{\int_{0}^{1}{f(x)\sin(nx)\dx}}\right|<\dfrac{\ep}{2}+\dfrac{2Bk}{N}<\ep$$
+    从而$\displaystyle\lim_{n\to\infty}{\int_{0}^{1}{f(x)\sin(nx)\dx}}=0$,证毕.
+\end{solution}
+\begin{problem}[6.(20\songti{分})]
+    设$y=f(x)=x^3,x=g(t)=t^2,y=f(g(t))=t^6,\Delta t=0.1,\Delta x=g(1+0.1)-g(1)=0.21$.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item \textbf{(6\songti{分})}\ 当把$t$作为自变量时,函数$y=f(g(t))=t^6$的二阶微分记为$\di_t^2y$,函数$x=g(t)=t^2$的一阶微分记为$\di_tx$.
+                试计算:当$t=1,\Delta t=0.1$时,函数$y=f(g(t))$的二阶微分$\left.\di_t^2y\right|_{t=1,\Delta t=0.1}$和函数$x=g(t)$的一阶微分$\left.\di_tx\right|_{t=1,\Delta t=0.1}$.
+            \item \textbf{(7\songti{分})}\ 当把$x$作为自变量时,函数$y=f(x)=x^3$的二阶微分记为$\di_x^2y$,$x$(视作$x$的函数)的一阶微分记为$\di_xx$.
+                试计算:当$x=1,\Delta x=0.21$时,函数$y=f(x)$的二阶微分$\left.\di_x^2y\right|_{x=1,\Delta x=0.21}$和函数$x$的一阶微分$\left.\di_xx\right|_{x=1,\Delta x=0.21}$.
+            \item \textbf{(6\songti{分})}\ $\left.\dfrac{\di_t^2y}{\left(\di_tx\right)^2}\right|_{t=1,\Delta t=0.1}$和$\left.\dfrac{\di_x^2y}{\left(\di_xx\right)^2}\right|_{x=1,\Delta x=0.21}$相等吗?
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Solution.}
+            $$\left.\di_t^2y\right|_{t=1,\Delta t=0.1}=\left(t^6\right)''\left(\Delta t\right)^2=30t^4\left(\Delta t\right)^2=0.3$$
+            $$\left.\di_tx\right|_{t=1,\Delta t=0.1}=\left(t^2\right)'\Delta t=2t\Delta t=0.2$$
+        \item \textbf{Solution.}
+            $$\left.\di_x^2y\right|_{x=1,\Delta x=0.21}=\left(x^3\right)''\left(\Delta x\right)^2=6x\left(\Delta x\right)^2=0.2646$$
+            $$\left.\di_xx\right|_{x=1,\Delta x=0.21}=\left(x\right)'\Delta x=\Delta t=0.21$$
+        \item \textbf{Solution.}
+            $$\left.\dfrac{\di_t^2y}{\left(\di_tx\right)^2}\right|_{t=1,\Delta t=0.1}=\dfrac{0.3}{0.2^2}=7.5$$
+            $$\left.\dfrac{\di_x^2y}{\left(\di_xx\right)^2}\right|_{x=1,\Delta x=0.21}=\dfrac{0.2646}{0.21^2}=6$$
+            显然,两者不相等.
+    \end{enumerate}
+\end{solution}
+\end{document}

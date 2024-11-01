@@ -1,0 +1,56 @@
+\documentclass{ctexart}
+\usepackage{template}
+\begin{document}\pagestyle{empty}
+\begin{center}\large
+    极限练习
+\end{center}
+\begin{problem}[Problem 1.]
+    求序列极限$$\lim_{n\to\infty}{\prod_{i=1}^{n}\left(1+\dfrac{i}{n^2}\right)}$$
+\end{problem}
+\begin{solution}[Solution.]
+    熟知当$x\in(1,+\infty)$时有$$1-\dfrac{1}{x}<\ln x<x-1$$
+    我们对原式两端取对数后可得
+    $$\sum_{i=1}^{n}\left(1-\dfrac{1}{1+\dfrac{i}{n^2}}\right)<\sum_{i=1}^{n}\ln\left(1+\dfrac{i}{n^2}\right)<\sum_{i=1}^{n}\dfrac{i}{n^2}$$
+    即$$\sum_{i=1}^{n}\dfrac{i}{n^2+i}<\sum_{i=1}^{n}\ln\left(1+\dfrac{i}{n^2}\right)<\dfrac{n+1}{2n}$$
+    又$i\in[1,n]$时
+    $$\dfrac{i}{n^2+n}<\dfrac{i}{n^2+i}<\dfrac{i}{n^2}$$
+    于是$$\dfrac{1}{2}=\sum_{i=1}^{n}\dfrac{i}{n^2+n}<\sum_{i=1}^{n}\dfrac{i}{n^2+i}<\sum_{i=1}^{n}\dfrac{i}{n^2}=\dfrac{1}{2}+\dfrac{1}{2n}$$
+    夹逼可得$$\lim_{n\to\infty}\sum_{i=1}^{n}\ln\left(1+\dfrac{i}{n^2}\right)=\dfrac{1}{2}$$
+    于是$$\lim_{n\to\infty}{\prod_{i=1}^{n}\left(1+\dfrac{i}{n^2}\right)}=\sqrt{e}$$
+\end{solution}
+\begin{problem}[Problem 2.]
+    设$S_n=1^1+2^2+3^3+\cdots+n^n$,试证明:当$n\geqslant2$时有
+    $$n^n\left(1+\dfrac{1}{4(n-1)}\right)\leqslant S_n<n^n\left(1+\dfrac{2}{\e(n-1)}\right)$$
+\end{problem}
+\begin{solution}[Proof.]
+    记$A_n=\dfrac{S_n}{n^n}$,则
+    $$\begin{aligned}
+        A_n
+        &= \dfrac{\sum_{i=1}^{n}i^i}{n^n}
+        = 1+\dfrac{\sum_{i=1}^{n-1}i^i}{n^n} \\
+        &= 1+\dfrac{(n-1)^{n-1}}{n^n}\cdot\dfrac{\sum_{i=1}^{n-1}i^i}{(n-1)^{n-1}} \\
+        &= 1+\dfrac{(n-1)^{n-1}}{n^n}A_{n-1} \\
+        &= 1+\dfrac{(n-1)^{n-1}}{n^n}\left(1+\dfrac{(n-2)^{n-2}}{(n-1)^{n-1}}A_{n-2}\right) \\
+    \end{aligned}$$
+    一方面,我们有
+    $$\begin{aligned}
+        A
+        &= 1+\dfrac{(n-1)^{n-1}}{n^n}\left(1+\dfrac{(n-2)^{n-2}}{(n-1)^{n-1}}A_{n-2}\right) \\
+        &\leqslant 1+\dfrac{(n-1)^{n-1}}{n^n}\left(1+\dfrac{(n-2)^{n-2}}{(n-1)^{n-1}}\cdot\dfrac{(n-2)(n-2)^{n-2}}{(n-2)^{n-2}}\right) \\
+        &= 1+\left(1-\dfrac{1}{n}\right)^{n}\cdot\dfrac{1}{n-1}\left(1+\dfrac{(n-2)^{n-1}}{(n-1)^{n-1}}\right) \\
+        &< 1+\dfrac{1}{\e(n-1)}(1+1) \\
+        &= 1+\dfrac{2}{\e(n-1)}
+    \end{aligned}$$
+    另一方面,我们有
+    $$\begin{aligned}
+        A
+        &= 1+\dfrac{(n-1)^{n-1}}{n^n}\left(1+\dfrac{(n-2)^{n-2}}{(n-1)^{n-1}}A_{n-2}\right) \\
+        &\geqslant 1+\dfrac{(n-1)^{n-1}}{n^n} \\
+        &= 1+\left(1-\dfrac{1}{n}\right)^{n}\cdot\dfrac{1}{n-1} \\
+        &\geqslant 1+\left(1-\dfrac{1}{2}\right)^{2}\cdot\dfrac{1}{n-1} \\
+        &= 1+\dfrac{1}{4(n-1)}
+    \end{aligned}$$
+    于是$$1+\dfrac{1}{4(n-1)}<\dfrac{S_n}{n^n}<1+\dfrac{2}{\e(n-1)}$$
+    于是原命题得证.
+\end{solution}
+\end{document}

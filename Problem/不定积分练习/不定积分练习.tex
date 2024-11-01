@@ -193,4 +193,17 @@
 \begin{solution}[Solution.]
     
 \end{solution}
+\begin{problem}[Problem 8.]
+    求不定积分$$\int{\dfrac{\dx}{x\left(x^5+1\right)}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    拆分原式可得
+    $$\begin{aligned}
+        \int{\dfrac{\dx}{x\left(x^5+1\right)}}
+        &= \int{\dfrac{\left(x^5+1\right)-x^5}{x\left(x^5+1\right)}\dx} \\
+        &= \int\dfrac{\dx}{x}-\int\dfrac{x^4\dx}{x^5+1} \\
+        &= \int\dfrac{\dx}{x}-\dfrac{1}{5}\int\dfrac{\di\left(x^5\right)}{x^5+1} \\
+        &= \ln{\left|x\right|}-\dfrac{1}{5}\ln{\left|x^5+1\right|}+C
+    \end{aligned}$$
+\end{solution}
 \end{document}
