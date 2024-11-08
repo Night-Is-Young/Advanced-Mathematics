@@ -1,0 +1,64 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2021-22高等数学B1期中模拟
+\end{center}
+\begin{center}\large 命题人:DARCO\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(10\songti{分})}\ 多选题,错选或少选均不得分,无需写出解答过程.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item \textbf{(5\songti{分})}\ 选出下列选项中总是正确的式子.
+                \begin{tabbing}
+                    \hspace{0pt} \= \hspace{225pt} \= \hspace{225pt} \kill
+                    \> \textbf{A.}$\displaystyle\int_0^{\frac{\pi}{2}}\dfrac{\sin x}{x}\dx<\dfrac{\pi}{2}$
+                    \> \textbf{B.}$\displaystyle\int_0^{\frac{\pi}{2}}\dfrac{\sin x}{x}\dx>1$ \\\ \\
+                    \> \textbf{C.}$\displaystyle\int_0^{\frac{\pi}{2}}\dfrac{\sin x}{x}\dx>\dfrac{1}{2}+\dfrac{\pi}{4}$
+                    \> \textbf{D.}$\displaystyle\int_0^{\frac{\pi}{2}}\dfrac{\sin x}{x}\dx>\dfrac{1}{2}\displaystyle\int_0^{\pi}\dfrac{\sin x}{x}\dx$
+                \end{tabbing}
+            \item \textbf{(5\songti{分})}\ 设$f(x)$是定义在$[1,+\infty)$上的非负单调递减的连续函数.定义$\displaystyle s_n=\sum_{k=1}^nf(k)$,选出下列选项中总是正确的式子.
+                \begin{tabbing}
+                    \hspace{0pt} \= \hspace{225pt} \= \hspace{225pt} \kill
+                    \> \textbf{A.}$\displaystyle s_n\leqslant\int_1^nf(x)\dx$
+                    \> \textbf{B.}$\displaystyle s_n\leqslant f(1)+\int_1^nf(x)\dx$ \\\ \\
+                    \> \textbf{C.}$\displaystyle s_n\geqslant\int_1^{n+1}f(x)\dx$
+                    \> \textbf{D.}$\displaystyle s_n\geqslant f(1)+\int_1^{n+1}f(x)\dx$
+                \end{tabbing}
+        \end{enumerate}
+    \item \textbf{(18\songti{分})}\ 计算下列极限.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item \textbf{(6\songti{分})}\ 计算序列极限$$\lim_{n\to\infty}\dfrac{\sum_{i=1}^{n}i^{2021}}{n^{2022}}$$
+            \item \textbf{(6\songti{分})}\ 计算函数极限$$\lim_{x\to+\infty}\left(\sin\dfrac{1}{x^{2022}}+\cos\dfrac{1}{x^{1011}}\right)^{x^{2022}}$$
+            \item \textbf{(6\songti{分})}\ 计算函数极限$$\lim_{x\to0}\dfrac{\sin3x-3\sin x}{x^3}$$
+        \end{enumerate}
+    \item \textbf{(12\songti{分})}\ 计算下列积分.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item \textbf{(6\songti{分})}\ 计算定积分$$\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\dfrac{\cos x\arctan\left(\e^x\right)}{1+\sin^2x}\dx$$
+            \item \textbf{(6\songti{分})}\ 计算不定积分$$\int\dfrac{2x^2+2x+13}{(x-2)\left(1+x^2\right)^2}\dx$$
+        \end{enumerate}
+    \item \textbf{(8\songti{分})}\ 设函数$f(x)$满足$$f(x)=\left\{\begin{array}{l}ax\e^x+bx^x,x>1\\\left|x\right|,x\leqslant1\end{array}\right.$$
+        求所有可能的参数$a,b$使得$f(x)$在$x=1$处可导.
+    \item \textbf{(12\songti{分})}\ 设函数$f(x)$是定义在$\R$上的以$1$为周期的连续函数,试证明:$\exists c\in\R\st f(c)=f(c+\pi)$.
+    \item \textbf{(8\songti{分})}\ 计算曲线$\displaystyle y=\int_0^x\sqrt{\sin x}\dx$在$x\in[0,\pi]$部分的弧长.
+    \item \textbf{(12\songti{分})}\ 考虑方程$x=\tan x$的正实根.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item \textbf{(4\songti{分})}\ 试证明:$x=\tan x$有无穷多个正实根.
+            \item \textbf{(8\songti{分})}\ 将$x=\tan x$的正实根从小到大排列成序列$\left\{x_n\right\}$,试证明$\displaystyle\lim_{n\to\infty}\left(x_{n+1}-x_n\right)=\pi$.
+        \end{enumerate}
+    \item \textbf{(12\songti{分})}\ 设$n\in\N^*$,定义序列$\left\{x_n\right\}$满足$x_n=\sqrt[n]{n}$.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item \textbf{(6\songti{分})}\ 用$\ep-N$语言证明$\displaystyle\lim_{n\to\infty}x_n=1$.
+            \item \textbf{(6\songti{分})}\ 求所有的正实数$a$满足$\displaystyle\lim_{n\to\infty}n(x_n-1)^a$收敛.
+        \end{enumerate}
+    \item \textbf{(8\songti{分})}\ 给定正整数$a$,定义$f_a(x)=\left(x+\sqrt{x^2+1}\right)^a$,求所有自然数$n$满足$f_a^{(n)}(0)=0$.
+\end{enumerate}
+\end{document}

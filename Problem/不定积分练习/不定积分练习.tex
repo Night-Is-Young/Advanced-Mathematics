@@ -191,7 +191,16 @@
     求不定积分$$\int{\dfrac{x\ln{x}}{\left(1+x^2\right)^2}\dx}$$
 \end{problem}
 \begin{solution}[Solution.]
-    
+    置$u=x^2$,于是
+    $$\begin{aligned}
+        \int{\dfrac{x\ln{x}}{\left(1+x^2\right)^2}\dx}
+        &= \dfrac{1}{4}\int\dfrac{\ln u\di u}{\left(1+u\right)^2} \\
+        &= -\dfrac{1}{4}\int\ln u\di\left(\dfrac{1}{u+1}\right) \\
+        &= -\dfrac{1}{4}\left(\dfrac{\ln u}{u+1}-\int\dfrac{\di(\ln u)}{u+1}\right) \\
+        &= -\dfrac{1}{4}\left(\dfrac{\ln u}{u+1}-\int\left(\dfrac{1}{u}-\dfrac{1}{u+1}\right)\di u\right) \\
+        &= -\dfrac{1}{4}\left(\dfrac{\ln u}{u+1}+\ln\left|u+1\right|-\ln\left|u\right|\right)+C \\
+        &= \dfrac{x^2\ln x}{2\left(x^2+1\right)}-\dfrac{1}{4}\ln\left|x^2+1\right|+C
+    \end{aligned}$$
 \end{solution}
 \begin{problem}[Problem 8.]
     求不定积分$$\int{\dfrac{\dx}{x\left(x^5+1\right)}}$$
@@ -206,4 +215,33 @@
         &= \ln{\left|x\right|}-\dfrac{1}{5}\ln{\left|x^5+1\right|}+C
     \end{aligned}$$
 \end{solution}
+\begin{problem}[Problem 9.]
+    求不定积分$$\int\dfrac{\cos x}{5-3\cos x}\dx$$
+\end{problem}
+\begin{solution}[Solution.]
+    置$t=\tan{\dfrac{x}{2}}$,于是$\cos x=\dfrac{1-t^2}{1+t^2},\dfrac{\dx}{\di t}=\dfrac{2}{1+t^2}$.于是
+    $$\begin{aligned}
+        \int\dfrac{\cos x}{5-3\cos x}\dx
+        &= \int\dfrac{\dfrac{1-t^2}{1+t^2}}{5-3\cdot\dfrac{1-t^2}{1+t^2}}\cdot\dfrac{2}{1+t^2}\di t \\
+        &= \int\dfrac{2\left(1-t^2\right)}{\left(1+t^2\right)\left(2+8t^2\right)}\di t \\
+        &= \int\dfrac{1-t^2}{\left(1+t^2\right)\left(4t^2+1\right)}\di t \\
+        &= \int\left(\dfrac{5}{3}\cdot\dfrac{1}{4t^2+1}-\dfrac{2}{3}\cdot\dfrac{1}{t^2+1}\right)\di t \\
+        &= \dfrac{5}{6}\arctan 2t-\dfrac{2}{3}\arctan t+C \\
+        &= -\dfrac{x}{3}+\dfrac{5}{6}\arctan\left(2\tan\dfrac{x}{2}\right)+C
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[Problem 10.]
+    求不定积分$$\int\dfrac{x\ln x}{\left(x^2+1\right)^{\frac{3}{2}}}\dx$$
+\end{problem}
+\begin{solution}[Solution.]
+    置$u=x^2$,于是
+    $$\begin{aligned}
+        \int\dfrac{x\ln x}{\left(x^2+1\right)^{\frac{3}{2}}}\dx
+        &= \dfrac{1}{4}\int\dfrac{\ln u\di u}{\left(u+1\right)^{\frac{3}{2}}} \\
+        &= 
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[Problem 11.]
+    求定积分$$\int_0^{2m\pi}\dfrac{\dx}{\sin^4x+\cos^4x}$$
+\end{problem}
 \end{document}

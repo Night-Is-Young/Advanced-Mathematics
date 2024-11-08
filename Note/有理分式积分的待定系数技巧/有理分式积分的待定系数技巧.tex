@@ -1,0 +1,51 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large
+    有理分式的待定系数技巧
+\end{center}
+我们经常做到一些奇奇怪怪的有理分式积分.
+\begin{problem}[Problem 1(2023Fall PKU高等数学期中考试)]
+    求不定积分$$\int{\dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}\dx}$$
+\end{problem}\noindent
+通常,我们会采取下面的做法.
+\begin{solution}[Solution(Method I).]
+    设
+    \begin{align*}
+        \dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}
+        &= \dfrac{A}{2x-1}+\dfrac{B}{2x+3}+\dfrac{C}{2x-5} \\
+        &= \dfrac{A(4x^2-4x-15)+B(4x^2-12x+5)+C(4x^2+4x-3)}{(2x-1)(2x+3)(2x-5)} \\
+        &= \dfrac{4(A+B+C)x^2+4(C-A-3B)x+(5B-15A-3C)}{(2x-1)(2x+3)(2x-5)}
+    \end{align*}
+    从而$$\left\{\begin{array}{l}
+        A+B+C=1 \\
+        C-A-3B=1 \\
+        5B-15A-3C=-11
+    \end{array}\right.$$
+    解得$A=\dfrac{1}{2},B=-\dfrac{1}{4},C=\dfrac{3}{4}$.\\
+    从而\begin{align*}
+        \int{\dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}\dx}
+        &= \int\left(\dfrac{1}{2}\cdot\dfrac{1}{2x-1}-\dfrac{1}{4}\cdot\dfrac{1}{2x+3}+\dfrac{3}{4}\cdot\dfrac{1}{2x-5}\right)\dx\\
+        &= -\dfrac{1}{2}\int{\dfrac{\dx}{2x-1}}+\dfrac{1}{4}\int{\dfrac{\dx}{2x+3}}+\dfrac{3}{4}\int{\dfrac{\dx}{2x-5}} \\
+        &= -\dfrac{1}{4}\ln{\left|2x-1\right|}+\dfrac{1}{8}\ln{\left|2x+3\right|}+\dfrac{3}{8}\ln{\left|2x-5\right|}+C
+    \end{align*}
+\end{solution}\noindent
+然而,这样求系数的方法十分麻烦.我们可以采取一种更简便的方法.
+\begin{solution}[Solution(Method II).]
+    设$$\dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}=\dfrac{A}{2x-1}+\dfrac{B}{2x+3}+\dfrac{C}{2x-5}$$
+    两端同乘$2x-1$有$$\dfrac{4x^2+4x-11}{(2x+3)(2x-5)}=A+\dfrac{B(2x-1)}{2x+3}+\dfrac{C(2x-1)}{2x-5}$$
+    令$2x-1=0$,即$x=\dfrac{1}{2}$,于是$A=\dfrac{4\cdot\left(\frac{1}{2}\right)^2+4\cdot\frac{1}{2}-11}{4\cdot(-4)}=\dfrac{1}{2}$\\
+    用同样的方法可以得到$B=-\dfrac{1}{4},C=\dfrac{3}{4}$.从而拆分后进行积分.
+\end{solution}
+\end{document}

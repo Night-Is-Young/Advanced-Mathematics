@@ -1,0 +1,64 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\di}{\mathrm{d}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\st}{,\text{s.t.}}
+\newcommand{\dx}{\di x}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2024-25高等数学A1期中考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(16\songti{分})}\ 解答下列各题.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item \textbf{(8\songti{分})}\ 若$$\lim_{x\to1}\dfrac{x^2+ax+b}{\sin\left(x^2-1\right)}=\dfrac{4}{9}$$求参数$a,b$的值.
+            \item \textbf{(8\songti{分})}\ 设函数$f(x)$在开区间$(c,d)$上连续.试证明:
+                对于任意$x_1,x_2,\cdots,x_n\in(c,d)$,存在$\xi\in(c,d)$使得$\displaystyle f(\xi)=\dfrac{1}{n}\sum_{i=1}^{n}f(x_i)$.
+        \end{enumerate}
+        \item \textbf{(16\songti{分})}\ 解答下列各题.
+            \begin{enumerate}[label=\textbf{(\arabic*)}]
+                \item \textbf{(8\songti{分})}\ 设函数$$f(x)=\sqrt{x^2+1}\arctan x-\ln\left(x+\sqrt{x^2+1}\right)$$求$\di f(x)$.
+                \item \textbf{(8\songti{分})}\ 求函数$$y=\dfrac{1}{4\sqrt{2}}\ln\dfrac{x^2+\sqrt{2}x+1}{x^2-\sqrt{2}x+1}-\dfrac{1}{2\sqrt{2}}\arctan\dfrac{\sqrt{2}x}{x^2-1}$$的一阶导数$y'$.
+            \end{enumerate}
+        \item \textbf{(18\songti{分})}\ 设函数$$f(x)=\left(x^2-3x+2\right)^{100}\cos\dfrac{\pi x^2}{4}$$
+            \begin{enumerate}[label=\textbf{(\arabic*)}]
+                \item \textbf{(5\songti{分})}\ 设函数$u(x),v(x)$任意阶可导.对于正整数$n$,写出函数$y=u(x)v(x)$的$n$阶导数的Leibniz公式.
+                \item \textbf{(10\songti{分})}\ 对于正整数$n$满足$1\leqslant n\leqslant100$,求$f^{(n)}(1)$.
+                \item \textbf{(3\songti{分})}\ 求$f^{(101)}(2)$.
+            \end{enumerate}
+        \item \textbf{(16\songti{分})}\ 计算下列积分.
+            \begin{enumerate}[label=\textbf{(\arabic*)}]
+                \item \textbf{(5\songti{分})}\ $\displaystyle A=\int_{0}^{2\pi}\left|\sin x-\cos x\right|\dx$.
+                \item \textbf{(3\songti{分})}\ $\displaystyle B=\int_{0}^{2\pi}\sqrt{1+\sin2x}\dx$.
+                \item \textbf{(5\songti{分})}\ $\displaystyle I=\int\sqrt{\e^x-1}\dx$.
+                \item \textbf{(3\songti{分})}\ $\displaystyle J=\int\dfrac{x\e^x}{\sqrt{\e^x-1}}\dx$.
+            \end{enumerate}
+        \item \textbf{(14\songti{分})}\ 解答下列各题.
+            \begin{enumerate}[label=\textbf{(\arabic*)}]
+                \item \textbf{(5\songti{分})}\ 设函数$f(x)$在$x=a$可导,试证明$$\lim_{h\to0}\dfrac{f(a+h)-f(a-h)}{h}=2f'(a)$$
+                \item \textbf{(2\songti{分})}\ 举例说明:即使$f(x)$在$x=a$处连续且$\displaystyle\lim_{h\to0}\dfrac{f(a+h)-f(a-h)}{h}$存在,也不能保证$f'(a)$存在.
+                \item \textbf{(5\songti{分})}\ 设函数$f(x)$在$x=a$可导,对于常数$k\neq0,1$,试证明$$\lim_{h\to0}\dfrac{f(a+kh)-f(a-h)}{h}=(k-1)f'(a)$$
+                \item \textbf{(2\songti{分})}\ 举例说明:对于常数$k\neq0,1$,即使$\displaystyle\lim_{h\to0}\dfrac{f(a+kh)-f(a-h)}{h}$存在,也不能保证$f'(a)$存在.
+            \end{enumerate}
+        \item \textbf{(20\songti{分})}\ 证明下列各题.
+            \begin{enumerate}[label=\textbf{(\arabic*)}]
+                \item \textbf{(10\songti{分})}\ 设序列$\left\{x_n\right\}_{n=1}^{\infty}$有极限$\displaystyle\lim_{n\to\infty}x_n=a$.试用序列极限的定义证明$$\displaystyle\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}x_i=a$$.
+                \item \textbf{(6\songti{分})}\ 设序列$\left\{x_n\right\}_{n=1}^{\infty}$有极限$\displaystyle\lim_{n\to\infty}x_n=a$.试证明$$\lim_{n\to\infty}\sqrt[n]{x_1x_2\cdots x_n}=a$$
+                \item \textbf{(4\songti{分})}\ 设序列$\left\{x_n\right\}_{n=1}^{\infty}$满足$\displaystyle\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}x_i=a$,又有$\displaystyle\lim_{n\to\infty}n\left(x_n-x_{n-1}\right)=0$.试证明$\displaystyle\lim_{n\to\infty}x_n=a$.
+            \end{enumerate}
+\end{enumerate}
+\end{document}

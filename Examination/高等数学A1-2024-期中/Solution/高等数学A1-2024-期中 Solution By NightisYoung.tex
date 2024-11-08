@@ -1,0 +1,234 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2024-25高等数学A1期中考试
+\end{center}
+\begin{problem}[\textbf{1.(16\songti 分)}]
+    解答下列各题.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{(8\songti{分})}\ 若$$\lim_{x\to1}\dfrac{x^2+ax+b}{\sin\left(x^2-1\right)}=\dfrac{4}{9}$$求参数$a,b$的值.
+        \item \textbf{(8\songti{分})}\ 设函数$f(x)$在开区间$(c,d)$上连续.试证明:
+            对于任意$x_1,x_2,\cdots,x_n\in(c,d)$,存在$\xi\in(c,d)$使得$\displaystyle f(\xi)=\dfrac{1}{n}\sum_{i=1}^{n}f(x_i)$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Solution.}\\
+            注意到$$\lim_{x\to1}\dfrac{x^2-1}{\sin\left(x^2-1\right)}=\lim_{y\to 0}\dfrac{y}{\sin y}=1$$
+            $$\lim_{x\to 1}\dfrac{x-1}{\sin\left(x^2-1\right)}=\lim_{x\to1}\dfrac{x^2-1}{\sin\left(x^2-1\right)}\cdot\dfrac{1}{x+1}=1\cdot\dfrac{1}{2}=\dfrac{1}{2}$$
+            于是$$\lim_{x\to1}=\dfrac{x^2+ax+b}{\sin\left(x^2-1\right)}=\lim_{x\to1}\dfrac{x^2-1+a\left(x-1\right)+(b-a-1)}{\sin\left(x^2-1\right)}$$
+            于是$$\left\{\begin{array}{l}
+                b-a-1=0 \\
+                1+\dfrac{1}{2}a=\dfrac{4}{9}
+            \end{array}\right.$$
+            解得$a=-\dfrac{10}{9},b=\dfrac{1}{9}$.
+        \item \textbf{Proof.}\\
+            根据连续函数的有界性,不妨设$\displaystyle M_f=\max_{1\leqslant i\leqslant n}f(x_i)$在$i=a$处取到,
+            $\displaystyle m_f=\min_{1\leqslant i\leqslant n}f(x_i)$在$i=b$处取到,于是
+            $$\dfrac{1}{n}\sum_{i=1}^{n}m_f\leqslant\dfrac{1}{n}\sum_{i=1}^{n}f(x_i)\leqslant\dfrac{1}{n}\sum_{i=1}^{n}M_f$$
+            即$$f(x_b)=m_f\leqslant\dfrac{1}{n}\sum_{i=1}^{n}f(x_i)\leqslant M_f=f(x_a)$$
+            根据连续函数的介值定理,$\exists\xi$满足$\displaystyle x_a\gtreqless\xi\gtreqless x_b\st f(\xi)=\dfrac{1}{n}\sum_{i=1}^{n}f(x_i)$,证毕.
+    \end{enumerate}
+\end{solution}
+\begin{problem}[\textbf{2.(16\songti 分)}]
+    解答下列各题.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{(8\songti{分})}\ 设函数$$f(x)=\sqrt{x^2+1}\arctan x-\ln\left(x+\sqrt{x^2+1}\right)$$求$\di f(x)$.
+        \item \textbf{(8\songti{分})}\ 求函数$$y=\dfrac{1}{4\sqrt{2}}\ln\dfrac{x^2+\sqrt{2}x+1}{x^2-\sqrt{2}x+1}-\dfrac{1}{2\sqrt{2}}\arctan\dfrac{\sqrt{2}x}{x^2-1}$$的一阶导数$y'$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Solution.}\\
+            我们有$$\dfrac{\di f(x)}{\dx}=\dfrac{x\arctan x}{\sqrt{x^2+1}}+\dfrac{1}{\sqrt{x^2+1}}-\dfrac{1}{x+\sqrt{x^2+1}}\left(1+\dfrac{x}{\sqrt{x^2+1}}\right)=\dfrac{x\arctan x}{\sqrt{x^2+1}}$$
+            于是$$\di f(x)=\dfrac{x\arctan x}{\sqrt{x^2+1}}\dx$$
+        \item \textbf{Solution.}
+            $$\begin{aligned}
+                \dfrac{\di y}{\dx}
+                &= \dfrac{1}{4\sqrt{2}}\left(\dfrac{x^2-\sqrt{2}x+1}{x^2+\sqrt{2}x+1}\cdot\dfrac{2\sqrt{2}\left(1-x^2\right)}{\left(x^2-2\sqrt{2}x+1\right)^2}-\dfrac{2}{\dfrac{x^2}{\left(x^2-1\right)^2}+1}\cdot\dfrac{-\sqrt{2}\left(x^2+1\right)}{\left(x^2-1\right)^2}\right) \\
+                &= \dfrac{1}{4\sqrt{2}}\left(\dfrac{2\sqrt{2}\left(1-x^2\right)}{x^4+1}+\dfrac{2\sqrt{2}\left(1+x^2\right)}{x^4+1}\right) \\
+                &= \dfrac{1}{x^4+1}
+            \end{aligned}$$
+    \end{enumerate}
+\end{solution}
+\begin{problem}[\textbf{3.(18\songti 分)}]
+    设函数$$f(x)=\left(x^2-3x+2\right)^{100}\cos\dfrac{\pi x^2}{4}$$
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{(5\songti{分})}\ 设函数$u(x),v(x)$任意阶可导.对于正整数$n$,写出函数$y=u(x)v(x)$的$n$阶导数的Leibniz公式.
+        \item \textbf{(10\songti{分})}\ 对于正整数$n$满足$1\leqslant n\leqslant100$,求$f^{(n)}(1)$.
+        \item \textbf{(3\songti{分})}\ 求$f^{(101)}(2)$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Solution.}
+            $$\left(u(x)v(x)\right)^{(n)}=\sum_{i=0}^{n}C_n^iu^{(i)}(x)v^{(n-i)}(x)$$
+        \item \textbf{Solution.}\\
+            设$u(x)=\left(x^2-3x+2\right)^{100},v(x)=\cos\dfrac{\pi}{4}x^2$,于是$f(x)=u(x)v(x)$.\\
+            设$\alpha(x)=(x-1)^{100},\beta(x)=(x-2)^{100}$,于是$u(x)=\alpha(x)\beta(x)$.\\
+            注意到$n<100$时,$\alpha^{(n)}(1)=\dfrac{100!}{(100-n)!}(1-1)^{100-n}=0$,于是
+            $n<100$时$$u^{(n)}(1)=\sum_{i=1}^{n}C_n^i\alpha^{(i)}(1)\beta^{(n-i)}(1)=0$$
+            而$n=100$时$$u^{(100)}(1)=\alpha^{(100)}(1)\beta(1)=100!\cdot(1-2)^{100}=100!$$
+            于是$$f^{(n)}(1)=\left\{\begin{array}{l}
+                0,1\leqslant n<100\\
+                \dfrac{\sqrt{2}}{2}\cdot100!,n=100
+            \end{array}\right.$$
+        \item \textbf{Solution.}\\
+            注意到当且仅当$n=100$时$\beta^{(100)}(2)=100!$,否则$\beta^{(n)}(2)=0$.于是
+            $$u^{(101)}(2)=101\alpha^{(1)}(2)\beta^{(100)}(2)=101\cdot100(1-2)^{99}\cdot 100!=-100\cdot101!$$
+            又$v^{(1)}(x)=-\dfrac{\pi x}{2}\sin\dfrac{\pi}{4}x^2$,于是$v^{(1)}(2)=0$.\\
+            综上可知$$\begin{aligned}
+                f^{(101)}(2)
+                &= u^{(101)}(2)v(2)+101u^{(100)}(2)v^{(1)}(2) \\
+                &= u^{(101)}(2)v(2) \\
+                &= 100\cdot101!
+            \end{aligned}$$
+    \end{enumerate}
+\end{solution}
+\begin{problem}[\textbf{4.(16\songti 分)}]
+    计算下列积分.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{(5\songti{分})}\ $\displaystyle A=\int_{0}^{2\pi}\left|\sin x-\cos x\right|\dx$.
+        \item \textbf{(3\songti{分})}\ $\displaystyle B=\int_{0}^{2\pi}\sqrt{1+\sin2x}\dx$.
+        \item \textbf{(5\songti{分})}\ $\displaystyle I=\int\sqrt{\e^x-1}\dx$.
+        \item \textbf{(3\songti{分})}\ $\displaystyle J=\int\dfrac{x\e^x}{\sqrt{\e^x-1}}\dx$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Solution.}
+            $$\begin{aligned}
+                A
+                &= \int_{0}^{2\pi}\left|\sqrt{2}\sin\left(x-\dfrac{\pi}{4}\right)\right|\dx \\
+                &= \sqrt{2}\int_{-\frac{\pi}{4}}^{\frac{7\pi}{4}}\left|\sin u\right|\di u \\
+                &= \sqrt{2}\int_{0}^{2\pi}\left|\sin u\right|\di u\\
+                &= 2\sqrt{2}\int_{0}^{\pi}\sin u\di u \\
+                &= 2\sqrt{2}\left.\left(-\cos u\right)\right|_{0}^{\pi} \\
+                &= 4\sqrt{2}
+            \end{aligned}$$
+        \item \textbf{Solution.}
+            $$\begin{aligned}
+                B
+                &= \int_{0}^{2\pi}\sqrt{\sin^2x+\cos^2x+2\sin x\cos x}\dx \\
+                &= \int_{0}^{2\pi}\left|\sin x+\cos x\right|\dx \\
+                &= \sqrt{2}\int_0^{2\pi}\left|\sin\left(x+\dfrac{\pi}{4}\right)\right|\dx \\
+                &= 4\sqrt{2}
+            \end{aligned}$$
+        \item \textbf{Solution.}\\
+            置$t=\sqrt{\e^x-1}$,则$x=\ln\left(t^2+1\right),\dfrac{\dx}{\di t}=\dfrac{2t}{t^2+1}$.于是
+            $$\begin{aligned}
+                I
+                &= \int\sqrt{\e^x-1}\dx=\int t\cdot\dfrac{2t\di t}{t^2+1} \\
+                &= 2\int\dfrac{t^2+1-1}{t^2+1}\di t \\
+                &= 2\left(\int\di t-\int\dfrac{\di t}{t^2+1}\right) \\
+                &= 2\left(t-\arctan t\right)+C \\
+                &= 2\sqrt{\e^x-1}-2\arctan\sqrt{\e^x-1}+C
+            \end{aligned}$$
+        \item \textbf{Solution.}\\
+            置$t=\sqrt{\e^x-1}$,则$x=\ln\left(t^2+1\right),\dfrac{\dx}{\di t}=\dfrac{2t}{t^2+1}$.于是
+            $$\begin{aligned}
+                J
+                &= \int\dfrac{x\e^x}{\sqrt{\e^x+1}}\dx =\int\dfrac{\ln\left(t^2+1\right)\cdot\left(t^2+1\right)}{t}\cdot\dfrac{2t\di t}{t^2+1} \\
+                &= 2\int\ln\left(t^2+1\right)\di t\\
+                &= 2\int x\di t=2\left(xt-\int t\di x\right) \\
+                &= 2x\sqrt{\e^x-1}-4\sqrt{\e^x-1}+4\arctan\sqrt{\e^x-1}+C
+            \end{aligned}$$
+    \end{enumerate}
+\end{solution}
+\begin{problem}[\textbf{5.(14\songti 分)}]
+    解答下列各题.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{(5\songti{分})}\ 设函数$f(x)$在$x=a$可导,试证明$$\lim_{h\to0}\dfrac{f(a+h)-f(a-h)}{h}=2f'(a)$$
+        \item \textbf{(2\songti{分})}\ 举例说明:即使$f(x)$在$x=a$处连续且$\displaystyle\lim_{h\to0}\dfrac{f(a+h)-f(a-h)}{h}$存在,也不能保证$f'(a)$存在.
+        \item \textbf{(5\songti{分})}\ 设函数$f(x)$在$x=a$可导,对于常数$k\neq0,1$,试证明$$\lim_{h\to0}\dfrac{f(a+kh)-f(a-h)}{h}=(k-1)f'(a)$$
+        \item \textbf{(2\songti{分})}\ 举例说明:对于常数$k\neq0,1$,即使$\displaystyle\lim_{h\to0}\dfrac{f(a+kh)-f(a-h)}{h}$存在,也不能保证$f'(a)$存在.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Solution.}\\
+            由$f(x)$在$x=a$处可导,可知$$\lim_{h\to 0}\dfrac{f(a+h)-f(a)}{h}=f'(a)$$
+            于是$$\lim_{h\to0}\dfrac{f(a+h)-f(a-h)}{h}=\lim_{h\to 0}\dfrac{f(a+h)-f(a)}{h}+\lim_{h\to 0}\dfrac{f(a-h)-f(a)}{-h}=2f'(a)$$
+        \item \textbf{Solution.}\\
+            取$f(x)=\left|x\right|$,易知$$\lim_{x\to0^+}f(x)=\lim_{x\to0^-}f(x)=f(0)=0$$
+            即$f(x)$在$x=0$处连续.取$a=0$,于是
+            $$\lim_{h\to0}\dfrac{f(a+h)-f(a-h)}{h}=\lim_{h\to 0}\dfrac{\left|h\right|-\left|-h\right|}{h}=0$$
+            然而$$\lim_{h\to 0+}\dfrac{f(h)-f(0)}{h}=\lim_{h\to0^+}\dfrac{h}{h}=1$$
+            $$\lim_{h\to0^-}\dfrac{f(h)-f(0)}{h}=\lim_{h\to0^-}\dfrac{-h}{h}=-1$$
+            于是$f(x)$在$x=0$处的左右导数不相等,因此$f'(0)$不存在.
+        \item \textbf{Solution.}\\
+            由$f(x)$在$x=a$处可导,可知$$\lim_{h\to 0}\dfrac{f(a+h)-f(a)}{h}=f'(a)$$
+            于是
+            $$\begin{aligned}
+                \lim_{h\to0}\dfrac{f(a+kh)-f(a+h)}{h}
+                &= \lim_{h\to0}\dfrac{f(a+kh)-f(a)}{h}-\lim_{h\to0}\dfrac{f(a+h)-f(a)}{h} \\
+                &= k\lim_{h\to0}\dfrac{f(a+kh)-f(a)}{kh}-\lim_{h\to0}\dfrac{f(a+h)-f(a)}{h} \\
+                &= kf'(a)-f'(a) \\
+                &= (k-1)f'(a)
+            \end{aligned}$$
+        \item \textbf{Solution.}\\
+            取$\displaystyle f(x)=\left\{\begin{array}{l}
+                x,\left|x\right|>0 \\
+                1,x=0 \\
+            \end{array}\right.$\\
+            取$a=0$,则有$$\lim_{h\to0}\dfrac{f(a+kh)-f(a+h)}{h}=\lim_{h\to0}\dfrac{kh-h}{h}=k-1$$
+            然而$\displaystyle\lim_{x\to 0}f(x)=0\neq f(0)$,于是$f(x)$在$x=0$处不连续,$f'(0)$不存在.
+    \end{enumerate}
+\end{solution}
+\begin{problem}[\textbf{6.(20\songti 分)}]
+    证明下列各题.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item \textbf{(10\songti{分})}\ 设序列$\left\{x_n\right\}_{n=1}^{\infty}$有极限$\displaystyle\lim_{n\to\infty}x_n=a$.试用序列极限的定义证明$$\displaystyle\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}x_i=a$$.
+            \item \textbf{(6\songti{分})}\ 设序列$\left\{x_n\right\}_{n=1}^{\infty}$有极限$\displaystyle\lim_{n\to\infty}x_n=a$.试证明$$\lim_{n\to\infty}\sqrt[n]{x_1x_2\cdots x_n}=a$$
+            \item \textbf{(4\songti{分})}\ 设序列$\left\{x_n\right\}_{n=1}^{\infty}$满足$\displaystyle\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}x_i=a$,又有$\displaystyle\lim_{n\to\infty}n\left(x_n-x_{n-1}\right)=0$.试证明$\displaystyle\lim_{n\to\infty}x_n=a$.
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Proof.}\\
+            由$\displaystyle\lim_{n\to\infty}x_n=a$可知
+            $$\forall\ep_x>0,\exists N_x\in\N^*\st\forall n>N_x,\left|x_n-a\right|<\ep_x$$
+            现在,对于任意$\ep>0$,取$\ep_x=\dfrac{\ep}{2}$和对应的$N_x$,并令$\displaystyle M_x=\max_{1\leqslant i\leqslant N_x}\left|x_i-a\right|$.\\
+            于是取$N=\max\left\{\left[\dfrac{2N_xM_x}{\ep}\right]+1,N_x\right\}$,对于任意$n>N$有
+            $$\begin{aligned}
+                \left|\dfrac{1}{n}\sum_{i=1}^{n}x_i-a\right|
+                &= \left|\dfrac{1}{n}\sum_{i=1}^{n}\left(x_i-a\right)\right|\leqslant\dfrac{1}{n}\sum_{i=1}^{n}\left|x_i-a\right| \\
+                &= \dfrac{1}{n}\left(\sum_{i=1}^{N_x}\left|x_i-a\right|+\sum_{i=N_x+1}^{n}\left|x_i-a\right|\right) \\
+                &< \dfrac{1}{n}\left(N_xM_x+\left(n-N_x\right)\ep_x\right) \\
+                &< \dfrac{N_xM_x}{n}+\ep_x \\
+                &< \ep
+            \end{aligned}$$
+            于是$\displaystyle\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^nx_i=a$,原命题得证.
+        \item \textbf{Proof.}\\
+            取$t_n=\ln x_n$,于是$\displaystyle\lim_{n\to\infty}t_i=\ln a$.\\
+            根据\textbf{(1)}的结论有$\displaystyle\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}t_i=\lim_{n\to\infty}t_i=\ln a$.\\
+            于是$$a=\text{exp}\left(\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}t_i\right)=\lim_{n\to\infty}\sqrt[n]{\prod_{i=1}^n\e^{\ln x_i}}=\lim_{n\to\infty}\sqrt[n]{x_1x_2\cdots x_n}$$
+            原命题得证.
+        \item \textbf{Proof.}\\
+            置$\displaystyle S_n=\dfrac{1}{n}\sum_{i=1}^{n}x_i$,于是$\displaystyle\lim_{n\to\infty}\dfrac{S_n}{n}=a$.\\
+            置$t_i=i(x_{i+1}-x_{i})$,则$\displaystyle\lim_{n\to\infty}t_n=\lim_{n\to\infty}\dfrac{n}{n+1}\cdot (n+1)\left(x_{n+1}-x_n\right)=1\cdot0=0$.\\
+            根据\textbf{(1)}的结论有$\displaystyle\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}t_i=\lim_{n\to\infty}t_i=0$.\\
+            于是
+            $$\begin{aligned}
+                \lim_{n\to\infty}\left(x_n-\dfrac{S_n}{n}\right)
+                &= \lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}\left(x_n-x_i\right) \\
+                &= \lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n-1}i\left(x_{i+1}-x_i\right) \\
+                &= \lim_{n\to\infty}\dfrac{n-1}{n}\cdot\dfrac{1}{n-1}\sum_{i=1}^{n-1}t_i \\
+                &= 1\cdot 0 \\
+                &= 0
+            \end{aligned}$$
+            从而$\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}{\left(x_n-\dfrac{S_n}{n}+\dfrac{S_n}{n}\right)}=0+a=a$,原命题得证.
+    \end{enumerate}
+\end{solution}
+\end{document}

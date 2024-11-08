@@ -1,0 +1,58 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large Toeplitz定理\end{center}
+\begin{formal}[Toeplitz定理]
+    设正项序列$\left\{t_n\right\}$满足$\displaystyle\lim_{n\to\infty}t_n=0,\sum_{i=1}^{n}t_{ni}=1$.
+    已知序列$\left\{a_n\right\}$满足$\displaystyle\lim_{n\to\infty}a_n=a$.
+    定义$\displaystyle x_n=\sum_{i=1}^{n}a_it_{ni},n\in\N^*$,
+    试证明:$\displaystyle\lim_{n\to\infty}x_n=a$.
+\end{formal}
+\begin{solution}[Proof]
+    由题意
+    $$x_n=\sum_{i=1}^{n}a_it_{ni}=\sum_{i=1}^{n}at_{ni}+\sum_{i=1}^{n}(a_i-a)t_{ni}=a+\sum_{i=1}^{n}(a_i-a)t_{ni}$$
+    置$p_n=a_n-a$,则$\displaystyle\lim_{n\to\infty}p_n=0$.于是根据收敛序列的有界性,$\exists M_p>0\st\forall n\in\N^*,\left|p_n\right|<M_p$.\\
+    对于任意$\ep>0$,取$N_p$使得$\forall n\geqslant N_p,\left|p_n\right|<\dfrac{\ep}{2}$.\\
+    再取$N_t$使得$\forall n>N_t,t_n<\dfrac{\ep}{2N_pM_p}$,于是
+    $$\begin{aligned}
+        \left|\sum_{i=1}^{n}(a_i-a)t_{ni}\right|
+        &\leqslant \sum_{i=1}^{n}\left|p_n\right|t_{ni} \\
+        &= \sum_{i=1}^{N_p}\left|p_n\right|t_{ni}+\sum_{i=N_p+1}^{n}\left|p_n\right|t_{ni} \\
+        &\leqslant \sum_{i=1}^{N_p}\dfrac{\ep\left|p_n\right|}{2N_pM_p}+\dfrac{\ep}{2}\sum_{i=N_p+1}^{n}t_{ni} \\
+        &\leqslant \dfrac{\ep}{2}+\dfrac{\ep}{2} \\
+        &= \ep
+    \end{aligned}$$
+    于是原命题得证.
+\end{solution}
+\begin{theorem}[Enhanced Theorem]
+    将上述命题中的$\displaystyle\sum_{i=1}^{n}t_{ni}=1$改成$\displaystyle\lim_{n\to\infty}\sum_{i=1}^{n}t_{ni}=1$,原命题也成立.
+\end{theorem}
+\begin{analyze}[Analysis.]
+    再加入一个控制量$\ep_t$描述和的偏差即可,证明过程略.
+\end{analyze}\noindent
+事实上,在\textbf{\songti 相乘序列的极限}一讲中的所有命题均可以用Toeplitz定理证明.
+\begin{problem}[Problem.]
+    试用Toeplitz定理证明Stolz定理.
+\end{problem}
+\begin{solution}[Proof.]
+    取$t_{ni}=\dfrac{b_{i+1}-b_i}{b_{n+1}-b_1}$.根据$\left\{b_n\right\}$单调递增可得$t_{ni}>0$.\\
+    而$\displaystyle\sum_{i=1}^{n}t_{ni}=\dfrac{\sum_{i=1}^{n}\left(b_{i+1}-b_{i}\right)}{b_{n+1}-b_1}=1$.\\
+    对于每个固定的$i$,由$\displaystyle\lim_{n\to\infty}b_n=+\infty$可知$\displaystyle\lim_{n\to\infty}t_{ni}=0$.\\
+    置$c_n=\dfrac{a_{n+1}-a_n}{b_{n-1}-b_{n}}$,不妨设$\displaystyle\lim_{n\to\infty}c_n=L$.\\
+    这样,使用Toeplitz定理的条件已经齐备.\\
+    置$\displaystyle x_n=\sum_{i=1}^{n}c_i{t_{ni}}=\dfrac{a_n-a_1}{b_n-b_1}$,于是$\displaystyle\lim_{n\to\infty}x_n=\lim_{n\to\infty}c_n=L$,
+    即$\displaystyle\lim_{n\to\infty}\dfrac{\frac{a_n}{b_n}-\frac{a_1}{b_n}}{1-\frac{b_1}{b_n}}=L$.\\
+    于是$\displaystyle\lim_{n\to\infty}\dfrac{a_n}{b_n}=L=\lim_{n\to\infty}\dfrac{a_{n+1}-a_n}{b_{n-1}-b_{n}}$,原命题得证.
+\end{solution}
+\end{document}
