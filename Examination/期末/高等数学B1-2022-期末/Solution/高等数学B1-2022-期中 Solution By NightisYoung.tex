@@ -1,0 +1,191 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2022-23高等数学B1期中考试
+\end{center}
+\begin{problem}[1.(20\songti{分})]
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{(6\songti{分})}\ 求序列极限$$\lim_{n\to\infty}{\sqrt[n]{2+\cos n}}$$
+        \item \textbf{(7\songti{分})}\ 求序列极限$$\lim_{n\to\infty}{\dfrac{1}{n}\sum_{i=1}^{n}{\sin\left(\dfrac{i}{n}-\dfrac{1}{2n^i}\right)}}$$
+        \item \textbf{(7\songti{分})}\ 求函数极限$$\lim_{x\to0}{\left(1+\tan^2 x\right)^{\frac{1}{\sin^2 x}}}$$
+    \end{enumerate}
+\end{problem}
+\begin{solution}[Solution.]
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{Solution.}\\
+            由$-1\leqslant \cos n\leqslant 1$有
+            $$\sqrt[n]{1}\leqslant\sqrt[n]{2+\cos n}\leqslant\sqrt[n]{3}$$
+            而$$\lim_{n\to\infty}{\sqrt[n]{1}}=\lim_{n\to\infty}{\sqrt[n]{3}}=1$$
+            夹逼可得$$\lim_{n\to\infty}{\sqrt[n]{2+\cos n}}=1$$
+        \item \textbf{Solution.}\\
+            注意到$$\dfrac{i-1}{n}<\dfrac{i}{n}-\dfrac{1}{2n^i}<\dfrac{i}{n}$$
+            依Riemann积分的定义有
+            $$\lim_{n\to\infty}{\dfrac{1}{n}\sum_{i=1}^{n}{\sin\left(\dfrac{i}{n}-\dfrac{1}{2n^i}\right)}}=\int_0^1{\sin x\dx}=1-\cos1$$
+        \item \textbf{Solution.}
+            \begin{align*}
+                \lim_{x\to0}{\left(1+\tan^2 x\right)^{\frac{1}{\sin^2 x}}}
+                &= \lim_{x\to0}{\left(1+\tan^2 x\right)^{1+\frac{1}{\tan^2 x}}} \\
+                &= \lim_{x\to0}{\left(1+\tan^2 x\right)^{\frac{1}{\tan^2 x}}}\cdot\lim_{x\to0}{\left(1+\tan^2 x\right)} \\
+                &= \e\cdot 1 \\
+                &= \e
+            \end{align*}
+    \end{enumerate}
+\end{solution}
+\begin{problem}[2.(20\songti{分})]
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{(6\songti{分})}\ 设$x>0$,求出函数$$f(x)=x^{\sqrt{x}}$$的导函数$f'(x)$.
+        \item \textbf{(7\songti{分})}\ 设$x<1$,求出函数$$g(x)=\int_0^{\sin x}\dfrac{\di t}{\sqrt{1-t^3}}$$的导函数$g'(x)$.
+        \item \textbf{(7\songti{分})}\ 设$x\neq\pm 1$,求出函数$$h(x)=\dfrac{1}{x^2-1}$$的四阶导函数$h^{(4)}(x)$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}[Solution.]
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{Solution.}\\
+            置$y=\ln(f(x))=\sqrt{x}\ln x$,则
+            \begin{align*}
+                f'(x)
+                &= \dfrac{\di f(x)}{\dx}=\dfrac{\di f(x)}{\di y}\cdot\dfrac{\di y}{\dx}=\dfrac{\di \e^y}{\di y}\cdot\dfrac{\di y}{\di x} \\
+                &= \e^y\left(\dfrac{\ln x}{2\sqrt{x}}+\dfrac{\sqrt{x}}{x}\right) \\
+                &= \dfrac{x^{\sqrt{x}}\left(\ln x+2\right)}{2\sqrt{x}}
+            \end{align*}
+        \item \textbf{Solution.}\\
+            置$y=\sin x$,则有
+            \begin{align*}
+                g'(x)
+                &= \dfrac{\di g(x)}{\di y}\cdot\dfrac{\di y}{\dx} \\
+                &= \dfrac{1}{\sqrt{1-y^3}}\cdot\cos x \\
+                &= \dfrac{\cos x}{\sqrt{1-\sin^3 x}}
+            \end{align*}
+        \item \textbf{Solution.}\\
+            由$$h(x)=\dfrac{1}{x^2-1}=\dfrac{1}{2}\left(\dfrac{1}{x-1}-\dfrac{1}{x+1}\right)$$
+            有\begin{align*}
+                h^{(4)}(x)
+                &= \dfrac{1}{2}\left[\left(\dfrac{1}{x-1}\right)^{(4)}-\left(\dfrac{1}{x+1}\right)^{(4)}\right] \\
+                &= \dfrac{1}{2}\left[4!\left(x-1\right)^{-5}-4!\left(x+1\right)^{-5}\right] \\
+                &= \dfrac{12}{(x-1)^5}-\dfrac{12}{(x+1)^5}
+            \end{align*}
+    \end{enumerate}
+\end{solution}
+\begin{problem}[3.(15\songti{分})]
+    求不定积分$$\int{\dfrac{\dx}{\sqrt[3]{(x+1)(x-1)^5}}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    置$\displaystyle t=\sqrt[3]{\dfrac{x+1}{x-1}}=\left(1+\dfrac{2}{x-1}\right)^{\frac{1}{3}}$,则
+    \begin{align*}
+        \dfrac{\di t}{\dx}
+        &= \dfrac{1}{3\left(1+\dfrac{2}{x-1}\right)^{\frac{2}{3}}}\cdot\left(-\dfrac{2}{(x-1)^2}\right) \\
+        &= -\dfrac{2}{3}(x+1)^{-\frac{2}{3}}(x-1)^{-\frac{4}{3}}
+    \end{align*}
+    从而$$t\di t=-\dfrac{2}{3}(x+1)^{-\frac{1}{3}}(x+1)^{-\frac{5}{3}}\dx$$
+    从而
+    \begin{align*}
+        \int{\dfrac{\dx}{\sqrt[3]{(x+1)(x-1)^5}}}
+        &= \int{-\dfrac{3}{2}t\di t} \\
+        &= -\dfrac{3}{4}t^2+C \\
+        &= -\dfrac{3}{4}\left(\dfrac{x+1}{x-1}\right)^{\frac{2}{3}}+C,C\text{为积分常数}
+    \end{align*}
+\end{solution}
+\begin{problem}[4.(15\songti{分})]
+    设$K$是曲线弧$y=\e^x\ (0\leqslant x\leqslant 1)$与直线$x=0,x=1,y=0$围成的曲边梯形绕$x$轴旋转一周形成的旋转体,求$K$的侧面积.
+\end{problem}
+\begin{solution}[Solution.]
+    由题意可得$\dfrac{\di y}{\dx}=\e^x=y$,则
+    \begin{align*}
+        S
+        &= 2\pi\int_0^1{y\sqrt{1+y'^2}\dx} \\
+        &= 2\pi\int_1^\e{\sqrt{1+y^2}\di y} \\
+    \end{align*}
+    而
+    \begin{align*}
+        \int{\sqrt{1+y^2}}\di y
+        &= y\sqrt{1+y^2}-\int y\di\sqrt{1+y^2} \\
+        &= y\sqrt{1+y^2}-\int\dfrac{y^2\di y}{\sqrt{1+y^2}} \\
+        &= y\sqrt{1+y^2}-\int{\sqrt{y^2+1}\di y}+\int\dfrac{\di y}{\sqrt{y^2+1}}
+    \end{align*}
+    从而
+    \begin{align*}
+        \int{\sqrt{1+y^2}}\di y
+        &= \dfrac{1}{2}\left(y\sqrt{y^2+1}+\int{\dfrac{\di y}{\sqrt{y^2+1}}}\right) \\
+        &= \dfrac{1}{2}\left(y\sqrt{y^2+1}+\ln\left|y+\sqrt{1+y^2}\right|\right)+C
+    \end{align*}
+    从而
+    \begin{align*}
+        S
+        &= \pi\left.\left(y\sqrt{y^2+1}+\ln\left|y+\sqrt{y^2+1}\right|\right)\right|_1^\e \\
+        &= \pi\left(\e\sqrt{1+\e^2}+\ln\left(\e+\sqrt{1+\e^2}\right)-\sqrt{2}-\ln2\right)
+    \end{align*}
+\end{solution}
+\begin{problem}[5.(10\songti{分})]
+    设$a,b,c\in\R$且$a,b,c>0$,$f:\R\to\R$在$\R$上连续,且$$f(0)=-a,\lim_{x\to-\infty}f(x)=b,\lim_{x\to+\infty}f(x)=c$$求证$f(x)=0$在$\R$上至少有两个不相等的实根$r_1,r_2$.
+\end{problem}
+\begin{solution}[Proof.]
+    由$\displaystyle\lim_{x\to-\infty}f(x)=b$可知
+    $$\forall\ep>0,\exists A\in\R\st\forall x<A,\left|f(x)-b\right|<\ep$$
+    取$\ep\in(0,b)$和对应的$A$,则$0<b-\ep<f(x)<b+\ep$.\\
+    从而$\exists x<0\st f(x)>0>f(0)=-a$.\\
+    根据连续函数的介值定理,必然$\exists\xi_1\in(-\infty,0)\st f(\xi_1)=0$.\\
+    同理亦可知$\exists\xi_2\in(0,+\infty)\st f(\xi_2)=0$.\\
+    从而原命题得证.
+\end{solution}
+\begin{problem}[6.(20\songti{分})]
+    设$$A(r)=\int_0^{2\pi}\ln(1-2r\cos x+r^2)\dx$$
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{(12\songti{分})}\ 试证明$\displaystyle\forall r\in(-1,1),A(r^2)=2A(r)$.
+        \item \textbf{(4\songti{分})}\ 试证明$A(r)$在$\left(-\dfrac{1}{2},\dfrac{1}{2}\right)$上有界.
+        \item \textbf{(4\songti{分})}\ 试计算$r\in(-1,1)$时$A(r)$的值.
+    \end{enumerate}
+\end{problem}
+\begin{solution}[Solution]
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{Proof.}\\
+            注意到$$1-2r\cos x+r^2=1+2r\cos(2\pi-x)+r^2$$
+            从而
+            $$\begin{aligned}
+                \int_0^{2\pi}\ln(1-2r\cos x+r^2)\dx
+                &= \int_{2\pi}^{0}\ln(1+2r\cos x+r^2)\di (2\pi-x) \\
+                &= \int_0^{2\pi}\ln(1+2r\cos x+r^2)\dx
+            \end{aligned}$$
+            从而
+            $$\begin{aligned}
+                2A(r)
+                &= \int_{0}^{2\pi}\left(\ln(1-2r\cos x+r^2)+\ln(1+2r\cos x+r^2)\right)\dx \\
+                &= \int_{0}^{2\pi}\ln(r^4+2r^2+1-4r^2\cos^2x)\dx \\
+                &= \int_{0}^{2\pi}\ln(1-2r^2\cos 2x+r^4)\dx \\
+            \end{aligned}$$
+            置$u=2x$,注意到$$1-2r^2\cos u+r^4=1-2r^2\cos (4\pi-u)+r^4$$
+            从而
+            $$\begin{aligned}
+                \int_{0}^{2\pi}\ln(1-2r^2\cos 2x+r^4)\dx
+                &= \dfrac{1}{2}\int_{0}^{4\pi}\ln(1-2r^2\cos u+r^4)\di u \\
+                &= \dfrac{1}{2}\left(\int_{0}^{2\pi}\ln(1-2r^2\cos u+r^4)\di u+\int_{2\pi}^{4\pi}\ln(1-2r^2\cos u+r^4)\di u\right) \\
+                &= \int_{0}^{2\pi}\ln(1-2r^2\cos u+r^4)\di u
+            \end{aligned}$$
+            从而原命题得证.
+        \item \textbf{Proof.}\\
+            不难发现$$1-2r\cos x+r^2=(1-r\cos x)^2+r^2(1-\cos^2 x)$$
+            当$r\in\left(-\dfrac{1}{2},\dfrac{1}{2}\right),x\in(0,2\pi)$时有
+            $$\dfrac{1}{2}<1-r\cos x<\dfrac{3}{2},0<r^2<\dfrac{1}{4},0\leqslant\cos^2x\leqslant 1$$
+            从而$$\dfrac{1}{4}<1-2r\cos x+r^2<\dfrac{5}{2}$$
+            即$$\int_0^{2\pi}\ln\dfrac{1}{4}\dx<\int_0^{2\pi}\ln(1-2r\cos x+r^2)\dx<\int_0^{2\pi}\ln\dfrac{5}{2}\dx$$
+            即$$-4\pi\ln2<A(r)<2\pi(\ln5-\ln2)$$
+            从而$A(r)$有界,原命题得证.
+        \item \textbf{Solution.}\\
+            对于任意$r\in(-1,1)$,重复应用\textbf{(1)}的结论有
+            $$A(r)=\dfrac{A\left(r^2\right)}{2}=\cdots=\dfrac{A\left(r^{2n}\right)}{2^n}$$
+            当$n$充分大时$r^{2n}\in\left(-\dfrac{1}{2},\dfrac{1}{2}\right)$,从而$A\left(r^{2n}\right)$有界.\\
+            对上式取极限有$$A(r)=\lim_{n\to\infty}\dfrac{A\left(r^{2n}\right)}{2^n}=0$$
+            从而$\forall r\in(-1,1),A(r)=0$.
+    \end{enumerate}
+\end{solution}
+\end{document}

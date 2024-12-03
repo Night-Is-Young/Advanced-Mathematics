@@ -1,0 +1,48 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\di}{\mathrm{d}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\ep}{\varepsilon}
+\newcommand{\st}{,\text{s.t.}}
+\newcommand{\dx}{\di x}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2024-25高等数学B1期中模拟
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(15\songti{分})}\ 解答下列问题.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item \textbf{(5\songti{分})}\ 求序列极限$$\lim_{n\to\infty}\left|\cos\left(\sqrt{n^2+1}\pi\right)\right|$$
+            \item \textbf{(5\songti{分})}\ 求函数极限$$\lim_{x\to+\infty}\left(\dfrac{x^2-1}{x^2+1}\right)^{x^2}$$
+            \item \textbf{(5\songti{分})}\ 求函数$$f(x)=\left\{\begin{array}{l}x^2\sin\dfrac{1}{x},x\neq 0\\0,x=0\end{array}\right.$$的导函数$f'(x)$.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 设参数方程$$\left\{\begin{array}{l}x=\e^t\sin2t\\y=\e^t\cos t,x=0\end{array}\right.$$确定函数$y=f(x)$.求$\dfrac{\di y}{\dx},\dfrac{\di^2y}{\dx^2}$.
+    \item \textbf{(10\songti{分})}\ 求不定积分$$\int\dfrac{x^3+1}{x(x-1)^3}\dx$$
+    \item \textbf{(10\songti{分})}\ 求心形线$$r=a(1+\cos\theta),a>0,0\leqslant\theta\leqslant2\pi$$的弧长.
+    \item \textbf{(10\songti{分})}\ 设$t\in(0,1)$,$f(t)$表示曲线$y=\sec t$与直线$x=0,y=0$和$x=\arcsin t$围成的封闭图形的面积.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item \textbf{(5\songti{分})}\ 求$f(t)$的导数$f'(t)$.
+            \item \textbf{(5\songti{分})}\ 求$f(t)$.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 设函数$f(x)$在$[0,1]$上连续,且有$$\int_0^1f(x)\dx=\int_0^1xf(x)\dx=0$$试证明:$f(x)$在$[0,1]$上至少有两个零点.
+    \item \textbf{(20\songti{分})}\ 解答下列问题.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item \textbf{(8\songti{分})}\ 设序列$\left\{x_n\right\}$满足$\displaystyle x_n=\sum_{i=1}^n\dfrac{1}{i}-\ln n$,试证明$\displaystyle\lim_{n\to\infty}x_n$存在且有限.
+            \item \textbf{(12\songti{分})}\ 对于$n\in\N$,定义$$I_n=\int_0^\frac{\pi}{2}\dfrac{\sin^2nt}{\sin t}\di t$$求序列极限$\displaystyle\lim_{n\to\infty}\dfrac{I_n}{\ln n}$.
+        \end{enumerate}
+    \item \textbf{(15\songti{分})}\ 设函数$f(x)$在$[0,\pi]$上连续.对于$n\in\N$,试证明$$\lim_{n\to\infty}\int_{0}^{\pi}f(x)\left|\sin(nx)\right|\dx=\dfrac{2}{\pi}\int_0^\pi f(x)\dx$$
+\end{enumerate}
+\end{document}

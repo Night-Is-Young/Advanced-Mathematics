@@ -1,0 +1,124 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2024-25高等数学B1期中考试
+\end{center}
+\begin{problem}[1.(10\songti{分})]
+    求序列极限$$\lim_{n\to\infty}{\sqrt[n]{2024+\sin\left(\e^n\right)}}$$
+\end{problem}
+\begin{solution}[Solution.]
+    由$-1\leqslant\sin\left(\e^x\right)\leqslant 1$可知
+    $$\sqrt[n]{2023}\leqslant\sqrt[n]{2024+\sin\left(\e^x\right)}\leqslant\sqrt[n]{2025}$$
+    又$$\lim_{n\to\infty}\sqrt[n]{2023}=\lim_{n\to\infty}\sqrt[n]{2025}=1$$
+    于是根据夹逼准则有$$\lim_{n\to\infty}\sqrt[n]{2024+\sin\left(\e^x\right)}=1$$
+\end{solution}
+\begin{problem}[2.(10\songti{分})]
+    求函数极限$$\lim_{x\to0}\left(\dfrac{1+2\sin^2x}{\cos2x}\right)^{\csc^2x}$$
+\end{problem}
+\begin{solution}[Solution.]
+    置$u=\sin^2 x$,于是
+    $$\begin{aligned}
+        \lim_{x\to0}\left(\dfrac{1+2\sin^2x}{\cos2x}\right)^{\csc^2x}
+        &= \lim_{u\to0^+}\left(\dfrac{1+2u}{1-2u}\right)^{\frac{1}{u}} \\
+        &= \lim_{u\to0^+}\left(1+\dfrac{4u}{1-2u}\right)^{\frac{1-2u}{4u}\cdot\frac{4}{1-2u}} \\
+        &= \e^4 
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[3.(10\songti{分})]
+    求定义在$(-1,1)$上的函数$$f(x)=\int_0^{\arcsin x}\dfrac{\di t}{\sqrt{1+\sin^2t}}$$的二阶导函数$f''(x)$.
+\end{problem}
+\begin{solution}[Solution.]
+    置$y=\arcsin{x}$,则
+    $$\dfrac{\di f}{\dx}=\dfrac{\di f}{\di y}\cdot\dfrac{\di y}{\dx}
+    =\dfrac{\di\int_{0}^{y}{\frac{\di t}{\sqrt{1+\sin^2t}}}}{\di y}\cdot\left(\arcsin x\right)'
+    =\dfrac{1}{\sqrt{1+\sin^2y}}\cdot\dfrac{1}{\sqrt{1-x^2}}=\dfrac{1}{\sqrt{1-x^4}}$$
+    于是$$f''(x)=-\dfrac{1}{2}\left(1-x^4\right)^{-\frac{3}{2}}\cdot(-4x^3)=\dfrac{2x^3}{\left(1-x^4\right)^{\frac{3}{2}}}$$
+\end{solution}
+\begin{problem}[4.(10\songti{分})]
+    求序列极限$$\lim_{n\to\infty}\dfrac{1}{n}\sum_{k=1}^{n}\cos\left(\dfrac{k}{n}-\dfrac{1}{kn^k}\right)$$
+\end{problem}
+\begin{solution}[Solution.]
+    注意到$0<\dfrac{1}{kn^k}\leqslant\dfrac{1}{n}$,于是
+    $$\dfrac{k-1}{n}\leqslant\dfrac{k}{n}-\dfrac{1}{kn^k}<\dfrac{k}{n}$$
+    根据Riemann积分的定义可知
+    $$\lim_{n\to\infty}\dfrac{1}{n}\sum_{k=1}^{n}\cos\left(\dfrac{k}{n}-\dfrac{1}{kn^k}\right)=\int_0^1\cos x\dx=\sin 1$$
+\end{solution}
+\begin{problem}[5.(15\songti{分})]
+    求不定积分$$\int{\dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}\dx}$$
+\end{problem}
+\begin{solution}[Solution.]
+    设
+    \begin{align*}
+        \dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}
+        &= \dfrac{A}{2x-1}+\dfrac{B}{2x+3}+\dfrac{C}{2x-5} \\
+        &= \dfrac{A(4x^2-4x-15)+B(4x^2-12x+5)+C(4x^2+4x-3)}{(2x-1)(2x+3)(2x-5)} \\
+        &= \dfrac{4(A+B+C)x^2+4(C-A-3B)x+(5B-15A-3C)}{(2x-1)(2x+3)(2x-5)}
+    \end{align*}
+    从而$$\left\{\begin{array}{l}
+        A+B+C=1 \\
+        C-A-3B=1 \\
+        5B-15A-3C=-11
+    \end{array}\right.$$
+    解得$A=\dfrac{1}{2},B=-\dfrac{1}{4},C=\dfrac{3}{4}$.\\
+    从而\begin{align*}
+        \int{\dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}\dx}
+        &= \int\left(\dfrac{1}{2}\cdot\dfrac{1}{2x-1}-\dfrac{1}{4}\cdot\dfrac{1}{2x+3}+\dfrac{3}{4}\cdot\dfrac{1}{2x-5}\right)\dx\\
+        &= \dfrac{1}{2}\int{\dfrac{\dx}{2x-1}}-\dfrac{1}{4}\int{\dfrac{\dx}{2x+3}}+\dfrac{3}{4}\int{\dfrac{\dx}{2x-5}} \\
+        &= \dfrac{1}{4}\ln{\left|2x-1\right|}-\dfrac{1}{8}\ln{\left|2x+3\right|}+\dfrac{3}{8}\ln{\left|2x-5\right|}+C
+    \end{align*}
+\end{solution}
+\begin{problem}[6.(10\songti{分})]
+    设欧氏空间中$V$是曲线弧$\displaystyle y=\dfrac{\ln{x}}{\sqrt{\pi}}(1\leqslant x\leqslant 2)$与直线$x=1,x=2$围成的曲边三角形绕$x$轴旋转一周形成的旋转体,求$V$的体积.
+\end{problem}
+\begin{solution}[Solution.]
+    \begin{align*}
+        V
+        &= \pi\int_1^2{y^2\dx}=\pi\int_1^2{\dfrac{\left(\ln x\right)^2\dx}{\pi}}=\int_1^2\left(\ln x\right)^2\dx \\
+        &= \left.x\left(\ln x\right)^2\right|_1^2+\int_1^2x\di\left(\ln x\right)^2 \\
+        &= 2\left(\ln 2\right)^2+\int_1^2 2\ln x\dx \\
+        &= 2\left(\ln 2\right)^2+2\left.\left(x\ln x-x\right)\right|_1^2 \\
+        &= 2\left(\ln 2\right)^2+4\ln2-2
+    \end{align*}
+\end{solution}
+\begin{problem}[7.(15\songti{分})]
+    试证明:方程$$x^{18}+x^{12}-\cos x=0$$在$\R$上根的个数为$2$.
+\end{problem}
+\begin{solution}[Proof.]
+    设$f(x)=x^{18}+x^{12}-\cos x$,于是$f(-x)=f(x),f(0)=-1$.\\
+    当$x>0$时,有$$f'(x)=18x^{17}+12x^{11}+\sin x$$
+    于是$x\in(0,\pi)$时有$f'(x)>0$,即$f(x)$在$(0,\pi)$严格单调递增.\\
+    又$-1=f(0)<0<f(\pi)=\pi^{18}+\pi^{12}$,于是存在唯一$\xi\in(0,\pi)\st f(\xi)=0$.\\
+    当$x\geqslant\pi$时$f(x)\geqslant \pi^{18}+\pi^{12}-1>0$,没有零点.\\
+    于是存在唯一$\xi\in(0,+\infty)\st f(\xi)=0$.\\
+    根据偶函数的性质,$f(x)=0$当且仅当$x=\pm\xi$,于是原方程在$\R$上有且仅有两个实根$\xi,-\xi$,证毕.
+\end{solution}
+\begin{problem}[8.(15\songti{分})]
+    设$D=[0,1]$,函数$A,B:D\to\R$在$D$上连续,且$$\forall x\in D,0\leqslant A(x)\leqslant 1$$
+    对于$D$上的连续函数$f:D\to\R$,定义$$T_f(x)=B(x)+\int_0^xA(x)f(x)$$试证明:$T_f=f$有唯一连续函数解.即对于$f,g:D\to\R$,若$T_f=f,T_g=g$,则$f=g$.
+\end{problem}
+\begin{solution}[Proof(Method I).]
+    假定$f,g:D\to\R,Tf=f,Tg=g$.下面证明$f=g$.\\
+    记$R(x)=f(x)-g(x)$,则
+    $$R(x)=f(x)-g(x)=Tf(x)-Tg(x)=\int_0^xA(t)f(t)\di t-\int_0^xA(t)g(t)\di t=\int_0^xA(t)R(t)\di t$$
+    且有$R(0)=0$.下面证明$\forall x\in D,R(x)=0$.\\
+    不难得知$R(x)$在$D$上连续,于是根据连续函数的有界性,设$\displaystyle M=\max_{x\in D}f(x)$在$x=x_1$处取到.于是
+    $$\forall x\in[0,x_1],A(x)R(x)\leqslant R(x_1)$$
+    对上式积分有$$\int_0^{x_1}A(t)R(t)\di t\leqslant\int_0^{x_1}R(x_1)\di t$$
+    等号成立当且仅当$\forall t\in[0,x_1],A(t)R(t)=R(x_1)$,这显然不成立.于是
+    $$\int_0^{x_1}A(t)R(t)\di t<\int_0^{x_1}R(x_1)\di t=x_1R(x_1)\leqslant R(x_1)$$
+    这与$\displaystyle R(x_1)=\int_0^{x_1}A(t)R(t)\di t$不符,从而$M=0$.\\
+    同理,设$\displaystyle m=\min_{x\in D}f(x)$在$x=x_2$处取到.若$m<0$,可以推出相似的矛盾.\\
+    于是$\forall x\in D,R(x)=0$,即$f=g$.证毕.
+\end{solution}
+\end{document}

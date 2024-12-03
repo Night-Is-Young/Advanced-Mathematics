@@ -1,0 +1,55 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large Hardy-Littlewood引理\end{center}
+函数在无穷远点有极限是否说明导数在无穷远点也有极限?下面我们来看一个相关的命题.
+\begin{formal}[Hardy-Littlewood引理]
+    对于函数$f(x)$,存在$a\in\R,n\in\N^*$使得$f(x)$在$[a,+\infty)$上有$n$阶导,且满足%
+    $\displaystyle\lim_{x\to+\infty}f(x)$和$\displaystyle\lim_{x\to+\infty}f^{(n)}(x)$存在有限.%
+    那么对于任意$1\leqslant k\leqslant n$,都有$\displaystyle\lim_{x\to+\infty}f^{(k)}(x)=0$.
+\end{formal}
+\begin{proof}
+    取$x_0\in[a,+\infty)$.将$f(x)$在$x=x_0$处泰勒展开有
+    $$f(x)=f(x_0)+(x-x_0)f^{(1)}(x_0)+\cdots+\dfrac{(x-x_0)^{n-1}f^{(n-1)}(x_0)}{(n-1)!}+\dfrac{(x-x_0)^{n}f^{(n)}(\xi)}{n!}$$
+    即$$f(x)-f(x_0)=\sum_{i=1}^{n-1}\dfrac{(x-x_0)^if^{(i)(x_0)}}{i!}+\dfrac{(x-x_0)^{n}f^{(n)}(\xi)}{n!}$$
+    其中$x_0<\xi<x$.现在,分别令$x=x_0+1,\cdots,x_0+n$.于是
+    $$\left\{\begin{array}{c}
+        \displaystyle f(x_0+1)-f(x_0)=\sum_{i=1}^{n-1}\dfrac{1^if^{(i)}(x_0)}{i!}+\dfrac{f^{(n)}(\xi_1)}{n!}\\
+        \vdots\\
+        \displaystyle f(x_0+n)-f(x_0)=\sum_{i=1}^{n-1}\dfrac{n^if^{(i)}(x_0)}{i!}+\dfrac{n^nf^{(n)}(\xi_n)}{n!}\\
+    \end{array}\right.$$
+    假定这是关于$f^{(1)}(x_0),\cdots,f^{(n-1)}(x_0),f^{(n)}(\xi)$的线性方程组.(我们暂且将各$f^{(n)}(\xi_i)$视作一项).\\
+    由于矩阵$A=\begin{pmatrix}
+        \dfrac{1^1}{1!} & \cdots &\dfrac{1^n}{n!} \\
+        \vdots & \ddots & \vdots \\
+        \dfrac{n^1}{1!} & \cdots &\dfrac{n^n}{n!}
+    \end{pmatrix}$的各列线性无关,于是上述方程组总能转化成以下形式.
+    $$\left\{\begin{array}{l}
+        \displaystyle\sum_{i=1}^{n}c_{k,i}\left(f(x_0+i)-f(x_0)\right)=f^{(k)}(x_0)+\sum_{i=1}^{n}p_{k,i}f^{(n)}(\xi_i),1\leqslant k\leqslant n-1\text{且}\sum_{i=1}^{n}{p_{k,i}}=0 \\
+        \displaystyle\sum_{i=1}^{n}{c_{n,i}}\left(f(x_0+i)-f(x_0)\right)=\sum_{i=1}^{n}p_{n,i}f^{(n)}(\xi_i)
+    \end{array}\right.$$
+    设$\displaystyle\lim_{x\to+\infty}f(x)=L_0,\displaystyle\lim_{x\to+\infty}f^{(n)}(x)=L_n$.\\
+    于是对于任意$1\leqslant i\leqslant n$都有$\displaystyle\lim_{x_0\to+\infty}f(x_0+i)=L_0,\lim_{x\to+\infty}f^{(n)}(\xi_i)=L_n$.\\
+    我们对上面的各个方程组分别取极限,有
+    $$\left\{\begin{array}{l}
+        \displaystyle\sum_{i=1}^{n}c_{k,i}\left(L_0-L_0\right)=\lim_{x_0\to+\infty}f^{(k)}(x_0)+\sum_{i=1}^{n}p_{k,i}L_n,1\leqslant k\leqslant n-1\\
+        \displaystyle\sum_{i=1}^{n}{c_{n,i}}\left(L_0-L_0\right)=\sum_{i=1}^{n}p_{n,i}L_n
+    \end{array}\right.$$
+    于是$\forall 1\leqslant k\leqslant n,\displaystyle\lim_{x\to+\infty}f^{(k)}(x)=0$.命题得证.
+\end{proof}\noindent
+需要注意的是,在各阶导数极限均不明存在性的情况下,只有通过将其约束在一个其余极限已知的等式中才可说明其极限.事实上,如果题设中给出各阶导数极限存在,那么证明难度将大大下降.\\
+另外,通过Lagrange中值定理求得的余项$\xi$仅当整个函数的极限存在时,我们才可通过Henie定理说明$\lim_{x\to+\infty}f(\xi)$的极限.%
+反过来,我们不能通过$\xi$所代表的序列求得整个函数的极限,因为$\xi$的取值很有可能是离散的,我们不能从离散的序列极限简单地推知函数极限(这极限有可能不存在).\\
+关于上面的内容,更详细的可见函数极限定理.
+\end{document}

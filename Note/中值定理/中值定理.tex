@@ -129,7 +129,7 @@
     记$$a=x_0<x_1<x_2<\cdots<x_n=b,\xi=\max_{1\leqslant i\leqslant n}{\left|x_i-x_{i-1}\right|}$$
     记$g(x)$在$[x_{i-1},x_i]$上的振幅(即最值之差)为$w_i(g)$.\\
     则有
-    \begin{align*}
+    $$\begin{aligned}
         \int_{a}^{b}{f(x)g(x)\dx}
         &= \lim_{\xi\to 0^+}{\sum_{i=1}^{n}{\int_{x_{i-1}}^{x_i}{f(x)g(x)\dx}}} \\
         &= \lim_{\xi\to 0^+}{\sum_{i=1}^{n}{\int_{x_{i-1}}^{x_i}{f(x)\left[g(x)-g(x_i)\right]\dx}}}+\lim_{\xi\to 0^+}{\sum_{i=1}^{n}{\int_{x_{i-1}}^{x_i}{f(x)g(x_i)\dx}}} \\
@@ -139,7 +139,7 @@
         &= \lim_{\xi\to 0^+}{\sum_{i=1}^{n}\left[g(x_i)F(x_i)-g(x_{i-1})F(x_{i-1})\right]}+\lim_{\xi\to 0^+}{\sum_{i=1}^{n}\left[g(x_{i-1})-g(x_i)\right]F(x_{i-1})} \\
         &= \left.g(x)F(x)\right|_a^b+\lim_{\xi\to 0^+}{\sum_{i=1}^{n}\left[g(x_{i-1})-g(x_i)\right]F(x_{i-1})} \\
         &= g(b)F(b)-\lim_{\xi\to 0^+}{\sum_{i=1}^{n}\left[g(x_{i})-g(x_{i-1})\right]F(x_{i-1})}
-    \end{align*}
+    \end{aligned}$$
     这其中用到了
     $$0\leqslant \lim_{\xi\to 0^+}{\sum_{i=1}^{n}{\int_{x_{i-1}}^{x_i}{\left|f(x)\left[g(x)-g(x_i)\right]\dx\right|}}}\leqslant \lim_{\xi\to 0^+}\max_{[a,b]}{\left|f(x)\right|}{\sum_{i=1}^{n}{w_i(g)(x_i-x_{i-1})}}=0$$
     由于$F(x)$在$[a,b]$连续,不妨设$\displaystyle\max_{[a,b]}F(x)=M_F,\min_{[a,b]}F(x)=m_F$,则
@@ -161,34 +161,5 @@
     $$\exists\xi\in[a,b]\st\int_{a}^{b}{f(x)\left[g(b)-g(x)\right]\dx}=\left[g(b)-g(a)\right]\int_{a}^{\xi}{f(x)\dx}$$
     整理可得$$\int_{a}^{b}{f(x)g(x)\dx}=g(a)\int_{a}^{\xi}{f(x)\dx}+g(b)\int_{\xi}^{b}{f(x)\dx}$$
     原定理得证.
-\end{solution}\noindent
-现在我们来看一道例题.
-\begin{problem}[例1(2021Fall PKU高等数学B期中考试)]
-    \textbf{证明:}对于$[0,1]$上的任何连续函数$f(x)$,
-    都有$\displaystyle\lim_{n\to\infty}{\int_{0}^{1}{f(x)\sin(nx)\dx}}=0$.\\
-    \textbf{注意:}本题中没有假定$f(x)$的导函数$f'(x)$存在.
-\end{problem}
-\begin{solution}
-    \textbf{证明:}由$f(x)$在$[0,1]$连续可得$f(x)$在$\left[\dfrac{j}{k},\dfrac{j+1}{k}\right]$上也连续,其中$k,j\in\N^*,0\leqslant j<m$.\\
-    记$f(x)$在$\left[\dfrac{j}{k},\dfrac{j+1}{k}\right]$的上下界分别为$M_j,m_j$.\\
-    由于$f(x)$在$[0,1]$连续,故$\displaystyle\int_{0}^{1}{f(x)\dx}$存在.设$\displaystyle\int_{0}^{1}{f(x)\dx}=A$,则Rieman和的极限有
-    $$\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{M_j}{k}}}=\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{m_j}{k}}}=A$$
-    从而$$\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}}=A-A=0$$
-    即$\displaystyle\forall\ep>0,\exists K>0\st\forall k>K,\left|\sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}\right|<\dfrac{\ep}{2}$.\\
-    由$f(x)$在$[0,1]$连续可得$\exists B>0\st\left|f(x)\right|<B$.\\
-    现在,$\forall n\in\N^*$有
-    \begin{align*}
-        \left|\int_{0}^{1}{f(x)\sin(nx)\dx}\right|
-        &= \left|\sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{f(x)\sin(nx)\dx}}\right| \\
-        &= \left|\sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left(f(x)-f\left(\dfrac{j}{k}\right)\right)\sin(nx)\dx}}+\int_{\frac{j}{k}}^{\frac{j+1}{k}}{f\left(\dfrac{j}{k}\right)\sin(nx)\dx}\right| \\
-        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|f(x)-f\left(\dfrac{j}{k}\right)\right|\left|\sin(nx)\right|\dx}}+\sum_{j=0}^{k-1}{f\left(\dfrac{j}{k}\right)\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\sin(nx)\dx}} \\
-        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|f(x)-f\left(\dfrac{j}{k}\right)\right|\dx}}+\sum_{j=0}^{k-1}{f\left(\dfrac{j}{k}\right)\cdot\dfrac{1}{n}\left(\cos{\dfrac{j}{k}}-\cos{\dfrac{j+1}{k}}\right)} \\
-        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|M_j-m_j\right|\dx}}+\dfrac{2Bk}{n} \\
-        &\leqslant \sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}+\dfrac{2Bk}{n} \\
-        &< \dfrac{\ep}{2}+\dfrac{2Bk}{n}
-    \end{align*}
-    从而$\forall\ep>0,\exists N=\max\left\{K,\dfrac{4Bk}{\ep}\right\}\st\forall n>N$,
-    $$\left|\lim_{n\to\infty}{\int_{0}^{1}{f(x)\sin(nx)\dx}}\right|<\dfrac{\ep}{2}+\dfrac{2Bk}{N}<\ep$$
-    从而$\displaystyle\lim_{n\to\infty}{\int_{0}^{1}{f(x)\sin(nx)\dx}}=0$,证毕.
 \end{solution}
 \end{document}

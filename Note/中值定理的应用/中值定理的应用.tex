@@ -1,0 +1,86 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 中值定理的应用\end{center}
+我们来看一些关于中值定理的例题.
+\begin{problem}[Example 1(2021Fall PKU高等数学B期中考试).]
+    \tbf{注:这实际上就是Riemann引理.}\\
+    \textbf{证明:}对于$[0,1]$上的任何连续函数$f(x)$,
+    都有$\displaystyle\lim_{n\to\infty}{\int_{0}^{1}{f(x)\sin(nx)\dx}}=0$.\\
+    \textbf{注意:}本题中没有假定$f(x)$的导函数$f'(x)$存在.
+\end{problem}
+\begin{solution}
+    \textbf{证明:}由$f(x)$在$[0,1]$连续可得$f(x)$在$\left[\dfrac{j}{k},\dfrac{j+1}{k}\right]$上也连续,其中$k,j\in\N^*,0\leqslant j<m$.\\
+    记$f(x)$在$\left[\dfrac{j}{k},\dfrac{j+1}{k}\right]$的上下界分别为$M_j,m_j$.\\
+    由于$f(x)$在$[0,1]$连续,故$\displaystyle\int_{0}^{1}{f(x)\dx}$存在.设$\displaystyle\int_{0}^{1}{f(x)\dx}=A$,则Rieman和的极限有
+    $$\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{M_j}{k}}}=\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{m_j}{k}}}=A$$
+    从而$$\lim_{n\to\infty}{\sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}}=A-A=0$$
+    即$\displaystyle\forall\ep>0,\exists K>0\st\forall k>K,\left|\sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}\right|<\dfrac{\ep}{2}$.\\
+    由$f(x)$在$[0,1]$连续可得$\exists B>0\st\left|f(x)\right|<B$.\\
+    现在,$\forall n\in\N^*$有
+    $$\begin{aligned}
+        \left|\int_{0}^{1}{f(x)\sin(nx)\dx}\right|
+        &= \left|\sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{f(x)\sin(nx)\dx}}\right| \\
+        &= \left|\sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left(f(x)-f\left(\dfrac{j}{k}\right)\right)\sin(nx)\dx}}+\int_{\frac{j}{k}}^{\frac{j+1}{k}}{f\left(\dfrac{j}{k}\right)\sin(nx)\dx}\right| \\
+        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|f(x)-f\left(\dfrac{j}{k}\right)\right|\left|\sin(nx)\right|\dx}}+\sum_{j=0}^{k-1}{f\left(\dfrac{j}{k}\right)\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\sin(nx)\dx}} \\
+        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|f(x)-f\left(\dfrac{j}{k}\right)\right|\dx}}+\sum_{j=0}^{k-1}{f\left(\dfrac{j}{k}\right)\cdot\dfrac{1}{n}\left(\cos{\dfrac{j}{k}}-\cos{\dfrac{j+1}{k}}\right)} \\
+        &\leqslant \sum_{j=0}^{k-1}{\int_{\frac{j}{k}}^{\frac{j+1}{k}}{\left|M_j-m_j\right|\dx}}+\dfrac{2Bk}{n} \\
+        &\leqslant \sum_{j=0}^{k-1}{\dfrac{M_j-m_j}{k}}+\dfrac{2Bk}{n} \\
+        &< \dfrac{\ep}{2}+\dfrac{2Bk}{n}
+    \end{aligned}$$
+    从而$\forall\ep>0,\exists N=\max\left\{K,\dfrac{4Bk}{\ep}\right\}\st\forall n>N$,
+    $$\left|\lim_{n\to\infty}{\int_{0}^{1}{f(x)\sin(nx)\dx}}\right|<\dfrac{\ep}{2}+\dfrac{2Bk}{N}<\ep$$
+    从而$\displaystyle\lim_{n\to\infty}{\int_{0}^{1}{f(x)\sin(nx)\dx}}=0$,证毕.
+\end{solution}\noindent
+还有一个与\tbf{Example 1}相似的命题.
+\begin{problem}[Example 2.]
+    设函数$f(x)$在$[0,\pi]$上连续.对于$n\in\N$,试证明$$\lim_{n\to\infty}\int_{0}^{\pi}f(x)\left|\sin(nx)\right|\dx=\dfrac{2}{\pi}\int_0^\pi f(x)\dx$$
+\end{problem}
+\begin{solution}[Proof.]
+    我们有$$\int_0^\pi f(x)\left|\sin (nx)\right|\dx=\sum_{k=1}^{n}\int_{\frac{k\pi}{n}}^{\frac{(k+1)\pi}{n}}f(x)\left|\sin(nx)\right|\dx$$
+    根据积分第一中值定理,$\displaystyle\exists\xi_k\in\left[\dfrac{k\pi}{n},\dfrac{(k+1)\pi}{n}\right]\st\int_{\frac{k\pi}{n}}^{\frac{(k+1)\pi}{n}}f(x)\left|\sin(nx)\right|\dx=f(\xi_k)\int_{\frac{k\pi}{n}}^{\frac{(k+1)\pi}{n}}\left|\sin(nx)\right|\dx$\\
+    令$u=nx$,则$$\int_{\frac{k\pi}{n}}^{\frac{(k+1)\pi}{n}}\left|\sin(nx)\right|\dx=\dfrac{1}{n}\int_{k\pi}^{(k+1)\pi}\left|\sin u\right|\di u=\dfrac{2}{n}$$
+    于是$$\begin{aligned}
+        \lim_{n\to\infty}\int_0^\pi f(x)\left|\sin (nx)\right|\dx
+        &= \lim_{n\to\infty}\sum_{k=1}^{n}\int_{\frac{k\pi}{n}}^{\frac{(k+1)\pi}{n}}f(x)\left|\sin(nx)\right|\dx \\
+        &= \lim_{n\to\infty}\dfrac{2}{n}\sum_{k=1}^nf(\xi_k) \\
+        &= \dfrac{2}{\pi}\lim_{n\to\infty}\dfrac{\pi}{n}\sum_{k=1}^{n}f(\xi_k) \\
+        &= \dfrac{2}{\pi}\int_0^\pi f(x)\dx
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[Example 3.]
+    设函数$f(x)$在$[0,1]$连续,在$(0,1)$可导.
+    试证明:对于任意$A,B>0$和$n\in\N^*$,在$[0,1]$上存在严格递增的序列$\theta_0,\cdots,\theta_n$使得
+    $$(A+B)^n=\sum_{k=0}^{n}\dfrac{1}{f'(\theta_k)}C^k_nA^kB^{n-k}$$
+\end{problem}
+\begin{solution}[Proof.]
+    题设式子两端同时除以$(A+B)^n$有
+    $$1=\sum_{k=0}^{n}\dfrac{1}{f'(\theta_k)}C_n^k\left(\dfrac{A}{A+B}\right)^k\left(\dfrac{B}{A+B}\right)^{n-k}$$
+    令$\dfrac{A}{A+B}=a,\dfrac{B}{A+B}=b$,于是$0<a,b<1$且$a+b=1$.不妨设$0<a<b<1$.
+    只需证$$\sum_{k=0}^{n}\dfrac{1}{f'(\theta_k)}C^k_na^kb^{n-k}=1$$即可.\\
+    由Lagrange中值定理,对于任意$\alpha,\beta\in[0,1]$且$\alpha<\beta$,总存在$\xi\in(\alpha,\beta)$使得$f'(\xi)=\dfrac{f(\beta)-f(\alpha)}{\beta-\alpha}$.\\
+    对上式稍作变形即可得$\beta-\alpha=\dfrac{f(\beta)-f(\alpha)}{f'(\xi)}$.\\
+    根据二项式定理,我们有
+    $$1=(a+b)^n=\sum_{k=0}^{n}C_n^ka^kb^{n-k}$$
+    取$\displaystyle y_k=\sum_{i=0}^{k}C_n^ia^ib^{n-i}\in(0,1]$,于是$y_{k}-y_{k-1}=C_n^ka^kb^{n-k}>0$,于是$\left\{y_k\right\}_{i=0}^{n}$单调递增.\\
+    由于$f'(x)>0$,于是$f(x)$单调递增,进而取$x_k=f^{-1}(y_k)$也保证其单调递增.\\
+    于是对任意$0\leqslant k\leqslant n$,在区间$[x_{k-1},x_k]$(不妨令$x_{-1}=y_{-1}=0$)应用Lagrange中值定理可知
+    $$\exists\theta_k\in(x_{k-1},x_k)\st x_{k}-x_{k-1}=\dfrac{y_{k}-y_{k-1}}{f'(\theta_k)}=\dfrac{1}{f'(\theta_k)}C_n^ka^kb^{n-k}$$
+    对上述等式求和有
+    $$\sum_{k=0}^{n}\left(x_k-x_{k-1}\right)=\sum_{k=0}^{n}\dfrac{1}{f'(\theta_k)}C^k_na^kb^{n-k}$$
+    我们注意到$x_{-1}=0,x_n=f^{-1}(y_n)=f^{-1}(1)=1$,于是
+    $$\sum_{k=0}^{n}\dfrac{1}{f'(\theta_k)}C^k_na^kb^{n-k}=1$$
+    命题得证
+\end{solution}
+\end{document}

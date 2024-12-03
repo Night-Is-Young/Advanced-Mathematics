@@ -1,0 +1,50 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+
+\begin{center}\Large
+    北京大学数学科学学院2022-23高等数学B1期末考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(10\songti{分})}\ 设$\R^3$中平面$x+3y+2z=6$与$x$轴交点为$A$,与$y$轴交点为$B$,与$z$轴交点为$C$.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(5\songti{分})}\ 求$\triangle ABC$的面积.
+            \item \textbf{(5\songti{分})}\ 求过四点$A,B,C,O(0,0)$的球面的方程.
+        \end{enumerate}
+    \item \textbf{(15\songti{分})}\ 下面的二元函数的极限存在吗?如果存在,请求出其值;如果不存在,请说明理由.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{(x,y)\to(0,0)}\dfrac{24\cos\sqrt{x^2+y^2}-24+12\left(x^2+y^2\right)}{\left(\tan\sqrt{x^2+y^2}\right)^4}$.
+            \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{(x,y)\to(0,0)}\left(x+\ln(1+y)\right)\cos\dfrac{1}{x^2+y^2}$.
+            \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{(x,y)\to(0,0)}\dfrac{x\sin y}{\sin^2x+\sin^2y}$.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 设$f,g:\R\to\R$都有连续的二阶导数.对于任意$x,y\in\R$,
+        定义$h(x,y)=xg\left(\dfrac{y}{x}\right)+f\left(\dfrac{y}{x}\right)$,
+        试计算$x^2h_{xx}(x,y)+2xyh_{yx}(x,y)+y^2h_{yy}(x,y)$.
+    \item \textbf{(10\songti{分})}\ 求$\R^2$中曲线$\e^{xy}+xy+y^2=2$在$(0,1)$处的切线方程.
+    \item \textbf{(10\songti{分})}\ 设三元函数$f(x,y,z)=\left(\dfrac{2x}{z}\right)^{y},z\neq0$.求$f$在点$\left(\dfrac{1}{2},1,1\right)$处下降最快的方向上的单位向量.
+    \item \textbf{(10\songti{分})}\ 求二元函数$f(x,y)=\arctan\dfrac{y}{x}$在点$(2,2)$处的二阶泰勒多项式.
+    \item \textbf{(10\songti{分})}\ 求函数$f(x)=\left(\sin x\right)^{\frac{2}{3}}+\left(\cos x\right)^{\frac{2}{3}}$在闭区间$\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$上的最小值,并指明所有最小值点.
+    \item \textbf{(10\songti{分})}\ 证明:对于任意给定的$k\in\R$,存在$0$的开邻域$U$和$W$,存在唯一的函数$y=f(x),x\in U,y\in W$满足方程$\e^{kx}+\e^{ky}-2\e^{x+y}=0$.
+    \item \textbf{(15\songti{分})}\ 设$r$是正实数,$D=\left\{(x,y)\vert\sqrt{x^2+y^2}<r\right\}$,函数$f:D\to\R$满足$f\in C^3(D),f(0,0)=0$,
+        $f$在点$(0,0)$处的一阶全微分$\di f(0,0)=0$.$f$在点$(0,0)$处的二阶全微分满足
+        $$\di^2f(0,0)=E\left(\Delta x\right)^2+2F\Delta x\Delta y+G\left(\Delta y\right)^2$$
+        其中$E,F,G$均为常数.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(10\songti{分})}\ 证明:存在$D$上的两个函数$a,b:D\to\R$使得$\forall (x,y)\in D$有$$f(x,y)=xa(x,y)+yb(x,y),a(0,0)=b(0,0)=0$$
+            \item \textbf{(5\songti{分})}\ 若$E>0,EG-F^2<0$,则在$\R^3$中点$(0,0,0)$的充分小邻域中,曲面$z=f(x,y)$充分近似于哪一类二次曲面?画出此类二次曲面的草图.
+                从此类二次曲面的几何形状判断是否存在$\R^2$中点$(0,0)$的充分小邻域$D_1$,存在$D_1$上的一一对应的$C^1$变量变换$x=x(u,v),y=y(u,v)$使得
+                $$f(x(u,v),y(u,v))=u^2-v^2$$
+        \end{enumerate}
+\end{enumerate}
+\end{document}

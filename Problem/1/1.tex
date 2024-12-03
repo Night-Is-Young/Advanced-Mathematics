@@ -6,82 +6,78 @@
 \usepackage{enumerate}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{enumitem}
+\usepackage{template}
 
 \allowdisplaybreaks
 \geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 
-\newcommand{\e}{\mathrm{e}}
-\newcommand{\di}{\mathrm{d}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\ep}{\varepsilon}
-\newcommand{\st}{,\text{s.t.}}
-\newcommand{\dx}{\di x}
-
-% 定义 solution 文本框
-\definecolor{solutionshade}{rgb}{1,0.97,0.97}
-\definecolor{solutionline}{rgb}{0.7,0.02,0.02}
-\newenvironment{solution}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{solutionline}\vrule width 2pt}%
-{\color{solutionshade}\vrule width 4pt}%
-\colorbox{solutionshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
-
-% 定义 problem 文本框
-\definecolor{problemshade}{rgb}{0.98,0.96,1}
-\definecolor{problemline}{rgb}{0.27,0.2,0.55}
-\newenvironment{problem}[1][]{%
-\def\FrameCommand{%
-\hspace{1pt}%
-{\color{problemline}\vrule width 2pt}%
-{\color{problemshade}\vrule width 4pt}%
-\colorbox{problemshade}%
-}%
-\MakeFramed{\advance\hsize-\width\FrameRestore}%
-\noindent\hspace{-4.55pt}% disable indenting first paragraph
-\begin{adjustwidth}{}{1pt}%
-\setlength{\parindent}{0pt}% 移除段落缩进
-\vspace{3pt}% 在内容顶部添加垂直空间
-\ifx&#1&\else % 检查参数是否为空
-    \textbf{#1}\par\vspace{1pt}%
-\fi
-}
-{%
-\vspace{2pt}% 在内容底部添加垂直空间
-\end{adjustwidth}\endMakeFramed%
-}
-
 \begin{document}
 \pagestyle{empty}
-\begin{problem}[2020Fall PKU高等数学B期中考试]
-    已知$\displaystyle y=(\arcsin x)^2$,求$y^{(n)}(0)$.
+\begin{problem}[古早计算大赛题目]
+    试证明:球坐标系下Laplace算子为
+    $$\Delta=\dfrac{1}{r^2}\dfrac{\p}{\p{r}}\left(r^2\dfrac{\p}{\p{r}}\right)+\dfrac{1}{r^2\sin\theta}\dfrac{\p}{\p\theta}\left(\sin\theta\dfrac{\p}{\p\theta}\right)+\dfrac{1}{r^2\sin^2\theta}\dfrac{\p^2}{\p\phi^2}$$
 \end{problem}
-\begin{solution}[Solution.]
-    由题意有$$y'=2\arcsin x\cdot\dfrac{1}{\sqrt{1-x^2}}$$
-    即$$4y=(1-x^2){y'^2}$$
-    由于$y'^2$的存在,我们不能对等式两端直接使用Leibniz公式进行展开.\\
-    因此,我们再对等式两端求一次导,即
-    $$4y'=2y'y''(1-x^2)-2xy'^2$$
-    整理后有$$y''(1-x^2)=2+xy'$$
-    对等式两端求$n$阶导,使用Leibniz公式展开有
-    $$(1-x^2)y^{(n+2)}-2nxy^{(n+1)}-n(n-1)y^{(n)}=xy^{(n+1)}+ny^{(n)}$$
-    整理可得$$(1-x^2)y^{(n+2)}=(2n+1)xy^{(n+1)}+n^2y^{(n)}$$
-    代入$x=0$有$$y^{(n+2)}(0)=n^2y^{(n)}(0)$$
-    从而$$y^{(n)}(0)= \left\{\begin{array}{l} [(n-2)!!]^2,\ 2\mid x\\ 0,\ 2\nmid x\end{array}\right.$$
+\begin{solution}[Proof.]
+    我们知道笛卡尔坐标系下的Laplace算子为
+    $$\Delta=\dfrac{\p^2}{\p{x^2}}+\dfrac{\p^2}{\p{y^2}}+\dfrac{\p^2}{\p{z^2}}$$
+    以及笛卡尔坐标系向球坐标系的变换
+    $$\left\{\begin{array}{l}
+    x=r\sin\theta\cos\phi\\
+    y=r\sin\theta\sin\phi\\
+    z=r\cos\theta
+    \end{array}\right.$$
+    考虑函数$f(x,y,z):\R^3\to\R$,则有
+    $$\dfrac{1}{r^2}\dfrac{\p}{\p{r}}\left(r^2\dfrac{\p{f}}{\p{r}}\right)
+    =\dfrac{1}{r^2}\left(2r\dfrac{\p{f}}{\p{r}}+r^2\dfrac{\p^2 f}{\p{r^2}}\right)
+    =\dfrac{2}{r}\dfrac{\p{f}}{\p{r}}+\dfrac{\p^2f}{\p{r^2}}
+    $$
+    $$\dfrac{1}{r^2\sin\theta}\dfrac{\p}{\p\theta}\left(\sin\theta\dfrac{\p{f}}{\p\theta}\right)
+    =\dfrac{1}{r^2\sin\theta}\left(\cos\theta\dfrac{\p{f}}{\p{\theta}}+\sin\theta\dfrac{\p^2f}{\p\theta^2}\right)
+    =\dfrac{1}{r^2\tan\theta}\dfrac{\p{f}}{\p{\theta}}+\dfrac{1}{r^2}\dfrac{\p^2f}{\p\theta^2}$$
+    而
+    $$\dfrac{\p^2{f}}{\p{r^2}}=\dfrac{\p}{\p{r}}\left(\dfrac{\p{f}}{\p{r}}\right)=\dfrac{\p}{\p{r}}\left(\dfrac{\p{f}}{\p{x}}\cdot\dfrac{\p{x}}{\p{r}}+\dfrac{\p{f}}{\p{y}}\cdot\dfrac{\p{y}}{\p{r}}+\dfrac{\p{f}}{\p{z}}\cdot\dfrac{\p{z}}{\p{r}}\right)$$
+    我们知道$$\dfrac{\p}{\p{r}}\left(\dfrac{\p{f}}{\p{x}}\cdot\dfrac{\p{x}}{\p{r}}\right)=\dfrac{\p^2x}{\p{r^2}}\cdot\dfrac{\p{f}}{\p{x}}+\dfrac{\p^2f}{\p{x^2}}\cdot\left(\dfrac{\p{x}}{\p{r}}\right)^2$$
+    而
+    $$\dfrac{\p{x}}{\p{r}}=\sin\theta\cos\phi,\dfrac{\p^2x}{\p{r^2}}=0$$
+    $$\dfrac{\p{y}}{\p{r}}=\sin\theta\sin\phi,\dfrac{\p^2y}{\p{r^2}}=0$$
+    $$\dfrac{\p{z}}{\p{r}}=\cos\theta,\dfrac{\p^2z}{\p{r^2}}=0$$
+    代入可得
+    $$\begin{aligned}
+        \dfrac{1}{r^2}\dfrac{\p}{\p{r}}\left(r^2\dfrac{\p{f}}{\p{r}}\right)
+        &= \sin^2\theta\cos^2\phi\dfrac{\p^2f}{\p{x^2}}+\sin^2\theta\sin^2\phi\dfrac{\p^2f}{\p{y^2}}+\sin^2\theta\dfrac{\p^2f}{\p{z^2}}\\
+        &+ \dfrac{2}{r}\left(\sin\theta\cos\phi\dfrac{\p{f}}{\p{x}}+\sin\theta\sin\phi\dfrac{\p{f}}{\p{y}}+\cos\theta\dfrac{\p{f}}{\p{z}}\right)
+    \end{aligned}$$
+    又
+    $$\dfrac{\p{x}}{\p{\theta}}=r\cos\theta\cos\phi,\dfrac{\p^2x}{\p{\theta^2}}=-r\sin\theta\cos\phi$$
+    $$\dfrac{\p{y}}{\p{\theta}}=r\cos\theta\sin\phi,\dfrac{\p^2y}{\p{\theta^2}}=-r\sin\theta\sin\phi$$
+    $$\dfrac{\p{z}}{\p{\theta}}=-r\sin\theta,\dfrac{\p^2z}{\p{\theta^2}}=-r\cos\theta$$
+    于是
+    $$\begin{aligned}
+        \dfrac{1}{r^2\tan\theta}\dfrac{\p{f}}{\p{\theta}}+\dfrac{1}{r^2}\dfrac{\p^2f}{\p\theta^2}
+        &= \cos^2\theta\cos^2\phi\dfrac{\p^2f}{\p{x^2}}+\cos^2\theta\sin^2\phi\dfrac{\p^2f}{\p{y^2}}+\cos^2\theta\dfrac{\p^2f}{\p{z^2}} \\
+        &+ \dfrac{1}{r}\left(\dfrac{\cos2\theta}{\sin\theta}\cos\phi\dfrac{\p{f}}{\p{x}}+\dfrac{\cos2\theta}{\sin\theta}\sin\phi\dfrac{\p{f}}{\p{y}}-2\cos\theta\dfrac{\p{f}}{\p{z}}\right)
+    \end{aligned}$$
+    又
+    $$\dfrac{\p{x}}{\p{\phi}}=-r\sin\theta\sin\phi,\dfrac{\p^2{x}}{\p{\phi^2}}=-r\sin\theta\cos\phi$$
+    $$\dfrac{\p{y}}{\p{\phi}}=r\sin\theta\cos\phi,\dfrac{\p^2{y}}{\p{\phi^2}}=-r\sin\theta\sin\phi$$
+    $$\dfrac{\p{z}}{\p\phi}=\dfrac{\p^2z}{\p\phi^2}=0$$
+    于是
+    $$\begin{aligned}
+        \dfrac{1}{r^2\sin^2\theta}\dfrac{\p^2f}{\p\phi^2}
+        &=\sin^2\phi\dfrac{\p^2f}{\p{x^2}}+\cos^2\phi\dfrac{\p^2f}{\p{y^2}}-\dfrac{1}{r}\left(\dfrac{\cos\phi}{\sin\theta}\dfrac{\p{f}}{\p{x}}+\dfrac{\sin\phi}{\sin\theta}\dfrac{\p{f}}{\p{y}}\right)
+    \end{aligned}$$
+    将三项相加,考虑如下几项偏导数的系数
+    $$\begin{aligned}
+        \dfrac{\p{f}}{\p{x}}&:\dfrac{1}{r}\left(2\sin\theta\cos\phi+\dfrac{\cos2\theta}{\sin\theta}\cos\phi-\dfrac{\cos\phi}{\sin\theta}\right)=\dfrac{\cos\phi}{r\sin\theta}\left(2\sin^2\theta-1+\cos2\theta\right)=0\\
+        \dfrac{\p{f}}{\p{y}}&:\dfrac{1}{r}\left(2\sin\theta\sin\phi+\dfrac{\cos2\theta}{\sin\theta}\sin\phi-\dfrac{\sin\phi}{\sin\theta}\right)=\dfrac{\sin\phi}{r\sin\theta}\left(2\sin^2\theta-1+\cos2\theta\right)=0\\
+        \dfrac{\p{f}}{\p{z}}&:\dfrac{2}{r}\cos\theta-\dfrac{1}{r}\cdot2\cos\theta=0\\
+        \dfrac{\p^2{f}}{\p{x^2}}&:\sin^2\theta\cos^2\phi+\cos^2\theta\cos^2\phi+\sin^2\phi=1\\
+        \dfrac{\p^2{f}}{\p{y^2}}&:\sin^2\theta\sin^2\phi+\cos^2\theta\sin^2\phi+\cos^2\phi=1\\
+        \dfrac{\p^2{f}}{\p{y^2}}&:\sin^2\theta+\cos^2\theta=1
+    \end{aligned}$$
+    于是
+    $$\dfrac{1}{r^2}\dfrac{\p}{\p{r}}\left(r^2\dfrac{\p{f}}{\p{r}}\right)+\dfrac{1}{r^2\sin\theta}\dfrac{\p}{\p\theta}\left(\sin\theta\dfrac{\p{f}}{\p\theta}\right)+\dfrac{1}{r^2\sin^2\theta}\dfrac{\p^2f}{\p\phi^2}
+    =\dfrac{\p^2f}{\p{x^2}}+\dfrac{\p^2f}{\p{y^2}}+\dfrac{\p^2f}{\p{z^2}}$$
+    从而原命题得证.
 \end{solution}
 \end{document}

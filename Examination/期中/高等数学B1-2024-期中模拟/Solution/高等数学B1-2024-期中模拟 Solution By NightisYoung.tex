@@ -1,0 +1,203 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2024-25高等数学B1期中模拟
+\end{center}
+\begin{problem}[1.(15\songti 分)]
+    解答下列问题.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{(5\songti{分})}\ 求序列极限$$\lim_{n\to\infty}\left|\cos\left(\sqrt{n^2+1}\pi\right)\right|$$
+        \item \textbf{(5\songti{分})}\ 求函数极限$$\lim_{x\to+\infty}\left(\dfrac{x^2-1}{x^2+1}\right)^{x^2}$$
+        \item \textbf{(5\songti{分})}\ 求函数$$f(x)=\left\{\begin{array}{l}x^2\sin\dfrac{1}{x},x\neq 0\\0,x=0\end{array}\right.$$的导函数$f'(x)$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Solution.}
+            $$\begin{aligned}
+                \lim_{n\to\infty}\left|\cos\left(\pi\sqrt{n^2+1}\right)\right|
+                &= \lim_{n\to\infty}\left|\cos\left(\pi\sqrt{n^2+1}-n\pi\right)\right| \\
+                &= \lim_{n\to\infty}\left|\cos\dfrac{\pi}{\sqrt{n^2+1}+n}\right| \\
+                &= \cos 0 \\
+                &= 1
+            \end{aligned}$$
+        \item \textbf{Solution.}
+            $$\begin{aligned}
+                \lim_{x\to+\infty}\left(\dfrac{x^2-1}{x^2+1}\right)^{x^2}
+                &= \lim_{x\to\infty}\left(1-\dfrac{2}{x^2+1}\right)^{\frac{x^2+1}{2}\cdot\frac{2x^2}{x^2+1}} \\
+                &= \e^{-2}
+            \end{aligned}$$
+        \item \textbf{Solution.}\\
+            当$x\neq0$时有
+            $$\dfrac{\di f(x)}{\dx}=2x\sin\dfrac{1}{x}+x^2\left(-\dfrac{1}{x^2}\cos\dfrac{1}{x}\right)=2x\sin\dfrac{1}{x}-\cos\dfrac{1}{x}$$
+            又$$f'(0)=\lim_{x\to0}\dfrac{f(x)-f(0)}{x}=\lim_{x\to0}\dfrac{x^2\sin\dfrac{1}{x}}{x}=\lim_{x\to0}x\sin\dfrac{1}{x}=0$$
+            于是$$f'(x)=\left\{\begin{array}{l}
+                2x\sin\dfrac{1}{x}-\cos\dfrac{1}{x},x\neq0\\0,x=0
+            \end{array}\right.$$
+    \end{enumerate}
+\end{solution}
+\begin{problem}[2.(10\songti 分)]
+    设参数方程$$\left\{\begin{array}{l}x=\e^t\sin2t\\y=\e^t\cos t,x=0\end{array}\right.$$确定函数$y=f(x)$.求$\dfrac{\di y}{\dx},\dfrac{\di^2y}{\dx^2}$.
+\end{problem}
+\begin{solution}[Solution.]
+    我们有
+    $$\dfrac{\dx}{\di t}=\e^t\left(\sin2t+2\cos2t\right)$$
+    $$\dfrac{\di y}{\di t}=\e^t\left(\cos t-\sin t\right)$$
+    于是$$\dfrac{\di y}{\dx}=\dfrac{\e^t\left(\cos t-\sin t\right)}{\e^t\left(\sin2t+2\cos2t\right)}=\dfrac{\cos t-\sin t}{\sin2t+2\cos2t}$$
+    于是$$\begin{aligned}
+        \dfrac{\di^2y}{\dx^2}
+        &= \dfrac{\di\left(\dfrac{\di y}{\dx}\right)}{\dx}=\dfrac{\di\left(\dfrac{\di y}{\dx}\right)}{\di t}\cdot\dfrac{\di t}{\dx} \\
+        &= \dfrac{-(\sin t+\cos t)(\sin 2t+2\cos 2t)-(\cos t-\sin t)(2\cos2t-4\sin2t)}{\left(\sin2t+2\cos2t\right)^2\cdot\e^t\left(\sin2t+2\cos2t\right)} \\
+        &= \dfrac{\cos t\left(-5-4\cos2t+3\sin2t\right)}{\e^t\left(\sin2t+2\cos2t\right)^3}
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[3.(10\songti 分)]
+    求不定积分$$\int\dfrac{x^3+1}{x(x-1)^3}\dx$$
+\end{problem}
+\begin{solution}[Solution.]
+    置$u=x-1$,于是
+    $$\begin{aligned}
+        \int\dfrac{x^3+1}{x(x-1)^3}\dx
+        &= \int\dfrac{u^3+3u^2+3u+2}{u^3(u+1)}\di u
+    \end{aligned}$$
+    设$$\dfrac{u^3+3u^2+3u+2}{u^3(u+1)}=\dfrac{A}{u+1}+\dfrac{B}{u}+\dfrac{C}{u^2}+\dfrac{D}{u^3}$$
+    于是$$\left\{\begin{array}{l}
+        A+B=1\\
+        B+C=3\\
+        C+D=3\\
+        D=2
+    \end{array}\right.$$
+    解得$A=-1,B=2,C=1,D=2$.
+    于是$$\begin{aligned}
+        \int\dfrac{x^3+1}{x(x-1)^3}\dx
+        &= \int\left(\dfrac{2}{u^3}+\dfrac{1}{u^2}+\dfrac{2}{u}-\dfrac{1}{u+1}\right)\di u\\
+        &= -\dfrac{1}{(x-1)^2}-\dfrac{1}{x-1}+2\ln\left|x-1\right|-\ln\left|x\right|+C
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[4.(10\songti 分)]
+    求心形线$$r=a(1+\cos\theta),a>0,0\leqslant\theta\leqslant2\pi$$的弧长.
+\end{problem}
+\begin{solution}[Solution.]
+    根据极坐标中图形的弧长公式有
+    $$\begin{aligned}
+        r
+        &= \int_0^{2\pi}\sqrt{r^2+r'^2}\di\theta \\
+        &= a\int_0^{2\pi}\sqrt{\cos^2\theta+2\cos\theta+1+\sin^2\theta}\di\theta \\
+        &= \sqrt{2}a\int_0^{2\pi}\sqrt{1+\cos\theta}\di\theta \\
+        &= 2a\int_0^{2\pi}\left|\cos\dfrac{\theta}{2}\right|\di\theta \\
+        &= 8a\int_0^{\frac{\pi}{2}}\cos\dfrac{\theta}{2}\di\left(\dfrac{\theta}{2}\right) \\
+        &= 8a
+    \end{aligned}$$
+\end{solution}
+\begin{problem}[5.(10\songti 分)]
+    设$t\in(0,1)$,$f(t)$表示曲线$y=\sec t$与直线$x=0,y=0$和$x=\arcsin t$围成的封闭图形的面积.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{(5\songti{分})}\ 求$f(t)$的导数$f'(t)$.
+        \item \textbf{(5\songti{分})}\ 求$f(t)$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Solution.}\\
+            由题意可得$$f(t)=\int_{0}^{x(t)}y\dx=\int_0^{\arcsin{t}}\sec x\dx$$
+            于是$$f'(t)=\sec(\arcsin t)\cdot\left(\arcsin t\right)'=\dfrac{1}{\sqrt{1-t^2}\sqrt{1-t^2}}=\dfrac{1}{1-t^2}$$
+        \item \textbf{Solution.}\\
+            由\textbf{(1)}的结果可得
+            $$\int f'(t)\di t=\int\dfrac{\di t}{1-t^2}=\dfrac{1}{2}\int\left(\dfrac{1}{t+1}-\dfrac{1}{t-1}\right)\di t=\dfrac{1}{2}\ln\left|\dfrac{t+1}{t-1}\right|+C$$
+            又$$f(0)=\int_0^{\arcsin0}\sec x\dx=0$$
+            于是$$f(t)=\dfrac{1}{2}\ln\left|\dfrac{t+1}{t-1}\right|$$
+    \end{enumerate}
+\end{solution}
+\begin{problem}[6.(10\songti 分)]
+    设函数$f(x)$在$[0,1]$上连续,且有$$\int_0^1f(x)\dx=\int_0^1xf(x)\dx=0$$试证明:$f(x)$在$[0,1]$上至少有两个零点.
+\end{problem}
+\begin{solution}[Proof.]
+    若$f(x)$在$[0,1]$上没有零点,那么不妨设$\forall x\in[0,1],f(x)>0$,于是
+    $$\int_{0}^{1}f(x)\dx>0$$
+    这与题设不符($f(x)<0$时亦同理),于是$f(x)$在$[0,1]$上至少有一个零点,设$f(x_1)=0$.\\
+    若$f(x)$在$[0,1]$上仅有一个零点$x_1$,那么不妨设$x\in[0,x_1)$时$f(x)<0$,$x\in(x_1,1]$时$f(x)>0$.\\
+    由题意$$\int_0^1f(x)\dx=\int_0^{x_1}f(x)\dx+\int_{x_1}^1f(x)\dx$$
+    于是$$\int_0^{x_1}f(x)\dx=-\int_{x_1}^1f(x)\dx<0$$
+    又$x<x_1$时$0>xf(x)>x_1f(x)$,$x>x_1$时$0<x_1f(x)<xf(x)$.于是
+    $$\begin{aligned}
+        \int_0^1xf(x)\dx
+        &= \int_0^{x_1}xf(x)\dx+\int_{x_1}^{1}xf(x)\dx \\
+        &> x_1\int_0^{x_1}f(x)\dx+x_1\int_{x_1}^1f(x)\dx \\
+        &= x_1\left(\int_0^{x_1}f(x)\dx+\int_{x_1}^1f(x)\dx\right) \\
+        &= x_1\int_0^1f(x)\dx =0
+    \end{aligned}$$
+    这与题设不符,于是$f(x)$在$[0,1]$上至少有两个零点.
+\end{solution}
+\begin{problem}[7.(20\songti 分)]
+    解答下列问题.
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{(8\songti{分})}\ 设序列$\left\{x_n\right\}$满足$\displaystyle x_n=\sum_{i=1}^n\dfrac{1}{i}-\ln n$,试证明$\displaystyle\lim_{n\to\infty}x_n$存在且有限.
+        \item \textbf{(12\songti{分})}\ 对于$n\in\N$,定义$$I_n=\int_0^\frac{\pi}{2}\dfrac{\sin^2nt}{\sin t}\di t$$求序列极限$\displaystyle\lim_{n\to\infty}\dfrac{I_n}{\ln n}$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item \textbf{Proof.}\\
+            置$f(x)=\dfrac{1}{x}$,于是$$\forall k\in\N^*,\forall x\in(k,k+1),\dfrac{1}{k}>f(x)>\dfrac{1}{k+1}$$
+            对上式积分有$$\dfrac{1}{k+1}<\int_{k}^{k+1}f(x)\dx<\dfrac{1}{k}$$
+            对上式求和有$$\sum_{k=1}^{n-1}\dfrac{1}{k+1}<\int_1^nf(x)\dx<\sum_{k=1}^{n-1}\dfrac{1}{k}$$
+            于是$$x_n+\ln n-1<\left.(\ln x)\right|_1^n<x_n+\ln n-\dfrac{1}{n}$$
+            所以$$\dfrac{1}{n}<x_n<1$$
+            从而$\left\{x_n\right\}$有界.我们又有
+            $$x_{n+1}-x_n=\dfrac{1}{n+1}+\ln\dfrac{n}{n+1}=\ln\dfrac{n}{n+1}+1-\dfrac{n}{n+1}<0$$
+            于是$\left\{x_n\right\}$递减,从而$\displaystyle\lim_{n\to\infty}x_n$存在.
+        \item \textbf{Proof.}\\
+            不难发现$$I_1=\int_0^{\frac{\pi}{2}}\sin t\di t=1$$
+            而
+            $$\begin{aligned}
+                I_n-I_{n-1}
+                &= \int_0^{\frac{\pi}{2}}\dfrac{\sin^2nt-\sin^2(n-1)t}{\sin t}\di t \\
+                &= \int_0^{\frac{\pi}{2}}\dfrac{\sin(n+(n-1))t\cdot\sin(n-(n-1))t}{\sin t}\di t \\
+                &= \int_0^{\frac{\pi}{2}}\sin(2n-1)t\di t \\
+                &= \dfrac{1}{2n-1}\int_0^{n\pi-\frac{\pi}{2}}\sin u\di u \\
+                &= \dfrac{1}{2n-1}
+            \end{aligned}$$
+            于是$$I_n=1+\dfrac{1}{3}+\dfrac{1}{5}+\cdots+\dfrac{1}{2n-1}$$
+            设$\displaystyle t_n=x_n+\ln n=\sum_{i=1}^n\dfrac{1}{i}$,于是$I_n=t_{2n}-\dfrac{1}{2}t_n$.
+            于是$$\begin{aligned}
+                \dfrac{I_n}{\ln n}
+                &= \dfrac{x_{2n}+\ln2n}{\ln n}-\dfrac{x_n+\ln n}{2\ln n} \\
+                &= \dfrac{x_{2n}}{\ln2n}-\dfrac{x_n}{2\ln n}+\dfrac{\ln 2}{\ln n}+\dfrac{1}{2}
+            \end{aligned}$$
+            注意到$\forall n\in\N^*,x_n<1$.于是$$\lim_{n\to\infty}\dfrac{I_n}{\ln n}=\dfrac{1}{2}$$
+    \end{enumerate}
+\end{solution}
+\begin{problem}[8.(15\songti 分)]
+    设函数$f(x)$在$[0,\pi]$上连续.对于$n\in\N$,试证明$$\lim_{n\to\infty}\int_{0}^{\pi}f(x)\left|\sin(nx)\right|\dx=\dfrac{2}{\pi}\int_0^\pi f(x)\dx$$
+\end{problem}
+\begin{solution}[Proof.]
+    首先证明$$\forall[a,b]\subset[0,\pi],\exists \xi\in[a,b]\st \int_a^bf(x)\left|\sin nx\right|\dx=f(\xi)\int_a^b\left|\sin nx\right|\dx$$
+    由于$f(x)$在$[a,b]$上连续,于是其有界.不妨设$\displaystyle m=\min_{a\leqslant x\leqslant b}f(x),M=\max_{a\leqslant x\leqslant b}f(x)$,于是
+    $$m\left|\sin nx\right|\leqslant f(x)\left|\sin nx\right|\leqslant M\left|\sin nx\right|$$
+    对上式作定积分有
+    $$m\int_a^b\left|\sin nx\right|\leqslant\int_a^bf(x)\left|\sin nx\right|\leqslant M\int_a^b\left|\sin nx\right|$$
+    即$$m\leqslant\dfrac{\int_a^b f(x)\left|\sin nx\right|}{\int_a^b\left|\sin nx\right|}\leqslant M$$
+    于是根据介值定理,存在$\xi\in[a,b]$使得$\displaystyle \int_a^bf(x)\left|\sin nx\right|\dx=f(\xi)\int_a^b\left|\sin nx\right|\dx$.\\
+    我们有$$\int_0^\pi f(x)\left|\sin (nx)\right|\dx=\sum_{k=1}^{n}\int_{\frac{k\pi}{n}}^{\frac{(k+1)\pi}{n}}f(x)\left|\sin(nx)\right|\dx$$
+    根据上述引理,$\displaystyle\exists\xi_k\in\left[\dfrac{k\pi}{n},\dfrac{(k+1)\pi}{n}\right]\st\int_{\frac{k\pi}{n}}^{\frac{(k+1)\pi}{n}}f(x)\left|\sin(nx)\right|\dx=f(\xi_k)\int_{\frac{k\pi}{n}}^{\frac{(k+1)\pi}{n}}\left|\sin(nx)\right|\dx$\\
+    令$u=nx$,则$$\int_{\frac{k\pi}{n}}^{\frac{(k+1)\pi}{n}}\left|\sin(nx)\right|\dx=\dfrac{1}{n}\int_{k\pi}^{(k+1)\pi}\left|\sin u\right|\di u=\dfrac{2}{n}$$
+    于是$$\begin{aligned}
+        \lim_{n\to\infty}\int_0^\pi f(x)\left|\sin (nx)\right|\dx
+        &= \lim_{n\to\infty}\sum_{k=1}^{n}\int_{\frac{k\pi}{n}}^{\frac{(k+1)\pi}{n}}f(x)\left|\sin(nx)\right|\dx \\
+        &= \lim_{n\to\infty}\dfrac{2}{n}\sum_{k=1}^nf(\xi_k) \\
+        &= \dfrac{2}{\pi}\lim_{n\to\infty}\dfrac{\pi}{n}\sum_{k=1}^{n}f(\xi_k) \\
+        &= \dfrac{2}{\pi}\int_0^\pi f(x)\dx
+    \end{aligned}$$
+\end{solution}
+\end{document}

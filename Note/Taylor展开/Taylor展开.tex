@@ -1,0 +1,60 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large Taylor展开\end{center}
+\begin{problem}[Example 1.]
+    求函数$$f(x)=\sqrt{1-2x+x^3}-\sqrt{1-3x+x^2}$$
+    在$x=0$处的三阶泰勒展开式.
+\end{problem}
+\begin{solution}[Solution(Method I).]
+    函数$g(x)=\sqrt{1+x}$在$x=0$处的三阶泰勒展开式为
+    $$f(x)=1+\dfrac{1}{2}x-\dfrac{1}{8}x^2+\dfrac{1}{16}x^3+o\left(x^3\right)$$
+    于是$g(x)$的三阶泰勒展开式为
+    $$\begin{aligned}
+        g(x)
+        = &\left(1+\dfrac{x^3-2x}{2}-\dfrac{\left(x^3-2x\right)^2}{8}+\dfrac{\left(x^3-2x\right)^3}{16}+o\left(\left(x^3-2x\right)^3\right)\right) \\
+          &-\left(1+\dfrac{x^2-3x}{2}-\dfrac{\left(x^2-3x\right)^2}{8}+\dfrac{\left(x^2-3x\right)^3}{16}+o\left(\left(x^2-3x\right)^3\right)\right) \\
+        = &\left(1+\dfrac{x^3-2x}{2}-\dfrac{x^2}{2}+\dfrac{x^3}{2}+o(x^3)\right)-\left(1+\dfrac{x^2-3x}{2}-\dfrac{-6x^3+9x^2}{8}-\dfrac{27x^3}{16}+o(x^3)\right) \\
+        = &\ \dfrac{1}{2}x+\dfrac{1}{8}x^2+\dfrac{15}{16}x^3+o(x^3)
+    \end{aligned}$$
+\end{solution}
+\begin{solution}[Solution(Method II).]
+    您当然可以求导,这里就不再赘述了.
+\end{solution}
+\begin{problem}[Example 2(2019Winter PKU高等数学B期末考试).]
+    设$f(x)$在$\R$上有三阶导数,且存在$M_0,M_3>0$使得$\forall x\in\R,\left|f(x)\right|\leqslant M_0,\left|f^{(3)}(x)\right|\leqslant M_3$.\\
+    试证明存在$M_1,M_2>0$使得$\forall x\in\R,\left|f'(x)\right|\leqslant M_1,\left|f''(x)\right|\leqslant M_2$.\\
+    进一步的,试证明$M_1\leqslant4M_0^{\frac{2}{3}}M_3^{\frac{1}{3}},M_2\leqslant4M_0^{\frac{1}{3}}M_3^{\frac{2}{3}}$.
+\end{problem}
+\begin{solution}[Proof.]
+    将$f(x)$在$x=x_0$处泰勒展开.
+    $$f(x)=f(x_0)+(x-x_0)f'(x_0)+\dfrac{(x-x_0)^2f''(x_0)}{2!}+\dfrac{(x-x_0)^3f^{(3)}(\xi)}{3!},x_0\lessgtr\xi\lessgtr x$$
+    对于任意$x_0\in\R$,取$x=x_0+h,x_0-h$有
+    $$\left\{\begin{array}{l}
+        f(x_0+h)-f(x_0)=hf'(x_0)+\dfrac{h^2f''(x_0)}{2}+\dfrac{h^3f^{(3)}(\xi_+)}{6}\\
+        f(x_0-h)-f(x_0)=-hf'(x_0)+\dfrac{h^2f''(x_0)}{2}-\dfrac{h^3f^{(3)}(\xi_-)}{6}\\
+    \end{array}\right.$$
+    两式相加和相减可知
+    $$\left\{\begin{array}{l}
+        f(x_0+h)+f(x_0-h)-2f(x_0)=h^2f''(x_0)+\dfrac{h^3}{6}\left(f^{(3)}(\xi_+)-f^{(3)}(\xi_-)\right)\\
+        f(x_0+h)-f(x_0-h)=2hf'(x_0)+\dfrac{h^3}{6}\left(f^{(3)}(\xi_+)+f^{(3)}(\xi_-)\right)
+    \end{array}\right.$$
+    进而$$\left|f''(x_0)\right|\leqslant \left(\dfrac{1}{h^2}\left(4M_0+\dfrac{h^3}{3}M_3\right)\right)_{\min}=3\sqrt[3]{\dfrac{4M_0}{h^2}\cdot\dfrac{M_3h}{6}\cdot\dfrac{M_3h}{6}}=\sqrt[3]{3}M_0^{\frac{1}{3}}M_3^{\frac{2}{3}}$$
+    同理$$\left|f'(x_0)\right|\leqslant \sqrt[3]{\dfrac{9}{8}}M_0^{\frac{2}{3}}M_3^{\frac{1}{3}}$$
+    于是命题得证.
+\end{solution}
+\begin{problem}[Example 3.]
+    详见Hardy-Littlewood引理.
+\end{problem}
+\end{document}
