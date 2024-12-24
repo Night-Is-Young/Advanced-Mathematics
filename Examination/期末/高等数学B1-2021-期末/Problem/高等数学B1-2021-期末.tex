@@ -1,0 +1,59 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+
+\begin{center}\Large
+    北京大学数学科学学院2021-22高等数学B1期末考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(10\songti{分})}\ 证明:对于任意$x\in\R$,存在$\theta\in(0,1)$使得
+        \[\arctan x=\dfrac{x}{1+\theta^2x^2}\]
+        成立.
+    \item \textbf{(20\songti{分})}\ 求出下面函数的极限.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(10\songti{分})}\ $\displaystyle\lim_{x\to0}\dfrac{\tan^4x}{\sqrt{1-\dfrac{x\sin x}{2}}-\sqrt{\cos x}}$.
+            \item \textbf{(10\songti{分})}\ 设$n\in\N^*$.对于实序列$\left\{a_k\right\}_{k=1}^n$,求\[\lim_{x\to0}\left(\dfrac{\sum_{k=1}^na_k^x}{n}\right)^{\frac{1}{x}}\]
+        \end{enumerate}
+    \item \textbf{(15\songti{分})}\ 设函数\[f(x)=\dfrac{1-2x+5x^2}{(1-2x)(1+x^2)}\]在$x=0$处的$2n+1$阶泰勒公式.
+    \item \textbf{(10\songti{分})}\ 定义三元函数$f:\R^3\to\R$为\[f(x,y,z)=\left\{\begin{array}{l}
+            \dfrac{xyz}{x^2+y^2+z^2},(x,y,z)\neq(0,0,0)\\
+            0,(x,y,z)=(0,0,0)
+        \end{array}\right.\]回答下列问题.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(5\songti{分})}\ 求函数$f(x,y,z)$在$(0,0,0)$处的三个偏导数.
+            \item \textbf{(5\songti{分})}\ $f(z,y,z)$在$(0,0,0)$处是否可微?试证明之.
+        \end{enumerate}
+    \item \textbf{(15\songti{分})}\ 设$f,g:\R\to\R$都有连续的二阶导数.对于任意$x,y\in\R$,
+        定义$h(x,y)=xg\left(\dfrac{y}{x}\right)+f\left(\dfrac{y}{x}\right)$,
+        试计算$x^2h_{xx}(x,y)+2xyh_{yx}(x,y)+y^2h_{yy}(x,y)$.
+    \item \textbf{(20\songti{分})}\ 设函数$F:\R^3\to\R$为\[F(x,y,z)=x^3+(y^2-1)z^3-xyz\]回答下列问题.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(5\songti{分})}\ 证明:存在$\R^2$上$(1,1)$的邻域$D$使得$D$上由$F(x,y,z)\equiv0$确定唯一的隐函数$z=f(x,y)$,且$f(1,1)=1$.
+            \item \textbf{(5\songti{分})}\ 求出在$(1,1)$处函数$z=f(x,y)$减少最快的方向上的单位向量$\vec{v}$.
+            \item \textbf{(10\songti{分})}\ 设$\R^3$中
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 求函数$f(x)=\left(\sin x\right)^{\frac{2}{3}}+\left(\cos x\right)^{\frac{2}{3}}$在闭区间$\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$上的最小值,并指明所有最小值点.
+    \item \textbf{(10\songti{分})}\ 证明:对于任意给定的$k\in\R$,存在$0$的开邻域$U$和$W$,存在唯一的函数$y=f(x),x\in U,y\in W$满足方程$\e^{kx}+\e^{ky}-2\e^{x+y}=0$.
+    \item \textbf{(15\songti{分})}\ 设$r$是正实数,$D=\left\{(x,y)\vert\sqrt{x^2+y^2}<r\right\}$,函数$f:D\to\R$满足$f\in C^3(D),f(0,0)=0$,
+        $f$在点$(0,0)$处的一阶全微分$\di f(0,0)=0$.$f$在点$(0,0)$处的二阶全微分满足
+        $$\di^2f(0,0)=E\left(\Delta x\right)^2+2F\Delta x\Delta y+G\left(\Delta y\right)^2$$
+        其中$E,F,G$均为常数.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(10\songti{分})}\ 证明:存在$D$上的两个函数$a,b:D\to\R$使得$\forall (x,y)\in D$有$$f(x,y)=xa(x,y)+yb(x,y),a(0,0)=b(0,0)=0$$
+            \item \textbf{(5\songti{分})}\ 若$E>0,EG-F^2<0$,则在$\R^3$中点$(0,0,0)$的充分小邻域中,曲面$z=f(x,y)$充分近似于哪一类二次曲面?画出此类二次曲面的草图.
+                从此类二次曲面的几何形状判断是否存在$\R^2$中点$(0,0)$的充分小邻域$D_1$,存在$D_1$上的一一对应的$C^1$变量变换$x=x(u,v),y=y(u,v)$使得
+                $$f(x(u,v),y(u,v))=u^2-v^2$$
+        \end{enumerate}
+\end{enumerate}
+\end{document}

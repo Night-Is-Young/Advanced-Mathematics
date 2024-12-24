@@ -1,0 +1,39 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 隐函数存在定理\end{center}
+\begin{theorem}[Theorem I]
+    设函数$F(x,y)$在$P_0(x_0,y_0)$的某个邻域内有定义,且满足$F(x_0,y_0)=0$,$\dfrac{\p F}{\p x}$和$\dfrac{\p F}{\p y}$连续且$\left.\dfrac{\p F}{\p y}\right|_{(x_0,y_0)}\neq0$.%
+    则在$x_0$的某个邻域$(x_0-\delta,x_0+\delta)$内存在唯一的隐函数$y=f(x)$使得$F(x,f(x))\equiv0,\forall x\in(x_0-\delta,x_0+\delta)$.\\
+    此外,$y=f(x)$在$(x_0-\delta,x_0+\delta)$内有连续的导数,满足$f'(x)=-\dfrac{F_x(x,y)}{F_y(x,y)}$.
+\end{theorem}
+\begin{theorem}[Theorem II]
+    设函数$F(x,y,z)$在$P_0(x_0,y_0,z_0)$的某个邻域内有连续的一阶偏导数,满足$F(x_0,y_0,z_0)=0$,$F_z(x_0,y_0,z_0)\neq0$.\\
+    则在$(x_0,y_0)$的某邻域内,方程$F(x,y,z)=0$确定唯一的隐函数$z=\mbf z(x,y)$,满足$F(x,y,\mbf z(x,y))\equiv0$.\\
+    且$\mbf z(x,y)$有连续的偏导数
+    \[\dfrac{\p\mbf z}{\p x}=-\dfrac{F_x(x,y,z)}{F_z(x,y,z)}\ \ \ \ \ \dfrac{\p\mbf z}{\p y}=-\dfrac{F_y(x,y,z)}{F_z(x,y,z)}\]
+\end{theorem}
+我们考虑$\R^2$上的映射$(u,v)\mapsto(x,y)$满足
+\[\left\{\begin{array}{l}
+    x=\mbf x(u,v)\\y=\mbf y(u,v)
+\end{array}\right.\]
+这映射是否有逆映射存在?应当满足什么条件?即,对于给定的$(x_0,y_0)$,是否有唯一的$(u,v)$满足上述方程式?%
+为此,我们令$F(x,y,u,v)=x-\mbf x(u,v),G(x,y,u,v)=y-\mbf y(u,v)$.\\
+根据隐函数存在定理,存在$(u_0,v_0)$满足
+\[\left\{\begin{array}{l}
+    x_0=\mbf x(u_0,v_0)\\y_0=\mbf y(u_0,v_0)
+\end{array}\right.\]
+即$F(x_0,y_0,u_0,v_0)=G(x_0,y_0,u_0,v_0)=0$.此外,要求$F,G$在$(x_0,y_0,u_0,v_0)$的某个邻域内有连续的一阶偏导数,且
+\[\left.\dfrac{D(F,G)}{D(u,v)}\right|_{(x_0,y_0,u_0,v_0)}\]
+\end{document}

@@ -1,0 +1,41 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+
+\begin{center}\Large
+    北京大学数学科学学院2022-23高等数学B1期末考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(14\songti{分})}\ 证明方程$-2x+y-x^2+y^2+z+\sin z=0$在$(0,0,0)$附近确定隐函数$z=f(x,y)$,并写出$z=f(x,y)$在$(0,0)$处的一阶泰勒多项式.
+    \item \textbf{(16\songti{分})}\ 求函数极限.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(8\songti{分})}\ $\displaystyle\lim_{x\to0}\dfrac{\frac{x^2}{2}+1-\sqrt{1+x^2}}{\sin(x^2)\left(\cos x-\e^{x^2}\right)}$.
+            \item \textbf{(8\songti{分})}\ $\displaystyle\lim_{x\to0}\left(\dfrac{1+\int_0^x\e^{t^2}\di t}{\e^x-1}-\dfrac{1}{\sin x}\right)$.
+        \end{enumerate}
+    \item \textbf{(16\songti{分})}\ 回答下列问题.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(8\songti{分})}\ 设平面$x+y+z=3$和平面$x-2y-z+2=0$的交线为$l$,求过点$(1,2,3)$且与直线$l$垂直的平面的一般式方程.
+            \item \textbf{(8\songti{分})}\ 设向量$\overrightarrow{OA}$和向量$\overrightarrow{OB}$夹角为$\dfrac\pi3$,满足$2\left|\overrightarrow{OA}\right|=\left|\overrightarrow{OB}\right|=2$.定义$\overrightarrow{OP}=(1-\lambda)\overrightarrow{OA}$和$\overrightarrow{OQ}=\lambda\overrightarrow{OB}$,其中$\lambda\in[0,1]$.求$\left|\overrightarrow{PQ}\right|$的最小值和此时$\lambda$的值.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 设函数$\displaystyle f(x,y)=\left\{\begin{array}{l}
+        \dfrac{y^2}{x^4+y^2},y\neq0\\
+        1,y=0
+    \end{array}\right.$.讨论$f(x,y)$在$(0,0)$处的两个偏导和全微分的存在性.若存在,请求出其值;若不存在,请说明理由.
+    \item \textbf{(12\songti{分})}\ 求函数$f(x,y)=2x^3-3x^2-6xy(x-y-1)$在$\R^2$上的所有极值点.
+    \item \textbf{(10\songti{分})}\ 设参数$a>\e$,且$0<x<y<\dfrac\pi2$,证明:$a^y-a^x>a^x\ln a(\cos x-\cos y)$.
+    \item \textbf{(12\songti{分})}\ 求$f(x)=x\sin(x^2-2x)$在$x=1$处的局部泰勒公式,并计算$f^{(n)}(1)$,其中$n\in\N^*$.
+    \item \textbf{(10\songti{分})}\ 设$f(x)$是在闭区间$[P,Q]$定义的函数,且在开区间$(P,Q)$二阶可导,满足$f''(x)\geqslant1$对所有$x\in(P,Q)$成立.求证:存在$y=f(x)$的图像上的三个点%
+    $A(a,f(a)),B(b,f(b)),C(c,f(c))$使得$S_{\triangle ABC}\geqslant\dfrac{(Q-P)^3}{16}$.
+\end{enumerate}
+\end{document}

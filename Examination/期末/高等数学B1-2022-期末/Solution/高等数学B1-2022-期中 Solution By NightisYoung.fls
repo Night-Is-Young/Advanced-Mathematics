@@ -1,9 +1,9 @@
-PWD e:/Work/Math/Advanced-Mathematics/Examination/高等数学B1-2024-期中/Solution
+PWD d:/Work/Math/Advanced-Mathematics/Examination/期末/高等数学B1-2022-期末/Solution
 INPUT d:/LaTex/texlive/2024/texmf.cnf
 INPUT d:/LaTex/texlive/2024/texmf-dist/web2c/texmf.cnf
 INPUT d:/LaTex/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT e:/Work/Math/Advanced-Mathematics/Examination/高等数学B1-2024-期中/Solution/高等数学B1-2024-期中 Solution By NightisYoung.tex
-OUTPUT 高等数学B1-2024-期中 Solution By NightisYoung.log
+INPUT d:/Work/Math/Advanced-Mathematics/Examination/期末/高等数学B1-2022-期末/Solution/高等数学B1-2022-期中 Solution By NightisYoung.tex
+OUTPUT 高等数学B1-2022-期中 Solution By NightisYoung.log
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/ctex/ctexart.cls
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/ctex/ctexart.cls
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/ctex/config/ctexbackend.cfg
@@ -130,10 +130,10 @@ INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.enc
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.enc
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.chr
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/cjk/texinput/UTF8/UTF8.chr
-INPUT ./高等数学B1-2024-期中 Solution By NightisYoung.aux
-INPUT ./高等数学B1-2024-期中 Solution By NightisYoung.aux
-INPUT 高等数学B1-2024-期中 Solution By NightisYoung.aux
-OUTPUT 高等数学B1-2024-期中 Solution By NightisYoung.aux
+INPUT ./高等数学B1-2022-期中 Solution By NightisYoung.aux
+INPUT ./高等数学B1-2022-期中 Solution By NightisYoung.aux
+INPUT 高等数学B1-2022-期中 Solution By NightisYoung.aux
+OUTPUT 高等数学B1-2022-期中 Solution By NightisYoung.aux
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -142,7 +142,7 @@ INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/ctex/fd/c70rm.fd
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/ctex/fd/c70rm.fd
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/ctex/fd/c70rm.fd
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong53.tfm
-OUTPUT 高等数学B1-2024-期中 Solution By NightisYoung.pdf
+OUTPUT 高等数学B1-2022-期中 Solution By NightisYoung.pdf
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong4e.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong59.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong5b.tfm
@@ -159,10 +159,7 @@ INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/zhmetrics/c70zhsong.fd
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/zhmetrics/c70zhsong.fd
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/zhmetrics/c70zhsong.fd
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong52.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong6c.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong5e.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong67.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong96.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong8b.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
@@ -180,54 +177,67 @@ INPUT d:/LaTex/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong75.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong53.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong77.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong4e.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong5e.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong97.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong8f.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong70.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong6c.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong76.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong79.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong56.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong74.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong65.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong7a.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong80.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong53.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong89.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong5f.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong66.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong68.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong63.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong59.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong90.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong67.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong51.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong65.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong7f.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong96.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong5b.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong57.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong76.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong54.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong59.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong50.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong75.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong7f.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong62.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong90.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong77.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong8d.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/generic/ctex/zhmap/ctex-zhmap-windows.tex
 INPUT d:/LaTex/texlive/2024/texmf-dist/tex/generic/ctex/zhmap/ctex-zhmap-windows.tex
 INPUT d:/LaTex/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/sfd/ttf2pk/UGBK.sfd
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/sfd/ttf2pk/Unicode.sfd
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong61.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong79.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong8b.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong80.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong89.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong5f.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong6b.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong7a.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong95.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong7e.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong56.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong62.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong8f.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong54.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong4f.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong8c.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong58.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong55.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong70.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong50.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong60.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong8d.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong82.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong97.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong61.tfm
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong7b.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong71.tfm
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong74.tfm
-INPUT 高等数学B1-2024-期中 Solution By NightisYoung.aux
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong98.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong4f.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong91.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong5c.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong6b.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong95.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong86.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong55.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong6e.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong82.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong7c.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong83.tfm
+INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/tfm/zhmetrics/unisong/unisong72.tfm
+INPUT 高等数学B1-2022-期中 Solution By NightisYoung.aux
+INPUT c:/Windows/Fonts/simsun.ttc
+INPUT c:/Windows/Fonts/simsun.ttc
+INPUT c:/Windows/Fonts/simsun.ttc
+INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simsun.ttc
 INPUT c:/Windows/Fonts/simsun.ttc
@@ -279,14 +289,12 @@ INPUT c:/Windows/Fonts/simsun.ttc
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT d:/LaTex/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

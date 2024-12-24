@@ -1,0 +1,164 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2022-23高等数学B1期末考试
+\end{center}
+\begin{problem}[1.(14\songti{分})]
+    证明方程$-2x+y-x^2+y^2+z+\sin z=0$在$(0,0,0)$附近确定隐函数$z=f(x,y)$,并写出$z=f(x,y)$在$(0,0)$处的一阶泰勒多项式.
+\end{problem}
+\begin{proof}
+    首先令$F(x,y,z)=-2x+y-x^2+y^2+z+\sin z$.\\
+    于是$F_x(x,y,z)=-2-2x,F_y(x,y,z)=1+2y,F_z(x,y,z)=1+\cos z$.因而$F$在$(0,0,0)$附近有连续的一阶偏导数.又$F_z(0,0,0)=1+\cos 0=2$,于是根据隐函数存在定理可知存在唯一$z=f(x,y)$使得在$(0,0,0)$附近有$F(x,y,z)\equiv0$.此时有
+    \[\left.\dfrac{\p f}{\p x}\right|_{(0,0)}=-\dfrac{F_z(0,0,0)}{F_x(0,0,0)}=-1\]
+    \[\left.\dfrac{\p f}{\p y}\right|_{(0,0)}=-\dfrac{F_z(0,0,0)}{F_y(0,0,0)}=2\]
+    于是$z=f(x,y)$在$(0,0)$处的一阶泰勒多项式为$f(x,y)=-x+2y+o(x)+o(y)$.
+\end{proof}
+\begin{problem}[2.(16\songti{分})]
+    求函数极限.
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{(8\songti{分})}\ $\displaystyle\lim_{x\to0}\dfrac{\frac{x^2}{2}+1-\sqrt{1+x^2}}{\sin(x^2)\left(\cos x-\e^{x^2}\right)}$.
+        \item \textbf{(8\songti{分})}\ $\displaystyle\lim_{x\to0}\left(\dfrac{1+\int_0^x\e^{t^2}\di t}{\e^x-1}-\dfrac{1}{\sin x}\right)$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \[\begin{aligned}
+                \lim_{x\to0}\dfrac{\frac{x^2}{2}+1-\sqrt{1+x^2}}{\sin(x^2)\left(\cos x-\e^{x^2}\right)}
+                &= \lim_{x\to0}\dfrac{\frac{x^2}{2}+1-\left(1+\frac{x^2}{2}-\frac{1}{8}x^4+o(x^4)\right)}{\left(x^2+o(x^2)\right)\left(\left(1-\frac{1}{2}x^2+o(x^2)\right)-\left(1+x^2+o(x^2)\right)\right)} \\
+                &= \lim_{x\to0}\dfrac{\frac{1}{8}x^4+o(x^4)}{-\frac{3}{2}x^4+o(x^4)} \\
+                &= -\dfrac{1}{12}
+            \end{aligned}\]
+        \item \[\begin{aligned}
+            \lim_{x\to0}\left(\dfrac{1+\int_0^x\e^{t^2}\di t}{\e^x-1}-\dfrac{1}{\sin x}\right)
+            &= \lim_{x\to0}\dfrac{\sin x\int_0^x\e^{t^2}\di t+\sin x-\e^x+1}{\sin x(\e^x-1)} \\
+            &= \lim_{x\to0}\dfrac{\cos x\int_0^x\e^{t^2}\di t+\e^{x^2}\sin x+\cos x-\e^x}{\cos x(\e^x -1)+\e^x\sin x} \\
+            &= \lim_{x\to0}\dfrac{-\sin x\int_0^x\e^{t^2}\di t+\e^{x^2}(\cos x+2x\sin x+\cos x)-\sin x-\e^x}{2\e^x\cos x+\sin x} \\
+            &= \lim_{x\to0}\dfrac{0+1\cdot(1+0+1)-0-1}{2+0} \\
+            &= \dfrac{1}{2}
+        \end{aligned}\]
+    \end{enumerate}
+\end{solution}
+\begin{problem}[3.(16\songti{分})]
+    回答下列问题.
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{(8\songti{分})}\ 设平面$x+y+z=3$和平面$x-2y-z+2=0$的交线为$l$,求过点$(1,2,3)$且与直线$l$垂直的平面的一般式方程.
+        \item \textbf{(8\songti{分})}\ 设向量$\overrightarrow{OA}$和向量$\overrightarrow{OB}$夹角为$\dfrac\pi3$,满足$2\left|\overrightarrow{OA}\right|=\left|\overrightarrow{OB}\right|=2$.定义$\overrightarrow{OP}=(1-\lambda)\overrightarrow{OA}$和$\overrightarrow{OQ}=\lambda\overrightarrow{OB}$,其中$\lambda\in[0,1]$.求$\left|\overrightarrow{PQ}\right|$的最小值和此时$\lambda$的值.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item 联立两平面方程,有
+            \[\left\{\begin{array}{l}
+                x+y+z=3\\x-2y-z+2=0
+            \end{array}\right.\]
+            可知交线为$\left\{\begin{array}{l}
+                y=2x-1\\z=-3x+4
+            \end{array}\right.$.于是$l$的方向向量为$(1,2,-3)$.\\
+            设所求平面上的点为$(x,y,z)$,于是$(x-1,y-2,z-3)\cdot(1,2,-3)=0$.\\
+            于是该平面的方程为$x+2y-3z+4=0$.
+        \item 不妨设$O(0,0),A(1,0),B(1,\sqrt{3})$.这样使得$\overrightarrow{OA},\overrightarrow{OB}$满足题设.\\
+            于是$P(1-\lambda,0),Q(\lambda,\sqrt{3}\lambda)$.因此
+            \[\left|\overrightarrow{PQ}\right|^2=(1-2\lambda)^2+(\sqrt{3}\lambda)^2=7\lambda^2-4\lambda+1=7\left(\lambda-\dfrac{2}{7}\right)^2+\dfrac{3}{7}\]
+            于是$\left|\overrightarrow{PQ}\right|$的最小值为$\dfrac{\sqrt{21}}{7}$,此时$\lambda=\dfrac27$.
+    \end{enumerate}
+\end{solution}
+\begin{problem}[4.(10\songti{分})]
+    设函数$\displaystyle f(x,y)=\left\{\begin{array}{l}
+        \dfrac{y^2}{x^4+y^2},y\neq0\\
+        1,y=0
+    \end{array}\right.$.讨论$f(x,y)$在$(0,0)$处的两个偏导和全微分的存在性.若存在,请求出其值;若不存在,请说明理由.
+\end{problem}
+\begin{solution}
+    首先考虑偏导数.当$y=0$时$f(x,y)=f(x,0)=1$,于是$\left.\dfrac{\p f}{\p x}\right|_{0,0}=0$.\\
+    当$x=0,y\neq 0$时$f(x,y)=\dfrac{y^2}{y^2}=1=f(0,0)$,于是$\left.\dfrac{\p f}{\p y}\right|_{0,0}=0$.\\
+    而$f(x,y)$在$(0,0)$处的全微分不存在.为了说明其不存在,考察$f(x,y)$的连续性.\\
+    令$y=kx^2$,于是$\lim\displaystyle_{(x,y)\to(0,0)}=\lim_{x\to0}\dfrac{k^2x^4}{x^4+k^2x^4}=\dfrac{k^2}{1+k^2}$.\\
+    于是$\displaystyle\lim_{(x,y)\to(0,0)}f(x,y)$不存在,因而$f(x,y)$在$(0,0)$处不连续,也就不可微.
+\end{solution}
+\begin{problem}[5.(12\songti{分})]
+    求函数$f(x,y)=2x^3-3x^2-6xy(x-y-1)$在$\R^2$上的所有极值点.
+\end{problem}
+\begin{solution}
+    我们有
+    \[\dfrac{\p f}{\p x}=6x^2-6x-12xy+6y^2+6y\]
+    \[\dfrac{\p f}{\p y}=12xy-6x^2+6x\]
+    令$\dfrac{\p f}{\p x}=\dfrac{\p f}{\p y}=0$,解得
+    \[\left\{\begin{array}{l}x=0\\y=0\end{array}\right.\text{或}
+    \left\{\begin{array}{l}x=0\\y=-1\end{array}\right.\text{或}
+    \left\{\begin{array}{l}x=-1\\y=-1\end{array}\right.\text{或}
+    \left\{\begin{array}{l}x=1\\y=0\end{array}\right.\]
+    令$A=\dfrac{\p^2f}{\p x^2}=12x-6-12y,B=\dfrac{\p^2 f}{\p x\p y}=-12x+12y+6,C=\dfrac{\p^2f}{\p y^2}=12x$.\\
+    当$(x,y)=(0,0)$时$A=-6,B=6,C=0$.因$B^2>AC$,于是$(0,0)$不是极值点.\\
+    当$(x,y)=(0,-1)$时$A=6,B=-6,C=0$.因$B^2>AC$,于是$(0,-1)$不是极值点.\\
+    当$(x,y)=(-1,-1)$时$A=-6,B=-6,C=-12$.因$B^2<AC$且$A<0$,于是$(-1,-1)$是极大值点.\\
+    当$(x,y)=(1,0)$时$A=6,B=-6,C=12$.因$B^2<AC$且$A>0$,于是$(1,0)$是极小值点.\\
+    综上,$f(x,y)$在$(-1,-1)$处取到极大值,在$(1,0)$处取到极小值.
+\end{solution}
+\begin{problem}[6.(10\songti{分})]
+    设参数$a>\e$,且$0<x<y<\dfrac\pi2$,证明:$a^y-a^x>a^x\ln a(\cos x-\cos y)$.
+\end{problem}
+\begin{proof}
+    令$g(u)=u+\cos u$,于是$g'(u)=1-\sin u\geqslant0$.于是对于$0<x<y<\dfrac\pi2$有$g(x)<g(y)$,即$\cos x-\cos y<y-x$.\\
+    令$f(u)=a^u$.于是$f(u)$是连续且可导的函数.根据Lagrange中值定理,存在$\xi\in(x,y)$使得
+    \[f'(\xi)=\dfrac{f(y)-f(x)}{y-x}\]
+    成立.又$f''(u)=a^u\ln^2a>0$,于是$f'(\xi)>f'(x)=a^x\ln a$.于是我们有
+    \[a^y-a^x=f'(\xi)(y-x)>a^x\ln a(y-x)>a^x\ln a(\cos x-\cos y)\]
+    命题得证.
+\end{proof}
+\begin{problem}[7.(12\songti{分})]
+    求$f(x)=x\sin(x^2-2x)$在$x=1$处的局部泰勒公式,并计算$f^{(n)}(1)$,其中$n\in\N^*$.
+\end{problem}
+\begin{proof}
+    令$y=x-1$,于是$f(x)=(y+1)\sin(y^2-1)$.\\
+    考虑三角恒等式$\sin(y^2-1)=\sin(y^2)\cos1-\cos(y^2)\sin1$.于是
+    \[\begin{aligned}
+        f(x)
+        &= (y+1)(\sin (y^2)\cos1-\cos (y^2)\sin1) \\
+        &= (y+1)\left[\left(y^2-\dfrac{y^6}{3!}+\dfrac{y^{10}}{5!}-\cdots\right)\cos1-\left(1-\dfrac{y^4}{2!}+\dfrac{y^8}{4!}-\cdots\right)\sin1\right] \\
+        &= x\left(\sum_{i=0}\dfrac{(x-1)^{4i+2}(-1)^i}{(2i+1)!}\cos1-\sum_{i=0}\dfrac{(x-1)^{4i}(-1)^i}{(2i)!}\sin 1\right)
+    \end{aligned}\]
+    于是\[f^{(4n)}(1)=\dfrac{(-1)^{n-1}\sin1(4n)!}{(2n)!}\]
+    \[f^{(4n+1)}(1)=\dfrac{(-1)^{n-1}\sin1(4n+1)!}{(2n)!}\]
+    \[f^{(4n+2)}(1)=\dfrac{(-1)^n\cos1(4n+2)!}{(2n+1)!}\]
+    \[f^{(4n+3)}(1)=\dfrac{(-1)^n\cos1(4n+3)!}{(2n+1)!}\]
+\end{proof}
+\begin{problem}[8.(10\songti{分})]
+    设$f(x)$是在闭区间$[P,Q]$定义的函数,且在开区间$(P,Q)$二阶可导,满足$f''(x)\geqslant1$对所有$x\in(P,Q)$成立.求证:存在$y=f(x)$的图像上的三个点%
+    $A(a,f(a)),B(b,f(b)),C(c,f(c))$使得$S_{\triangle ABC}\geqslant\dfrac{(Q-P)^3}{16}$.
+\end{problem}
+\begin{proof}
+    假定$a<b<c$.由于$f''(x)\geqslant1$,于是$f(x)$是凹函数.\\
+    于是\[S_{\triangle ABC}=\dfrac{1}{2}(c-a)\left(\dfrac{f(c)-f(a)}{c-a}(b-a)+f(a)-f(b)\right)\]
+    固定$A,C$,于是上式是一个关于$b$的函数
+    $S(b)=\dfrac{1}{2}\left[(c-a)(f(a)-f(b))+(b-a)(f(c)-f(a))\right]$.\\
+    我们希望找到$S(b)$的最大值.求导,有
+    $S'(b)=\dfrac{1}{2}\left[-(c-a)f'(b)+(f(c)-f(a))\right]$.\\
+    于是$S'(b)=0$当且仅当$f'(b)=\dfrac{f(c)-f(a)}{c-a}$.\\
+    不妨设$f'(t)=\dfrac{f(c)-f(a)}{c-a}$,根据Lagrange中值定理保证了$t$的存在性.\\
+    又$S''(b)=-\dfrac12(c-a)f''(b)\leqslant\dfrac12(a-c)<0$,于是$S'(b)$在$(a,c)$上递减,即$S(b)$在$b=t$时取到最大值.\\
+    考虑$S(b)$在$b=t$处的泰勒展开式,有
+    \[S(b)=S(t)+(b-t)S'(t)+\dfrac{1}{2}(b-t)^2S''(t)\]
+    注意到$S(a)=S(c)=0$且$S'(t)=0$.于是
+    \[0=S(t)+\dfrac{1}{2}(a-t)^2S''(\xi_1)=S(t)+\dfrac{1}{2}(c-t)^2S''(\xi_2)\]
+    其中$a<\xi_1<t<\xi_2<c$.我们已经知道对于任意$\xi\in(a,c)$有$S''(\xi)\leqslant\dfrac{a-c}{2}$,于是
+    \[\begin{aligned}
+        S(t)
+        &= -\dfrac{1}{4}\left((a-t)^2S''(\xi_1)+(c-t)^2S''(\xi_2)\right) \\
+        &\geqslant \dfrac{c-a}8\left((a-t)^2+(c-t)^2\right) \\
+        &\geqslant \dfrac{c-a}{8}\cdot\dfrac{[(t-a)+(c-t)]^2}{2} \\
+        &\geqslant \dfrac{(c-a)^3}{16}
+    \end{aligned}\]
+    现在,令$a=P,c=Q$,于是$S_{\triangle ABC}=S(t)\geqslant\dfrac{(Q-P)^3}{16}$.
+\end{proof}
+\end{document}
