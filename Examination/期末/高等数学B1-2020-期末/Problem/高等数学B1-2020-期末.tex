@@ -1,0 +1,43 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+
+\begin{center}\Large
+    北京大学数学科学学院2020-21高等数学B1期末考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(15\songti{分})}\ 下面函数的极限存在吗?若存在,请求出其值;若不存在,请说明理由.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{x\to0}\dfrac{2\cos x-2+x^2}{x^4}$.
+            \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{(x,y)\to(0,0)}\dfrac{x^5y^3}{x^8+y^8}$.
+            \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{(x,y)\to(0,0)}(x+\sin y)\cos\dfrac{1}{|x|+|y|}$.
+        \end{enumerate}
+    \item \textbf{(15\songti{分})}\ 求闭区间$[-1,1]$上的函数$f(x)=x^{\frac23}-\left(x^2-1\right)^\frac13$的所有最小值点.
+    \item \textbf{(20\songti{分})}\ 回答下列问题.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(15\songti{分})}\ 设$a,b\in\R$且$b\neq0$.求$f(x,y)=\arctan\dfrac xy$在$(a,b)$处的二阶泰勒多项式.
+            \item \textbf{(5\songti{分})}\ 设$a<b$且$n\in\N^*$.
+        \end{enumerate}
+    \item \textbf{(15\songti{分})}\ 设$f,g:\R\to\R$都有连续的二阶导数.对于任意$x,y\in\R$,
+        定义$h(x,y)=xg\left(\dfrac{y}{x}\right)+f\left(\dfrac{y}{x}\right)$,
+        试计算$x^2h_{xx}(x,y)+2xyh_{yx}(x,y)+y^2h_{yy}(x,y)$.
+    \item \textbf{(20\songti{分})}\ 设函数$F:\R^3\to\R$为\[F(x,y,z)=x^3+(y^2-1)z^3-xyz\]回答下列问题.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(5\songti{分})}\ 证明:存在$\R^2$上$(1,1)$的邻域$D$使得$D$上由$F(x,y,z)\equiv0$确定唯一隐函数$z=f(x,y)$且$f(1,1)=1$.
+            \item \textbf{(5\songti{分})}\ 求出在$(1,1)$处函数$z=f(x,y)$减少最快的方向上的单位向量$\vec{v}$.
+            \item \textbf{(10\songti{分})}\ 设$\R^3$中平面$x+2y-2z=1$的$z$分量为正的法向量记为$\vec{u}$.向量$(\vec{v},0)\in\R^3$.求$\vec{u}$与$(\vec{v},0)$的夹角余弦.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 给定正整数$n\geqslant 3$,求单位圆的内接$n$边形面积的最大值.
+\end{enumerate}
+\end{document}
