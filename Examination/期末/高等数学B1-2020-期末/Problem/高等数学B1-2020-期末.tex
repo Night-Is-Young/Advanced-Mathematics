@@ -27,17 +27,18 @@
     \item \textbf{(20\songti{分})}\ 回答下列问题.
         \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
             \item \textbf{(15\songti{分})}\ 设$a,b\in\R$且$b\neq0$.求$f(x,y)=\arctan\dfrac xy$在$(a,b)$处的二阶泰勒多项式.
-            \item \textbf{(5\songti{分})}\ 设$a<b$且$n\in\N^*$.
+            \item \textbf{(5\songti{分})}\ 设$a<b$且$n\in\N^*$.函数$f:(a,b)\to\R$在开区间$(a,b)$中有$n+1$阶导数.定义二元函数$T:(a,b)\times(a,b)\to\R$为
+                \[T(x,y)=f(x)-f(y)-\sum_{k=1}^n\dfrac{f^{(k)}(y)}{k!}(x-y)^k\]
+                求出$T(x,y)$对$y$的一阶偏导函数$\dfrac{\p T}{\p y}$.
         \end{enumerate}
-    \item \textbf{(15\songti{分})}\ 设$f,g:\R\to\R$都有连续的二阶导数.对于任意$x,y\in\R$,
-        定义$h(x,y)=xg\left(\dfrac{y}{x}\right)+f\left(\dfrac{y}{x}\right)$,
-        试计算$x^2h_{xx}(x,y)+2xyh_{yx}(x,y)+y^2h_{yy}(x,y)$.
-    \item \textbf{(20\songti{分})}\ 设函数$F:\R^3\to\R$为\[F(x,y,z)=x^3+(y^2-1)z^3-xyz\]回答下列问题.
-        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-            \item \textbf{(5\songti{分})}\ 证明:存在$\R^2$上$(1,1)$的邻域$D$使得$D$上由$F(x,y,z)\equiv0$确定唯一隐函数$z=f(x,y)$且$f(1,1)=1$.
-            \item \textbf{(5\songti{分})}\ 求出在$(1,1)$处函数$z=f(x,y)$减少最快的方向上的单位向量$\vec{v}$.
-            \item \textbf{(10\songti{分})}\ 设$\R^3$中平面$x+2y-2z=1$的$z$分量为正的法向量记为$\vec{u}$.向量$(\vec{v},0)\in\R^3$.求$\vec{u}$与$(\vec{v},0)$的夹角余弦.
-        \end{enumerate}
-    \item \textbf{(10\songti{分})}\ 给定正整数$n\geqslant 3$,求单位圆的内接$n$边形面积的最大值.
+    \item \textbf{(10\songti{分})}\ 证明:对任意给定的实数$p$,存在$1$的开邻域$U$和$W$使得存在唯一的函数$y=f(x):U\to W$满足$x^p+y^p-2xy=0$.
+    \item \textbf{(15\songti{分})}\ 设在$\R^3$空间中$Oxy$平面之外的点$(x,y,z)$处的电势$V=\left(\dfrac{2y}z\right)^x$.求出在点$\left(1,\dfrac12,1\right)$处电势$V$下降最快的方向上的单位向量.
+    \item \textbf{(25\songti{分})}\ 设$\R^3$空间中的平面$K:x+2y+3z=6$与$x,y,z$三轴分别交于$A,B,C$三点.动点$H\in\R^3$与$K$的距离恒为$1$,其在$K$上的垂直投影记为$M$.设$M$在$\triangle ABC$中,其到三条边$BC,CA,AB$的距离分别为$p,q,r$.
+            \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+                \item \textbf{(5\songti{分})}\ 求出$\triangle ABC$的面积.
+                \item \textbf{(5\songti{分})}\ 用$p,q,r$表示以$A,B,C,H$为顶点的四面体的表面积$S(p,q,r)$.
+                \item \textbf{(5\songti{分})}\ 写出$p,q,r$必须满足的约束条件.
+                \item \textbf{(10\songti{分})}\ 求出$S(p,q,r)$的条件极值的稳定点.
+            \end{enumerate}
 \end{enumerate}
 \end{document}

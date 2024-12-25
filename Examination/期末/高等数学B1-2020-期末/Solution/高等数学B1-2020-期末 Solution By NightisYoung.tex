@@ -12,135 +12,120 @@
 
 \begin{document}\pagestyle{empty}
 \begin{center}\Large
-    北京大学数学科学学院2021-22高等数学B1期末考试
+    北京大学数学科学学院2020-21高等数学B1期末考试
 \end{center}
-\begin{problem}[1.(10\songti{分})]
-    证明:对于任意$x\in\R$,存在$\theta\in(0,1)$使得
-    \[\arctan x=\dfrac{x}{1+\theta^2x^2}\]
-    成立.
-\end{problem}
-\begin{proof}
-    当$x=0$时,任取$\theta>0$即可使等式成立.\\
-    当$x\neq 0$时,不妨设$x>0$.令$f(u)=\arctan u$,于是$f(u)$在$\R$上连续且可导.\\
-    根据Lagrange中值定理,存在$\xi\in(0,x)$使得$f'(\xi)=\dfrac{f(x)-f(0)}{x-0}$.\\
-    即$\dfrac{1}{1+\xi^2}=\dfrac{\arctan x}{x}$.令$\theta=\dfrac{\xi}{x}$,就有$\arctan x=\dfrac{x}{1+(\theta x)^2}$.\\
-    当$x<0$时亦同理.于是命题得证.
-\end{proof}
-\begin{problem}[2.(20\songti{分})]
-    求出下面函数的极限.
+\begin{problem}[1.(15\songti{分})]
+    下面函数的极限存在吗?若存在,请求出其值;若不存在,请说明理由.
     \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item \textbf{(10\songti{分})}\ $\displaystyle\lim_{x\to0}\dfrac{\tan^4x}{\sqrt{1-\dfrac{x\sin x}{2}}-\sqrt{\cos x}}$.
-        \item \textbf{(10\songti{分})}\ 设$n\in\N^*$.对于实序列$\left\{a_k\right\}_{k=1}^n$,求\[\lim_{x\to0}\left(\dfrac{\sum_{k=1}^na_k^x}{n}\right)^{\frac{1}{x}}\]
+        \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{x\to0}\dfrac{2\cos x-2+x^2}{x^4}$.
+        \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{(x,y)\to(0,0)}\dfrac{x^5y^3}{x^8+y^8}$.
+        \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{(x,y)\to(0,0)}(x+\sin y)\cos\dfrac{1}{|x|+|y|}$.
     \end{enumerate}
 \end{problem}
 \begin{solution}
     \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item \[\begin{aligned}
-            \lim_{x\to0}\dfrac{\tan^4x}{\sqrt{1-\dfrac{x\sin x}{2}}-\sqrt{\cos x}}
-            &= \lim_{x\to0}\dfrac{\tan^4x}{1-\dfrac{x\sin x}{2}-\cos x}\cdot\left(\sqrt{1-\dfrac{x\sin x}{2}}+\sqrt{\cos x}\right) \\
-            &= \lim_{x\to0}\dfrac{(x+o(x))^4}{1-\dfrac{x\left(x-\dfrac{x^3}{3}+o(x^3)\right)}{2}-\left(1-\dfrac{x^2}{2}+\dfrac{x^4}{24}+o(x^4)\right)} \\
-            &= \lim_{x\to0}\dfrac{x^4+o(x^4)}{\dfrac{x^4}{8}+o(x^4)} = 8
-            \end{aligned}\]
         \item 我们有
-            \[\lim_{x\to0}\dfrac{\ln\left(\displaystyle\sum_{k=1}^na_k^x\right)-\ln n}{x}=\lim_{x\to0}\dfrac{\displaystyle\sum_{k=1}^{n}a_k^x\ln a_k}{\displaystyle\sum_{k=1}^{n}a_k^x}=\dfrac{\displaystyle\sum_{k=1}^n\ln a_k}{n}\]
-            于是
-            \[\lim_{x\to0}\left(\dfrac{\sum_{k=1}^na_k^x}{n}\right)^{\frac{1}{x}}=\lim_{x\to0}\text{exp}\left(\dfrac{\ln\left(\sum_{k=1}^na_k^x\right)-\ln n}{x}\right)=\e^{\dfrac{\sum_{k=1}^n\ln a_k}{n}}=\sqrt[n]{a_1\cdots a_k}\]
+            \[\lim_{x\to0}\dfrac{2\cos x-2+x^2}{x^4}=\lim_{x\to0}\dfrac{2x-2\sin x}{4x^3}=\lim_{x\to0}\dfrac{1-\cos x}{6x^2}=\lim_{x\to0}\dfrac{\sin x}{12 x}=\dfrac1{12}\]
+        \item 设$y=kx$.于是
+            \[\lim_{(x,y)\to(0,0)}\dfrac{x^5y^3}{x^8+y^8}=\lim_{x\to0}\dfrac{k^3x^8}{x^8+k^8x^8}=\dfrac{k^3}{1+k^8}\]
+            于是从不同路径接近$(0,0)$将得到不同的极限值,因而原函数在$(0,0)$处的极限不存在.
+        \item 注意到$\left|\cos\dfrac{1}{|x|+|y|}\right|\leqslant1,|\sin y|\leqslant|y|$.于是我们有
+            \[0<\left|(x+\sin y)\cos\dfrac{1}{|x|+|y|}\right|\leqslant\left|x+\sin y\right|\leqslant|x|+|y|\]
+            又$\displaystyle\lim_{(x,y)\to(0,0)}|x|+|y|=0$,于是$\displaystyle\lim_{(x,y)\to(0,0)}(x+\sin y)\cos\dfrac{1}{|x|+|y|}=0$.
     \end{enumerate}
 \end{solution}
-\begin{problem}[3.(15\songti{分})]
-    设函数\[f(x)=\dfrac{1-2x+5x^2}{(1-2x)(1+x^2)}\]在$x=0$处的$2n+1$阶泰勒公式.
+\begin{problem}[2.(15\songti{分})]
+    求闭区间$[-1,1]$上的函数$f(x)=x^{\frac23}-\left(x^2-1\right)^\frac13$的所有最小值点.
 \end{problem}
 \begin{solution}
-    我们有\[f(x)=-\dfrac{2x}{1+x^2}+\dfrac{1}{1-2x}\]
-    令$g(x)=\dfrac{1}{1+x}$,对$g(x)$泰勒展开有
-    \[g(x)=1-x+x^2-x^3+\cdots=\sum_{i=0}^{n}(-x)^i\]
-    于是
-    \[\begin{aligned}
-        f(x)
-        &= -2xg(x^2)+g(-2x) \\
-        &= -2x\sum_{i=0}^{n}(-x^2)^i+\sum_{i=0}^{2n+1}(2x)^i+o(x^{2n+1}) \\
-        &= 1+\sum_{i=1}^{n}\left((2x)^{2i}+(2^{2i+1}-2(-1)^i)x^{2i+1}\right)+o(x^{2n+1})
-    \end{aligned}\]
+    对$f(x)$求导可得
+    \[f'(x)=\dfrac23x^{-\frac13}-\dfrac{2x}3(x^2-1)^{-\frac23}=\dfrac{2}{3}x^{-\frac13}(x^2-1)^{-\frac23}\left[(x^2-1)^{\frac23}-x^{\frac43}\right]\]
+    令$f'(x)=0$可知$x=\pm\dfrac{\sqrt2}{2}$.当$f'(x)$不存在时$x=0$.\\
+    我们有
+    \[f(-1)=1\ \ \ \ \ f(0)=1\ \ \ \ \ f(1)=1\ \ \ \ \ f\left(-\dfrac{\sqrt2}{2}\right)=\sqrt[3]{4}\ \ \ \ \ f\left(\dfrac{\sqrt2}{2}\right)=\sqrt[3]{4}\]
+    由于$f(x)$在闭区间上的最小值必然是边界点/不可导点/稳定点中的一种,于是$f(x)$的最小值点为$0,\pm1$.
+\end{solution}
+\begin{problem}[3.(20\songti{分})]
+    回答下列问题.
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item \textbf{(15\songti{分})}\ 设$a,b\in\R$且$b\neq0$.求$f(x,y)=\arctan\dfrac xy$在$(a,b)$处的二阶泰勒多项式.
+        \item \textbf{(5\songti{分})}\ 设$a<b$且$n\in\N^*$.函数$f:(a,b)\to\R$在开区间$(a,b)$中有$n+1$阶导数.定义二元函数$T:(a,b)\times(a,b)\to\R$为
+            \[T(x,y)=f(x)-f(y)-\sum_{k=1}^n\dfrac{f^{(k)}(y)}{k!}(x-y)^k\]
+            求出$T(x,y)$对$y$的一阶偏导函数$\dfrac{\p T}{\p y}$.
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+        \item 计算各阶偏导数,有
+            \[\dfrac{\p f}{\p x}=\dfrac{1}{1+\left(\dfrac xy\right)^2}\cdot\dfrac1y=\dfrac{y}{x^2+y^2}\]
+            \[\dfrac{\p f}{\p y}=\dfrac{1}{1+\left(\dfrac xy\right)^2}\cdot\left(-\dfrac{x}{y^2}\right)=-\dfrac{x}{x^2+y^2}\]
+            \[\dfrac{\p^2f}{\p x^2}=-\dfrac{2xy}{(x^2+y^2)^2}\ \ \ \ \ \dfrac{\p^2f}{\p y^2}=\dfrac{2xy}{(x^2+y^2)^2}\]
+            \[\dfrac{\p^2f}{\p x\p y}=\dfrac{(x^2+y^2)-2y^2}{(x^2+y^2)^2}=\dfrac{x^2-y^2}{(x^2+y^2)^2}\]
+            于是\[f(x,y)=\arctan\dfrac ab+\dfrac{b(x-a)+a(y-b)}{a^2+b^2}+\dfrac{ab(y-b)-ab(x-a)+(a^2-b^2)(x-a)(y-b)}{(a^2+b^2)^2}\]
+        \item 我们有
+            \[\begin{aligned}
+                \dfrac{\p T}{\p y}
+                &= -f'(y)-\sum_{k=1}^n\dfrac{1}{k!}\left(f^{(k)}(y)(x-y)^k\right)' \\
+                &= -f'(y)-\sum_{k=1}^n\dfrac{1}{k!}\left(f^{(k+1)}(y)(x-y)^k-kf^{(k)}(x-y)^{k-1}\right) \\
+                &= -\dfrac{f^{(n+1)}(y)}{n!}(x-y)^n
+            \end{aligned}\]
+    \end{enumerate}
 \end{solution}
 \begin{problem}[4.(10\songti{分})]
-    定义三元函数$f:\R^3\to\R$为\[f(x,y,z)=\left\{\begin{array}{l}
-        \dfrac{xyz}{x^2+y^2+z^2},(x,y,z)\neq(0,0,0)\\
-        0,(x,y,z)=(0,0,0)
-    \end{array}\right.\]回答下列问题.
-    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item \textbf{(5\songti{分})}\ 求函数$f(x,y,z)$在$(0,0,0)$处的三个偏导数.
-        \item \textbf{(5\songti{分})}\ $f(x,y,z)$在$(0,0,0)$处是否可微?试证明之.
-    \end{enumerate}
+    证明:对任意给定的实数$p$,存在$1$的开邻域$U$和$W$使得存在唯一的函数$y=f(x):U\to W$满足$x^p+y^p-2xy=0$.
 \end{problem}
-\begin{solution}
-    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item 我们有
-            \[\left.\dfrac{\p f}{\p x}\right|_{(0,0,0)}=\lim_{x\to0}\dfrac{f(x,0,0)-f(0,0,0)}{x}=\lim_{x\to0}\dfrac{0-0}{x}=0\]
-            同理$\left.\dfrac{\p f}{\p y}\right|_{(0,0,0)}=\left.\dfrac{\p f}{\p z}\right|_{(0,0,0)}=0$.
-        \item 记$g(x,y,z)=\dfrac{\p f}{\p z}$.\\
-            当$(x,y,z)\neq(0,0,0)$时,$g(x,y,z)=\dfrac{xy(x^2+y^2+z^2)-2z(xyz)}{(x^2+y^2+z^2)^2}=\dfrac{xy(x^2+y^2-z^2)}{(x^2+y^2+z^2)^2}$.\\
-            当$(x,y,z)=(0,0,0)$时,$g(x,y,z)=0$.\\
-            令$x=y=kz$,于是$\displaystyle\lim_{(x,y,z)\to(0,0,0)}g(x,y,z)=\dfrac{k^2(2k^2-1)}{(2k^2+1)^2}$.\\
-            于是$\displaystyle\lim_{(x,y,z)\to(0,0,0)g(x,y,z)}$不存在,因而$f(x)$在$(0,0,0)$处的偏导数不连续,因而$f$不可微.
-    \end{enumerate}
-\end{solution}
+\begin{proof}
+    设$F(x,y)=x^p+y^p-2xy$.于是$F(1,1)=0$.\\
+    考虑$F$的偏导,有$\dfrac{\p F}{\p x}=px^{p-1}-2y,\dfrac{\p F}{\p y}=py^{p-1}-2x$.\\
+    若$p=2$,则有$x^2+y^2-2xy=0$,当且仅当$y=x$时成立,此时$f(x)=x$.\\
+    若$p\neq 2$,则有$\left.\dfrac{\p F}{\p y}\right|_{(1,1)}=p-2$.由于$\dfrac{\p F}{\p y}$连续,于是存在$1$的开邻域$U$和$W$使得在$U\times W$上满足$\dfrac{\p F}{\p y}\neq0$.\\
+    根据隐函数存在定理,存在唯一的函数$y=f(x)$使得$F(x,y)\equiv0$,且$\dfrac{\di y}{\dx}=-\dfrac{px^{p-1}-2y}{py^{p-1}-2x}$.
+\end{proof}
 \begin{problem}[5.(15\songti{分})]
-    设$f,g:\R\to\R$都有连续的二阶导数.对于任意$x,y\in\R$,
-    定义$h(x,y)=xg\left(\dfrac{y}{x}\right)+f\left(\dfrac{y}{x}\right)$,
-    试计算$x^2h_{xx}(x,y)+2xyh_{yx}(x,y)+y^2h_{yy}(x,y)$.
+    设在$\R^3$空间中$Oxy$平面之外的点$(x,y,z)$处的电势$V=\left(\dfrac{2y}z\right)^x$.求出在点$\left(1,\dfrac12,1\right)$处电势$V$下降最快的方向上的单位向量.
 \end{problem}
 \begin{solution}
     我们有
-    \[h_x(x,y)=g\left(\dfrac{y}{x}\right)-\dfrac{y}{x}g'\left(\dfrac{y}{x}\right)-\dfrac{y}{x^2}f'\left(\dfrac{y}{x}\right)\]
-    \[h_y(x,y)=g'\left(\dfrac{y}{x}\right)+\dfrac{1}{x}f'\left(\dfrac{y}{x}\right)\]
-    \[h_{xx}(x,y)=-\dfrac{y}{x^2}g'\left(\dfrac{y}{x}\right)+\dfrac{y}{x^2}g'\left(\dfrac{y}{x}\right)+\dfrac{y^2}{x^3}g''\left(\dfrac{y}{x}\right)+\dfrac{2y}{x^3}f'\left(\dfrac{y}{x}\right)+\dfrac{y^2}{x^4}f''\left(\dfrac{y}{x}\right)\]
-    \[h_{yy}(x,y)=\dfrac{1}{x}g''\left(\dfrac{y}{x}\right)+\dfrac{1}{x^2}f''\left(\dfrac{y}{x}\right)\]
-    \[h_{yx}(x,y)=-\dfrac{y}{x^2}g''\left(\dfrac{y}{x}\right)-\dfrac{1}{x^2}f'\left(\dfrac{y}{x}\right)-\dfrac{y}{x^3}f''\left(\dfrac{y}{x}\right)\]
-    于是
-    \[\begin{aligned}
-        &x^2h_{xx}(x,y)+2xyh_{yx}(x,y)+y^2h_{yy}(x,y)\\
-        &=\dfrac{y^2}{x}g''\left(\dfrac{y}{x}\right)+\dfrac{2y}{x}f'\left(\dfrac{y}{x}\right)+\dfrac{y^2}{x^2}f''\left(\dfrac{y}{x}\right)+\dfrac{y^2}{x}g''\left(\dfrac{y}{x}\right)+\dfrac{y^2}{x^2}f''\left(\dfrac{y}{x}\right)-\dfrac{2y^2}{x}g''\left(\dfrac{y}{x}\right)-\dfrac{2y}{x}f'\left(\dfrac{y}{x}\right)-\dfrac{2y^2}{x^2}f''\left(\dfrac{y}{x}\right) \\
-        &=0
-    \end{aligned}\]
+    \[V_x(x,y,z)=\left(\dfrac{2y}{z}\right)^x\ln\left(\dfrac{2y}{z}\right)\]
+    \[V_y(x,y,z)=\left(\dfrac2z\right)^xxy^{x-1}\]
+    \[V_z(x,y,z)=-(2y)^xxz^{-x-1}\]
+    于是在$\left(1,\dfrac12,1\right)$处有$V_x=0,V_y=2,V_z=-1$.于是该点处的梯度向量$\tbf{grad}V=(0,2,-1)$.\\
+    取负梯度后单位化可得所求向量为$\left(0,-\dfrac{2\sqrt5}{5},\dfrac{\sqrt5}{5}\right)$.
 \end{solution}
-\begin{problem}[6.(20\songti{分})]
-    设函数$F:\R^3\to\R$为\[F(x,y,z)=x^3+(y^2-1)z^3-xyz\]回答下列问题.
+\begin{problem}[6.(25\songti{分})]
+    设$\R^3$空间中的平面$K:x+2y+3z=6$与$x,y,z$三轴分别交于$A,B,C$三点.动点$H\in\R^3$与$K$的距离恒为$1$,其在$K$上的垂直投影记为$M$.设$M$在$\triangle ABC$中,其到三条边$BC,CA,AB$的距离分别为$p,q,r$.
     \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item \textbf{(5\songti{分})}\ 证明:存在$\R^2$上$(1,1)$的邻域$D$使得$D$上由$F(x,y,z)\equiv0$确定唯一隐函数$z=f(x,y)$且$f(1,1)=1$.
-        \item \textbf{(5\songti{分})}\ 求出在$(1,1)$处函数$z=f(x,y)$减少最快的方向上的单位向量$\vec{v}$.
-        \item \textbf{(10\songti{分})}\ 设$\R^3$中平面$x+2y-2z=1$的$z$分量为正的法向量记为$\vec{u}$.向量$(\vec{v},0)\in\R^3$.求$\vec{u}$与$(\vec{v},0)$的夹角余弦.
+        \item \textbf{(5\songti{分})}\ 求出$\triangle ABC$的面积.
+        \item \textbf{(5\songti{分})}\ 用$p,q,r$表示以$A,B,C,H$为顶点的四面体的表面积$S(p,q,r)$.
+        \item \textbf{(5\songti{分})}\ 写出$p,q,r$必须满足的约束条件.
+        \item \textbf{(10\songti{分})}\ 求出$S(p,q,r)$的条件极值的稳定点.
     \end{enumerate}
 \end{problem}
 \begin{solution}
     \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item 首先求一阶偏导数.
-            \[\dfrac{\p F}{\p x}=3x^2-yz\ \ \ \ \ \dfrac{\p F}{\p y}=2z^3y-xz\ \ \ \ \ \dfrac{\p F}{\p z}=3(y^2-1)z^2-xy\]
-            于是$F$在$(1,1,1)$附近有连续的偏导数且$\left.\dfrac{\p F}{\p z}\right|_{(1,1,1)}=-1\neq0$.\\
-            根据隐函数存在定理,存在$(1,1,1)$的邻域使得$F(x,y,z)\equiv0$确定唯一隐函数$z=f(x,y)$,且$f(1,1)=1$.
-        \item 我们有
-            \[F_x(1,1,1)=2\ \ \ \ \ F_y(1,1,1)=1\]
+        \item 分别令$x,y,z$三者中两者为$0$可解得$A(6,0,0),B(0,2,0),C(0,0,3)$.于是
+            $$a=|BC|=\sqrt{13},b=|AC|=3\sqrt{5},c=|AB|=2\sqrt{10}$$
+            于是$\cos C=\dfrac{a^2+b^2-c^2}{2ab}=\dfrac{18}{6\sqrt{65}}=\dfrac{3}{\sqrt{65}}$,则$\sin C=\sqrt{1-\cos^2C}=\dfrac{2\sqrt{14}}{\sqrt{65}}$.\\
+            于是$S_{\triangle ABC}=\dfrac{1}{2}ab\sin C=3\sqrt{14}$.
+        \item 设$H$在$BC$边上的垂足为$D$.根据立体几何知识可知$HM\bot MD$.我们有
+            \[S_{\triangle BCH}=\dfrac12|BC||HD|=\dfrac12|BC|\sqrt{|HM|^2+|MD|^2}=\dfrac12\cdot\sqrt{13}\cdot\sqrt{p^2+1}\]
+            同理可知$S_{\triangle ACH}=\dfrac{3\sqrt5}{2}\sqrt{q^2+1},S_{\triangle ABH}=\sqrt{10}\sqrt{r^2+1}$.\\
+            于是\[S(p,q,r)=3\sqrt{14}+\dfrac{\sqrt{13}}{2}\sqrt{p^2+1}+\dfrac{3\sqrt5}{2}\sqrt{q^2+1}+\sqrt{10}\sqrt{r^2+1}\]
+        \item 注意到
+            \[S_{\triangle ABC}=S_{\triangle ABM}+S_{\triangle BCM}+S_{\triangle ACM}\]
             于是
-            \[\dfrac{\p f}{\p x}=-\dfrac{F_x(1,1,1)}{F_z(1,1,1)}=2\ \ \ \ \ \dfrac{\p f}{\p y}=-\dfrac{F_y(1,1,1)}{F_z(1,1,1)}=1\]
-            于是$\vec{v}=-\left.\tbf{grad}f\right|_{(1,1)}=-\dfrac{(2,1)}{\left|(2,1)\right|}=\left(-\dfrac{2\sqrt5}{5},-\dfrac{\sqrt5}{5}\right)$.
-        \item 法向量$\vec{u}=(-1,-2,2)$.于是
-            \[\cos\langle\vec{u},(\vec{v},0)\rangle=\dfrac{\vec{u}\cdot(\vec{v},0)}{|\vec{u}||(\vec{v},0)|}=\dfrac{4}{3\cdot\sqrt{5}}=-\dfrac{4\sqrt5}{15}\]
+            \[3\sqrt{14}=\dfrac12\left(\sqrt{13}p+3\sqrt{5}q+2\sqrt{10}r\right)\]
+            于是满足的约束条件为
+            \[\sqrt{13}p+3\sqrt{5}q+2\sqrt{10}r-6\sqrt{14}=0\]
+        \item 令$\phi(p,q,r)=\sqrt{13}p+3\sqrt{5}q+2\sqrt{10}r-6\sqrt{14}$.构造辅助函数$F(p,q,r,\lambda)=S(p,q,r)-\lambda\phi(p,q,r)$.\\
+            求$F(p,q,r,\lambda)$的各偏导,并令它们为$0$,有
+            \[\dfrac{\p F}{\p p}=\dfrac{\sqrt{13}}{2}\cdot\dfrac{p}{\sqrt{p^2+1}}-\sqrt{13}\lambda=0\]
+            \[\dfrac{\p F}{\p q}=\dfrac{3\sqrt5}{2}\cdot\dfrac{q}{\sqrt{q^2+1}}-3\sqrt{5}\lambda=0\]
+            \[\dfrac{\p F}{\p r}=\sqrt{10}\cdot\dfrac{r}{\sqrt{r^2+1}}-2\sqrt{10}\lambda=0\]
+            \[\dfrac{\p F}{\p \lambda}=\phi(p,q,r)=0\]
+            于是我们有$\dfrac{p}{\sqrt{p^2+1}}=\dfrac{q}{\sqrt{q^2+1}}=\dfrac{r}{\sqrt{r^2+1}}=2\lambda$.\\
+            由于$p,q,r>0$,于是有$p=q=r=\dfrac{2\lambda}{\sqrt{1-4\lambda^2}}$.\\
+            代回$\phi(p,q,r)=0$可知稳定点满足$p=q=r=\dfrac{6\sqrt{14}}{\sqrt{13}+3\sqrt{15}+2\sqrt{10}}$.
     \end{enumerate}
 \end{solution}
-\begin{problem}[7.(10\songti{分})]
-    给定正整数$n\geqslant 3$,求单位圆的内接$n$边形面积的最大值.
-\end{problem}
-\begin{proof}
-    我们将这$n$边形记作$A_1A_2\cdots A_n$,单位圆的圆心记作$O$.令$\theta_k=\angle A_kOA_{k+1}(1\leqslant k<n),\theta_n=\angle A_1OA_n$.\\
-    考虑将多边形分成$n$个三角形.于是
-    \[S_{\triangle A_kOA_k+1}=\dfrac12r^2\sin\theta_k=\dfrac12\sin\theta_k\]
-    其中,当$\theta>\pi$时这三角形的面积为负.由于这在图形中表示需要减去这部分面积,于是这是不矛盾的.\\
-    令$\displaystyle S(\theta_1,\cdots,\theta_n)=\dfrac12\sum_{k=1}^n\sin\theta_k$.我们要求$\displaystyle\sum_{k=1}^n\theta_k=2\pi$的约束条件下$S$的最大值.\\
-    令$\displaystyle\phi(\theta_1,\cdots,\theta_n)=\sum_{k=1}^n\theta_k-2\pi$.\\
-    构造辅助函数$\displaystyle F(\theta_1,\cdots,\theta_n,\phi)=S(\theta_1,\cdots,\theta_n)-\lambda\phi(\theta_1,\cdots,\theta_n)$.求$F$对$\theta_1,\cdots,\theta_n,\lambda$的偏导数可得
-    \[F_{\theta_k}(\theta_1,\cdots,\theta_n,\lambda)=\dfrac{1}{2}\cos\theta_k-\lambda,\forall 1\leqslant k\leqslant n\]
-    \[F_{\phi}(\theta_1,\cdots,\theta_n,\lambda)=\phi(\theta_1,\cdots,\theta_n)=0\]
-    于是当各$F_{\theta_k}=0$时$F$取到最大值.\\
-    此时$\cos\theta_k=2\lambda$.为使得各$\cos\theta_k$相等,又$n\geqslant3$,于是$\theta_1=\cdots=\theta_n=\dfrac{2\pi}{n}$.\\
-    于是面积的最大值为$S=\dfrac{n}{2}\sin\dfrac{2\pi}{n}$.
-\end{proof}
 \end{document}
