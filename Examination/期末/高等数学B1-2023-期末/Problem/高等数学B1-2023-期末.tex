@@ -1,0 +1,44 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+
+\begin{center}\Large
+    北京大学数学科学学院2023-24高等数学B1期末考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(10\songti{分})}\ 求极限\[\lim_{x\to0}\dfrac{\sin\left(x-\displaystyle\int_0^x\sqrt{1+t^2}\di t\right)}{x^3}\]
+    \item \textbf{(10\songti{分})}\ 设函数$f:[0,7]\to\R$为\[f(x)=x^3-6x^2+9x-1\]称区间$[a,b]$是$f$的单调区间,当$0\leqslant a<b\leqslant 7$且限制在$[a,b]$上的$f$严格单调.求$f$的长度最大的单调区间.
+    \item \textbf{(10\songti{分})}\ 设欧氏空间$\R^3$中的平面$T:2x-y+3z=6$.设$T$与$x,y,z$三轴的交点分别为$A,B,C$.以原点$O(0,0,0)$为球心,与$T$相切的球面记作$S$.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(5\songti{分})}\ 求$\triangle ABC$的面积.
+            \item \textbf{(5\songti{分})}\ 求球面$S$与$T$相切的点的坐标.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 设二元函数$z=f(x,y)$是由方程$F(x,y,z)=z^3+z\e^x+y=0$确定的隐函数.求$z=f(x,y)$在$(0,2)$处函数值下降最快的方向上的单位向量.
+    \item \textbf{(10\songti{分})}\ 求函数$f(x,y)=x^y$在$(1,1)$处的二阶泰勒多项式.
+    \item \textbf{(10\songti{分})}\ 设$D$是由直线$x+y=2\pi$,$x$轴和$y$轴围成的有界闭区域.求$D$上的二元函数$f(x,y)=\sin x+\sin y-\sin(x+y)$达到最大值的$D$中所有点.
+    \item \textbf{(10\songti{分})}\ 回答下列问题.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(2\songti{分})}\ 举例说明:当$z$是$(x,y)$的函数,也是$(t,u)$的函数时,$x\equiv t\nRightarrow \dfrac{\p z}{\p x}\equiv\dfrac{\p z}{\p t}$.
+            \item \textbf{(8\songti{分})}\ 给定方程\[x^2\dfrac{\p z}{\p x}+y^2\dfrac{\p z}{\p y}=z^2\]作变量代换\[x=t,y=\dfrac{t}{1+tu},z=\dfrac{t}{1+tW}\]试证明:\[\dfrac{\p W}{\p t}=0\]
+        \end{enumerate}
+    \item \textbf{(15\songti{分})}\ 证明下列恒等式.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(3\songti{分})}\ 对于任意$x\in\left(-\dfrac{1}{\sqrt2},\dfrac{1}{\sqrt2}\right)$,有\[2\int_0^x\dfrac{\di t}{\sqrt{1-t^2}}=\int_0^{2x\sqrt{1-x^2}}\dfrac{\di t}{\sqrt{1-t^2}}\]
+            \item \textbf{(12\songti{分})}\ 对于任意$x\in\left(-\dfrac{1}{\sqrt[4]{6}},\dfrac{1}{\sqrt[4]{6}}\right)$,有\[2\int_0^x\dfrac{\di t}{\sqrt{1-t^4}}=\int_{0}^{\frac{2x\sqrt{1-x^4}}{1+x^4}}\dfrac{\di t}{\sqrt{1-t^4}}\]
+        \end{enumerate}
+    \item \textbf{(15\songti{分})}\ 设函数$P(x)$在$[0,1]$连续,有$P(0)=0,P(1)=1$.$P(x)$在$(0,1)$可导,且对任意$x\in(0,1)$有$P'(x)>0$.任意取定$A,B\in\R,n\in\N^*$.试证明:在$(0,1)$上存在$\theta_0,\cdots,\theta_n\in\R$使得
+        \[(A+B)^n=\sum_{k=0}^n\dfrac{1}{P'(\theta_k)}\dfrac{n!}{k!(n-k)!}A^{n-k}B^k\]
+        并且\[0<\theta_0<\cdots<\theta_n<1\]
+\end{enumerate}
+\end{document}
