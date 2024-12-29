@@ -154,9 +154,39 @@
 \begin{solution}
     \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
         \item \tbf{Proof.}\\
-            对于任意的$(x_0,y_0)\in D$,考虑点$P_t(tx_0,ty_0)$.当$t\in[0,1]$时,$P_t$在$O$与$(x_0,y_0)$的连线上.\\
-            令$\phi(t)=f(tx_0,ty_0),t\in[0,1]$.由$f(x,y)$在$D$上可微可知$\phi(t)$可微.\\
-            于是$\dfrac{\di\phi}{\di t}=\dfrac{\p f}{\p y}$
+            对于任意$P(x,y)\in D$,考虑点$P_t(tx,ty)$,其中$t\in[0,1]$.于是$P_t$在$O$与$P$的连线上.\\
+            令$\phi(t)=f(tx,ty)$.由于$f(x,y)$在$D$上二阶可微,于是$\phi(t)$可微.我们有
+            \[\dfrac{\di\phi}{\di t}=xf_x(tx,ty)+yf_y(tx,ty)\]
+            根据Lagrange中值定理,存在$\xi\in(0,1)$使得
+            \[\phi'(\xi)=\dfrac{\phi(1)-\phi(0)}{1-0}=f(x,y)-f(0,0)=f(x,y)\]
+            即
+            \[f(x,y)=\phi'(\xi)=xf_x(\xi x,\xi y)+yf_y(\xi x,\xi y)\]
+            因此,对于每个$(x,y)\in D$,用上述过程确定的$\xi$定义函数$a,b:D\to\R$为
+            \[a(x,y)=f_x(\xi x,\xi y)\ \ \ \ \ b(x,y)=f_y(\xi x,\xi y)\]
+            即可使得$f(x,y)=xa(x,y)+yb(x,y)$成立.\\
+            又由$\di f(0,0)=0$可知$f_x(0,0)=f_y(0,0)=0$.于是$a(0,0)=b(0,0)=0$.\\
+            于是命题得证.
+        \item 考虑$f(x,y)$在$(0,0)$处的二阶泰勒多项式
+            \[f(x,y)=f(0,0)+xf_x(0,0)+yf_y(0,0)+\dfrac{x^2f_{xx}(0,0)+2xyf_{xy}(0,0)+y^2f_{yy}(0,0)}{2}+o(\rho^2)\]
+            其中$\rho=\sqrt{x^2+y^2}$.代入题中的$f$的各阶微分有
+            \[f(x,y)=\dfrac{1}{2}\left(Ex^2+2Fxy+Gy^2\right)\]
+            考虑旋转变换$S:(x,y)\to(x\sin\theta+y\cos\theta,x\cos\theta-y\sin\theta)$将$(x,y)$绕原点逆时针旋转$\theta$.\\
+            不妨令$x'=x\sin\theta+y\cos\theta,y'=x\cos\theta-y\sin\theta$.于是
+            \[x'^2=x^2\sin^2\theta+y^2\cos^2\theta+2xy\sin\theta\cos\theta\ \ \ \ \ y'^2=x^2\cos^2\theta+y^2\sin^2\theta-2xy\sin\theta\cos\theta\]
+            设$Ex^2+2Fxy+Gy^2=Ax'^2+By'^2$,于是有
+            \[\left\{\begin{array}{l}
+                A\sin^2\theta+B\cos^2\theta=E\\
+                A\cos^2\theta+B\sin^2\theta=G\\
+                (A-B)\sin\theta\cos\theta=F
+            \end{array}\right.\]
+            于是
+            \[\begin{aligned}
+                EG-F^2
+                &= (A^2+B^2)\sin^2\theta\cos^2\theta+AB(\sin^4\theta+\cos^4\theta)-(A^2-2AB+B^2)\sin^2\theta\cos^2\theta \\
+                &= AB(\sin^4\theta+\cos^4\theta)+2AB\sin^2\theta\cos^2\theta \\
+                &= AB
+            \end{aligned}\]
+            由于$EG-F^2<0$,于是$AB<0$,因而这是双曲抛物面.题中所指的变换即旋转后伸缩变换,是成立的.
     \end{enumerate}
 \end{solution}
 \end{document}
