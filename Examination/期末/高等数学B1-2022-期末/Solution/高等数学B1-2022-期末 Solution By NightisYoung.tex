@@ -153,19 +153,16 @@
 \end{problem}
 \begin{solution}
     \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item \tbf{Proof.}\\
-            对于任意$P(x,y)\in D$,考虑点$P_t(tx,ty)$,其中$t\in[0,1]$.于是$P_t$在$O$与$P$的连线上.\\
-            令$\phi(t)=f(tx,ty)$.由于$f(x,y)$在$D$上二阶可微,于是$\phi(t)$可微.我们有
-            \[\dfrac{\di\phi}{\di t}=xf_x(tx,ty)+yf_y(tx,ty)\]
-            根据Lagrange中值定理,存在$\xi\in(0,1)$使得
-            \[\phi'(\xi)=\dfrac{\phi(1)-\phi(0)}{1-0}=f(x,y)-f(0,0)=f(x,y)\]
-            即
-            \[f(x,y)=\phi'(\xi)=xf_x(\xi x,\xi y)+yf_y(\xi x,\xi y)\]
-            因此,对于每个$(x,y)\in D$,用上述过程确定的$\xi$定义函数$a,b:D\to\R$为
-            \[a(x,y)=f_x(\xi x,\xi y)\ \ \ \ \ b(x,y)=f_y(\xi x,\xi y)\]
-            即可使得$f(x,y)=xa(x,y)+yb(x,y)$成立.\\
-            又由$\di f(0,0)=0$可知$f_x(0,0)=f_y(0,0)=0$.于是$a(0,0)=b(0,0)=0$.\\
-            于是命题得证.
+        \item 给定$(x,y)\in D$,记$\phi(t)=f(tx,ty)$,其中$t\in[0,1]$.由于$f$在$D$上可微,因而$\phi(t)$可微.\\
+            现在,令
+            \[a(x,y)=\int_{0}^{1}f_x(tx,ty)\di t\ \ \ \ \ b(x,y)=\int_{0}^{1}f_y(tx,ty)\di t\]
+            注意到
+            \[\int_0^1\phi'(t)\di t=\phi(1)-\phi(0)=f(x,y)\]
+            而
+            \[\phi'(t)=xf_x(tx,ty)+yf_y(tx,ty)\]
+            于是
+            \[xa(x,y)+yb(x,y)=\int_0^1 xf_x(tx,ty)\di t+\int_0^1 yf_y(tx,ty)\di t=\int_0^1\phi'(t)\di t=f(x,y)\]
+            又$\di f(0,0)=0$,于是$a(0,0)=b(0,0)=0$.于是这样的$a,b$满足题意.
         \item 考虑$f(x,y)$在$(0,0)$处的二阶泰勒多项式
             \[f(x,y)=f(0,0)+xf_x(0,0)+yf_y(0,0)+\dfrac{x^2f_{xx}(0,0)+2xyf_{xy}(0,0)+y^2f_{yy}(0,0)}{2}+o(\rho^2)\]
             其中$\rho=\sqrt{x^2+y^2}$.代入题中的$f$的各阶微分有
