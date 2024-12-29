@@ -102,7 +102,16 @@
 \begin{solution}
     \begin{enumerate}[label=\tbf{(\arabic*)}]
         \item 令$z=x+y=tu+t$,于是$\dfrac{\p z}{\p x}=1,\dfrac{\p z}{\p t}=1+u$.显然当$x=t$时不一定有$\dfrac{\p z}{\p x}=\dfrac{\p z}{\p t}$.
-        \item 
+        \item 由$z=\dfrac{t}{1+tW}$有$W(t,u)=\dfrac{1}{z(x(t,u),y(t,u))}-\dfrac{1}{t}$.于是
+            \[\begin{aligned}
+                \dfrac{\p W}{\p t}
+                &= -\dfrac{1}{z^2}\cdot\dfrac{\p z}{\p t}+\dfrac{1}{t^2} \\
+                &= -\dfrac{1}{z^2}\left(\dfrac{\p z}{\p x}+\dfrac{1}{(1+tu)^2}\dfrac{\p z}{\p y}\right)+\dfrac{1}{t^2} \\
+                &= -\dfrac{1}{z^2}\left(\dfrac{\p z}{\p x}+\left(\dfrac{y}{x}\right)^2\dfrac{\p z}{\p y}\right)+\dfrac{1}{x^2} \\
+                &= \dfrac{1}{x^2}-\dfrac{1}{x^2} \\
+                &= 0
+            \end{aligned}\]
+            于是命题得证.
     \end{enumerate}
 \end{solution}
 \begin{problem}[8.(15\songti{分})]
