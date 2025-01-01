@@ -1,0 +1,38 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+
+\begin{center}\Large
+    北京大学数学科学学院2024-25高等数学B1期末考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(10\songti{分})}\ 求极限\[\lim_{x\to0}\dfrac{2\cos\sqrt{|x|}-2+|x|}{x^2}\]
+    \item \textbf{(10\songti{分})}\ 设欧氏空间$\R^3$中的平面$P:2x+y-3=0$和平面$Q:x+2y-z-2=0$,直线$l=P\cap Q$是$P,Q$的交线.求以原点$O(0,0,0)$为球心,与$l$相切的球面$S$的方程.
+    \item \textbf{(10\songti{分})}\ 下列函数极限是否存在?若存在,请求出其值;若不存在,请说明理由.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(5\songti{分})}\ \(\displaystyle\lim_{(x,y)\to(0,0)}\dfrac{xy}{x^2+\tan^2y}\).
+            \item \textbf{(5\songti{分})}\ \(\displaystyle\lim_{(x,y)\to(0,0)}\left(\dfrac{xy}{\e^x-1}+\sin y\right)\sin\dfrac{1}{x^2+y^2}\).
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 设二元函数$z=z(x,y)$是由方程$F(x,y,z)=z^3+x^2z-2y^3=0$确定的隐函数.求$z(x,y)$在$(1,1)$处最大的方向导数.
+    \item \textbf{(15\songti{分})}\ 求函数$f(x,y)=x^{\sqrt{y}}$在$(1,1)$处的二阶泰勒多项式和带皮亚诺余项的二阶泰勒公式.
+    \item \textbf{(15\songti{分})}\ 设$f:\R^2\to\R$定义为
+        \[f(x,y)=x^2+2xy\sin(x+y)-y^2\]
+        试证明:存在$\R^2$上$(0,0)$的开邻域$D$和$D$上的连续可微的可逆变换$x,y:D\to\R$,使得$x(0,0)=y(0,0)=0$,并且对于任意$(u,v)\in D$有
+        \[f(x(u,v),y(u,v))=u^2-v^2\]
+    \item \textbf{(15\songti{分})}\ 求欧氏空间$\R^3$中原点$O(0,0,0)$到曲面\[(x-y)^2-z^2=4\]上的点的最短距离.
+    \item \textbf{(15\songti{分})}\ 设$f:[-1,1]\to\R$是$[-1,1]$上的黎曼可积函数,$A\in\R$,$\displaystyle\lim_{x\to0}f(x)=A$.试证明:
+        \[\lim_{n\to\infty}\int_{-1}^{1}\dfrac{nf(x)}{1+n^2x^2}\di x=\pi A\]
+        注意:本题没有假设$f(x)$在$[-1,1]$上连续.
+\end{enumerate}
+\end{document}

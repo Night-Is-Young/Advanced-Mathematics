@@ -1,0 +1,198 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2024-25高等数学B1期末考试
+\end{center}
+\begin{problem}[1.(10\songti{分})]
+    求极限\[\lim_{x\to0}\dfrac{2\cos\sqrt{|x|}-2+|x|}{x^2}\]
+\end{problem}
+\begin{solution}
+    置$t=\sqrt{|x|}$.于是
+    \[\begin{aligned}
+        \lim_{x\to0}\dfrac{2\cos\sqrt{|x|}-2+|x|}{x^2}
+        &= \lim_{t\to0^+}\dfrac{2\cos t-2+t^2}{t^4} \\
+        &= \lim_{t\to0^+}\dfrac{2t-2\sin t}{4t^3} \\
+        &= \lim_{t\to0^+}\dfrac{2-2\cos t}{12t^2} \\
+        &= \lim_{t\to0^+}\dfrac{2\sin t}{24t} \\
+        &= \dfrac{1}{12}
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[2.(10\songti{分})]
+    设欧氏空间$\R^3$中的平面$P:2x+y-3=0$和平面$Q:x+2y-z-2=0$,直线$l=P\cap Q$是$P,Q$的交线.求以原点$O(0,0,0)$为球心,与$l$相切的球面$S$的方程.
+\end{problem}
+\begin{solution}
+    联立$P,Q$有
+    \[\left\{\begin{array}{l}
+        2x+y-3=0\\x+2y-z-2=0
+    \end{array}\right.\]
+    解得$l:\dfrac{x-6}{5}=-y=\dfrac{z-4}{3}$.于是$l$的方向向量$\vec{u}=(5,-1,3)$.\\
+    考虑切点$T(x,y,z)$,则有$OT\bot l$,即$\overrightarrow{OT}\cdot\vec{u}=0$.于是
+    \[\left\{\begin{array}{l}
+        \dfrac{x-6}{5}=-y=\dfrac{z-4}{3} \\
+        5x-y+3z=0
+    \end{array}\right.\]
+    解得$T\left(0,\dfrac{6}{5},\dfrac{2}{5}\right)$.于是$S$的半径$r$满足$r^2=0^2+\left(\dfrac65\right)^2+\left(\dfrac25\right)^2=\dfrac85$.于是$S$的方程为
+    \[x^2+y^2+z^2=\dfrac85\]
+\end{solution}
+\begin{problem}[3.(10\songti{分})]
+    下列函数极限是否存在?若存在,请求出其值;若不存在,请说明理由.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item \textbf{(5\songti{分})}\ \(\displaystyle\lim_{(x,y)\to(0,0)}\dfrac{xy}{x^2+\tan^2y}\).
+        \item \textbf{(5\songti{分})}\ \(\displaystyle\lim_{(x,y)\to(0,0)}\left(\dfrac{xy}{\e^x-1}+\sin y\right)\sin\dfrac{1}{x^2+y^2}\).
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 我们有\[\lim_{y\to0}\dfrac{\tan y}{y}=\lim_{y\to0}\dfrac{1}{\cos^2y}=1\]令$x=ky$,于是
+            \[\begin{aligned}
+                \lim_{(x,y)\to(0,0)}\dfrac{xy}{x^2+\tan^2y}
+                &= \lim_{(x,y)\to(0,0)}\dfrac{ky^2}{k^2y^2+\tan^2y} \\
+                &= \lim_{(x,y)\to(0,0)}\dfrac{k}{k^2+\left(\frac{\tan y}{y}\right)^2} \\
+                &= \dfrac{k}{k^2+1}
+            \end{aligned}\]
+            于是所取路径$x=ky$不同,得到该极限的值亦不同.于是这函数极限不存在.
+        \item 我们有
+            \[\left|\sin\dfrac{1}{x^2+y^2}\right|\leqslant 1\]
+            于是
+            \[0\leqslant\left|\left(\dfrac{xy}{\e^x-1}+\sin y\right)\sin\dfrac{1}{x^2+y^2}\right|\leqslant\left|\dfrac{xy}{\e^x-1}+\sin y\right|\leqslant\left|\dfrac{xy}{\e^x-1}\right|+\left|\sin y\right|\]
+            我们有
+            \[\lim_{(x,y)\to(0,0)}\dfrac{xy}{\e^x-1}=1\cdot0=0,\lim_{y\to0}\sin y=0\]
+            于是由夹逼定理可知
+            \[\lim_{(x,y)\to(0,0)}\left(\dfrac{xy}{\e^x-1}+\sin y\right)\sin\dfrac{1}{x^2+y^2}=0\]
+    \end{enumerate}
+\end{solution}
+\begin{problem}[4.(10\songti{分})]
+    设二元函数$z=z(x,y)$是由方程$F(x,y,z)=z^3+x^2z-2y^3=0$确定的隐函数.求$z(x,y)$在$(1,1)$处最大的方向导数.
+\end{problem}
+\begin{solution}
+    当$(x,y)=(1,1)$时,由$F(x,y,z)=0$可得
+    \[z^3+z-2=(z-1)(z^2-z+2)=0\]
+    这方程有唯一的实根$z=1$.在$(1,1,1)$处求$F$的各偏导有
+    \[F_x=2xz=2\ \ \ \ \ F_y=-6y^2=-6\ \ \ \ \ F_z=3z^2+x^2=4\]
+    根据隐函数存在定理,由$F(x,y,z)\equiv0$确定的隐函数$z=z(x,y)$在$(1,1)$处满足
+    \[\dfrac{\p z}{\p x}=-\dfrac{F_x}{F_z}=-\dfrac12\ \ \ \ \ \dfrac{\p z}{\p y}=-\dfrac{F_y}{F_z}=\dfrac32\]
+    于是$z(x,y)$在$(1,1)$处的梯度向量为$\left(-\dfrac12,\dfrac32\right)$,单位化后即$\vec{u}=\left(-\dfrac{1}{\sqrt{10}},\dfrac{3}{\sqrt{10}}\right)$.\\
+    于是$z(x,y)$在$(1,1)$处的最大的方向导数为
+    \[\dfrac{\p z}{\p \vec{u}}=\left(-\dfrac12\right)\cdot\left(-\dfrac{1}{\sqrt{10}}\right)+\dfrac{3}{2}\cdot\dfrac{3}{\sqrt{10}}=\dfrac{\sqrt{10}}{2}\]
+\end{solution}
+\begin{problem}[5.(15\songti{分})]
+    求函数$f(x,y)=x^{\sqrt{y}}$在$(1,1)$处的二阶泰勒多项式和带皮亚诺余项的二阶泰勒公式.
+\end{problem}
+\begin{solution}
+    在$(1,1)$处,我们有
+    \[\begin{aligned}
+        f_x&=\sqrt{y}x^{\sqrt{y}-1}=1 \\
+        f_y&=\dfrac{x^{\sqrt{y}}\ln x}{2\sqrt{y}}=0 \\
+        f_{xx}&=\sqrt{y}\left(\sqrt{y}-1\right)x^{\sqrt{y}-2}=0 \\
+        f_{yy}&=\dfrac{x^{\sqrt{y}}\ln^2x+x^{\sqrt{y}}\ln x\cdot\frac{1}{\sqrt{y}}}{4y}=0 \\
+        f_{yx}&=\dfrac{1}{2\sqrt{y}}\left(\sqrt{y}x^{\sqrt{y}-1}\ln x+\dfrac{x^{\sqrt{y}}}{x}\right)=\dfrac12 \\
+    \end{aligned}\]
+    由泰勒公式可得
+    \[f(x,y)=f(1,1)+(x-1)f_x+(y-1)f_y+\dfrac{(x-1)^2f_{xx}+2(x-1)(y-1)f_{xy}+(y-1)^2f_{yy}}{2}\]
+    于是$f(x,y)$在$(1,1)$处的二阶泰勒多项式为
+    \[f(x,y)=1+(x-1)+\dfrac{(x-1)(y-1)}{2}\]
+    带皮亚诺余项的二阶泰勒公式为
+    \[f(x,y)=1+(x-1)+\dfrac{(x-1)(y-1)}{2}+o(\rho^2),\text{其中}\rho=\sqrt{(x-1)^2+(y-1)^2}\]
+\end{solution}
+\begin{problem}[6.(15\songti{分})]
+    设$f:\R^2\to\R$定义为
+    \[f(x,y)=x^2+2xy\sin(x+y)-y^2\]
+    试证明:存在$\R^2$上$(0,0)$的开邻域$D$和$D$上的连续可微的可逆变换$x,y:D\to\R$,使得$x(0,0)=y(0,0)=0$,并且对于任意$(u,v)\in D$有
+    \[f(x(u,v),y(u,v))=u^2-v^2\]
+\end{problem}
+\begin{proof}
+    首先注意到
+    \[f(x,y)=\left(x^2+2xy\sin(x+y)+y^2\sin^2(x+y)\right)-y^2\left(1+\sin^2(x+y))\right)\]
+    又因为\[1+\sin^2(x+y)\geqslant0\]
+    于是作代换
+    \[\left\{\begin{array}{l}
+        u=x+y\sin(x+y) \\
+        v=y\sqrt{1+\sin^2(x+y)}
+    \end{array}\right.\]
+    即可使得$f(x,y)=u^2-v^2$.为了证明这映射存在逆映射,对其在$(0,0)$处求偏导有
+    \[\begin{aligned}
+        \dfrac{\p u}{\p x}&=1+y\cos(x+y)=1\\
+        \dfrac{\p u}{\p y}&=\sin(x+y)+y\cos(x+y)=0\\
+        \dfrac{\p v}{\p x}&=\dfrac{y\sin(x+y)\cos(x+y)}{\sqrt{1+\sin^2(x+y)}}=0\\
+        \dfrac{\p v}{\p y}&=\sqrt{1+\sin^2(x+y)}+\dfrac{y\sin(x+y)\cos(x+y)}{\sqrt{1+\sin^2(x+y)}}=1
+    \end{aligned}\]
+    于是$\dfrac{D(u,v)}{D(x,y)}=\begin{vmatrix}
+        1&0\\0&1
+    \end{vmatrix}=1$.因此根据逆映射存在定理,存在变换$x(u,v),y(u,v)$满足题意.
+\end{proof}
+\begin{problem}[7.(15\songti{分})]
+    求欧氏空间$\R^3$中原点$O(0,0,0)$到曲面\[(x-y)^2-z^2=4\]上的点的最短距离.
+\end{problem}
+\begin{solution}
+    我们只需求出距离的平方的最小值即可.为此,设
+    \[F(x,y,z,\lambda)=x^2+y^2+z^2+\lambda((x-y)^2-z^2-4)\]
+    由于$F(x,y,z,\lambda)$是连续函数,因此其最值必在稳定点处取到.令$F$的各偏导为$0$,可得
+    \[\left\{\begin{array}{l}
+        F_x=2x+2\lambda(x-y)=0\\
+        F_y=2y+2\lambda(y-x)=0\\
+        F_z=2z-2\lambda z=0\\
+        F_\lambda=(x-y)^2-z^2-4=0
+    \end{array}\right.\]
+    由$2z-2\lambda z=0$可得$z(1-\lambda)=0$.\\
+    若$1-\lambda=0$,则有$4x-2y=4y-2x=0$,于是$x=y=0$.这要求$z^2+4=0$,于是没有实根,舍去.\\
+    若$z=0$,则由前两个方程相加可得$x+y=0$.代入约束条件中可得$x=1,y=-1$或$x=-1,y=1$.\\
+    此时$F(x,y,z,\lambda)=x^2+y^2+z^2=2$.于是所求距离的最小值为$\sqrt2$.
+\end{solution}
+\begin{problem}[8.(15\songti{分})]
+    设$f:[-1,1]\to\R$是$[-1,1]$上的黎曼可积函数,$A\in\R$,$\displaystyle\lim_{x\to0}f(x)=A$.试证明:
+    \[\lim_{n\to\infty}\int_{-1}^{1}\dfrac{nf(x)}{1+n^2x^2}\di x=\pi A\]
+    注意:本题没有假设$f(x)$在$[-1,1]$上连续.
+\end{problem}
+\begin{proof}
+    令$g(x)=f(x)-A$,则$g(x)$也是$[-1,1]$上的黎曼可积函数,满足$\displaystyle\lim_{x\to0}g(x)=A-A=0$.于是
+    \[\int_{-1}^{1}\dfrac{nf(x)}{1+n^2x^2}\di x=\int_{-1}^{1}\dfrac{n(g(x)+A)}{1+n^2x^2}\di x=A\int_{-1}^{1}\dfrac{n}{1+n^2x^2}\di x+\int_{-1}^{1}\dfrac{ng(x)}{1+n^2x^2}\di x\]
+    我们有\[\int_{-1}^{1}\dfrac{n}{1+n^2x^2}\di x=\int_{-n}^{n}\dfrac{\di(nx)}{1+(nx)^2}=\left.\arctan x\right|_{-n}^{n}=2\arctan n\]
+    于是\[\lim_{n\to\infty}A\int_{-1}^{1}\dfrac{n}{1+n^2x^2}\di x=A\left(\dfrac\pi2-\left(-\dfrac\pi2\right)\right)=\pi A\]
+    将被积函数进行分段,有
+    \[\int_{-1}^{1}\dfrac{ng(x)}{1+n^2x^2}\di x=\int_{-1}^{-\frac{1}{\sqrt{n}}}\dfrac{ng(x)}{1+n^2x^2}\di x+\int_{-\frac{1}{\sqrt{n}}}^{\frac{1}{\sqrt{n}}}\dfrac{ng(x)}{1+n^2x^2}\di x+\int_{\frac{1}{\sqrt{n}}}^{1}\dfrac{ng(x)}{1+n^2x^2}\di x\]
+    因为$g(x)$是$[-1,1]$上的黎曼可积函数,于是其在$[-1,1]$上有界.不妨令$\displaystyle\max_{x\in[-1,1]}g(x)=M$.于是
+    \[\begin{aligned}
+        0
+        &\leqslant\left|\int_{\frac{1}{\sqrt{n}}}^{1}\dfrac{ng(x)}{1+n^2x^2}\di x\right| \\
+        &\leqslant\int_{\frac{1}{\sqrt{n}}}^{1}\dfrac{n|g(x)|}{1+n^2x^2}\di x \\
+        &\leqslant\int_{\frac{1}{\sqrt{n}}}^{1}\dfrac{Mn}{1+n^2x^2}\di x \\
+        &= M\left.\arctan x\right|_{\sqrt{n}}^{n} \\
+        &= M\left(\arctan n-\arctan\sqrt{n}\right)
+    \end{aligned}\]
+    又因为
+    \[\lim_{n\to\infty}M\left(\arctan n-\arctan\sqrt{n}\right)=M\left(\dfrac\pi2-\dfrac\pi2\right)=0\]
+    于是由夹逼定理可知
+    \[\lim_{n\to\infty}\int_{\frac{1}{\sqrt{n}}}^{1}\dfrac{ng(x)}{1+n^2x^2}\di x=0\]
+    同理有
+    \[\lim_{n\to\infty}\int_{-1}^{-\frac{1}{\sqrt{n}}}\dfrac{ng(x)}{1+n^2x^2}\di x=0\]
+    因为$\displaystyle\lim_{x\to0}g(x)=0$,于是对于任意$\ep>0$,存在$\delta>0$使得任意$0<|x|<\delta$满足$|g(x)|<\ep$.\\
+    取$n>\dfrac{1}{\delta^2}$,则有$\dfrac{1}{\sqrt{n}}<\delta$.于是
+    \[\begin{aligned}
+        0
+        &\leqslant\left|\int_{-\frac{1}{\sqrt{n}}}^{\frac{1}{\sqrt{n}}}\dfrac{ng(x)}{1+n^2x^2}\di x\right| \\
+        &\leqslant\int_{-\frac{1}{\sqrt{n}}}^{\frac{1}{\sqrt{n}}}\dfrac{n|g(x)|}{1+n^2x^2}\di x \\
+        &\leqslant\int_{-\frac{1}{\sqrt{n}}}^{\frac{1}{\sqrt{n}}}\dfrac{\ep n}{1+n^2x^2}\di x \\
+        &= \ep\left.\arctan x\right|_{-\sqrt{n}}^{\sqrt{n}} \\
+        &= 2\ep\arctan\sqrt{n} \\
+        &\leqslant \pi\ep
+    \end{aligned}\]
+    根据极限的定义,可知\\
+    \[\lim_{n\to\infty}\int_{-\frac{1}{\sqrt{n}}}^{\frac{1}{\sqrt{n}}}\dfrac{ng(x)}{1+n^2x^2}\di x=0\]
+    于是
+    \[\lim_{n\to\infty}\int_{-1}^{1}\dfrac{ng(x)}{1+n^2x^2}\di x=0+0+0=0\]
+    于是
+    \[\lim_{n\to\infty}\int_{-1}^{1}\dfrac{nf(x)}{1+n^2x^2}\di x=\pi A+0=\pi A\]
+    命题得证.
+\end{proof}
+\end{document}
