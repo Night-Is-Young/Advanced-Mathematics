@@ -1,0 +1,44 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+
+\begin{center}\Large
+    北京大学数学科学学院2024-25高等数学B1期末考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(15\songti{分})}\ 求极限
+    \item \textbf{(10\songti{分})}\ 设欧氏空间$\R^3$中的平面$\Omega$过直线$x+1=y-3=\dfrac{z}2$,且与平面$3x-y-10z=4$垂直.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(5\songti{分})}\ 求$\Omega$的标准方程.
+            \item \textbf{(5\songti{分})}\ 已知以原点为球心的球面$S$与$\Omega$相切,求$S$的方程.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 回答下列问题.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(5\songti{分})}\ 设正整数$n\geqslant3$,$n$元函数$u:\R^n\to\R$满足
+                \[u(\li x,n)=\left(\sum_{k=1}^nx_k^2\right)^{\frac{2-n}{2}}\]
+                其中$\displaystyle\sum_{k=1}^nx_k^2\neq0$.试求$\displaystyle\sum_{k=1}^{n}u_{x_kx_k}$.
+            \item \textbf{(5\songti{分})}\ 设常数$a\in\R$,设$h(x,t)=f(x+at)+g(x-at)$,其中$f:\R\to\R$和$g:\R\to\R$均有连续的二阶导函数.试求$h_{tt}-a^2h_{xx}$.
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 求函数$f(x,y)=x^{\sqrt{y}}$在$(1,1)$处的二阶泰勒多项式.
+    \item \textbf{(10\songti{分})}\ 设$t\in[0,2\pi]$,$R>0$,$a>0$.求螺旋线$S:\left\{\begin{array}{l}
+            x=R\cos t\\
+            y=R\sin t\\
+            z=at
+        \end{array}\right.$在$t=\dfrac\pi4$的切线和法平面的方程.
+    \item \textbf{(10\songti{分})}\ 设$a,b,c\in\R$.试证明:方程$\e^x=ax^2+bx+c$的互异实根不超过三个.
+    \item \textbf{(10\songti{分})}\ 证明:对于任意给定的$k\in\R$,存在$1$的开邻域$U$和$W$,存在唯一的函数$y=f(x),x\in U,y\in W$满足方程$x^k-3x^2y+3xy^2-y^k=0$.
+    \item \textbf{(15\songti{分})}\ 求函数$f(x,y,z)=x^3+y^3+z^3-4xyz$在$D=\left\{(x,y,z)\in\R^3:x^2+y^2+z^2\leqslant1\right\}$上的最大值和最小值.
+    \item \textbf{(10\songti{分})}\ 设函数$f$在$[0,1]$二阶可微,且$f(0)=f(1)=0$,$\displaystyle\min_{x\in[0,1]}f(x)=-1$.试证明:存在$\epsilon\in(0,1)$使得$f''(\epsilon)\geqslant8$.
+\end{enumerate}
+\end{document}
