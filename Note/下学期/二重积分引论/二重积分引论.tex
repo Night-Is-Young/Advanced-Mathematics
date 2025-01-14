@@ -13,5 +13,83 @@
 \begin{document}
 \pagestyle{empty}
 \begin{center}\large 二重积分引论\end{center}
-
+\tbf{1.二重积分的定义与基本性质}\\
+一元函数的Riemann积分是通过"分割-近似代替-求和-取极限"的过程完成的.关于多元函数的重积分也是通过类似步骤定义的.\\
+考虑二元函数$z=f(x,y)$在一个由有线条光滑曲线围成的平面区域$D$上有定义.对$D$作分割如下
+\[D=D_1\cup\cdots\cup D_n\]
+且$\forall 1\leqslant j<k\leqslant n,D_j\cap D_k=\varnothing$.我们用$\Delta\sigma_i$表示$D_i$的面积,并用$\lambda$表示$D_i$的直径的最大者.
+所谓$D_i$的直径是指$D_i$中任意两点的距离的最大值.于是,仿照一元Riemann积分的定义,我们可以做如下定义.
+\begin{definition}[1.1 定义:二重积分]
+    设$z=f(x,y)$在有界闭区域$D$上有定义.若对于$D$的任意分割$\{\li D,n\}$及任意选定的$(x_i,y_i)\in D_i(i=1,\cdots,n)$,当$\lambda\to0$时,和式
+    \[\sum_{i=1}^{n}f(x_i,y_i)\Delta\sigma_i\]
+    总有极限,则称该极限为$z=f(x,y)$在$D$上的\tbf{二重积分},记作
+    \[\iint_{D}f(x,y)\di\sigma\text{\ \ \ \ \ 或\ \ \ \ \ }\iint_Df(x,y)\di x\di y\]
+\end{definition}\noindent
+我们对二元函数是否可积不做详细讨论,只是指出:\tbf{一个在有界闭区域上连续的二元函数是可积的}.更一般地说,一个在有界闭区域上的分片连续有界函数是可积的.
+所谓分片连续有界函数,是指将原定义域分解成有限个小区域,在每个小区域上函数是有界连续的.\\
+类似一元积分,二重积分具有如下性质.
+\begin{formal}[1.2 二重积分的性质]
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 常数因子可分离.
+            \[\iint_Dkf(x,y)\dx\di y=k\iint_Df(x,y)\di x\di y\]
+        \item 对被积函数的可加性.
+            \[\iint_D\left[f(x,y)+g(x,y)\right]\di x\di y=\iint_Df(x,y)\di x\di y+\iint_Dg(x,y)\di x\di y\]
+        \item 对积分区域的可加性.\\若$D=D_1\cup D_2$且$D_1\cap D_2=\varnothing$,那么
+            \[\iint_{D}f(x,y)\dx\di y=\iint_{D_1}f(x,y)\di x\di y+\iint_{D_2}f(x,y)\di x\di y\]
+        \item 积分保持不等号.\\若对于任意$(x,y)\in D$,都有
+            \[f(x,y)\leqslant g(x,y)\]
+            那么
+            \[\iint_Df(x,y)\di x\di y\leqslant\iint_Dg(x,y)\di x\di y\]
+            特别地,由上式可以推出
+            \[\left|\iint_Df(x,y)\di x\di y\right|\leqslant\iint_D\left|f(x,y)\right|\di x\di y\]
+        \item 积分中值定理.\\
+            若$f(x,y)$在有界闭区域$D$上连续,那么存在$(x_0,y_0)\in D$使得
+            \[\iint_Df(x,y)\di x\di y=f(x_0,y_0)\iint_D\dx\di y=f(x_0,y_0)\cdot S\]
+            其中$S$即$D$的面积.
+    \end{enumerate}
+\end{formal}\noindent
+\tbf{2.二重积分的计算}\\
+我们有如下计算二重积分的定理.
+\begin{formal}[2.1 直角坐标系下二重积分的计算]
+    设$f(x,y)$在有界闭区域$D$上连续,且$D$是由两直线$x=a,x=b(a<b)$以及两连续曲线
+    $y=\phi_1(x),y=\phi_2(x)\left(\phi_1(x)<\phi_2(x),a\leqslant x\leqslant b\right)$围成,则有
+    \[\iint_Df(x,y)\dx\di y=\int_a^b\left[\int_{\phi_1(x)}^{\phi_2(x)}f(x,y)\di y\right]\dx\]
+    或写成
+    \[\iint_Df(x,y)\dx\di y=\int_a^b\dx\left[\int_{\phi_1(x)}^{\phi_2(x)}f(x,y)\di y\right]\]
+\end{formal}\noindent
+在这个定理中交换$x,y$也是成立的,有时积分区域更适合交换后的计算方法.\\
+对于某些时候,用极坐标代换来计算二重积分会更加方便.为了导出所要的公式,我们用极坐标系中的曲线族
+\[\{(r,\theta):r\text{是常数}\}\ \ \ \ \ \{(r,\theta):\theta\text{是常数}\}\]
+对被积区域做分割.假定$D$中的点转换为极坐标时,矢径$r$的最小值为$A$,最大值为$B$;
+极角$\theta$的最小值为$\alpha$,最大值为$\beta$,那么区域$D$就落在扇形域
+\[S=\left\{(r,\theta):r\in[A,B],\theta\in[\alpha,\beta]\right\}\]内.
+现在,对$[A,B]$和$[\alpha,\beta]$做分割
+\[A=r_0<r_1<\cdots<r_m=B\]
+\[\alpha=\theta_0<\theta_1<\cdots<\theta_n=\beta\]
+这样$D$就可以被分割为若干个小扇形域
+\[D_{i,j}=\left\{(r,\theta):r_j\leqslant r<r_{j+1},\theta_i\leqslant\theta<\theta_{i+1}\right\}\]
+严格来说,在$D$的边界上有时并不能分成这样的小扇形,但分割地充分精细时,这类误差的区域充分小,可以近似忽略.
+令$\lambda$为$D_{i,j}$中直径最大者,那么根据二重积分的定义可知
+\[\iint_Df(x,y)\dx\di y=\lim_{\lambda\to0}\sum_{i,j}f(P_{i,j})\Delta\sigma_{i,j}\]
+其中$P_{i,j}$表示$D_{i,j}$中的一点,$\Delta\sigma_{i,j}$表示$D_{i,j}$的面积.\\
+由于$P_{i,j}$的选取是任意的,故我们取$P_{i,j}=\left(r_j\cos\theta_i,r_j\sin\theta_i\right)$.\\
+现在计算$D_{i,j}$的面积.取$\Delta r_j=r_{j+1}-r_j,\Delta\theta_i=\theta_{i+1}-\theta_i$,则有
+\[\Delta_{i,j}=\dfrac12\Delta\theta_{i}\left(r_{i+1}^2-r_i^2\right)=r_j\Delta r_j\Delta\theta_i+\dfrac12\left(\Delta r_j\right)^2\Delta\theta_i\]
+当$\lambda\to0$时,后一项是比$\Delta r_j\Delta\theta_i$更高阶的无穷小量,在求极限时可以忽略.于是我们有
+\[\iint_Df(x,y)\dx\di y=\lim_{\lambda\to0}\sum_{i,j}f\left(r_j\cos\theta_i,r_j\sin\theta_i\right)r_j\Delta r_j\Delta\theta_j\]
+定义$F(r,\theta)=f(r\cos\theta,r\sin\theta)r$,则
+\[\iint_Dd(x,y)\dx\di y=\iint_{D'}F(r,\theta)\di r\di\theta\]
+其中$D'=\left\{(r,\theta):(r\cos\theta,r\sin\theta)\in D\right\}$.于是我们有
+\begin{formal}[2.2 极坐标系下二重积分的计算]
+    令$D'=\left\{(r,\theta):(r\cos\theta,r\sin\theta)\in D\right\}$,则有
+    \[\iint_Dd(x,y)\dx\di y=\iint_{D'}f(r\cos\theta,r\sin\theta)r\di r\di\theta\]    
+\end{formal}\noindent
+极坐标变换使我们思考,在更一般的双射的变换下如何计算重积分.
+事实上,有如下定理.
+\begin{formal}[2.3 二重积分的一般变量替换公式]
+    设有界闭区域$D,D'$间存在双射$D'\to D:(\xi,\eta)\mapsto(x,y)$,其中$x=\mbf{x}(\xi,\eta),y=\mbf{y}(\xi,\eta)$在$D'$内有连续偏导数,
+    且变换的Jacobi行列式处处不为$0$.设$z=f(x,y)$在$D$内连续,则有
+    \[\iint_Df(x,y)\dx\di y=\iint_{D'}f(\mbf{x}(\xi,\eta),\mbf{y}(\xi,\eta))\left|\dfrac{D(x,y)}{D(\xi,\eta)}\right|\di\xi\di\eta\]
+\end{formal}\noindent
+定理的证明方法从略,可以参考书上内容,主要是证明变换前后的面积元间的比例即为Jacob行列式.
 \end{document}
