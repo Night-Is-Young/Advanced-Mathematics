@@ -18,22 +18,61 @@
     求极限\[\lim_{(x,y)\to(0,0)}\left(x^2+y^2\right)^{x^2}\]
 \end{problem}
 \begin{solution}
-    置$x=r\sin\theta,y=r\cos\theta,u=r^2$,于是
-    \[\lim_{(x,y)\to(0,0)}\left(x^2+y^2\right)^{x^2}=\lim_{r\to0^+}\left(r^2\right)^{r^2\sin^2\theta}=\left(\lim_{u\to0+}u^u\right)^{\sin^2\theta}\]
-    而
-    \[\lim_{u\to0^+}u^u=\text{exp}\left(\lim_{u\to0^+}u\ln u\right)=\text{exp}\left(\lim_{u\to0^+}\dfrac{\ln u}{\frac{1}{u}}\right)=\text{exp}\left(\lim_{u\to0^+}\dfrac{\frac{1}{u}}{-\frac{1}{u^2}}\right)=\e^0=1\]
-    于是
-    \[\lim_{(x,y)\to(0,0)}\left(x^2+y^2\right)^{x^2}=0^{\sin^2\theta}=0\]
+    当$x^2+y^2<1$时,我们有
+    \[\left(x^2+y^2\right)^{x^2+y^2}\leqslant\left(x^2+y^2\right)^{x^2}\leqslant 1\]
+    令$u=x^2+y^2$,则有
+    \[\begin{aligned}
+        \lim_{(x,y)\to(0,0)}\left(x^2+y^2\right)^{x^2+y^2}
+        &= \lim_{u\to0^+}u^u = \text{exp}\left(\lim_{u\to0^+}u\ln u\right) \\
+        &= \text{exp}\left(\lim_{u\to0^+}\dfrac{\ln u}{\frac{1}{u}}\right)=\text{exp}\left(\lim_{u\to0^+}\dfrac{\frac{1}{u}}{-\frac{1}{u^2}}\right) \\
+        &= \e^0=1
+    \end{aligned}\]
+    根据夹逼准则可知
+    \[\lim_{(x,y)\to(0,0)}\left(x^2+y^2\right)^{x^2}=0\]
 \end{solution}
 \begin{problem}[2.(11\songti{分})]
     求极限\[\lim_{x\to+\infty}\left(\dfrac{\pi}{2}-\arctan x\right)^{\frac{1}{\ln x}}\]
 \end{problem}
+\begin{solution}
+    令$f(x)=\left(\dfrac\pi2-\arctan x\right)^{\frac{1}{\ln x}}$,则$\ln f(x)=\dfrac{\ln\left(\dfrac{\pi}{2}-\arctan x\right)}{\ln x}$.我们有
+    \[\lim_{x\to+\infty}\dfrac{\ln\left(\dfrac{\pi}{2}-\arctan x\right)}{\ln x}
+        =\lim_{x\to+\infty}\dfrac{-\dfrac{x}{1+x^2}}{\left(\dfrac{\pi}{2}-\arctan x\right)}
+        =\lim_{x\to+\infty}\dfrac{\dfrac{\left(1+x^2\right)-2x^2}{\left(1+x^2\right)^2}}{\dfrac{1}{1+x^2}}
+        =\lim_{x\to+\infty}\dfrac{1-x^2}{1+x^2}
+        =-1
+    \]于是
+    \[\lim_{x\to+\infty}\left(\dfrac{\pi}{2}-\arctan x\right)^{\frac{1}{\ln x}}=\e^{-1}=\dfrac{1}{\e}\]
+\end{solution}
 \begin{problem}[3.(11\songti{分})]
     求函数\[f(x)=\cos(2x)\cdot\ln(1+x)\]在$x=0$处的四阶泰勒多项式.
 \end{problem}
+\begin{solution}
+    我们有
+    \[\cos(2x)=1-\dfrac{(2x)^2}{2}+\dfrac{(2x)^4}{4!}+o(x^4)\]
+    \[\ln(1+x)=x-\dfrac12x^2+\dfrac13x^3-\dfrac14x^4+o(x^4)\]
+    于是
+    \[\begin{aligned}
+        f(x)
+        &= \cos(2x)\cdot\ln(1+x) \\
+        &= \left(1-\dfrac{(2x)^2}{2}+\dfrac{(2x)^4}{4!}+o(x^4)\right)\left(x-\dfrac12x^2+\dfrac13x^3-\dfrac14x^4+o(x^4)\right) \\
+        &= \left(1-2x^2+\dfrac23x^4+o(x^4)\right)\left(x-\dfrac12x^2+\dfrac13x^3-\dfrac14x^4+o(x^4)\right) \\
+        &= x-\dfrac12x^2+\dfrac13x^3-\dfrac14x^4-2x^3+x^4+o(x^4) \\
+        &= x-\dfrac12x^2-\dfrac53x^3+\dfrac34x^4+o(x^4)
+    \end{aligned}\]
+\end{solution}
 \begin{problem}[4.(12\songti{分})]
     设$f(x)$在$[a,b]$二阶可导,满足$f(a)=f(b)=0$且存在$c\in(a,b)$使得$f(c)>0$.试证明:存在$\xi\in(a,b)$使得$f''(\xi)<0$.
 \end{problem}
+\begin{proof}
+    考虑$f(x)$在$x=x_0$处取到极大值,则$f(x_0)\geqslant f(c)>0$且$f'(x_0)=0$.将$f(x)$在$x=x_0$处做泰勒展开.
+    \[f(x)=f(x_0)+(x-x_0)f'(x_0)+\dfrac{(x-x_0)^2f''(\xi)}{2}\]
+    将$f'(x_0)=0,f(a)=f(b)=0$代入有
+    \[\left\{\begin{array}{l}
+        0=f(x_0)+\dfrac{(x_0-a)^2f''(\xi_1)}{2},a<\xi_1<x_0 \\
+        0=f(x_0)+\dfrac{(x_0-b)^2f''(\xi_2)}{2},x_0<\xi_2<b
+    \end{array}\right.\]
+    因为$f(x_0)>0,(x_0-a)^2>0,(x_0-b)^2>0$,于是$f''(\xi_1)<0,f''(\xi_2)<0$,命题得证.
+\end{proof}
 \begin{problem}[5.(10\songti{分})]
     回答下列问题.本题只需给出结果,无需证明.
     \begin{enumerate}[label=\tbf{(\arabic*)}]
@@ -42,6 +81,9 @@
         \item \textbf{(2\songti{分})}\ 设异面直线$L_1,L_2$的方向向量分别为$\vec{\tau_1},\vec{\tau_2}$.点$P_1,P_2$分别是$L_1,L_2$上的点.试用$\overrightarrow{P_1P_2}$和$\vec{\tau_1},\vec{\tau_2}$表示$L_1$\\和$L_2$间的距离.
     \end{enumerate}
 \end{problem}
+\begin{solution}
+    
+\end{solution}
 \begin{problem}[6.(10\songti{分})]
     设二元函数\[f(x,y)=\left\{\begin{array}{l}
         y\arctan\dfrac{1}{\sqrt{x^2+y^2}},(x,y)\neq(0,0)\\
