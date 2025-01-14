@@ -1,0 +1,58 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 二重积分练习\end{center}
+\begin{problem}[1.]
+    求积分$\displaystyle I=\iint_D\left(x^2+2y\right)\di x\di y$,其中$D$为曲线$y=x^2,y=\sqrt{x}$围成的区域.
+\end{problem}
+\begin{solution}
+    我们有
+    \[\begin{aligned}
+        \iint_D\left(x^2+2y\right)\di x\di y
+        &= \int_0^1\left[\int_{x^2}^{\sqrt{x}}\left(x^2+2y\right)\di y\right]\dx \\
+        &= \int_0^1\left(x^2\left(\sqrt{x}-x^2\right)+x-x^4\right)\di x \\
+        &= \int_0^1\left(x+x^{\frac52}-2x^4\right) \\
+        &= \left.\left(\dfrac12x^2+\dfrac27x^{\frac72}-\dfrac25x^5\right)\right|_0^1 \\
+        &= \dfrac{27}{70}
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[2.]
+    求积分$\displaystyle I=\iint_D\sin y^3\di x\di y$,其中$D$是曲线$y=\sqrt x$,直线$y=2$和$x=0$围成的区域.
+\end{problem}
+\begin{solution}
+    我们有
+    \[\begin{aligned}
+        \iint_D\sin y^3\di x\di y
+        &= \int_0^2\left[\int_0^{y^2}\sin y^3\di x\right]\di y \\
+        &= \int_0^2y^2\sin y^3\di y \\
+        &= \dfrac13\int_0^8 \sin y^3\di y^3 \\
+        &= \dfrac{1-\cos 8}{3}
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[3.]
+    求积分$\displaystyle I=\iint_D\left(4-x^2-y^2\right)^{-\frac12}\dx\di y$,其中$D$是单位圆$x^2+y^2\leqslant1$在第一象限的部分.
+\end{problem}
+\begin{solution}
+    做代换$x=r\cos\theta,y=r\sin\theta$,于是$D'=\left\{(r,\theta):0\leqslant r\leqslant 1,0\leqslant\theta\leqslant\dfrac\pi2\right\}$.于是
+    \[\begin{aligned}
+        \iint_D\left(4-x^2-y^2\right)^{-\frac{1}{2}}
+        &= \iint_D'\left(4-r^2\right)^{-\frac12}r\di r\di\theta \\
+        &= \int_0^1\left[\int_0^{\frac\pi2}\left(4-r^2\right)^{-\frac12}r\di\theta\right]\di r \\
+        &= \dfrac\pi2\int_0^1\dfrac{r\di r}{\sqrt{4-r^2}} \\
+        &= \dfrac\pi4\int_0^1\dfrac{\di r^2}{\sqrt{4-r^2}} \\
+        &= \dfrac\pi4\left.\left(-2\sqrt{4-r^2}\right)\right|_0^1 \\
+        &= \dfrac{2-\sqrt3}{2}\pi
+    \end{aligned}\]
+\end{solution}
+\end{document}

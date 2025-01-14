@@ -1,0 +1,55 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 三重积分引论\end{center}
+\tbf{1.三重积分的定义}\\
+仿照二重积分的定义,我们定义三重积分如下.
+\begin{definition}[1.1 定义:三重积分]
+    设三元函数$f(x,y,z)$在有界闭空间$\Omega$上有定义.对于$\Omega$的任意分割$\{\li \Omega,n\}$及任意选定的$(x_i,y_i,z_i)\in \Omega_i(i=1,\cdots,n)$,
+    令$\lambda$为$\Omega_i$的直径的最大值,$\Delta V_i$为$\Omega_i$的体积.当$\lambda\to0$时,若和式
+    \[\sum_{i=1}^{n}f(x_i,y_i,z_i)\Delta V_i\]
+    总有极限,则称该极限为$f(x,y,z)$在$\Omega$上的\tbf{三重积分},记作
+    \[\iiint_{\Omega}f(x,y,z)\di V\text{\ \ \ \ \ 或\ \ \ \ \ }\iiint_\Omega f(x,y,z)\di x\di y\di z\]
+\end{definition}\noindent 
+三重积分的基本性质是和二重积分很相似的,在此就不再赘述.我们主要关注三重积分的计算.\\
+\tbf{2.三重积分的计算}\\
+三重积分和二重积分一样,可以通过累次积分的方式求得.然而,根据划分方式的不同,可能导致外层积分为二重积分,内层积分为一元函数的定积分,或正好相反.我们分别介绍这两种情况对$D$的要求和计算方法.
+\begin{formal}[2.1 直角坐标系下三重积分的计算I]
+    设$f(x,y,z)$在有界闭区域$\Omega$上连续,且存在有界闭区域$D$使得$\Omega$满足如下形式
+    \[\Omega=\left\{(x,y,z):(x,y)\in D,\mbf{z}_1(x,y)\leqslant z\leqslant\mbf{z}_2(x,y)\right\}\]
+    即$\Omega$是以$\mbf{z}_1(x,y)$为底,以$\mbf{z}_2$为顶的柱面,其在$(x,y)$上的投影即为$D$.\\
+    若$\mbf{z}_1(x,y),\mbf{z}_2(x,y)$都是$\R^2$上的连续函数,那么
+    \[\iiint_\Omega f(x,y,z)\di x\di y\di z=\iint_D\left[\int_{\mbf{z}_1(x,y)}^{\mbf{z}_2(x,y)}f(x,y,z)\di z\right]\di x\di y\]
+\end{formal}\noindent
+上面的情况即外层积分是二重积分的情况.而当外层积分是一元函数的定积分时,就对应如下计算方法.
+\begin{formal}[2.2 直角坐标系下三重积分的计算I]
+    设$f(x,y,z)$在有界闭区域$\Omega$上连续,且$\Omega$介于平面$z=a$与$z=b$之间.对于任意$z_0\in[a,b]$,
+    $\Omega$与平面$z=z_0$所交的区域$D_{z_0}$都是有界闭区域,那么
+    \[\iiint_\Omega f(x,y,z)\di x\di y\di z=\int_a^b\left[\iint_{D_z}f(x,y,z)\di x\di y\right]\di z\]
+\end{formal}\noindent
+与二重积分类似,三重积分也可以通过坐标变换的方式进行简化计算.常用的有柱坐标变换和球坐标变换.
+\begin{formal}[2.3 柱坐标系下三重积分的计算]
+    设三元函数$f(x,y,z)$在有界闭区域$\Omega$上连续,那么
+    \[\iiint_\Omega f(x,y,z)\di x\di y\di z=\iiint_{\Omega'}f(r\cos\theta,r\sin\theta,z)r\di r\di \theta\di z\]
+    其中$\Omega'=\left\{(r,\theta,z):(r\cos\theta,r\sin\theta,z)\in\Omega\right\}$.
+\end{formal}\noindent
+柱坐标变换适合以下两种类型的区域.
+\begin{enumerate}[label=\tbf{(\arabic*)}]
+    \item $\Omega$是一个正的柱体,在$Oxy$平面上的投影的极坐标区域为$D$,其底曲面和顶曲面用柱坐标表述为$z=\phi(r,\theta)$和$z=\psi(r,\theta)$.这时我们有
+        \[\iiint_\Omega f(x,y,z)\di x\di y\di z=\iint_D\left[\int_{\phi(r,\theta)}^{\psi(r,\theta)}f(r\cos\theta,r\sin\theta,z)\di z\right]r\di r\di\theta\]
+    \item $\Omega$介于半平面$\theta=\alpha$和$\theta\beta$之间(其中$0\leqslant\alpha<\beta\leqslant2\pi$),且极角为$\theta\in[\alpha,\beta]$的任意半平面与$\Omega$交于平面闭区域$D(\theta)$.\\
+        这时我们有
+        \[\iiint_\Omega f(x,y,z)\di x\di y\di z=\int_\alpha^\beta\left[\iint_Df(r\cos\theta,r\sin\theta,z)r\di r\di z\right]\di\theta\]
+\end{enumerate}
+\end{document}
