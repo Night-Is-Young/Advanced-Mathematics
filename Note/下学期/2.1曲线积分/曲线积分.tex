@@ -1,0 +1,121 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{yhmath}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 曲线积分\end{center}
+\tbf{1.第一型曲线积分}\\
+在考虑曲线的质量,质心,转动惯量等问题时,都要用到第一型曲线积分.
+\begin{problem}[1.1 物质曲线的质量]
+    \\设有一不均匀的物质曲线$L$,设$L$上一点$M(x,y,z)$的密度为$\rho(x,y,z)$,求$L$的质量$m$.
+\end{problem}
+\begin{solution}
+    我们仍然用分割,近似代替,求和,取极限的方法求$m$的值.\\
+    将曲线$L$分成$n$段,第$i$段的弧长为$\Delta s_i$.任取第$i$段上的一点$M_i(x_i,y_i,z_i)$.\\
+    当分割的足够精细时,可以用$M_i$处的密度近似代替第$i$段的密度.于是第$i$段的质量为
+    \[\Delta m_i\approx \rho(x_i,y_i,z_i)\Delta s_i\]
+    对$\Delta m_i$求和,即可得到曲线质量$m$的近似值
+    \[m=\sum_{i=1}^{n}\Delta m_i\approx\sum_{i=1}^{n}\rho(x_i,y_i,z_i)\Delta s_i\]
+    令$\displaystyle\lambda=\max_{1\leqslant i\leqslant n}\left\{\Delta s_i\right\}$.类比定积分的定义,若极限
+    \[\lim_{\lambda\to0}\sum_{i=1}^{n}\rho(x_i,y_i,z_i)\Delta s_i\]
+    存在,我们就认为这极限值是$L$的质量$m$,即
+    \[m=\lim_{\lambda\to0}\sum_{i=1}^{n}\rho(x_i,y_i,z_i)\Delta s_i\]
+\end{solution}\noindent
+实际问题中不只是物质曲线的质量需要计算上面形式的极限,还有很多问题也是类似的.\\
+于是,我们着手定义第一型曲线积分.
+\begin{definition}[1.2 定义:第一型曲线积分]
+    设函数$f(x,y,z)$在分段光滑的曲线段$L$上有定义.将曲线$L$任意分成$n$段,第$i$段的弧长为$\Delta s_i$,在其上任取一点$M_i(x_i,y_i,z_i)$.%
+    令$\displaystyle\lambda=\max_{1\leqslant i\leqslant n}\{\Delta s_i\}$.若极限
+    \[\lim_{\lambda\to0}\sum_{i=1}^{n}f(x_i,y_i,z_i)\Delta s_i\]
+    对于曲线$L$的任意分割方法和各中间点$M_i$的任意取法都存在,则称此极限为$f(x,y,z)$沿曲线$L$的\tbf{第一型曲线积分},%
+    也称为对\tbf{弧长的曲线积分},记作
+    \[\int_{L}f(x,y,z)\di s\]
+\end{definition}\noindent
+如果上述极限存在,我们就称函数$f(x,y,z)$在$L$上可积.\\
+第一型曲线积分不依赖曲线的走向.例如,对于曲线$L$和它的端点$A,B$,积分路径从$A$到$B$和从$B$到$A$不改变结果,即
+\[\int_{\wideparen{AB}}f(x,y,z)\di s=\int_{\wideparen{BA}}f(x,y,z)\di s\]
+其余的性质,例如可加性等,在此略去.\\
+我们现在来讨论第一型曲线积分的计算.为了简单起见,我们先讨论平面第一型曲线积分的计算.
+\begin{problem}[1.3 平面第一型曲线积分的计算I]
+    \\设$L$是$Oxy$平面上的一条曲线,其方程由函数$y=\mbf y(x),a\leqslant x\leqslant b$给出,并假定$y=\mbf{y}(x)$在$[a,b]$上有连续的导数.%
+    设$f(x,y)$是在$L$上定义的连续函数,试计算积分$\displaystyle\int_{L}f(x,y)\di s$.
+\end{problem}
+\begin{solution}
+    根据第一型曲线积分的定义有
+    \[\int_{L}f(x,y)\di s=\lim_{\lambda\to0}\sum_{i=1}^{n}f(x_i,y_i)\Delta s_i\]
+    在这种情况下,对$L$的任意分割都相当于对区间$[a,b]$的分割.于是上述和式可以改写为
+    \[\sum_{i=1}^{n}f(x_i,y_i)\Delta s_i=\sum_{i=1}^{n}f(x_i,\mbf{y}(x_i))\Delta s_i\]
+    另一方面,在分割地足够精细的情形下,又有
+    \[\Delta s_i\approx\sqrt{\left(\Delta x_i\right)^2+\left[\mbf{y}'(x_i)\Delta x_i\right]^2}=\sqrt{1+\left[\mbf{y}'(x_i)\right]^2}\Delta x_i\]
+    其中$\Delta x_i=x_i-x_{i-1}$.又因为$\displaystyle\lambda=\max_{1\leqslant i\leqslant n}\{\Delta s_i\}\to0$时,$\displaystyle\lambda'=\max_{1\leqslant i\leqslant n}\{\Delta x_i\}\to0$,于是根据Riemann积分的定义有
+    \[\begin{aligned}
+        \int_{L}f(x,y)\di s
+        &= \lim_{\lambda\to0}\sum_{i=1}^{n}f(x_i,y_i)\Delta s_i \\
+        &= \lim_{\lambda'\to0}\sum_{i=1}^{n}f(x_i,\mbf{y}(x_i))\sqrt{1+\left[\mbf{y}'(x_i)\right]^2}\Delta x_i \\
+        &= \int_a^bf(x,\mbf{y}(x))\sqrt{1+\left[\mbf{y}'(x)\right]^2}\di x
+    \end{aligned}\]
+    于是我们有
+    \[\int_{L}f(x,y)\di s=\int_a^bf(x,\mbf{y}(x))\sqrt{1+\left[\mbf{y}'(x)\right]^2}\di x\]
+\end{solution}\noindent
+上述结果的得出是十分符合直觉的,因为$L$由$y=\mbf y(x)$确定,自然可以将$f(x,y)$写成$f(x,\mbf{y}(x))$.\\
+我们已经知道,弧微分$\di s=\sqrt{1+[\mbf y'(x)]^2}\di x$,两者结合自然可以得到上面的公式.
+\begin{problem}[1.4 平面第一型曲线积分的计算II]
+    \\设$L$是$Oxy$平面上的一条曲线,由参数方程
+    \[\left\{\begin{array}{l}
+        x=\varphi(t)\\y=\psi(t)
+    \end{array}\right.\ \ \ \ \ (\alpha\leqslant t\leqslant\beta)\]
+    确定,其中$\varphi(t)$和$\psi(t)$在$[\alpha,\beta]$上有连续的一阶导数.%
+    设$f(x,y)$是在$L$上定义的连续函数,试计算积分$\displaystyle\int_{L}f(x,y)\di s$.
+\end{problem}
+\begin{solution}
+    我们采取相似的方法计算之.对曲线$L$的任意分割都相当于对区间$[\alpha,\beta]$的分割
+    \[\alpha=t_0<t_1<\cdots<t_{n-1}<t_n=\beta\]
+    点$M_n(\varphi(t_i),\psi(t_i))(0\leqslant i\leqslant n)$构成了$L$的分割点.可以证明,第$i$段的弧长$\Delta s_i$有如下近似
+    \[\Delta s_i\approx\sqrt{\left[\varphi'(t_i)\right]^2+\left[\psi'(t_i)\right]^2}\Delta t_i\]
+    其中$\Delta t_i=t_i-t_{i-1}$.令$\displaystyle\lambda'=\max_{1\leqslant i\leqslant n}\{\Delta t_i\}$,于是$\lambda'\to0$时上述近似的误差是高阶无穷小量.因此
+    \[\begin{aligned}
+        \int_{L}f(x,y)\di s
+        &= \lim_{\lambda\to0}\sum_{i=1}^{n}f(x_i,y_i)\Delta s_i \\
+        &= \lim_{\lambda'\to0}\sum_{i=1}^{n}f(\varphi(t_i),\psi(t_i))\sqrt{\left[\varphi'(t_i)\right]^2+\left[\psi'(t_i)\right]^2}\Delta t_i \\
+        &= \int_\alpha^\beta f(\varphi(t),\psi(t))\sqrt{\left[\varphi'(t)\right]^2+\left[\psi'(t)\right]^2}\di t
+    \end{aligned}\]
+\end{solution}\noindent
+观察上述式子,也可以与参数方程的弧微分对应.总结来说,我们有如下定理.
+\begin{formal}[1.5 平面第一型曲线积分的计算]
+    我们按曲线的解析式分为如下两类.
+    \begin{enumerate}[label=\tbf{\alph*.}]
+        \item 设$L$是$Oxy$平面上的一条曲线,其方程由函数$y=\mbf y(x),a\leqslant x\leqslant b$给出,并假定$y=\mbf{y}(x)$在$[a,b]$上有连续的导数.%
+            设$f(x,y)$是在$L$上定义的连续函数,则有
+            \[\int_{L}f(x,y)\di s=\int_a^bf(x,\mbf{y}(x))\sqrt{1+\left[\mbf{y}'(x)\right]^2}\di x\]
+        \item 设$L$是$Oxy$平面上的一条曲线,由参数方程
+            \[\left\{\begin{array}{l}
+                x=\varphi(t)\\y=\psi(t)
+            \end{array}\right.\ \ \ \ \ (\alpha\leqslant t\leqslant\beta)\]
+            确定,其中$\varphi(t)$和$\psi(t)$在$[\alpha,\beta]$上有连续的一阶导数.%
+            设$f(x,y)$是在$L$上定义的连续函数,则有
+            \[\int_{L}f(x,y)\di s=\int_\alpha^\beta f(\varphi(t),\psi(t))\sqrt{\left[\varphi'(t)\right]^2+\left[\psi'(t)\right]^2}\di t\]
+    \end{enumerate}
+\end{formal}\noindent
+总的来说,考虑对应情形下的弧微分即可得到相应的计算公式.\\
+类似地,我们也可以给出三维空间中的第一型曲线积分的计算公式.
+\begin{formal}[1.6 空间第一型曲线积分的计算]
+    设$L$是$\R^3$空间中的一条曲线,由参数方程
+    \[\left\{\begin{array}{l}
+        x=\mbf{x}(t)\\y=\mbf{y}(t)\\z=\mbf{z}(t)
+    \end{array}\right.\ \ \ \ \ (\alpha\leqslant t\leqslant\beta)\]
+    确定,其中$\mbf x(t),\mbf y(t)$和$\mbf z(t)$在$[\alpha,\beta]$上有连续的一阶导数.%
+    设$f(x,y,z)$是在$L$上定义的连续函数,则有
+    \[\int_{L}f(x,y,z)\di s=\int_{\alpha}^{\beta}f\left(\mbf x(t),\mbf y(t),\mbf z(t)\right)\sqrt{\left[\mbf x'(t)\right]^2+\left[\mbf y'(t)\right]^2+\left[\mbf z'(t)\right]^2}\di t\]
+\end{formal}\noindent
+定理的证明与在平面中是完全相似的,在此就不再赘述.
+\end{document}
