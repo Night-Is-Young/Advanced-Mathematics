@@ -32,7 +32,8 @@
     若$\mbf{z}_1(x,y),\mbf{z}_2(x,y)$都是$\R^2$上的连续函数,那么
     \[\iiint_\Omega f(x,y,z)\di x\di y\di z=\iint_D\left[\int_{\mbf{z}_1(x,y)}^{\mbf{z}_2(x,y)}f(x,y,z)\di z\right]\di x\di y\]
 \end{formal}\noindent
-上面的情况即外层积分是二重积分的情况.而当外层积分是一元函数的定积分时,就对应如下计算方法.
+上面的情况即外层积分是二重积分的情况.\\
+当外层积分是一元函数的定积分时,就对应如下计算方法.
 \begin{formal}[2.2 直角坐标系下三重积分的计算I]
     设$f(x,y,z)$在有界闭区域$\Omega$上连续,且$\Omega$介于平面$z=a$与$z=b$之间.对于任意$z_0\in[a,b]$,
     $\Omega$与平面$z=z_0$所交的区域$D_{z_0}$都是有界闭区域,那么
@@ -46,10 +47,63 @@
 \end{formal}\noindent
 柱坐标变换适合以下两种类型的区域.
 \begin{enumerate}[label=\tbf{(\arabic*)}]
-    \item $\Omega$是一个正的柱体,在$Oxy$平面上的投影的极坐标区域为$D$,其底曲面和顶曲面用柱坐标表述为$z=\phi(r,\theta)$和$z=\psi(r,\theta)$.这时我们有
+    \item $\Omega$是一个正的柱体,在$Oxy$平面上投影的极坐标区域为$D$,其底面和顶面用柱坐标表述为$z=\phi(r,\theta)$和$z=\psi(r,\theta)$.这时我们有
         \[\iiint_\Omega f(x,y,z)\di x\di y\di z=\iint_D\left[\int_{\phi(r,\theta)}^{\psi(r,\theta)}f(r\cos\theta,r\sin\theta,z)\di z\right]r\di r\di\theta\]
-    \item $\Omega$介于半平面$\theta=\alpha$和$\theta\beta$之间(其中$0\leqslant\alpha<\beta\leqslant2\pi$),且极角为$\theta\in[\alpha,\beta]$的任意半平面与$\Omega$交于平面闭区域$D(\theta)$.\\
-        这时我们有
+    \item $\Omega$介于半平面$\theta=\alpha$和$\theta=\beta$之间(其中$0\leqslant\alpha<\beta\leqslant2\pi$),且极角为$\theta\in[\alpha,\beta]$的任意半平面与$\Omega$交于平面闭区域$D(\theta)$.这时我们有
         \[\iiint_\Omega f(x,y,z)\di x\di y\di z=\int_\alpha^\beta\left[\iint_Df(r\cos\theta,r\sin\theta,z)r\di r\di z\right]\di\theta\]
 \end{enumerate}
+类似的,还有球坐标系下的计算.
+\begin{formal}[2.4 球坐标系下三重积分的计算]
+    设三元函数$f(x,y,z)$在有界闭区域$\Omega$上连续,那么
+    \[\iiint_{D}f(x,y,z)\dx\di y\di z=\iiint_{\Omega'}f(\rho\sin\varphi\cos\theta,\rho\sin\varphi\sin\theta,\rho\cos\varphi)\rho^2\sin\varphi\di\rho\di\varphi\di\theta\]
+    其中$\Omega'$为球坐标变换后的区域,即$\Omega'=\left\{(\rho,\theta,\varphi):(\rho\sin\varphi\cos\theta,\rho\sin\varphi\sin\theta,\rho\cos\varphi)\in\Omega\right\}$.
+\end{formal}\noindent
+与二重积分类似,三重积分的一般变量替换如下.
+\begin{formal}[2.5 一般变量替换下的三重积分的计算]
+    设函数$f(x,y,z)$在有界闭区域$\Omega$上连续,又设变换
+    \[\left\{\begin{array}{l}
+        x=\mbf{x}(u,v,w)\\
+        y=\mbf{y}(u,v,w)\\
+        z=\mbf{z}(u,v,w)
+    \end{array}\right.\ \ \ \ \ (u,v,w)\in\Omega'\]
+    在$\Omega'$上连续,有连续的一阶偏导数,且是$\Omega$和$\Omega'$之间的一一对应,且变换的Jacobi行列式处处不为$0$,则有
+    \[\iiint_{\Omega}f(x,y,z)\di V=\iiint_{\Omega'}f\left(\mbf{x}(u,v,w),\mbf{y}(u,v,w),\mbf{z}(u,v,w)\right)|J|\di u\di v\di w\]
+    其中$J$指变换的Jacobi行列式,即
+    \[J=\dfrac{D(x,y,z)}{D(u,v,w)}=\begin{vmatrix}
+        \frac{\p x}{\p u} & \frac{\p x}{\p v} & \frac{\p x}{\p w} \\
+        \frac{\p y}{\p u} & \frac{\p y}{\p v} & \frac{\p y}{\p w} \\
+        \frac{\p z}{\p u} & \frac{\p z}{\p v} & \frac{\p z}{\p w}
+    \end{vmatrix}\]
+\end{formal}\noindent
+容易验证球坐标变换
+\[\left\{\begin{array}{l}
+    x=\rho\sin\varphi\cos\theta\\
+    y=\rho\sin\varphi\sin\theta\\
+    z=\rho\cos\varphi
+\end{array}\right.\]的Jacobi行列式为
+\[\begin{aligned}
+    J
+    &= \dfrac{D(x,y,z)}{D(\rho,\varphi,\theta)}
+    = \begin{vmatrix}
+        \sin\varphi\cos\theta & \rho\cos\varphi\cos\theta & -\rho\sin\varphi\sin\theta \\
+        \sin\varphi\sin\theta & \rho\cos\varphi\sin\theta & \rho\sin\varphi\cos\theta \\
+        \cos\varphi & -\rho\sin\varphi & 0
+    \end{vmatrix} \\
+    &= \sin\varphi\cos\theta\cdot\rho^2\sin^2\varphi\cos\theta + \rho\cos\varphi\cos\theta\cdot\rho\sin\varphi\cos\varphi\cos\theta + \rho\sin\varphi\sin\theta\cdot\rho\sin\theta \\
+    &= \rho^2\sin\varphi
+\end{aligned}\]
+同理,不难验证柱坐标变换
+\[\left\{\begin{array}{l}
+    x=r\cos\theta\\
+    y=r\sin\theta\\
+    z=z
+\end{array}\right.\]
+的Jacobi行列式为
+\[J=\dfrac{D(x,y,z)}{D(r,\theta,z)}=
+\begin{vmatrix}
+    \cos\theta & -r\sin\theta & 0 \\
+    \sin\theta & r\cos\theta & 0 \\
+    0 & 0 & 1
+\end{vmatrix}=r\]
+于是不难发现柱坐标变换和球坐标变换的计算公式都是\tbf{2.5}的特例.
 \end{document}
