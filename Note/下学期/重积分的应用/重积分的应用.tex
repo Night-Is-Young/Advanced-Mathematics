@@ -1,0 +1,59 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 重积分的应用\end{center}
+\tbf{1.由一般式求曲面面积}\\
+设空间曲面$S$的方程为\[z=f(x,y),(x,y)\in D\]
+$S$在$Oxy$平面上的投影为闭区域$D$,又设$f(x,y)$在$D$上有连续的一阶偏导数.\\
+考虑曲面上任意一点$P(x,y,z)$和增量$\Delta x>0,\Delta y>0$.记$\Delta\sigma=\Delta x\Delta y$,%
+并记$\Delta S$为对应这两个增量的曲面$S$上的微元的面积.\\
+过$P$作$S$的切平面,切平面上对应于微元$\Delta\sigma$的面积记为$\Delta S^*$,那么我们有
+\[\Delta\sigma=|\cos\gamma|\Delta S^*\]
+其中$\gamma$为曲面$S$在$P$点的法向量$\mbf n$与$z$轴的夹角.由前面的讨论可知$S$在$P$点的法向量可以表示为
+\[\mbf{n}=\left(f_x(x,y),f_y(x,y),-1\right)\]
+于是\[|\cos\gamma|=\dfrac{1}{\sqrt{1+f_x^2(x,y)+f_y^2(x,y)}}\]
+于是
+\[\Delta S^*=\sqrt{1+f_x^2(x,y)+f_y^2(x,y)}\Delta\sigma\]
+另一方面,当$\Delta x^2+\Delta y^2\to0$时,$\Delta S$和$\Delta S^*$仅相差一个高阶无穷小量,于是
+\[\di S=\sqrt{1+f_x^2(x,y)+f_y^2(x,y)}\di\sigma\]
+因此曲面$S$的面积为
+\[S=\iint_{D}\sqrt{1+f_x^2(x,y)+f_y^2(x,y)}\di\sigma\]
+\tbf{2.由参数方程求曲面面积}\\
+设空间曲面$S$由参数方程
+\[\left\{\begin{array}{l}
+    x=\mbf{x}(u,v)\\y=\mbf{y}(u,v)\\z=\mbf{z}(u,v)
+\end{array}\right.\ \ \ \ \ (u,v)\in D'\]
+给出.由前面的讨论可知$S$在$P(x,y,z)$处的法向量
+\[\mbf{n}=\begin{vmatrix}
+    \mbf i & \mbf j & \mbf k \\
+    x_u & y_u & z_u \\
+    x_v & y_v & z_v
+\end{vmatrix}=A\mbf i+B\mbf j+C\mbf k\]
+其中
+\[A=\dfrac{D(y,z)}{D(u,v)}\ \ \ \ \ B=\dfrac{D(x,z)}{D(u,v)}\ \ \ \ \ C=\dfrac{D(x,y)}{D(u,v)}\]
+于是
+\[\di S=\dfrac{\di\sigma}{|\cos\gamma|}=\dfrac{\di\sigma}{\dfrac{|\mbf n\cdot\mbf k|}{|\mbf n||\mbf k|}}=\dfrac{\sqrt{A^2+B^2+C^2}}{|C|}\di\sigma\]
+又因为
+\[\di\sigma=|J|\di u\di v=\left|\dfrac{D(x,y)}{D(u,v)}\right|\di u\di v=|C|\di u\di v\]
+于是
+\[\di S=\sqrt{A^2+B^2+C^2}\di u\di v\]
+为了便于计算,我们再做如下变形.令
+\[\left\{\begin{array}{l}
+    E=x_u^2+y_u^2+z_u^2\\
+    F=x_ux_v+y_uy_v+z_uz_v\\
+    G=x_v^2+y_v^2+z_v^2
+\end{array}\right.\]
+于是$A^2+B^2+C^2=EG-F^2$.因此曲面$S$的面积为
+\[S=\iint_{D'}\sqrt{EG-F^2}\di u\di v\]
+\end{document}
