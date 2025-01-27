@@ -117,5 +117,57 @@
     设$f(x,y,z)$是在$L$上定义的连续函数,则有
     \[\int_{L}f(x,y,z)\di s=\int_{\alpha}^{\beta}f\left(\mbf x(t),\mbf y(t),\mbf z(t)\right)\sqrt{\left[\mbf x'(t)\right]^2+\left[\mbf y'(t)\right]^2+\left[\mbf z'(t)\right]^2}\di t\]
 \end{formal}\noindent
-定理的证明与在平面中是完全相似的,在此就不再赘述.
+定理的证明与在平面中是完全相似的,在此就不再赘述.\\
+\tbf{2.第二型曲线积分}\\
+计算一个受力的质点沿曲线运动的功需要用到第二型曲线积分.
+\begin{problem}[2.1 质点沿曲线运动所做的功]
+    \\设平面上有一光滑的曲线$L$和$L$的一个走向,其起点为$A$,终点为$B$.设想一质点沿$L$运动,它在点$(x,y)\in L$受到的力为
+    \[\mbf F(x,y)=\left(P(x,y),Q(x,y)\right)\]
+    试计算该质点从$A$运动到$B$时外力$\mbf F$所做的功$W$.
+\end{problem}
+\begin{solution}
+    我们将$\wideparen{AB}$以分点$A=M_0.M_1.\cdots,M_{n-1},M_n=B$分成$n$段弧$\wideparen{M_{i-1}M_{i}}(i=1,\cdots,n)$.\\
+    设第$i$段弧$\wideparen{M_{i-1}M_{i}}$的弧长为$\Delta s_i$.\\
+    当分割的足够精细时,外力$\mbf F$在$\wideparen{M_{i-1}M_{i}}$上变化不大,可以近似看作常力$\F(x_i,y_i)$,其中$(x_i,y_i)$为这弧上任意取定的一点.%
+    同理,质点的运动路径也可以近似看作从$M_{i-1}$到$M_i$的线段,于是$\mbf F$在这弧上做的功$\Delta W_i$近似为
+    \[\Delta W_i\approx \mbf F(x_i,y_i)\cdot\overrightarrow{M_{i-1}M_i}\]
+    对$\mbf F$做正交分解,有$\mbf F(x,y)=P(x,y)\mbf i+Q(x,y)\mbf j$.对有向线段$\overrightarrow{M_{i-1}M_{i}}$做正交分解,有$\overrightarrow{M_{i-1}M_i}=\Delta x_i\mbf i+\Delta y_i\mbf j$.%
+    其中$\Delta x_i,\Delta y_i$为这有向线段在$x,y$方向上对应的的位移.于是我们有
+    \[\Delta W_i\approx \mbf F(x_i,y_i)\cdot\overrightarrow{M_{i-1}M_i}=P(x_i,y_i)\Delta x_i+Q(x_i,y_i)\Delta y_i\]
+    于是所求的总功$W$近似为
+    \[W\approx\sum_{i=1}^{n}\left[P(x_i,y_i)\Delta x_i+Q(x_i,y_i)\Delta y_i\right]\]
+    令$\displaystyle\lambda=\max_{1\leqslant i\leqslant n}\{\Delta s_i\}$,当分割的足够精细时有$\lambda\to0$.若极限
+    \[\lim_{\lambda\to0}\sum_{i=1}^{n}\left[P(x_i,y_i)\Delta x_i+Q(x_i,y_i)\Delta y_i\right]\]
+    存在,这极限就是所求的功.
+\end{solution}\noindent
+于是我们可以对第二型曲线积分做如下定义.
+\begin{definition}[2.2 定义:第二型曲线积分]
+    设$L$是从$A$到$B$的分段光滑有向曲线,向量函数$\mbf F(x,y)=P(x,y)\mbf i+Q(x,y)\mbf j$在$L$上有定义.%
+    按照$L$的方向,依次用分点$A=M_0.M_1.\cdots,M_{n-1},M_n=B$将$L$分成$n$条有向弧$\wideparen{M_{i-1}M_i}(i=1,\cdots,n)$,%
+    $\wideparen{M_{i-1}M_i}$的弧长记为$\Delta s_i$,并令$\lambda=\displaystyle\max_{1\leqslant i\leqslant n}\{\Delta s_i\}$.%
+    在$\wideparen{M_{i-1}M_i}$上任取一点$(\xi_i,\eta_i)$.若极限
+    \[\lim_{\lambda\to0}\sum_{i=1}^{n}\mbf F(\xi_i,\eta_i)\cdot\overrightarrow{M_{i-1}M_i}
+    =\lim_{\lambda\to0}\sum_{i=1}^{n}\left[P(\xi_i,\eta_i)\Delta x_i+Q(\xi_i,\eta_i)\Delta y_i\right]\]
+    存在(不依赖于分割方法和中间点的取法),则称此极限为向量函数$\mbf F(x,y)$沿曲线$L$从$A$到$B$的\tbf{第二型曲线积分},%
+    也称作\tbf{对坐标的曲线积分},记作
+    \[\int_{\wideparen{AB}}P\di x+Q\di y\ \ \ \ \ \text{或}\ \ \ \ \ \int_{\wideparen{AB}}\mbf F(x,y)\di\mbf r\]
+    其中$\di\mbf r=\left(\di x,\di y\right)$.
+\end{definition}\noindent
+与第一型曲线积分类似,我们可以通过计算定积分的一般方法计算第二型积分曲线,只不过现在要注意曲线的走向.
+\begin{formal}[2.3 第二型曲线积分的计算]
+    设$L$是$Oxy$平面上的一条曲线,由参数方程
+    \[\left\{\begin{array}{l}
+        x=\varphi(t)\\y=\psi(t)
+    \end{array}\right.\ \ \ \ \ (\alpha\leqslant t\leqslant\beta)\]
+    确定,其中$\varphi(t)$和$\psi(t)$在$[\alpha,\beta]$上有连续的一阶导数.\\
+    当$t$单调地由$\alpha$变化至$\beta$时,曲线上的点由$A$变化至$B$.%
+    设$P(x,y),Q(x,y)$是在$L$上定义的连续函数,则有
+    \[\int_{\wideparen{AB}}P(x,y)\di x+Q(x,y)\di y=\int_{\alpha}^{\beta}\left[P(\varphi(t),\psi(t))\varphi'(t)+Q(\varphi(t),\psi(t))\psi'(t)\right]\di t\]
+\end{formal}
+\begin{proof}
+    我们略去详细的证明过程(需要用到Lagrange中值定理),而给出一个理解此式的方法.\\
+    根据参数方程可知$\di x=\varphi'(t)\di t,\di y=\psi'(t)\di t$.将$x,y,\dx,\di y$代入定义式中即可得到答案.
+\end{proof}\noindent
+应特别强调的是,第二型曲线积分与给定曲线的方向有关,于是在所求的定积分中可能出现下限大于上限的情形.不管怎样,都需要注意下限对应起点,上限对应终点.\\
+在空间中的第二型曲线积分也是完全类似的,在此也不再赘述.
 \end{document}
