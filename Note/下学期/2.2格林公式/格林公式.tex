@@ -1,0 +1,74 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{yhmath}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 格林公式\end{center}
+\tbf{1.预备知识}\\
+在开始叙述格林公式之前,我们先介绍一些预备的概念.
+\begin{definition}[1.1 定义:简单闭曲线]
+    我们认为$L$是\tbf{简单闭曲线},如果它是映射$\varphi:[\alpha,\beta]\to\R^2$的像.%
+    其中$\varphi$在$[\alpha,\beta]$上连续,在$(\alpha,\beta)$上是一一映射,且$\varphi(\alpha)=\varphi(\beta)$.\\
+    容易看出每条简单闭曲线都将平面分成两个区域.我们将其中有界的那一部分定义为该\tbf{简单闭曲线的内部}.
+\end{definition}
+\begin{definition}[1.2 定义:单连通区域和多连通区域]
+    如果平面区域$D$中的任意简单闭曲线的内部都包含于$D$中,则称$D$是\tbf{单连通区域},否则称其为\tbf{多连通区域}.
+\end{definition}
+\begin{definition}[1.3 定义:边界曲线的正向]
+    设区域$D$的边界$L$由一条或几条简单闭曲线组成.我们说$L$的\tbf{正向}是这样的方向,当沿这个方向前进时区域总是落在左侧.%
+    规定了正向的边界曲线$L$记为$L^+$.
+\end{definition}\noindent
+\tbf{2.格林公式}
+\begin{formal}[2.1 格林公式]
+    设函数$P(x,y),Q(x,y)$在有界闭区域$D$上有连续的一阶偏导数,$D$的边界$L$是逐段光滑的,则有
+    \[\oint_{L^+}P\di x+Q\di y=\iint_D\left(\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)\dx\di y\]
+    其中$L^+$为$D$的正向边界.
+\end{formal}\noindent
+\begin{proof}
+    证明从略,在教课书上已有详细的解释.其主要思想为将区域划分若干个为由直线$x=a,x=b$和曲线$y=\mbf{y_1}(x)$,%
+    $y=\mbf{y_2}(x)$(其中$\mbf{y_1}\leqslant\mbf{y_2}(x)$)围成的区域$\Omega$后来证明
+    \[\oint_{L^+}P\di x=-\int_a^b\left[P(x,\mbf{y_2}(x))-P(x,\mbf{y_1}(x))\right]\di x=-\iint_{\Omega}\dfrac{\p P}{\p y}\dx\di y\]
+    再按相似的划分(只是交换$x,y$)围成的区域$\Psi$上证明
+    \[\oint_{L^+}Q\di y=\iint_{\Psi}\dfrac{\p Q}{\p x}\dx\di y\]
+    最后相加即可得到格林公式.
+\end{proof}\noindent
+需要特别说明的是,使用格林公式有以下几个注意事项.
+\begin{theorem}[2.2 使用格林公式的注意事项]
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 使用格林公式需要严格验证$P,Q$在闭区域$D$上每一点都有定义且有连续的一阶偏导数.
+        \item 边界曲线的正向不一定是逆时针方向.
+        \item 格林公式不要求$D$是单连通区域,只要是有界闭区域即可,但要注意此时边界曲线可能不只一条.
+    \end{enumerate}
+\end{theorem}\noindent
+\tbf{3.平面第二型曲线积分与路径无关的条件}\\
+我们在计算平面第二型曲线积分时曾遇到一些与积分路径无关的情形.现在我们来讨论这一结论成立的条件.
+\begin{formal}[3.1 第二型曲线积分与路径无关的条件I]
+    在区域$D$内任意取定两点$A,B$,曲线积分$\displaystyle\int_{\wideparen{AB}}P\di x+Q\di y$在$D$内与积分路径无关,当且仅当对$D$内%
+    任意一条简单逐段光滑闭曲线$C$都有$\displaystyle\oint_{C^+}P\di x+Q\di y=0$.
+\end{formal}\noindent
+证明从略.这是比较直观的一个条件.现在我们给出另外的判断方法.
+\begin{formal}[3.2 第二型曲线积分与路径无关的条件II]
+    设$D$是单连通区域,函数$P(x,y)$和$Q(x,y)$在$D$内有一阶连续偏导数,则对$D$内任意取定的$A,B$两点,曲线积分
+    \[\int_{\wideparen{AB}}P(x,y)\di x+Q(x,y)\di y\]
+    与积分路径无关,当且仅当$\dfrac{\p P}{\p y}=\dfrac{\p Q}{\p x}$在$D$上恒成立.
+\end{formal}\noindent
+运用格林公式即可完成证明.
+\begin{formal}[3.3 第二型曲线积分与路径无关的条件III]
+    设$D$是单连通区域,函数$P(x,y)$和$Q(x,y)$在$D$内有一阶连续偏导数,则
+    \[\dfrac{\p P}{\p y}=\dfrac{\p Q}{\p x}\]
+    在$D$上恒成立,当且仅当$P\di x+Q\di y$是某个函数$u(x,y)$的全微分,即$\di u(x,y)=P\dx+Q\di y$.\\
+    同时,如果上述条件成立,那么对于任意两点$A,B\in D$都有
+    \[\int_{\wideparen{AB}}P\di x+Q\di y=\int_{A}^{B}\di u=u(B)-u(A)\]
+    其中$u(A),u(B)$表示$u(x,y)$在$A,B$点的函数值.我们也常常把$u(x,y)$称为$P\di x+Q\di y$的原函数.
+\end{formal}
+\end{document}
