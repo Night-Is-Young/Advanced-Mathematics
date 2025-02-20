@@ -1,0 +1,50 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{solution}
+\usepackage{extarrows}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}
+    \large\tbf{Lecture 3 Triple integral(三重积分)}
+\end{center}
+\begin{problem}[L.3.1]
+    求$I=\displaystyle\iiint_\Omega\left(y^2+z^2\right)\di V$,其中$\Omega=\{(x,y,z)|0\leqslant z\leqslant x^2+y^2\leqslant 1\}$.
+\end{problem}
+\begin{solution}
+    做柱坐标变换,则变换后的积分区域$\Omega'=\{(r,\theta,z)|0\leqslant r\leqslant 1,0\leqslant\theta\leqslant2\pi,0\leqslant z\leqslant r^2\}$.我们有
+    \[\begin{aligned}
+        I
+        &= \iiint_{\Omega}\left(y^2+z^2\right)\di V \\
+        &= \iiint_{\Omega'}\left(r^2\sin^2\theta+z^2\right)r\di r\di\theta\di z \\
+        &= \int_0^{2\pi}\di\theta\int_0^1\di r\int_0^{r^2}\left(r^3\sin^2\theta+rz^2\right)\di z \\
+        &= \int_0^{2\pi}\di\theta\int_0^1\left(r^5\sin^2\theta+\dfrac13r^7\right)\di r \\
+        &= \int_0^{2\pi}\left(\dfrac16\sin^2\theta+\dfrac{1}{24}\right)\di\theta \\
+        &= \dfrac{\pi}{4}
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[L.3.2]
+    求$I=\displaystyle\iiint_{\Omega}z(x^2+y^2+z^2)\di V$,其中$\Omega$为球体$x^2+y^2+z^2\leqslant2z$.
+\end{problem}
+\begin{solution}
+    注意到$\Omega=\{(x,y,z)|x^2+y^2+(z-1)^2\leqslant 1\}$.\\
+    做球坐标变换,可得变换后的积分区域为$\Omega'=\{(\rho,\theta,\varphi)|0\leqslant r\leqslant2\cos\varphi,0\leqslant\theta\leqslant2\pi,0\leqslant\varphi\leqslant\dfrac{\pi}{2}\}$.于是
+    \[\begin{aligned}
+        I
+        &= \iiint_{\Omega}z(x^2+y^2+z^2)\di V \\
+        &= \iiint_{\Omega'}\rho\cos\varphi\cdot\rho^2\cdot\rho^2\sin\varphi\di\rho\di\theta\di\varphi \\
+        &= \int_0^{2\pi}\di\theta\int_0^{\frac\pi2}\di\varphi\int_0^{2\cos\varphi}\rho^5\sin\varphi\cos\varphi\di\rho \\
+        &= \int_0^{2\pi}\di\theta\int_0^{\frac\pi2}\dfrac{32\cos^7\varphi\sin\varphi}{3}\di\varphi \\
+        &\xlongequal{t=\cos\varphi}2\pi\int_{0}^{1}\dfrac{32t^7\di t}{3} \\
+        &= \dfrac{8\pi}{3}
+    \end{aligned}\]
+\end{solution}
+\end{document}
