@@ -1,0 +1,161 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{yhmath}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 曲线积分练习\end{center}
+\tbf{A.第一型和第二型曲线积分}
+\begin{problem}[A.1]
+    求积分$\displaystyle\int_{L}x^2\di s$,其中$L$为圆周
+    $\left\{\begin{array}{l}
+        x^2+y^2+z^2=a^2\\x+y+z=0
+    \end{array}\right.$.
+\end{problem}
+\begin{solution}
+    将$z=-x-y$代入球的方程有$x^2+xy+y^2=\dfrac{a^2}{2}$,即$\left(\dfrac{1}{2}x+y\right)^2+\left(\dfrac{\sqrt3}{2}x\right)^2=\dfrac{a^2}{2}$.做代换
+    \[\left\{\begin{array}{l}
+        \frac{1}{2}x+y=\frac{\sqrt2}{2}a\cos\theta \\
+        \frac{\sqrt{3}}{2}x=\frac{\sqrt2}{2}a\sin\theta
+    \end{array}\right.,0\leqslant\theta\leqslant2\pi\]
+    可得
+    \[\left\{\begin{array}{l}
+        x=\frac{\sqrt6}{3}a\sin\theta \\
+        y=\frac{\sqrt2}{2}a\cos\theta-\frac{\sqrt6}{6}a\sin\theta \\
+        z=-\frac{\sqrt2}{2}a\cos\theta-\frac{\sqrt6}{6}a\sin\theta
+    \end{array}\right.\]
+    于是
+    \[\di s=\sqrt{[x'(\theta)]^2+[y'(\theta)]^2+[z'(\theta)]^2}\di\theta=a\di\theta\]
+    于是
+    \[\int_Lx^2\di s=\int_0^{2\pi}\dfrac{2}{3}a^3\sin^2\theta\di\theta=\dfrac{2}{3}a^3\pi\]
+\end{solution}
+\tbf{B.格林公式与第二型曲线积分与路径无关的条件}
+\tbf{C.格林公式的推广与散度定理}
+\begin{problem}[C.1]
+    设函数$u(x,y)$在有界闭区域$D$上有连续的二阶偏导数,$D$的边界$L$逐段光滑.试证明
+    \[\oint_{L^+}\dfrac{\p u}{\p\mbf n}\di s=\iint_D\Delta u\di\sigma\]
+    其中$\dfrac{\p u}{\p\mbf n}$表示$u(x,y)$沿$L$的外法线方向的方向导数,$\Delta$为Laplace算子.
+\end{problem}
+\begin{proof}
+    我们设$L^+$的单位切向量为$\mbf t$,其方向余弦为$\cos\alpha,\cos\beta$.不难看出
+    \[\mbf n\cdot\mbf t=0,\mbf n\times\mbf t=\mbf k\]
+    其中$\mbf k$为$z$轴正方向的单位向量.设$\mbf n=(a,b)$,则有
+    \[\mbf n\times\mbf t=\begin{vmatrix}
+        \mbf i&\mbf j&\mbf k\\a&b&0\\\cos\alpha&\cos\beta&0
+    \end{vmatrix}=(a\cos\beta-b\cos\alpha)\mbf k\]
+    从而
+    \[\left\{\begin{array}{l}
+        a\cos\alpha+b\cos\beta=0\\
+        a\cos\beta-b\cos\alpha=1
+    \end{array}\right.\]
+    解得$\mbf n=(\cos\beta,-\cos\alpha)$.由方向导数的定义可知
+    \[\begin{aligned}
+        \oint_{L^+}\dfrac{\p u}{\p\mbf n}\di s
+        &= \oint_{L^+}\left(\dfrac{\p u}{\p x}\cos\beta-\dfrac{\p u}{\p y}\cos\alpha\right)\di s\\
+        &= \oint_{L^+}\dfrac{\p u}{\p x}\di y-\dfrac{\p u}{\p y}\di x \\
+        &= \iint_{D}\left[\dfrac{\p}{\p x}\left(\dfrac{\p u}{\p x}\right)-\dfrac{\p}{\p y}\left(-\dfrac{\p u}{\p y}\right)\right]\di x\di y \\
+        &= \iint_{D}\Delta u\di\sigma
+    \end{aligned}\]
+    \tbf{注}:主要在于
+\end{proof}
+\begin{problem}[C.2]
+    设区域$D$的边界$L$为闭曲线$L$,某稳定流体(即任意一点的流速与时间无关,仅与该点的位置有关)在$\overline{D}=D+L$上的每一点$(x,y)$处的流速为
+    \[\mbf v(x,y)=(P(x,y),Q(x,y))\]
+    其中$P(x,y),Q(x,y)$在$\overline{D}$上有连续的一阶偏导数.该流体通过闭曲线$L$的流量$\varPhi$定义为
+    \[\varPhi=\oint_{L^+}\mbf v\cdot\mbf n\di s\]
+    其中$\mbf n$为$L$的外法线方向的单位向量.试证明
+    \[\varPhi=\iint_{D}\left(\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}\right)\di\sigma\]
+\end{problem}
+\begin{proof}
+    根据\tbf{C.1}可知$\mbf n=(\cos\beta,-\cos\alpha)$.于是
+    \[\begin{aligned}
+        \varPhi
+        &= \oint_{L^+}\mbf v\cdot\mbf n\di s \\
+        &= \oint_{L^+}(P\cos\beta-Q\cos\alpha)\di s \\
+        &= \oint_{L^+}(P\di y-Q\di x) \\
+        &= \iint_{D}\left(\dfrac{\p P}{\p x}-\left(-\dfrac{\p Q}{\p y}\right)\right)\di\sigma \\
+        &= \iint_{D}\left(\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}\right)\di\sigma
+    \end{aligned}\]
+    于是命题得证.上述命题的另一形式为
+    \[\oint_{L^+}(P,Q)\cdot\mbf n\di s=\oint_{L^+}-Q\di x+P\di y=\iint_{D}\left(\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}\right)\di\sigma\]
+    其中$\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}$称为向量场$\mbf v$的\tbf{散度},因此格林公式在物理上也被称为\tbf{散度定理}.\\
+    散度定理指出,稳定流体通过某一闭曲线的流量,等于其散度在该闭曲线所包的区域上的二重积分之值.
+\end{proof}
+\begin{problem}[C.3]
+    设函数$u(x,y)$和$v(x,y)$在有界闭区域$D$上有连续的二阶偏导数,$D$的边界$L$逐段光滑.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 试证明
+            \[\iint_{D}v\Delta u\di\sigma=\oint_{L^+}v\dfrac{\p u}{\p\mbf n}\di s-\iint_D{\left(\dfrac{\p u}{\p x}\cdot\dfrac{\p v}{\p x}+\dfrac{\p u}{\p y}\cdot\dfrac{\p v}{\p y}\right)}\di\sigma\]
+            其中$\mbf n$为$L$的外法线方向的单位向量.
+        \item 试证明
+            \[\iint_{D}\left(u\Delta v-v\Delta u\right)\di\sigma=\oint_{L^+}\left(u\dfrac{\p v}{\p\mbf n}-v\dfrac{\p u}{\p\mbf n}\right)\di s\]
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 我们有
+            \[\dfrac{\p u}{\p\mbf n}=\left(\dfrac{\p u}{\p x}\cos(\mbf n,y),-\dfrac{\p u}{\p y}\cos(\mbf n,x)\right)\]
+            于是
+            \[\begin{aligned}
+                \oint_{L^+}v\dfrac{\p u}{\p\mbf n}\di s
+                &= \oint_{L^+}v\dfrac{\p u}{\p x}\di y-v\dfrac{\p u}{\p y}\di x \\
+                &= \iint_D\left[\dfrac{\p}{\p x}\left(v\dfrac{\p u}{\p x}\right)+\dfrac{\p}{\p y}\left(v\dfrac{\p u}{\p y}\right)\right]\di\sigma \\
+                &= \iint_D\left[v\left(\dfrac{\p^2u}{\p x^2}+\dfrac{\p^2u}{\p y^2}\right)+\left(\dfrac{\p u}{\p x}\cdot\dfrac{\p v}{\p x}+\dfrac{\p u}{\p y}\cdot\dfrac{\p v}{\p y}\right)\right]\di\sigma
+            \end{aligned}\]
+            移项即可得到欲证等式.
+        \item 与\tbf{(1)}同理有
+            \[\iint_{D}u\Delta v\di\sigma=\oint_{L^+}u\dfrac{\p v}{\p\mbf n}\di s-\iint_D{\left(\dfrac{\p u}{\p x}\cdot\dfrac{\p v}{\p x}+\dfrac{\p u}{\p y}\cdot\dfrac{\p v}{\p y}\right)}\di\sigma\]
+            相减即有
+            \[\iint_{D}\left(u\Delta v-v\Delta u\right)\di\sigma=\oint_{L^+}\left(u\dfrac{\p v}{\p\mbf n}-v\dfrac{\p u}{\p\mbf n}\right)\di s\]
+    \end{enumerate}
+\end{proof}
+\begin{problem}[C.4]
+    设$D$是有界平面区域,其边界$L$分段光滑,定点$P_0(x_0,y_0)\notin L$.设$L$上一点$P(x,y)$,%
+    向量${\mbf n}_P$为$P$处$L$的外侧法向量.定义向量$\mbf r_P=\overrightarrow{P_0P}$,定义函数$f(x,y)$为
+    \[f(P)=\dfrac{\cos\left(\mbf r_P,\mbf n_P\right)}{|\mbf r_P|}\]
+    计算曲线积分$\displaystyle\oint_{L}f(x,y)\di s$.
+\end{problem}
+\begin{solution}
+    设$P$处沿$L$正方向的单位切向量为$(\cos\alpha,\cos\beta)$,那么$\mbf n_P=(\cos\beta,-\cos\alpha)$.于是我们有
+    \[\begin{aligned}
+        f(x,y)
+        &= \dfrac{\cos\left(\mbf r_P,\mbf n_P\right)}{\mbf r_P}=\dfrac{\mbf r_P\cdot\mbf n_P}{|\mbf r_P|^2|\mbf n_P|}\\
+        &= \dfrac{(x-x_0)\cos\beta-(y-y_0)\cos\alpha}{(x-x_0)^2+(y-y_0)^2}
+    \end{aligned}\]
+    于是
+    \[\begin{aligned}
+        \oint_{L}f(x,y)\di s
+        &= \oint_{L}\dfrac{(x-x_0)\cos\beta-(y-y_0)\cos\alpha}{(x-x_0)^2+(y-y_0)^2}\di s \\
+        &= \oint_{L^+}\dfrac{(x-x_0)\di y-(y-y_0)\di x}{(x-x_0)^2+(y-y_0)^2}
+    \end{aligned}\]
+    令$A(x,y)=\dfrac{-(y-y_0)}{(x-x_0)^2+(y-y_0)^2},B(x,y)=\dfrac{x-x_0}{(x-x_0)^2+(y-y_0)^2}$.于是我们有
+    \[\dfrac{\p A}{\p y}=-\dfrac{1}{(x-x_0)^2+(y-y_0)^2}+\dfrac{2(y-y_0)^2}{\left[(x-x_0)^2+(y-y_0)^2\right]^2}=\dfrac{(y-y_0)^2-(x-x_0)^2}{\left[(x-x_0)^2+(y-y_0)^2\right]^2}\]
+    同理可得
+    \[\dfrac{\p B}{\p x}=\dfrac{-(x-x_0)^2+(y-y_0)^2}{\left[(x-x_0)^2+(y-y_0)^2\right]^2}\]
+    若$P_0\notin D$,那么$A,B$在$D$上有连续的一阶偏导数,从而根据格林公式有
+    \[\oint_{L}f(x,y)\di s=\oint_{L^+}A\di x+B\di y=\iint_D\left(\dfrac{\p B}{\p x}-\dfrac{\p A}{\p y}\right)\di\sigma=0\]
+    若$P_0\in D$,那么考虑$P_0$的邻域$E=\{(x,y)|(x-x_0)^2+(y-y_0)^2\leqslant\ep^2\}$,其中$\ep>0$.令$\ep$充分小至$E\subset D$.\\
+    令$E$的边界为$L_E$,从而$A,B$在$D\backslash E$上有连续的一阶偏导数.我们有
+    \[0=\iint_{D\backslash E}\left(\dfrac{\p B}{\p x}-\dfrac{\p A}{\p y}\right)\di\sigma=\oint_{L^+}(A\di x+B\di y)+\oint_{{L_E}^-}(A\di x+B\di y)\]
+    做代换$x=\ep\cos\theta+x_0,y=\ep\sin\theta+y_0$,环路${L_E}^+$即$\theta$从$0$变化至$2\pi$的路径.于是
+    \[\begin{aligned}
+        \oint_{L^+}A\di x+B\di y
+        &= \oint_{{L_E}^+}A\di x+B\di y \\
+        &= \int_{0}^{2\pi}\left[\dfrac{-\ep\sin\theta}{\ep^2}\cdot(-\ep\sin\theta)+\dfrac{\ep\cos\theta}{\ep^2}\cdot\ep\cos\theta\right]\di\theta \\
+        &= \int_0^{2\pi}\di\theta=2\pi
+    \end{aligned}\]
+    于是所求积分为
+    \[\oint_{L}f(x,y)\di s=\left\{\begin{array}{l}
+        0,P_0\notin D\\2\pi,P\in D
+    \end{array}\right.\]
+\end{solution}
+\end{document}

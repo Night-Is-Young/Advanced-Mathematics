@@ -128,7 +128,7 @@
 \begin{solution}
     我们将$\wideparen{AB}$以分点$A=M_0.M_1.\cdots,M_{n-1},M_n=B$分成$n$段弧$\wideparen{M_{i-1}M_{i}}(i=1,\cdots,n)$.\\
     设第$i$段弧$\wideparen{M_{i-1}M_{i}}$的弧长为$\Delta s_i$.\\
-    当分割的足够精细时,外力$\mbf F$在$\wideparen{M_{i-1}M_{i}}$上变化不大,可以近似看作常力$\F(x_i,y_i)$,其中$(x_i,y_i)$为这弧上任意取定的一点.%
+    当分割的足够精细时,外力$\mbf F$在$\wideparen{M_{i-1}M_{i}}$上变化不大,可以近似看作常力$\mbf F(x_i,y_i)$,其中$(x_i,y_i)$为这弧上任意取定的一点.%
     同理,质点的运动路径也可以近似看作从$M_{i-1}$到$M_i$的线段,于是$\mbf F$在这弧上做的功$\Delta W_i$近似为
     \[\Delta W_i\approx \mbf F(x_i,y_i)\cdot\overrightarrow{M_{i-1}M_i}\]
     对$\mbf F$做正交分解,有$\mbf F(x,y)=P(x,y)\mbf i+Q(x,y)\mbf j$.对有向线段$\overrightarrow{M_{i-1}M_{i}}$做正交分解,有$\overrightarrow{M_{i-1}M_i}=\Delta x_i\mbf i+\Delta y_i\mbf j$.%
@@ -169,5 +169,36 @@
     根据参数方程可知$\di x=\varphi'(t)\di t,\di y=\psi'(t)\di t$.将$x,y,\dx,\di y$代入定义式中即可得到答案.
 \end{proof}\noindent
 应特别强调的是,第二型曲线积分与给定曲线的方向有关,于是在所求的定积分中可能出现下限大于上限的情形.不管怎样,都需要注意下限对应起点,上限对应终点.\\
-在空间中的第二型曲线积分也是完全类似的,在此也不再赘述.
+在空间中的第二型曲线积分也是完全类似的,在此也不再赘述.\\
+\tbf{3.两种曲线积分间的联系}\\
+首先,我们来回顾一下方向余弦的概念.
+\begin{definition}[3.1 向量的方向余弦]
+    以平面向量$\mbf a$为例,我们用$\cos(\mbf a,x)$和$\cos(\mbf a,y)$表示$\mbf a$与两个坐标轴的夹角的余弦,称为%
+    向量$\mbf a$的\tbf{方向余弦}.方向余弦的基本性质如下
+    \[\mbf a=|\mbf a|(\cos(\mbf a,x)\cos(\mbf a,y))\]
+    换言之,向量$(\cos(\mbf a,x),\cos(\mbf a,y))$即为$\mbf a$方向的单位法向量.
+\end{definition}
+我们有如下定理.
+\begin{formal}[3.2 第一型和第二型曲线积分的联系]
+    设函数$P(x,y,z),Q(x,y,z),R(x,y,z)$,则有
+    \[\int_{\wideparen{AB}}P\di x+Q\di y+R\di z=\int_{\wideparen{AB}}(P\cos\alpha+Q\cos\beta+R\cos\gamma)\di s\]
+    其中$\cos\alpha,\cos\beta,\cos\gamma$为$\wideparen{AB}$上各点的切线的方向余弦.
+\end{formal}
+\begin{proof}
+    由之前的讨论可知,当曲线$L$用参数方程
+\[\left\{\begin{array}{l}
+    x=\mbf x(t)\\y=\mbf y(t)\\z=\mbf z(t)
+    \end{array}\right.,\alpha\leqslant t\leqslant\beta\]
+    表出时,$\left(\dfrac{\dx}{\di t},\dfrac{\di y}{\di t},\dfrac{\di z}{\di t}\right)$即为曲线的切向量,因而
+    \[\di\mbf{r}=(\di x,\di y,\di z)=\left(\dfrac{\dx}{\di t},\dfrac{\di y}{\di t},\dfrac{\di z}{\di t}\right)\di t\]
+    又$\di\mbf r$的模恰为$\di s$,即
+    \[|\di\mbf r|=\sqrt{(\di x)^2+(\di y)^2+(\di z)^2}=\di s\]
+    设$\di\mbf r$的方向余弦为$\cos\alpha,\cos\beta,\cos\gamma$,则有
+    \[(\cos\alpha,\cos\beta,\cos\gamma)=\dfrac{\di\mbf r}{|\di\mbf r|}=\left(\dfrac{\di x}{\di s},\dfrac{\di y}{\di s},\dfrac{\di z}{\di s}\right)\]
+    由此可得
+    \[\di x=\cos\alpha\di s,\di y=\cos\beta\di s,\di z=\cos\gamma\di s\]
+    于是
+    \[\int_{\wideparen{AB}}P\di x+Q\di y+R\di z=\int_{\wideparen{AB}}(P\cos\alpha+Q\cos\beta+R\cos\gamma)\di s\]
+\end{proof}\noindent
+上述转化在之后将非常有用.
 \end{document}

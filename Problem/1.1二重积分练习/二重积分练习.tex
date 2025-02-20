@@ -1,0 +1,96 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+\usepackage{tikz}
+\usepackage{extarrows}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 二重积分练习\end{center}
+\begin{problem}[1.]
+    求积分$\displaystyle I=\iint_D\left(x^2+2y\right)\di x\di y$,其中$D$为曲线$y=x^2,y=\sqrt{x}$围成的区域.
+\end{problem}
+\begin{solution}
+    我们有
+    \[\begin{aligned}
+        \iint_D\left(x^2+2y\right)\di x\di y
+        &= \int_0^1\left[\int_{x^2}^{\sqrt{x}}\left(x^2+2y\right)\di y\right]\dx \\
+        &= \int_0^1\left(x^2\left(\sqrt{x}-x^2\right)+x-x^4\right)\di x \\
+        &= \int_0^1\left(x+x^{\frac52}-2x^4\right) \\
+        &= \left.\left(\dfrac12x^2+\dfrac27x^{\frac72}-\dfrac25x^5\right)\right|_0^1 \\
+        &= \dfrac{27}{70}
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[2.]
+    求积分$\displaystyle I=\iint_D\sin y^3\di x\di y$,其中$D$是曲线$y=\sqrt x$,直线$y=2$和$x=0$围成的区域.
+\end{problem}
+\begin{solution}
+    我们有
+    \[\begin{aligned}
+        \iint_D\sin y^3\di x\di y
+        &= \int_0^2\left[\int_0^{y^2}\sin y^3\di x\right]\di y \\
+        &= \int_0^2y^2\sin y^3\di y \\
+        &= \dfrac13\int_0^8 \sin y^3\di y^3 \\
+        &= \dfrac{1-\cos 8}{3}
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[3.]
+    求积分$\displaystyle I=\iint_D\left(4-x^2-y^2\right)^{-\frac12}\dx\di y$,其中$D$是单位圆$x^2+y^2\leqslant1$在第一象限的部分.
+\end{problem}
+\begin{solution}
+    做代换$x=r\cos\theta,y=r\sin\theta$,于是$D'=\left\{(r,\theta):0\leqslant r\leqslant 1,0\leqslant\theta\leqslant\dfrac\pi2\right\}$.于是
+    \[\begin{aligned}
+        \iint_D\left(4-x^2-y^2\right)^{-\frac{1}{2}}
+        &= \iint_{D'}\left(4-r^2\right)^{-\frac12}r\di r\di\theta \\
+        &= \int_0^1\left[\int_0^{\frac\pi2}\left(4-r^2\right)^{-\frac12}r\di\theta\right]\di r \\
+        &= \dfrac\pi2\int_0^1\dfrac{r\di r}{\sqrt{4-r^2}} \\
+        &= \dfrac\pi4\int_0^1\dfrac{\di r^2}{\sqrt{4-r^2}} \\
+        &= \dfrac\pi4\left.\left(-2\sqrt{4-r^2}\right)\right|_0^1 \\
+        &= \dfrac{2-\sqrt3}{2}\pi
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[4.]
+    求积分$\displaystyle I=\iint_{D}(x+y)\di x\di y$,其中$D$是由$y^2=2x,x+y=4,x+y=12$围成的区域.
+\end{problem}
+\begin{solution}
+    \tbf{Method I.}\\
+    注意到积分区域$D$可以恰好可以分为两部分
+    \[D_1=\{(x,y)|2\leqslant x\leqslant8,4-x\leqslant y\leqslant\sqrt{2x}\}\]
+    \[D_2=\{(x,y)|8\leqslant x\leqslant18,-\sqrt{2x}\leqslant y\leqslant 12-x\}\]
+    于是
+    \[\begin{aligned}
+        \iint_{D_1}(x+y)\di x\di y
+        &= \int_2^8\di x\int_{4-x}^{\sqrt{2x}}(x+y)\di y \\
+        &= \int_2^8\left(\dfrac12x^2+\sqrt{2}x^{\frac32}+x-8\right)\di x \\
+        &= \dfrac{826}{5}\\
+        \iint_{D_2}(x+y)\di x\di y
+        &= \int_8^{18}\di x\int_{-\sqrt{2x}}^{12-x}(x+y)\di y \\
+        &= \int_8^{18}\left(-\dfrac12x^2+\sqrt2x^{\frac32}-x+72\right) \\
+        &= \dfrac{5678}{15}
+    \end{aligned}\]
+    于是
+    \[\iint_D(x+y)\di x\di y=\dfrac{826}{5}+\dfrac{5678}{15}=\dfrac{8156}{15}\]
+    \tbf{Method II.}\\
+    做代换$\left\{\begin{array}{l}
+        u=x+y\\v=y
+    \end{array}\right.$,则$|J|=1$.原积分区域为$y^2\leqslant2x,4\leqslant x+y\leqslant12$.\\
+    代入$u,v$可得$v^2+2v-2u\leqslant0,4\leqslant u\leqslant12$.\\
+    于是积分区域为$D'=\{(u,v)|4\leqslant u\leqslant12,-\sqrt{2u+1}-1\leqslant v\leqslant\sqrt{2u+1}-1\}$.\\
+    于是我们有
+    \[\begin{aligned}
+        I
+        &= \iint_D(x+y)\di x\di y = \iint_{D'}u\di u\di v \\
+        &= \int_4^{12}\di u\int_{-\sqrt{2u+1}-1}^{\sqrt{2u+1}-1}u\di v = \int_{4}^{12}2u\sqrt{2u+1}\di u \\
+        &\xlongequal{t=\sqrt{2u+1}}\int_3^5(t^2-1)t\cdot t\di t = \left.\left(\dfrac{1}{5}t^5-\dfrac13t^3\right)\right|_3^5 \\
+        &= \dfrac{8156}{15} 
+    \end{aligned}\]
+\end{solution}
+\end{document}

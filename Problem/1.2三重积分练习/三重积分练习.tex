@@ -1,0 +1,35 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+\usepackage{extarrows}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 二重积分练习\end{center}
+\begin{problem}[1.]
+    设$\Omega$是$Oyz$平面上的圆盘$(y-a)^2+z^2\leqslant\rho^2\left(0<\rho<a\right)$绕$z$轴旋转一周得到的区域,求$\Omega$的体积$V$.
+\end{problem}
+\begin{solution}
+    积分区域$\Omega$实际上为$\Omega=\left\{(x,y,z):\left(\sqrt{x^2+y^2}-a\right)^2+z^2\leqslant\rho^2\right\}$.我们采取柱坐标变换,可得
+    \[V=\iiint_{\Omega}\dx\di y\di z=\int_{0}^{2\pi}\left[\iint_{D(\theta)}r\di r\di z\right]\di\theta\]
+    其中$D(\theta)=\{(r,z):(r-a)^2+z^2\leqslant\rho^2\}$.可见$D(\theta)$与$\theta$无关,不妨记为$D$.我们有
+    \[\begin{aligned}
+        \iint_{D}r\di r\di z
+        &= \int_{a-\rho}^{a+\rho}\left[\int_{-\sqrt{\rho^2-(r-a)^2}}^{\sqrt{\rho^2-(r-a)^2}}r\di z\right]\di r \\
+        &= \int_{a-\rho}^{a+\rho}2\sqrt{\rho^2-(r-a)^2}r\di r \\
+        &\xlongequal{t=r-a} \int_{-\rho}^{\rho}2\sqrt{\rho^2-t^2}(t+a)\di t \\
+        &= 2a\int_{-\rho}^{\rho}\sqrt{\rho^2-t^2}\di t \\
+        &= a\pi\rho^2
+    \end{aligned}\]
+    于是
+    \[V=\int_{0}^{2\pi}a\pi\rho^2\di\theta=2\pi^2a\rho^2\]
+\end{solution}
+\end{document}

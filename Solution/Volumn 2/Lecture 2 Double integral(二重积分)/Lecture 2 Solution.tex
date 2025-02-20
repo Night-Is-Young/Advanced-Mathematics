@@ -1,0 +1,145 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{solution}
+\usepackage{extarrows}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}
+    \large\tbf{Lecture 2 Double integral(二重积分)}
+\end{center}
+\begin{problem}[L.2.1]
+    计算定积分$I=\displaystyle\int_0^1\dfrac{x-1}{\ln x}\di x$.\\
+    \tbf{提示}:考虑二重积分$\displaystyle\iint_Dx^y\di\sigma$,其中$D=[0,1]\times[0,1]$.
+\end{problem}
+\begin{solution}
+    设$D=[0,1]\times[0,1]$,我们有
+    \[I = \int_0^1\dfrac{x-1}{\ln x}\di x = \int_0^1\di x\int_0^1x^y\di y
+    = \iint_Dx^y\di\sigma = \int_0^1\di y\int_0^1x^y\di x
+    = \int_0^1\dfrac{\di y}{y+1} = \ln 2\]
+\end{solution}
+\begin{problem}[L.2.2]
+    求$\displaystyle I=\iint_D\left|xy-1\right|\di\sigma$,其中$D$为正方形$[0,1]\times[0,1]$.
+\end{problem}
+\begin{solution}
+    在$D$上有$0\leqslant xy\leqslant 1$,于是$|xy-1|=1-xy$.于是
+    \[I=\iint_D(1-xy)\di\sigma=\int_0^1\dx\int_0^1(1-xy)\di y=\int_0^1\left(1-\dfrac x2\right)\di x=\dfrac34\]
+\end{solution}
+\begin{problem}[L.2.3]
+    求$\displaystyle I=\iint_{D}(x+y)\di x\di y$,其中$D$是由$y^2=2x,x+y=4,x+y=12$围成的区域.
+\end{problem}
+\begin{solution}
+    \tbf{Method I.}\\
+    做代换$u=x+y,v=y$,则$|J|=1$.原积分区域为$y^2\leqslant2x,4\leqslant x+y\leqslant12$.%
+    代入$u,v$可得$v^2+2v-2u\leqslant0,4\leqslant u\leqslant12$.%
+    于是积分区域为$D'=\{(u,v)|4\leqslant u\leqslant12,-\sqrt{2u+1}-1\leqslant v\leqslant\sqrt{2u+1}-1\}$.于是我们有
+    \[\begin{aligned}
+        I
+        &= \iint_D(x+y)\di x\di y = \iint_{D'}u\di u\di v \\
+        &= \int_4^{12}\di u\int_{-\sqrt{2u+1}-1}^{\sqrt{2u+1}-1}u\di v = \int_{4}^{12}2u\sqrt{2u+1}\di u \\
+        &\xlongequal{t=\sqrt{2u+1}}\int_3^5(t^2-1)t\cdot t\di t = \left.\left(\dfrac{1}{5}t^5-\dfrac13t^3\right)\right|_3^5 \\
+        &= \dfrac{8156}{15} 
+    \end{aligned}\]
+    \tbf{Method II.}(并不推荐)\\
+    注意到积分区域$D$可以恰好可以分为两部分
+    \[D_1=\{(x,y)|2\leqslant x\leqslant8,4-x\leqslant y\leqslant\sqrt{2x}\}\]
+    \[D_2=\{(x,y)|8\leqslant x\leqslant18,-\sqrt{2x}\leqslant y\leqslant 12-x\}\]
+    于是
+    \[\begin{aligned}
+        \iint_{D_1}(x+y)\di x\di y
+        &= \int_2^8\di x\int_{4-x}^{\sqrt{2x}}(x+y)\di y \\
+        &= \int_2^8\left(\dfrac12x^2+\sqrt{2}x^{\frac32}+x-8\right)\di x \\
+        &= \dfrac{826}{5}\\
+        \iint_{D_2}(x+y)\di x\di y
+        &= \int_8^{18}\di x\int_{-\sqrt{2x}}^{12-x}(x+y)\di y \\
+        &= \int_8^{18}\left(-\dfrac12x^2+\sqrt2x^{\frac32}-x+72\right) \\
+        &= \dfrac{5678}{15}
+    \end{aligned}\]
+    于是
+    \[\iint_D(x+y)\di x\di y=\dfrac{826}{5}+\dfrac{5678}{15}=\dfrac{8156}{15}\]
+\end{solution}
+\begin{problem}[L.2.4]
+    设$f$是$[-1,1]$上的连续函数,试证明
+    \[\iint_{|x|+|y|\leqslant1}f(x+y)\dx\di y=\int_{-1}^{1}f(z)\di z\]
+\end{problem}
+\begin{proof}
+    原积分区域为$D=\{(x,y)|-1\leqslant x+y\leqslant 1,-1\leqslant x-y\leqslant 1\}$.\\
+    做代换$u=x+y,v=x-y$,于是$|J|=\dfrac12$,积分区域$D'=\{(u,v)|-1\leqslant u,v\leqslant1\}$.于是
+    \[\begin{aligned}
+        \iint_{|x|+|y|\leqslant1}f(x+y)\dx\di y
+        &=\iint_{D'}\dfrac12f(u)\di u\di v \\
+        &=\int_{-1}^{1}\di u\int_{-1}^1\dfrac12f(u)\di v \\
+        &=\int_{-1}^{1}f(u)\di u=\int_{-1}^{1}f(z)\di z
+    \end{aligned}\]
+    于是命题得证.
+\end{proof}
+\begin{problem}[L.2.5]
+    设函数$f,g$在$[a,b]$上可积.试证明
+    \[\left(\int_a^bf(x)g(x)\di x\right)^2\leqslant\left(\int_a^b[f(x)]^2\di x\right)\left(\int_a^b[g(x)]^2\di x\right)\]
+    \tbf{提示}:考虑二重积分
+    \[\iint_{[a,b]\times[a,b]}\left(f(x)g(y)-f(y)g(x)\right)^2\dx\di y\]
+\end{problem}
+\begin{proof}
+    令$D=[a,b]\times[a,b]$,考虑其上的二重积分
+    \[0\leqslant\iint_{D}\left(f(x)g(y)-f(y)g(x)\right)^2\dx\di y\]
+    不妨令$\displaystyle A=\int_a^b[f(x)]^2\di x,B=\int_a^b[g(x)]^2\di x,C=\int_a^bf(x)g(x)\di x$.我们有
+    \[\begin{aligned}
+        &\iint_{D}\left(f(x)g(y)-f(y)g(x)\right)^2\dx\di y \\
+        =&\int_a^b\di x\int_a^b\left([f(x)]^2[g(y)]^2+[g(x)]^2[f(y)]^2-2f(x)f(y)g(x)g(y)\right)\di y \\
+        =&\int_a^b\left([f(x)]^2B+[g(x)]^2A-2f(x)g(x)C\right)\di x \\
+        =&2(AB-C^2) \\
+        \geqslant&0
+    \end{aligned}\]
+    于是$C^2\leqslant AB$,即
+    \[\left(\int_a^bf(x)g(x)\di x\right)^2\leqslant\left(\int_a^b[f(x)]^2\di x\right)\left(\int_a^b[g(x)]^2\di x\right)\]
+    \tbf{注}:本题即\tbf{Cauchy-Schwarz不等式}的定积分形式,其证明方法还有很多,读者可以自己查阅相关资料.
+\end{proof}
+\begin{problem}[L.2.6]
+    已知$f(x)$是在$[0,1]$上单调递减的正连续函数.试证明
+    \[\dfrac{\displaystyle\int_0^1x[f(x)]^2\di x}{\displaystyle\int_0^1xf(x)\di x}\leqslant\dfrac{\displaystyle\int_0^1[f(x)]^2\di x}{\displaystyle\int_0^1f(x)\dx}\]
+    \tbf{提示}:考虑二重积分
+    \[I=\iint_{[0,1]\times[0,1]}f(x)f(y)y(f(x)-f(y))\di\sigma\]
+    并证明$I\geqslant0$.
+\end{problem}
+\begin{proof}
+    考虑区域$D=[0,1]\times[0,1]$和其上的积分
+    \[I=\iint_{[0,1]\times[0,1]}f(x)f(y)y(f(x)-f(y))\di\sigma\]
+    将积分区域分为两部分$D_1=\{(x,y)|0\leqslant x\leqslant y\leqslant 1\}$和$D_2=\{(x,y)|0\leqslant y\leqslant x\leqslant1\}$.\\
+    在区域$D_1$上做代换$u=y,v=x$,则$|J|=1$,积分区域恰好变换为$D_2$.我们有
+    \[\begin{aligned}
+        I
+        &= \iint_Df(x)f(y)y(f(x)-f(y))\di\sigma\\
+        &= \iint_{D_1}f(x)f(y)y(f(x)-f(y))\di\sigma+\iint_{D_2}f(x)f(y)y(f(x)-f(y))\di\sigma \\
+        &= \iint_{D_2}f(y)f(x)x(f(y)-f(x))+\iint_{D_2}f(x)f(y)y(f(x)-f(y))\di\sigma \\
+        &= \iint_{D_2}f(x)f(y)(x-y)(f(y)-f(x))\di\sigma
+    \end{aligned}\]
+    由于$f(x)$在$[0,1]$单调递减且恒正,于是对于任意$0\leqslant y\leqslant x\leqslant1$有
+    \[f(x)>0,f(y)>0,x-y\geqslant0,f(y)-f(x)\geqslant0\]
+    从而被积函数在$D_2$上非负,因而$I\geqslant0$.\\
+    现在设
+    \[A=\int_0^1x[f(x)]^2\di x\ \ \ \ \ 
+    B=\int_0^1[f(x)]^2\di x\ \ \ \ \ 
+    C=\int_0^1xf(x)\di x\ \ \ \ \ 
+    D=\int_0^1f(x)\di x\]
+    由于$f(x)$在$[0,1]$上恒正,于是上述四个定积分都非负.我们有
+    \[\begin{aligned}
+        I
+        &= \iint_Df(x)f(y)y(f(x)-f(y))\di\sigma\\
+        &= \int_0^1\dx\int_0^1f(x)\left[f(x)yf(y)-y[f(y)]^2\right]\di y \\
+        &= \int_0^1\left([f(x)]^2C-f(x)A\right)\di\sigma \\
+        &= BC-AD\\
+        &\geqslant0
+    \end{aligned}\]
+    移项即可得$\dfrac{A}{B}\leqslant\dfrac{C}{D}$,即
+    \[\dfrac{\displaystyle\int_0^1x[f(x)]^2\di x}{\displaystyle\int_0^1xf(x)\di x}\leqslant\dfrac{\displaystyle\int_0^1[f(x)]^2\di x}{\displaystyle\int_0^1f(x)\dx}\]
+    于是命题得证.
+\end{proof}
+\end{document}
