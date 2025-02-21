@@ -47,4 +47,72 @@
         &= \dfrac{8\pi}{3}
     \end{aligned}\]
 \end{solution}
+\begin{problem}[L.3.3]
+    设$n\in\N^*$,记$n$维空间单位球$\displaystyle\sum_{k=1}^{n}x_k^2\leqslant1$的体积为$\alpha(n)$.计算$\alpha(4)$,并写出序列$\alpha(n)$的递推表达式.
+\end{problem}
+\begin{solution}
+    当$n\geqslant 2$时,设各维度的变量为$\li x,n$,积分区域为$\Omega_n=\left\{(\li x,n):\displaystyle\sum_{k=1}^{n}x_k^2\leqslant1\right\}$.我们有
+    \[\alpha(n)
+    = {\underbrace{\int\cdots\int_{\Omega_n}}_{n\text{重积分}}}\di V_n 
+    = \int_{-1}^1\di x_n{\underbrace{\int\cdots\int_{D_{x_n}}}_{(n-1)\text{重积分}}}\di V_{n-1}\]
+    其中$D_{x_n}=\left\{(\li x,{n-1}):\displaystyle\sum_{k=1}^{n-1}x_k^2\leqslant 1-x_n^2\right\}$,这是$n-1$维空间上半径为$\sqrt{1-x_n^2}$的球.\\
+    做变换$u_k=\sqrt{1-x_n^2}$其中$k=1,\cdots,n-1$,变换后的积分区域即为$\Omega_{n-1}$.\\
+    这一变换的Jacobi行列式$|J|=\left(\sqrt{1-x_n^2}\right)^n$,于是
+    \[{\underbrace{\int\cdots\int_{D_{x_n}}}_{(n-1)\text{重积分}}}\di V_{n-1}
+    ={\underbrace{\int\cdots\int_{\Omega_{n-1}}}_{(n-1)\text{重积分}}}|J|\di V_{n-1}
+    =\alpha(n-1)\left(1-x_n^2\right)^{\frac {n-1}2}\]
+    于是
+    \[\begin{aligned}
+        \alpha(n)
+        &= \alpha(n-1)\int_{-1}^1\left(1-x_n^2\right)^{\frac{n-1}{2}}\di x_n \\
+        &\xlongequal{t=\arcsin x_n}\alpha(n-1)\int_{-\frac\pi2}^{\frac\pi2}\cos^nt\di t \\
+    \end{aligned}\]
+    最后的积分我们已经在上学期推导过,故此给出结论
+    \[\alpha(n)=\left\{\begin{array}{l}
+        \dfrac{2(n-1)!!}{n!!}\alpha(n-1),n\text{为奇数}\\
+        \dfrac{\pi(n-1)!!}{n!!}\alpha(n-1),n\text{为偶数}\\
+    \end{array}\right.\]
+    据此亦可推出$\alpha(4)=\dfrac{3\pi}{8}\alpha(3)=\dfrac{\pi^2}{2}$.
+\end{solution}
+\begin{problem}[L.3.4]
+    设$\Omega=\{(x,y,z)|0\leqslant x+y-z\leqslant1,0\leqslant y+z-x\leqslant1,0\leqslant x+z-y\leqslant 1\}$是六个平面围成的区域.求重积分%
+    $\displaystyle\iiint_{\Omega}(x+y-z)(y+z-x)(x+z-y)\di V$.
+\end{problem}
+\begin{solution}
+    做变换$u=x+y-z,v=y+z-x,w=x+z-y$,则变换后的积分区域为$\Omega'=\{(u,v,w)|0\leqslant u,v,w\leqslant 1\}$.\\
+    该变换的逆变换为$x=\dfrac{u+w}{2},y=\dfrac{u+v}{2},z=\dfrac{v+w}{2}$,其Jacobi行列式为
+    \[|J|=\begin{vmatrix}
+        \frac12&0&\frac12\\\frac12&\frac12&0\\0&\frac12&\frac12
+    \end{vmatrix}=\dfrac14\]
+    于是
+    \[\iiint_{\Omega}(x+y-z)(y+z-x)(x+z-y)\di V=\iiint_{\Omega'}|J|uvw\di V=\dfrac14\cdot\left(\dfrac12\right)^3=\dfrac{1}{32}\]
+\end{solution}
+\begin{problem}[L.3.5]
+    设参数$a,b,c>0$,求曲面$\left(\dfrac xa+\dfrac yb\right)^2+\left(\dfrac zc\right)^2=1$围成的空间图形的体积.
+\end{problem}
+\begin{solution}
+    这是一道错题,因为题目中的曲面不封闭.
+\end{solution}
+\begin{problem}[L.3.6]
+    求$\displaystyle I=\iiint_{\Omega}(x+y+z)^2\di V$,其中$\Omega$为$x^2+y^2\leqslant 2z$和$x^2+y^2+z^2\leqslant3$围成的区域.
+\end{problem}
+\begin{solution}
+    我们有
+    \[I=\iiint_{\Omega}(x+y+z)^2\di V=\iiint_{\Omega}\left(x^2+y^2+z^2+2xy+2yz+2xz\right)\di V\]
+    注意到积分区域关于$x$轴和$y$轴对称,于是$xz,yz,xy$三项的积分值为$0$.\\
+    做柱坐标变换,变换后的积分区域为$\Omega'=\left\{(r,\theta,z)|0\leqslant r\leqslant\sqrt2,0\leqslant\theta\leqslant2\pi,\dfrac{r^2}{2}\leqslant z\leqslant\sqrt{3-r^2}\right\}$.于是
+    \[\begin{aligned}
+        I
+        &= \iiint_{\Omega}(x^2+y^2+z^2)\di V \\
+        &= \iiint_{\Omega'}r(r^2+z^2)\di r\di\theta\di z \\
+        &= \int_0^{2\pi}\di\theta\int_0^{\sqrt2}\di r\int_{\frac{r^2}{2}}^{\sqrt{3-r^2}}r^3+rz^2\di z \\
+        &= 2\pi\int_0^{\sqrt{2}}\left[\left(\dfrac23r^2+1\right)r\sqrt{3-r^2}-\dfrac{r^5}{2}-\dfrac{r^7}{24}\right]\di r \\
+    \end{aligned}\]
+    我们有
+    \[\int_0^{\sqrt{2}}\left(\dfrac{r^5}{2}+\dfrac{r^7}{24}\right)\di r=\left.\left(\dfrac{r^6}{12}+\dfrac{r^8}{192}\right)\right|_0^{\sqrt2}=\dfrac34\]
+    \[\int_0^{\sqrt2}r\sqrt{3-r^2}\di r\xlongequal{u=r^2}\dfrac12\int_0^2\sqrt{3-u}\di u=\sqrt3-\dfrac13\]
+    \[\int_0^{\sqrt2}\dfrac23r^3\sqrt{3-r^2}\di r\xlongequal{t=\sqrt{3-x^2}}\dfrac23\int_1^{\sqrt3}t^2\left(3-t^2\right)\di t=\dfrac{12\sqrt3-8}{15}\]
+    于是
+    \[I=2\pi\left(\dfrac{12\sqrt3-8}{15}+\sqrt3-\dfrac13-\dfrac34\right)=2\pi\left(\dfrac{9\sqrt3}{5}-\dfrac{97}{60}\right)=\dfrac{\left(108\sqrt3-97\right)\pi}{30}\]
+\end{solution}
 \end{document}
