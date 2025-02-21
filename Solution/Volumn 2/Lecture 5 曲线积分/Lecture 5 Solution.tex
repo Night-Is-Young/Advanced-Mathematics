@@ -1,0 +1,198 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{solution}
+\usepackage{extarrows}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}
+    \large\tbf{Lecture 5 Curvilinear integral(曲线积分)}
+\end{center}
+\begin{problem}[L.5.1]
+    设$L$为椭圆$\Gamma:\dfrac{x^2}{16}+\dfrac{y^2}{9}=1$的逆时针方向,求曲线积分$I=\displaystyle\oint_{L}\dfrac{x\di y-y\di x}{x^2+y^2}$.
+\end{problem}
+\begin{solution}
+    \tbf{Method I.}\\
+    做代换$x=4\cos\theta,y=3\sin\theta$,则$L$对应$\theta$从$0$变化至$2\pi$.\\
+    我们有$\di x=-4\sin\theta\di\theta,\di y=3\cos\theta\di\theta$,于是
+    \[\begin{aligned}
+        I=\oint_{L}\dfrac{x\di y-y\di x}{x^2+y^2}
+        &= \int_0^{2\pi}\dfrac{12\cos^2\theta+12\sin^2\theta}{16\cos^2\theta+9\sin^2\theta}\di\theta \\
+        &\xlongequal{t=\tan\theta}4\int_0^{+\infty}\dfrac{12\di t}{16+9t^2} \\
+        &= 4\left.\left(\arctan\left(\dfrac{3}{4}t\right)\right)\right|_0^{+\infty} \\
+        &= 2\pi
+    \end{aligned}\]
+    \tbf{Method II.}\\
+    令$P(x,y)=\dfrac{-y}{x^2+y^2},Q(x,y)=\dfrac{x}{x^2+y^2}$.于是
+    \[\dfrac{\p Q}{\p x}=\dfrac{y^2-x^2}{\left(x^2+y^2\right)^2}\ \ \ \ \ \dfrac{\p P}{\p y}=\dfrac{y^2-x^2}{\left(x^2+y^2\right)^2}\]
+    考虑区域$D=\left\{(x,y):\dfrac{x^2}{16}+\dfrac{y^2}{9}\leqslant1\right\}$和区域$E=\left\{(x,y):x^2+y^2\leqslant\ep^2\right\}$,其中$0<\ep<3$.\\
+    显然$E\subset D$,从而在$D\backslash E$上$P,Q$有连续的一阶偏导数.设$E$的边界为$M$,则根据格林公式有
+    \[\oint_{L}P\di x+Q\di y+\oint_{M^{-}}P\di x+Q\di y=\iint_{D\backslash E}\left(\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)\di\sigma=0\]
+    对$E$的边界$M$做代换$x=\ep\cos t,y=\ep\sin t$,于是
+    \[\begin{aligned}
+        I=\oint_{L}P\di x+Q\di y
+        &= \oint_{M^+}P\di x+Q\di y \\
+        &= \int_0^{2\pi}\dfrac{\cos^2t+\sin^2t}{\cos^2t+\sin^2t}\di t \\
+        &= 2\pi
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[L.5.2]
+    求曲线积分$\displaystyle I=\int_L\dfrac{(x+y)\di x+(x-y)\di y}{3(x^2+y^2)}$,其中$L$是曲线$x^{\frac23}+y^{\frac23}=1$在$x$轴上方部分的逆时针方向.
+\end{problem}
+\begin{solution}
+    做代换$x=\cos^3t,y=\sin^3t$,则积分曲线$L$对应$t$从$0$变化至$\pi$.于是
+    \[\begin{aligned}
+        I
+        &= \int_L\dfrac{(x+y)\di x+(x-y)\di y}{3(x^2+y^2)} \\
+        &= \int_{0}^{\pi}\dfrac{-3\left(\cos^3 t+\sin^3 t\right)\cos^2t\sin t+3\left(\cos^3 t-\sin^3 t\right)\sin^2t\cos t}{3\left(\cos^6t+\sin^6t\right)}\di t \\
+        &= \int_0^\pi\dfrac{\sin^2t\cos^4t-\sin^4t\cos^2t-\sin^5t\cos t-\cos^5t\sin t}{\cos^6t+\sin^6t}\di t
+    \end{aligned}\]
+    注意到$\sin^2t\cos^4t,\sin^4t\cos^2t$关于直线$t=\dfrac\pi2$对称,而$\sin^5t\cos t,\cos^5t\sin t$关于点$\left(\dfrac\pi2,0\right)$中心对称,于是
+    \[\begin{aligned}
+        I
+        &= 2\int_0^{\frac\pi2}\dfrac{\sin^2t\cos^4t-\sin^4t\cos^2t}{\cos^6t+\sin^6t}\di t \\
+        &= 2\left(\int_0^{\frac\pi2}\dfrac{\sin^2t\cos^4t}{\sin^6t+\cos^6t}\di t-\int_{-\frac\pi2}^{0}\dfrac{\sin^2t\cos^4t}{\sin^6t+\cos^6t}\di t\right) \\
+        &= 0
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[L.5.3]
+    求曲线积分$I=\displaystyle\int_L\left(x^2y^3+x^3y^2\right)\di s$,其中$L$为单位圆.\\
+    \tbf{提示}:将第一型曲线积分化为第二型曲线积分,然后使用格林公式.
+\end{problem}
+\begin{solution}
+    \tbf{Method I.}\\
+    在单位圆$x^2+y^2=1$上有$x\di x+y\di y=0$且$\sqrt{(\di x)^2+(\di y)^2}=\di s$,于是$\di x=-y\di s,\di y=x\di s$.
+    \[\begin{aligned}
+        I
+        &= \int_L\left(x^2y^3+x^3y^2\right)\di s \\
+        &= \int_{L}-x^3y\di x+xy^3\di y \\
+        &= \iint_{x^2+y^2\leqslant 1}\left(x^3+y^3\right)\di\sigma \\
+        &= \int_0^{2\pi}\di\theta\int_{0}^{1}r^4\left(\sin^3\theta+\cos^3\theta\right)\di r \\
+        &= \dfrac15\int_0^{2\pi}\left(\sin^3\theta+\cos^3\theta\right)\di\theta \\
+        &= 0
+    \end{aligned}\]
+    \tbf{Method II.}
+    直接做代换$x=\cos\theta,y=\sin\theta$,则$\di s=\sqrt{\sin^2\theta+\cos^2\theta}\di\theta=\di\theta$.于是
+    \[\begin{aligned}
+        I=\int_0^{2\pi}\left(\sin^3\theta\cos^2\theta+\sin^2\theta\cos^3\theta\right)\di\theta
+    \end{aligned}\]
+    而$\sin^3\theta\cos^2\theta$关于$(\pi,0)$中心对称;$\sin^2\theta\cos^3\theta$关于$\theta=\pi$轴对称,关于$\left(\dfrac\pi2,0\right)$和$\left(\dfrac{3\pi}{2},0\right)$中心对称.\\
+    于是$I=0$.
+\end{solution}
+\begin{problem}[L.5.4]
+    回答下列问题.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 设曲线$C$的弧长为$L$,试证明
+            \[\left|\int_CP(x,y)\di x+Q(x,y)\di y\right|\leqslant ML\]
+            其中$\displaystyle M=\max_{(x,y)\in C}\sqrt{[P(x,y)]^2+[Q(x,y)]^2}$.
+        \item 试证明
+            \[\lim_{R\to+\infty}\oint_{x^2+y^2=R^2}\dfrac{y\di x-x\di y}{\left(x^2+xy+y^2\right)^2}=0\]
+            \tbf{注}:本问在讲义上为$R\to0$,实际上有误,应更正为$R\to+\infty$.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 设$C$在点$(x,y)$处沿积分路径的单位切向量为$\mbf n=(\cos\alpha,\cos\beta)$,则此处的弧微分满足
+            \[\dx=\cos\alpha\di s\ \ \ \ \ \di y=\cos\beta\di y\]
+            于是
+            \[\begin{aligned}
+                \left|\int_CP(x,y)\di x+Q(x,y)\di y\right|
+                &\leqslant \int_C|P(x,y)|\di x+|Q(x,y)|\di y \\
+                &= \int_C\left(|P(x,y)|\cos\alpha+|Q(x,y)|\cos\beta\right)\di s \\
+                &\leqslant\int_C\sqrt{[P(x,y)]^2+[Q(x,y)]^2}\sqrt{\cos^2\alpha+\cos^2\beta}\di s \\
+                &= \int_C\sqrt{[P(x,y)]^2+[Q(x,y)]^2}\di s \\
+                &\leqslant \int_CM\di s \\
+                &= ML
+            \end{aligned}\]
+            于是命题得证.
+        \item 令$P(x,y)=\dfrac{y}{\left(x^2+xy+y^2\right)^2},Q(x,y)=-\dfrac{x}{\left(x^2+xy+y^2\right)^2}$.于是
+            \[[P(x,y)]^2+[Q(x,y)]^2=\dfrac{x^2+y^2}{\left(x^2+xy+y^2\right)^4}=\dfrac{R^2}{\left(R^2+xy\right)^4}\leqslant\dfrac{16}{R^6}\]
+            在曲线$C:x^2+y^2=R^2$上运用\tbf{(1)}的结论有
+            \[0\leqslant\left|\oint_CP\di x+Q\di y\right|\leqslant 2\pi R\cdot\dfrac{4}{R^3}=\dfrac{8\pi}{R^2}\]
+            运用夹逼准则可得
+            \[\lim_{R\to+\infty}\oint_{x^2+y^2=R^2}\dfrac{y\di x-x\di y}{\left(x^2+xy+y^2\right)^2}=0\]
+    \end{enumerate}
+\end{proof}
+\begin{problem}[L.5.5]
+    设平面正方形区域$D=[0,\pi]\times[0,\pi]$,记$L$为$D$的正向边界.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 试证明
+            \[\oint_Lx\e^{\sin y}\di y-y\e^{-\sin x}\di x=\oint_Lx\e^{-\sin y}\di y-y\e^{\sin x}\di x\]
+        \item 试证明
+            \[\oint_Lx\e^{\sin y}\di y-y\e^{-\sin x}\di x\geqslant2\pi^2\]
+            \tbf{提示}:考虑重积分的对称性.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 根据格林公式和积分区域的对称性有
+            \[\begin{aligned}
+                \oint_Lx\e^{\sin y}\di y-y\e^{-\sin x}\di x
+                &= \iint_D\left(\e^{\sin y}+\e^{-\sin x}\right)\di\sigma \\
+                &= \int_0^\pi\di x\int_0^\pi\left(\e^{\sin y}+\e^{-\sin x}\right)\di y \\
+                &= \pi\int_0^{\pi}\left(\e^{\sin t}+\e^{-\sin t}\right)\di t \\
+                &= \int_0^\pi\di y\int_0^\pi\left(\e^{\sin x}+\e^{-\sin y}\right)\di x \\
+                &= \iint_D\left(\e^{\sin x}+\e^{-\sin y}\right)\di\sigma \\
+                &= \oint_Lx\e^{-\sin y}\di y-y\e^{\sin x}\di x
+            \end{aligned}\]
+            于是命题得证.
+        \item 我们有
+            \[\begin{aligned}
+                \oint_Lx\e^{\sin y}\di y-y\e^{-\sin x}\di x
+                &= \pi\int_0^{\pi}\left(\e^{\sin t}+\e^{-\sin t}\right)\di t \\
+                &\geqslant \pi\int_0^\pi2\sqrt{\e^{\sin t}\cdot\e^{-\sin t}}\di t \\
+                &= \pi\int_0^\pi2\di t\\
+                &= 2\pi^2
+            \end{aligned}\]
+            于是命题得证.
+    \end{enumerate}
+\end{proof}
+\begin{problem}[L.5.6]
+    设$D$是有界平面区域,其边界$L$分段光滑,定点$P_0(x_0,y_0)\notin L$.设$L$上一点$P(x,y)$,%
+    向量${\mbf n}_P$为$P$处$L$的外侧法向量.定义向量$\mbf r_P=\overrightarrow{P_0P}$,定义函数$f(x,y)$为
+    \[f(P)=\dfrac{\cos\left(\mbf r_P,\mbf n_P\right)}{|\mbf r_P|}\]
+    计算曲线积分$\displaystyle\oint_{L}f(x,y)\di s$.
+\end{problem}
+\begin{solution}
+    设$P$处沿$L$正方向的单位切向量为$(\cos\alpha,\cos\beta)$,那么$\mbf n_P=(\cos\beta,-\cos\alpha)$.于是我们有
+    \[\begin{aligned}
+        f(x,y)
+        &= \dfrac{\cos\left(\mbf r_P,\mbf n_P\right)}{\mbf r_P}=\dfrac{\mbf r_P\cdot\mbf n_P}{|\mbf r_P|^2|\mbf n_P|}\\
+        &= \dfrac{(x-x_0)\cos\beta-(y-y_0)\cos\alpha}{(x-x_0)^2+(y-y_0)^2}
+    \end{aligned}\]
+    于是
+    \[\begin{aligned}
+        \oint_{L}f(x,y)\di s
+        &= \oint_{L}\dfrac{(x-x_0)\cos\beta-(y-y_0)\cos\alpha}{(x-x_0)^2+(y-y_0)^2}\di s \\
+        &= \oint_{L^+}\dfrac{(x-x_0)\di y-(y-y_0)\di x}{(x-x_0)^2+(y-y_0)^2}
+    \end{aligned}\]
+    令$A(x,y)=\dfrac{-(y-y_0)}{(x-x_0)^2+(y-y_0)^2},B(x,y)=\dfrac{x-x_0}{(x-x_0)^2+(y-y_0)^2}$.于是我们有
+    \[\dfrac{\p A}{\p y}=-\dfrac{1}{(x-x_0)^2+(y-y_0)^2}+\dfrac{2(y-y_0)^2}{\left[(x-x_0)^2+(y-y_0)^2\right]^2}=\dfrac{(y-y_0)^2-(x-x_0)^2}{\left[(x-x_0)^2+(y-y_0)^2\right]^2}\]
+    同理可得
+    \[\dfrac{\p B}{\p x}=\dfrac{-(x-x_0)^2+(y-y_0)^2}{\left[(x-x_0)^2+(y-y_0)^2\right]^2}\]
+    若$P_0\notin D$,那么$A,B$在$D$上有连续的一阶偏导数,从而根据格林公式有
+    \[\oint_{L}f(x,y)\di s=\oint_{L^+}A\di x+B\di y=\iint_D\left(\dfrac{\p B}{\p x}-\dfrac{\p A}{\p y}\right)\di\sigma=0\]
+    若$P_0\in D$,那么考虑$P_0$的邻域$E=\{(x,y)|(x-x_0)^2+(y-y_0)^2\leqslant\ep^2\}$,其中$\ep>0$.令$\ep$充分小至$E\subset D$.\\
+    令$E$的边界为$L_E$,从而$A,B$在$D\backslash E$上有连续的一阶偏导数.我们有
+    \[0=\iint_{D\backslash E}\left(\dfrac{\p B}{\p x}-\dfrac{\p A}{\p y}\right)\di\sigma=\oint_{L^+}(A\di x+B\di y)+\oint_{{L_E}^-}(A\di x+B\di y)\]
+    做代换$x=\ep\cos\theta+x_0,y=\ep\sin\theta+y_0$,环路${L_E}^+$即$\theta$从$0$变化至$2\pi$的路径.于是
+    \[\begin{aligned}
+        \oint_{L^+}A\di x+B\di y
+        &= \oint_{{L_E}^+}A\di x+B\di y \\
+        &= \int_{0}^{2\pi}\left[\dfrac{-\ep\sin\theta}{\ep^2}\cdot(-\ep\sin\theta)+\dfrac{\ep\cos\theta}{\ep^2}\cdot\ep\cos\theta\right]\di\theta \\
+        &= \int_0^{2\pi}\di\theta=2\pi
+    \end{aligned}\]
+    于是所求积分为
+    \[\oint_{L}f(x,y)\di s=\left\{\begin{array}{l}
+        0,P_0\notin D\\2\pi,P\in D
+    \end{array}\right.\]
+\end{solution}
+\end{document}
