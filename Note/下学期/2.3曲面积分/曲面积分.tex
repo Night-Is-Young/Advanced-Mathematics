@@ -1,0 +1,76 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{yhmath}
+\usepackage{template}
+\usepackage{esint}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 曲面积分\end{center}
+\tbf{1.第一型曲面积分}\\
+与第一型曲线积分类似,我们在三维空间中可以定义第一型曲面积分.这里就略去我们如何得到该定义(这实际上与曲面积分是类似的).
+\begin{definition}[1.1 定义:第一型曲线积分]
+    设函数$f(x,y,z)$在分片光滑的曲面$S$上有定义.将$S$任意分成$n$个互不重叠的区域$\Delta S_i$($i=\li 1,n$,同时用其表示该部分的面积),%
+    令$\displaystyle\lambda=\max_{1\leqslant i\leqslant n}\{\Delta S_i\text{的直径}\}$.在$\Delta S_i$上任取一点$\left(\xi_i,\eta_i,\zeta_i\right)$.若极限
+    \[\lim_{\lambda\to0}\sum_{i=1}^{n}f(\xi_i,\eta_i,\zeta_i)\Delta S_i\]
+    对于曲面$S$的任意分割方法和各中间点的任意取法都存在,则称此极限为$f(x,y,z)$在$S$上的\tbf{第一型曲线积分},记作
+    \[\iint_{S}f(x,y,z)\di S\]
+    其中$S$被称为\tbf{积分曲面}.如果$S$是封闭曲面,那么习惯上也记作
+    \[\oiint_{S}f(x,y,z)\di S\]
+\end{definition}\noindent
+我们指出,当$S$分片光滑且$f(x,y,z)$在$S$上连续时,$f(x,y,z)$在$S$上的第一型曲面积分存在.\\
+第一型曲面积分的可加性在此不再赘述,它也与曲面的取向没有关系,是无方向性的.\\
+我们现在来讨论第一型曲面积分的计算.总的来说,我们有如下定理.
+\begin{formal}[1.2 第一型曲面积分的计算]
+    我们按曲面的解析式分为如下两类.
+    \begin{enumerate}[label=\tbf{\alph*.}]
+        \item 设曲面$S$由方程$z=g(x,y)$(其中$(x,y)\in D$)给出,且$g(x,y)$在$D$上连续可微,那么
+            \[\iint_Sf(x,y,z)\di S=\iint_Df(x,y,g(x,y))\sqrt{1+g_x^2+g_y^2}\di\sigma\]
+        \item 设曲面$S$由参数方程
+            \[\left\{\begin{array}{l}
+                x=x(u,v)\\y=y(u,v)\\z=z(u,v)
+            \end{array}\right.\ \ \ \ \ (u,v)\in D\]
+            确定.由重积分的应用一章可知$\di S=\sqrt{EG-F^2}\di u\di v$,其中
+            \[
+                E=x_u^2+y_u^2+z_u^2\ \ \ \ \ 
+                F=x_ux_v+y_uy_v+z_uz_v\ \ \ \ \ 
+                G=x_v^2+y_v^2+z_v^2
+            \]
+            则有如下计算公式
+            \[\iint_Sf(x,y,z)\di S=\iint_Df(x(u,v),y(u,v),z(u,v))\sqrt{EG-F^2}\di u\di v\]
+    \end{enumerate}
+\end{formal}\noindent
+总的来说,考虑对应情形下的面积微元即可得到相应的计算公式.\\
+\tbf{2.第二型曲面积分}\\
+我们首先定义曲线的面.
+\begin{definition}[2.1 定义:双侧曲面与单侧曲面]
+    考虑一个光滑的正则曲面$S$,在其上任取一点$P$,那么$S$在$P$处的法向量应有两个相反的指向.%
+    任意取定一个方向后记该法向量为$\mbf n_P$,如果不论$P$在$S$上如何移动(只要不跨越$S$的边界),%
+    当$P$返回其起始点时$\mbf n_P$的指向没有改变,就称该曲面$S$为\tbf{双侧曲面}.\\
+    如果$S$不具有上面的性质,则称其为\tbf{单侧曲面}.
+\end{definition}\noindent
+和前面的第一型曲面积分类似,第二型曲面积分和第二型曲线积分也有很多类似之处.我们不加说明地给出第二型曲面积分的定义.
+\begin{definition}[2.2 定义:第二型曲面积分]
+    设$S$是一个分片光滑的双侧曲面,在$S$上选定一侧并记该侧在点$(x,y,z)\in S$处的单位法向量为$\mbf n(x,y,z)$.%
+    设向量函数$\mbf F(x,y,z)$在$S$上有定义.将$S$任意分成$n$个互不重叠的区域$\Delta S_i$($i=\li 1,n$,同时用其表示该部分的面积),%
+    令$\displaystyle\lambda=\max_{1\leqslant i\leqslant n}\{\Delta S_i\text{的直径}\}$.在$\Delta S_i$上任取一点$\left(\xi_i,\eta_i,\zeta_i\right)$.若极限
+    \[\lim_{\lambda\to0}\sum_{i=1}^n\mbf F(\xi_i,\eta_i,\zeta_i)\cdot\mbf n(\xi_i,\eta_i,\zeta_i)\Delta S_i\]
+    对于曲面$S$的任意分割方法和各中间点的任意取法都存在,则称此极限为$\mbf F(x,y,z)$在$S$上的\tbf{第二型曲线积分},记作
+    \[\iint_{S}\mbf F(x,y,z)\cdot\mbf n(x,y,z)\di S\ \ \ \ \ \text{或}\ \ \ \ \ \iint_{S}\mbf F(x,y,z)\di\mbf S\]
+\end{definition}\noindent
+第二型曲面积分也可以写为第一型曲线积分的形式.设$\mbf F(x,y,z)=\left(P(x,y,z),Q(x,y,z),R(x,y,z)\right)$,%
+法向量$\mbf n$的方向余弦为$\cos\alpha,\cos\beta,\cos\gamma$,则有
+\[\iint_{S}\mbf F\di\mbf S=\iint_{S}\left(P\cos\alpha+Q\cos\beta+R\cos\gamma\right)\di S\]
+在考虑方向余弦具有的正负性后,我们也可以得到
+\[\iint_S\mbf F\di\mbf S=\iint_SP\di x\di y+Q\di z\di x+R\di x\di y\]
+上式中的$\di x\di y$等微元并不一定为正(这需要与二重积分做区别),而取决于方向余弦的正负(即法向量的指向).\\
+第二型曲线积分的计算,就可以利用上面的转化将其写为第一型曲面积分后进行计算,在此就不再多叙.
+\end{document}
