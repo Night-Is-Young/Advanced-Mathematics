@@ -1,0 +1,47 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{yhmath,esint}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 高斯公式与斯托克斯公式\end{center}
+本节所讲的两个公式,在一定意义上讲都是格林公式的推广.%
+格林公式建立了平面上沿着闭合回路的第二型曲线积分和的回路所围的平面区域上的二重积分之间的联系;%
+高斯公式建立了在封闭曲面上的第二型曲面积分和曲面所围空间区域上的三重积分之间的联系;%
+斯托克斯公式将格林公式推广至空间,将平面中的二重积分推广为在以该空间曲线为边界的曲面上的积分.\\
+\tbf{1.高斯公式}
+\begin{formal}[1.1 高斯公式]
+    设空间区域$\Omega$的边界是分片光滑的封闭曲面$S$,函数$P(x,y,z),Q(x,y,z),R(x,y,z)$在$\Omega\cup S$上有连续的一阶偏导数,则有
+    \[\oiint_{S^+}P\di y\di z+Q\di z\dx+R\dx_\di y=\iiint_{\Omega}\left(\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}+\dfrac{\p R}{\p z}\right)\di V\]
+    其中$S^+$为边界曲线的外侧.\\
+    定义$\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}+\dfrac{\p R}{\p z}$为向量函数$\mbf F(x,y,z)=\left(P(x,y,z),Q(x,y,z),R(x,y,z)\right)$的散度,%
+    记作$\text{div}\mbf F$,于是上述公式即为
+    \[\oiint_{S^+}\mbf F\cdot\mbf n\di S=\iiint_{\Omega}\text{div}\mbf F\di V\]
+\end{formal}\noindent
+证明略.\\
+\tbf{2.斯托克斯公式}
+\begin{formal}[2.1 斯托克斯公式]
+    设$S$为分片光滑的双侧曲面,其边界$L$是分段光滑的闭曲线.%
+    假定在$S$上取定一侧的单位法向量为$\mbf n$,再规定$L$的定向使得$L$的定向与$\mbf n$构成右手系.%
+    记$S^+$和$L^+$分别为上述定向后的$S$和$L$.若函数$P(x,y,z),Q(x,y,z),R(x,y,z)$在$S+L$上有连续的一阶偏导数,则有
+    \[\oint_{L^+}P\dx+Q\di y+R\di z=\iint_{S^+}\left(\dfrac{\p R}{\p y}-\dfrac{\p Q}{\p z}\right)\di y\di z+\left(\dfrac{\p P}{\p z}-\dfrac{\p R}{\p x}\right)\di z\di x+\left(\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)\dx\di y\]
+    定义$\left(\dfrac{\p R}{\p y}-\dfrac{\p Q}{\p z},\dfrac{\p P}{\p z}-\dfrac{\p R}{\p x},\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)$为向量函数$\mbf F$的旋度,记为$\text{rot}\mbf F$,则有
+    \[\oint_{L^+}P\dx+Q\di y+R\di z=\iint_{S^+}\text{rot}\mbf F\cdot\di \mbf S\]
+    为了方便记忆,我们也可以写成
+    \[\oint_{L^+}P\dx+Q\di y+R\di z=\iint_{S^+}\begin{vmatrix}
+        \di y\di z&\di z\di x&\di x\di y\\
+        \dfrac{\p}{\p x}&\dfrac{\p}{\p y}&\dfrac{\p}{\p z}\\
+        P&Q&R
+    \end{vmatrix}\]
+    形式地展开右侧的行列式即可.
+\end{formal}
+\end{document}
