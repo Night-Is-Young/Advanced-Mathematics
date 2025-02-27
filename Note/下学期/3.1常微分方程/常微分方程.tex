@@ -1,0 +1,38 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 常微分方程\end{center}
+\tbf{1.基本概念}
+\begin{definition}[1.1 定义:常微分方程]
+    一般来说,一个联系自变量$x$,未知的一元函数$y=y(x)$及其导数$y^{(j)}(x)(0<j\leqslant n)$的方程
+    \[F\left(x,y,y',\cdots,y^{(n)}\right)=0\]
+    称为一个$n$\tbf{阶常微分方程}.\\
+    如果区间$(a,b)$上存在一个函数$y=y(x)$,它有$n$阶导数且满足
+    \[F\left(x,y,y',\cdots,y^{(n)}\right)\equiv0,\forall x\in(a,b)\]
+    那么称$y=y(x)$是该常微分方程在$(a,b)$上的一个\tbf{解}.
+\end{definition}
+\begin{definition}[1.2 定义:通解与特解]
+    若$n$阶常微分方程$F\left(x,y,y',\cdots,y^{(n)}\right)=0$有解
+    \[y=\varphi\left(x;\li C,n\right)\]
+    其中$\li C,n$是独立的常数,那么我们称上面的函数为该方程的\tbf{通解}.\\
+    反之,上述方程的任意一个不包含任意常数的解都被称作方程的\tbf{特解}.
+\end{definition}\noindent
+需要注意的是,通解中的独立常数的数目恰好等于方程的阶数.\\
+我们所说的独立,浅显的理解是每个常数都是不可替代的.更精确的说法是:如果$\varphi\left(x;\li C,n\right)$中的$n$个常数是独立的,那么
+\[\dfrac{\text{D}\left(\varphi,\varphi',\cdots,\varphi^{(n-1)}\right)}{\text{D}\left(\li C,n\right)}\neq0,\forall x\in (a,b)\]
+虽然通解包含了大部分特解,但是仍有一些特解是不被包含于其中的.
+\begin{definition}[1.3 定义:通积分]
+    有时,微分方程的解并不能写成显式的形式,而是用隐函数$\Phi\left(x,y;\li C,n\right)=0$给出.这时我们把该隐函数称作微分方程的\tbf{通积分}.
+\end{definition}
+\end{document}
