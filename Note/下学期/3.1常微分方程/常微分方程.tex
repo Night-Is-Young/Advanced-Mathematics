@@ -7,7 +7,7 @@
 \usepackage{enumitem}
 \usepackage{template}
 
-\allowdisplaybreaks
+\allowdisplaybreaks[4]
 \geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 
 \begin{document}
@@ -37,56 +37,148 @@
 \end{definition}\noindent
 \tbf{2.初等积分法}\\
 对于一系列的具有一定特殊结构的微分方程都是可以通过初等积分法来解决的.下面我们介绍这些方法.
-\begin{theorem}[2.1 变量分离的方程]
+\begin{definition}[2.1 变量分离的方程]
     形如
     \[\dfrac{\di y}{\dx}=f(x)\cdot g(y)\]
-    的方程被称为\tbf{变量分离的方程}.\\
-    变量分离的方程的通常解法为移项,使其成为
-    \[\dfrac{\di y}{g(y)}=f(x)\di x\]
-    然后在上式两边求积分,即可得到
-    \[\int\dfrac{1}{g(y)}\di y=\int{f(x)\di x}\]
-    上式两端分别是关于$y$和$x$的函数.求解此函数方程即可得到微分方程的解.
+    的方程被称为\tbf{变量分离的方程}.
+\end{definition}
+变量分离的方程的通常解法为移项,使其成为
+\[\dfrac{\di y}{g(y)}=f(x)\di x\]
+然后在上式两边求积分,即可得到
+\[\int\dfrac{1}{g(y)}\di y=\int{f(x)\di x}\]
+上式两端分别是关于$y$和$x$的函数.求解此函数方程即可得到微分方程的解.
+有些方程可以通过适当的代换将其转化为变量分离的方程.
+\begin{enumerate}[label=\tbf{\arabic*.}]
+    \item 形如
+        \[\dfrac{\di y}{\di x}=f\left(ax+by+c\right)\]
+        的方程,其中$a,b,c$为常数.我们做代换$z=ax+by+cz$,即可得到
+        \[\dfrac{\di z}{\di x}=a+bf(z)\]
+        这是一个变量分离的方程,按正常方法求解即可.
+    \item 形如
+        \[\dfrac{\di y}{\dx}=f(x,y)\]
+        的方程,其中$f(x,y)$是关于$x,y$的齐次函数(我们略去齐次函数的严格定义).\\
+        做代换$u=\dfrac yx$,并令$h(u)=f(x,y)$,则有
+        \[\dfrac{\di u}{\dx}=\dfrac{h(u)-u}{x}\]
+        这是一个变量分离的方程,按正常方法求解即可.
+    \item 形如
+        \[\dfrac{\di y}{\di x}=f\left(\dfrac{a_1x+b_1y+c_1}{a_2x+b_2y+c_2}\right)\]
+        的方程(其中各$a,b,c$均为常数).我们再分情况讨论.
+        \begin{enumerate}[label=\tbf{\alph*.}]
+            \item $c_1=c_2=0$,则上述微分方程即\tbf{2.}所述的齐次方程.
+            \item $\Delta=\begin{vmatrix}
+                    a_1&b_1\\a_2&b_2
+                \end{vmatrix}\neq0$.则方程组
+                \[\left\{\begin{array}{l}
+                    a_1x+b_1y+c_1=0\\a_2x+b_2y+c_2=0
+                \end{array}\right.\]
+                \newpage 有唯一解,记此解为$\left(x_0,y_0\right)$.做代换$u=x-x_0,v=y-y_0$,则上述微分方程即
+                \[\dfrac{\di v}{\di u}=f\left(\dfrac{a_1u+b_1v}{a_2u+b_2v}\right)\]
+                这也是一个齐次方程,将其解出后回代即可.
+            \item $\Delta=0$.则\tbf{b.}所示的方程组无解或有无数组解.我们再分情况讨论.
+                \begin{enumerate}[label=\tbf{\roman*.}]
+                    \item 当$a_1\cdot b_1\neq0$时,存在常数$k$使得$\left(a_2,b_2\right)=k\left(a_1,b_1\right)$.令$z=a_1x+b_1y$,则有
+                        \[\dfrac{\di z}{\di x}=a_1+b_1\dfrac{\di y}{\di x}=a_1+b_1f\left(\dfrac{z+c_1}{kz+c_2}\right)\]
+                        这也是一个齐次方程.
+                    \item 当$a_1\neq b_1=0$时,可知$b_2=0$.这时方程即为
+                        \[\dfrac{\di y}{\di x}=f\left(\dfrac{a_1x+c_1}{a_2x+c_2}\right)\]
+                        这是一个变量分离的方程.\\
+                        当$b_1\neq a_1=0$时亦可采用相似的方法处理.
+                    \item 当$a_1=b_1=0$时,上述方程即与\tbf{2.}相同.
+                \end{enumerate}
+        \end{enumerate}
+\end{enumerate}
+\begin{theorem}[2.3 一阶线性微分方程]
+    形如
+    \[\dfrac{\di y}{\di x}+P(x)y=Q(x)\]
+    的方程称为\tbf{一阶线性微分方程}.它关于未知函数$y$与其导函数$\dfrac{\d y}{\d x}$都是线性的.
 \end{theorem}
-\begin{theorem}[2.2 可化为变量分离的方程的几类方程]
-    有些方程可以通过适当的代换将其转化为变量分离的方程.
-    \begin{enumerate}[label=\tbf{\arabic*.}]
-        \item 形如
-            \[\dfrac{\di y}{\di x}=f\left(ax+by+c\right)\]
-            的方程,其中$a,b,c$为常数.我们做代换$z=ax+by+cz$,即可得到
-            \[\dfrac{\di z}{\di x}=a+bf(z)\]
-            这是一个变量分离的方程,按正常方法求解即可.
-        \item 形如
-            \[\dfrac{\di y}{\dx}=f(x,y)\]
-            的方程,其中$f(x,y)$是关于$x,y$的齐次函数(我们略去齐次函数的严格定义).\\
-            做代换$u=\dfrac yx$,并令$h(u)=f(x,y)$,则有
-            \[\dfrac{\di u}{\dx}=\dfrac{h(u)-u}{x}\]
-            这是一个变量分离的方程,按正常方法求解即可.
-        \item 形如
-            \[\dfrac{\di y}{\di x}=f\left(\dfrac{a_1x+b_1y+c_1}{a_2x+b_2y+c_2}\right)\]
-            的方程(其中各$a,b,c$均为常数).我们再分情况讨论.
-            \begin{enumerate}[label=\tbf{\alph*.}]
-                \item $c_1=c_2=0$,则上述微分方程即\tbf{2.}所述的齐次方程.
-                \item $\Delta=\begin{vmatrix}
-                        a_1&b_1\\a_2&b_2
-                    \end{vmatrix}\neq0$.则方程组
-                    \[\left\{\begin{array}{l}
-                        a_1x+b_1y+c_1=0\\a_2x+b_2y+c_2=0
-                    \end{array}\right.\]
-                    有唯一解,记此解为$\left(x_0,y_0\right)$.做代换$u=x-x_0,v=y-y_0$,则上述微分方程即
-                    \[\dfrac{\di v}{\di u}=f\left(\dfrac{a_1u+b_1v}{a_2u+b_2v}\right)\]
-                    这也是一个齐次方程,将其解出后回代即可.
-                \item $\Delta=0$.则\tbf{b.}所示的方程组无解或有无数组解.我们再分情况讨论.
-                    \begin{enumerate}[label=\tbf{\roman*.}]
-                        \item 当$a_1\cdot b_1\neq0$时,存在常数$k$使得$\left(a_2,b_2\right)=k\left(a_1,b_1\right)$.令$z=a_1x+b_1y$,则有
-                            \[\dfrac{\di z}{\di x}=a_1+b_1\dfrac{\di y}{\di x}=a_1+b_1f\left(\dfrac{z+c_1}{kz+c_2}\right)\]
-                            这也是一个齐次方程.
-                        \item 当$a_1\neq b_1=0$时,可知$b_2=0$.这时方程即为
-                            \[\dfrac{\di y}{\di x}=f\left(\dfrac{a_1x+c_1}{a_2x+c_2}\right)\]
-                            这是一个变量分离的方程.\\
-                            当$b_1\neq a_1=0$时亦可采用相似的方法处理.
-                        \item 当$a_1=b_1=0$时,上述方程即与\tbf{2.}相同.
-                    \end{enumerate}
-            \end{enumerate}
-    \end{enumerate}
-\end{theorem}
+下面来介绍一阶线性微分方程的解法.\\
+如果$Q(x)\equiv0$,那么我们称该方程为\tbf{线性齐次微分方程}.简单的分离变量法即可得到该方程的通解
+\[y=C\e^{-\int_{x_0}^{x}P(t)\d t},x\in(a,b)\]
+其中$x_0$是$(a,b)$上任意取定的一点,$C$为任意常数.容易证明该方程的解都具有上面的形式,即没有特解.\\
+如果$Q(x)\not\equiv0$,那么我们称该方程为\tbf{线性非齐次方程}.线性非齐次方程通常采用常数变易法求解.\\
+先求得$Q(x)=0$时对应的微分方程的解:$y=C\e^{-\int{P(x)\di x}}$.\\
+将原微分方程改写为$\dfrac{\di y}{y}=\left(-P(x)+\dfrac{Q(x)}{y}\right)\di x$.\\
+两边积分得到$\ln{y}=-\int{P(x)\di x}+\int{\dfrac{Q(x)}{y}\di x}+\ln{C_1}$.\\
+即$y=C_1\e^{-\int{P(x)\di x}}\cdot\e^{\int{\frac{Q(x)}{y}\di x}}$.\\
+我们不妨再假定$C_1\e^{\int{\frac{Q(x)}{y}\di x}}\equiv C(x)$,从而$y=C(x)\e^{-\int{P(x)\di x}}$.\\
+因此,可以得出$\dfrac{\di y}{\di x}=\dfrac{\di C(x)}{\di x}e^{-\int{P(x)\di x}}-C(x)P(x)e^{-\int{P(x)\di x}}$.\\
+将上式代入原微分方程后有$\dfrac{\di C(x)}{\di x}e^{-\int{P(x)\di x}}-C(x)P(x)e^{-\int{P(x)\di x}}+P(x)C(x)e^{-\int{P(x)\di x}}=Q(x)$.\\
+即$\dfrac{\di C(x)}{\di x}e^{-\int{P(x)\di x}}=Q(x)$,移项可得$\dfrac{\di C(x)}{\di x}=Q(x)e^{\int{P(x)\di x}}$.\\
+对上式两边积分有$C(x)=\int{Q(x)e^{\int{P(x)\di x}}\di x}+C$.\\
+最终代回原式有:
+$$\begin{aligned}
+    y &= \e^{-\int{P(x)\di x}}\left(\int{Q(x)e^{\int{P(x)\di x}}\di x}+C\right) \\
+      &= C\e^{-\int{P(x)\di x}}+\e^{-\int{P(x)\di x}}\int{Q(x)e^{\int{P(x)\di x}}\di x}
+\end{aligned}$$
+\begin{analyze}[关于常数变易法的说明]
+    从上面的式子可以看出,一阶非齐次线性微分方程的通解包含两部分:
+    一部分为对应的线性齐次方程的通解,另一部分为该线性非齐次微分方程的特解.
+    因此,一阶线性非齐次方程的通解等于对应的线性齐次方程的通解与线性非齐次方程的一个特解之和．\\
+    我们所说的常数变易法其实就是将齐次方程中的积分常数$C$替换成待定的函数$C(x)$,随后通过回代的方式进行求解的过程.\\
+    而你可能看着这个方法陷入了长久的疑惑:为什么我想不出来这么精妙的方法呢?\\
+    \colorbox{lightgray}{“我们所用的仅是他的结论,并无过程.”——来自百度百科“常数变易法”词条.}\\
+    事实上,我们要从解微分方程的基本思想开始讲起.\\
+    我们知道,解微分方程最基本的思想就是分离变量——只要将两个变量分别放在方程两端,
+    就可以根据我们所学的积分知识对两边进行积分,也就得出了两个变量的关系.
+    这个办法在解决上面提到的齐次方程是十分有用的.\\
+    因此,我们解决非齐次方程$\dfrac{\di y}{\di x}+P(x)y=Q(x)$时也需要坚持相同的思想——还是分离变量.\\
+    直接分离肯定是宣告失败的.我们需要一点点转换的思想.比如令$y=u\cdot x$,其中$u$是关于$x$的函数.\\
+    将$\dfrac{\di y}{\di x}=u+\dfrac{\di u}{\di x}$代回原微分方程中有$u+\dfrac{\di u}{\di x}+u\cdot x\cdot P(x)=Q(x)$.\\
+    我们发现上述式子仍然无法将$u$和$x$分离.这个尝试失败了.不过我们仍然也许获得了一点启示:想要让变量能分离,只需要让不好分离的那一项是0就可以了.
+    于是数学家们一直在寻找一个合适的代换方法使得分离变量成功.
+    最后,伟大的Lagrange找到了一个异常简单的代换:$y=u\cdot v$,其中$u,v$均为关于$x$的函数.\\
+    我们将$\dfrac{\di y}{\di x}=u\dfrac{\di v}{\di x}+v\dfrac{\di u}{\di x}$代入原微分方程,可以得到:
+    $u\dfrac{\di v}{\di x}+v\dfrac{\di u}{\di x}+u\cdot v\cdot P(x)=Q(x)$.\\
+    即$v\dfrac{\di u}{\di x}+u\left(\dfrac{\di v}{\di x}+ v\cdot P(x)\right)=Q(x)$.\\
+    既然不好分离变量,我们就干脆让$\dfrac{\di v}{\di x}+ v\cdot P(x)=0$就好了.
+    这时你会惊奇地发现这就是一个一阶齐次线性微分方程,它的解是$v=C_1\e^{-\int{P(x)\di x}}$.\\
+    然后我们代回上述式子中,自然便可以得到$\dfrac{\di u}{\di x}=\dfrac{Q(x)}{v}=\dfrac{Q(x)\e^{\int{P(x)\di x}}}{C_1}$.\\
+    至此,你会惊奇的发现(好吧算不上多惊奇)我们成功完成了分离变量的工作.
+    只需要把上述式子两边积分,最后整理表达式,就可以得到最终的结果了.\\
+    所以,在看教科书时难免会产生诸如"为什么可以当成齐次来解""为什么可以把那个常数换成$C(x)$"等等的问题,
+    而睿智的防自学设计又不会告诉你我们如何得到常数变易法的结果.
+    我们之所以先解齐次方程,是因为齐次方程的解恰好能让分离变量的某一项为0,从而能解出一个合理的解.\\
+    至于书上说的"分成某某两个部分",实际上是为了解更高阶的微分方程用的,现在也许可以暂时不考虑.
+    其实常数变易法和变量代换法在一阶时并无明显差距,直到高阶的情况下用常数变易法才比较简捷.
+\end{analyze}
+\begin{theorem}[2.4.1 全微分方程]
+    形如
+    \[P(x,y)\dx+Q(x,y)\d y=0\]
+    且$P(x,y),Q(x,y)$恰好为可微函数$u(x,y)$分别对$x$和$y$的偏导数的方程称为\tbf{全微分方程},或称为\tbf{恰当方程}.
+\end{theorem}\noindent
+当上述方程是全微分方程时,$u(x,y)=C$($C$为任意常数)就是该微分方程的通积分.还可以证明通积分包含了上述微分方程的一切解.\\
+判断具有上述形式的方程是否是全微分方程,只需考虑$\dfrac{\p P}{\p y}$和$\dfrac{\p Q}{\p x}$是否相等即可.%
+根据之前的学习,如果两者相等,那么必然存在可微的$u(x,y)$使得$\d u=P\dx+Q\d y$.\\
+有时,方程并不是全微分方程,但是在两边乘一个非零的因子即可使其成为全微分方程.
+\begin{theorem}[2.4.2 积分因子]
+    设方程
+    \[M(x,y)\d x+N(x,y)\d y=0\]
+    不是全微分方程.若存在函数$\mu(x,y)\neq0$使得
+    \[\mu M\d x+\mu N\d y=0\]
+    是全微分方程,则称$\mu(x,y)$为方程$M\d x+N\d y=0$的\tbf{积分因子}.
+\end{theorem}\noindent
+求解积分因子并非易事,除了通过观察之外还有一些简单的情况可以供我们考虑.
+\begin{theorem}[2.4.3 积分因子的特殊解]
+    对于微分方程
+    \[M(x,y)\dx+N(x,y)\d y=0\]
+    如果函数
+    \[F=\dfrac{\dfrac{\p M}{\p y}-\dfrac{\p N}{\p x}}{N(x,y)}\]
+    只依赖于$x$,那么
+    \[\mu(x)=\e^{\int_{x_0}^{x}F(t)\di t}\]
+    即为上述方程的积分因子.反之,如果上述函数只依赖于$y$,那么也有相似的结论.
+\end{theorem}\noindent
+我们就略去证明.\\
+还有一些二阶微分方程可以通过降阶的方法将其变为一阶线性方程.
+\begin{enumerate}[label=\tbf{\arabic*.}]
+    \item 不含未知函数$y$的方程.\\
+        对于形如
+        \[F(x,y',y'')=0\]
+        的方程,可令$z=y'$使其变为一阶线性微分方程$F(x,z,z')=0$,解出$z$以后再解方程$y'=z$.
+    \item 不含自变量$x$的方程.\\
+        对于形如
+        \[F(y,y',y'')=0\]
+        的方程,可令$p=y'$,则有$y''=p\dfrac{\d p}{\d y}$.于是原方程变为一阶微分方程$F\left(y,p,p\dfrac{\di p}{\di y}\right)=0$.%
+        求解此方程得到$p$与$y$的关系$G(p,y)=0$,再解一阶方程$G(y,y')=0$即可.
+\end{enumerate}
 \end{document}
