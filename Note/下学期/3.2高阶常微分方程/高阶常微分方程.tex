@@ -1,0 +1,104 @@
+ \documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks[4]
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 高阶常微分方程\end{center}
+\begin{definition}[0.1 定义:$n$阶线性微分方程]
+    $n$阶线性微分方程是形如
+    \[y^{(n)}(x)+p_1(x)y^{(n-1)}(x)+\cdots+p_{n-1}(x)y'(x)+p_{n}(x)y(x)=f(x)\]
+    的方程,其中$\li p,n$在区间$(a,b)$上连续.
+\end{definition}\noindent
+\tbf{1.二阶线性微分方程}\\
+我们从最简单的情形,即二阶线性齐次方程入手.
+\begin{formal}[1.1 二阶线性齐次方程的解]
+    如果$y_1(x),y_2(x)$是二阶线性齐次方程
+    \[y''+p(x)y'+q(x)y=0\]
+    的解,那么它们的任意一个线性组合
+    \[C_1y_1(x)+C_2y_2(x)\]
+    也是该方程的解,其中$C_1,C_2\in\R$.
+\end{formal}\noindent
+为了求出其通解,我们还需研究上述函数线性无关的条件.
+\begin{formal}[1.2 函数线性无关的充要条件]
+    设$\phi_1,\phi_2$是\tbf{1.2}所述的两个解,它们线性无关,当且仅当它们的Wronski行列式满足
+    \[W(x)=\begin{vmatrix}
+        \phi_1(x)&\phi_2(x)\\\phi_1'(x)&\phi_2'(x)
+    \end{vmatrix}\neq0,\forall x\in(a,b)\]
+\end{formal}\noindent
+其证明可以从书上找到,因此就略去.%
+当上述的两个解线性无关时,它们的线性组合就是该方程的通解.
+\begin{formal}[1.3 二阶线性齐次方程的通解]
+    如果$\phi_1(x),\phi_2(x)$是二阶线性齐次方程
+    \[y''+p(x)y'+q(x)y=0\]
+    的解,且它们线性无关,则该方程的通解为
+    \[C_1\phi_1(x)+C_2\phi_2(x)\]
+    其中$C_1,C_2\in\R$.并且这通解包含了该方程的一切解.
+\end{formal}
+\begin{formal}[1.4 二阶线性非齐次方程的通解]
+    如果$y*(x)$是二阶线性非齐次方程
+    \[y''+p(x)y'+q(x)y=f(x)\]
+    的特解,又设$\phi_1(x),\phi_2(x)$是对应齐次方程的通解,则该非齐次方程的通解为
+    \[C_1\phi_1(x)+C_2\phi_2(x)+y^*(x)\]
+\end{formal}
+\begin{formal}[1.5 二阶线性非齐次方程的加和性]
+    如果$y_1(x),y_2(x)$分别是是二阶线性非齐次方程
+    \[y''+p(x)y'+q(x)y=f_1(x)\text{与}y''+p(x)y'+q(x)y=f_2(x)\]
+    的解,那么$y_1(x)+y_2(x)$是方程
+    \[y''+p(x)y'+q(x)y=f_1(x)+f_2(x)\]
+    的解.
+\end{formal}
+\noindent\tbf{2.二阶线性常系数微分方程}
+\begin{formal}[2.1 二阶常系数齐次方程]
+    考虑二阶线性常系数齐次方程
+    \[y''+py'+qy=0\]
+    设对应的二次方程
+    \[\lambda^2+p\lambda+q=0\]
+    的根为$\lambda_1,\lambda_2$.方程的通解为以下三种情况.
+    \begin{enumerate}
+        \item 若$\lambda_1,\lambda_2$为互异实根,则方程的通解为
+            \[C_1\e^{\lambda_1x}+C_2\e^{\lambda_2x}\]
+        \item 若$\lambda_1=\lambda_2$为重根,则方程的通解为
+            \[\left(C_1+C_2x\right)\e^{\lambda x}\]
+        \item 若$\lambda_1,\lambda_2=\alpha+\i\beta$为共轭复根,则方程的通解为
+            \[\e^{\alpha x}\left(C_1\cos\beta x+C_2\sin\beta x\right)\]
+    \end{enumerate}
+\end{formal}\noindent
+上面的结论可以扩展到$n$次,不再赘述.\\
+对于非齐次的情况,可以通过待定系数法求出特解.\\
+\tbf{3.二阶线性非齐次方程}
+\begin{formal}[3.1 用常数变易法求二阶线性非齐次方程]
+    考虑方程
+    \[y''+p(x)y'+q(x)y=f(x)\]
+    如果对应的齐次方程
+    \[y''+p(x)y'+q(x)y=0\]
+    有特解$\phi_1(x)$和$\phi_2(x)$,那么我们可以设
+    \[y=C_1(x)\phi_1(x)+C_2(x)\phi_2(x)\]
+    并令
+    \[\left\{\begin{array}{l}
+        C_1'(x)\phi_1(x)+C_2'(x)\phi_2(x)=0\\
+        C_1'(x)\phi_1'(x)+C_2'(x)\phi_2'(x)=f(x)
+    \end{array}\right.\]
+    即可得到$C_1'(x)$和$C_2'(x)$.积分后回代即可得到原非齐次方程的通解.
+\end{formal}
+\noindent\tbf{4.欧拉方程}
+\begin{definition}[4.1 定义:欧拉方程]
+    形如
+    \[a_0x^ny^{(n)}(x)+a_1x^{n-1}y^{(n-1)}(x)+\cdots+a_{n-1}xy'(x)+a_ny=0\]
+    的方程称为\tbf{欧拉方程}.
+\end{definition}
+\begin{formal}[4.2 欧拉方程的解法]
+    做代换$x=\e^t$,则有
+    \[\dfrac{\di y}{\dx}=\dfrac{\di y}{\di t}\cdot\dfrac{\di t}{\dx}=\e^{-t}\dfrac{\di y}{\di t}\]
+    \[\dfrac{\di^2 y}{\dx^2}=\dfrac{\di}{\di x}\left(\dfrac{\di y}{\dx}\right)\cdot\dfrac{\di t}{\dx}=\e^{-2t}\left(\dfrac{\di^2y}{\di t^2}-\dfrac{\di y}{\di t}\right)\]
+    等等.然后这方程就转化为线性常系数齐次方程,可以通过特征根法求解,最后回代即可.
+\end{formal}
+\end{document}
