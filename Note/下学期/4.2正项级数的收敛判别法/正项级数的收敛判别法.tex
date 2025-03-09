@@ -1,0 +1,93 @@
+ \documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks[4]
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 正项级数的收敛判别法\end{center}
+\tbf{1.正项级数}
+\begin{definition}[1.1 定义:正项级数]
+    顾名思义,正项级数就是每一项都不小于零的级数.\\
+    即当$a_n\geqslant0(n=1,2,\cdots)$时,$\displaystyle\sum_{k=1}^{\infty}a_k$是\tbf{正项级数}.
+\end{definition}
+\noindent\tbf{2.正项级数的收敛判别法}
+\begin{formal}[2.1 正项级数收敛当且仅当有上界]
+    正项级数$\displaystyle\sum_{k=1}^\infty a_k$收敛,当且仅当其部分和序列$\left\{S_n\right\}$有上界.
+\end{formal}\noindent
+这根据单调有界序列有极限就可以容易的得出.由此,我们可以导出比较判别法.
+\begin{formal}[2.2 比较判别法I]
+    设两正项级数$\displaystyle\sum_{k=1}^\infty u_k$和$\displaystyle\sum_{k=1}^\infty v_k$满足$u_k\leqslant v_k$对任意$k\in\N^*$成立,则有
+    \begin{enumerate}[label=\tbf{\arabic*.}]
+        \item 如果$\displaystyle\sum_{k=1}^\infty u_k$发散,那么$\displaystyle\sum_{k=1}^\infty v_k$发散.
+        \item 如果$\displaystyle\sum_{k=1}^\infty v_k$收敛,那么$\displaystyle\sum_{k=1}^\infty u_k$收敛.
+    \end{enumerate}
+\end{formal}\noindent
+由于任意增删级数的有限项不改变其敛散性,因此我们可以对上述命题略作推广.
+\begin{formal}[2.2 比较判别法II]
+    若存在$N\geqslant1$和常数$c>0$,使得
+    \[\forall n\geqslant N,0\leqslant u_n\leqslant cv_n\]
+    则当$\displaystyle\sum_{k=1}^\infty u_k$发散时$\displaystyle\sum_{k=1}^\infty v_k$发散;当$\displaystyle\sum_{k=1}^\infty v_k$收敛时$\displaystyle\sum_{k=1}^\infty u_k$收敛.
+\end{formal}\noindent
+有时,两级数的一般项之间的不等关系较难给出,因此我们给出比较判别法的极限形式.
+\begin{formal}[2.3 比较判别法III]
+    设两正项级数$\displaystyle\sum_{k=1}^\infty u_k$和$\displaystyle\sum_{k=1}^\infty v_k$满足
+    \[\lim_{n\to\infty}\dfrac{u_n}{v_n}=h\]
+    其中$h$为有限数或$+\infty$,则有
+    \begin{enumerate}[label=\tbf{\arabic*.}]
+        \item 如果$0<h\leqslant+\infty$,则当$\displaystyle\sum_{k=1}^\infty v_k$发散时$\displaystyle\sum_{k=1}^\infty u_k$发散.
+        \item 如果$0\leqslant h<\infty$,则当$\displaystyle\sum_{k=1}^\infty v_k$收敛时$\displaystyle\sum_{k=1}^\infty u_k$收敛.
+        \item 如果$0<h<+\infty$,则$\displaystyle\sum_{k=1}^\infty v_k$和$\displaystyle\sum_{k=1}^\infty u_k$同时收敛或发散.
+    \end{enumerate}
+\end{formal}
+\begin{formal}[2.4 达朗贝尔判别法]
+    若正项级数$\displaystyle\sum_{k=1}^\infty u_k$满足
+    \[\lim_{u\to\infty}\dfrac{u_{n+1}}{u_n}=l\]
+    则有
+    \begin{enumerate}[label=\tbf{\arabic*.}]
+        \item 如果$l>1$,则级数发散.
+        \item 如果$l<1$,则级数收敛.
+        \item 如果$l=1$,则级数可能发散也可能收敛.
+    \end{enumerate}
+\end{formal}
+\begin{formal}[2.5 柯西判别法]
+    若正项级数$\displaystyle\sum_{k=1}^\infty u_k$满足
+    \[\lim_{u\to\infty}\sqrt[n]{u_n}=l\]
+    则有
+    \begin{enumerate}[label=\tbf{\arabic*.}]
+        \item 如果$l>1$,则级数发散.
+        \item 如果$l<1$,则级数收敛.
+        \item 如果$l=1$,则级数可能发散也可能收敛.
+    \end{enumerate}
+\end{formal}
+\begin{formal}[2.6 拉比判别法]
+    若正项级数$\displaystyle\sum_{k=1}^\infty u_k$满足
+    \[\lim_{u\to\infty}n\left(\dfrac{u_{n+1}}{u_n}-1\right)=R\]
+    其中$R$可以是$\infty$,则有
+    \begin{enumerate}[label=\tbf{\arabic*.}]
+        \item 如果$R>1$,则级数收敛.
+        \item 如果$R<1$,则级数发散.
+        \item 如果$R=1$,则级数可能发散也可能收敛.
+    \end{enumerate}
+\end{formal}\noindent
+此外,还可以通过积分法判断级数的敛散性.为此,我们先定义无穷积分的概念.
+\begin{definition}[2.7 定义:无穷积分及其敛散性]
+    设函数$f(x)$在$[a,+\infty]$上有定义,且对任意$A>a$,$f(x)$在$(a,A)$上可积.若极限
+    \[\lim_{A\to+\infty}\int_a^Af(x)\dx\]
+    存在,则称$f(x)$在$[a,+\infty)$上的\tbf{无穷积分}$\displaystyle\int_a^{+\infty}f(x)\dx$\tbf{收敛},并定义
+    \[\int_a^{+\infty}f(x)\dx=\lim_{A\to+\infty}\int_a^Af(x)\dx\]
+    若该极限不存在,则称该无穷积分\tbf{发散}.
+\end{definition}
+\begin{formal}[2.8 积分判别法]
+    设$\displaystyle\sum_{k=1}^\infty u_k$是正项级数.如果存在一个单调下降的非负函数$f(x)$使得
+    \[\forall n\in\N^*,f(n)=u_n\]
+    那么$\displaystyle\sum_{k=1}^\infty u_k$收敛当且仅当$\int_1^{+\infty}f(x)\dx$收敛.
+\end{formal}
+\end{document}
