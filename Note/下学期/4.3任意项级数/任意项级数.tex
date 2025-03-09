@@ -1,0 +1,95 @@
+ \documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks[4]
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 任意项级数\end{center}
+\tbf{1.交错级数}
+\begin{definition}[1.1 定义:交错级数]
+    所谓\tbf{交错级数}指的是这样的级数,它的项是一正一负交错着排列的,即可以写成
+    \[u_1-u_2+u_3-u_4+\cdots=\sum_{n=1}^{\infty}\left(-1\right)^{n-1}u_n\]
+    其中$u_n>0(n=1,2,\cdots)$.
+\end{definition}\noindent
+判断交错级数的敛散性,可以用以下的判断方法.
+\begin{formal}[1.2 莱布尼茨判别法]
+    若交错级数$\displaystyle\sum_{n=1}^{\infty}\left(-1\right)^{n-1}u_n$满足对任意$n\in\N^*$都有$u_n\geqslant u_{n+1}$且%
+    $\displaystyle\lim_{n\to\infty}u_n=0$,则该级数收敛.
+\end{formal}\noindent
+\tbf{2.绝对收敛与条件收敛}
+\begin{formal}[2.1 绝对值收敛推出收敛]
+    考虑任意项级数$\displaystyle\sum_{n=1}^{\infty}u_n$.%
+    如果$\displaystyle\sum_{n=1}^{\infty}\left|u_n\right|$收敛,那么$\displaystyle\sum_{n=1}^{\infty}u_n$也收敛.
+\end{formal}\noindent
+反过来,收敛不一定推出取绝对值后收敛.例如,$\displaystyle\sum_{k=1}^{\infty}\dfrac{(-1)^{n-1}}{n}$收敛,而$\displaystyle\sum_{k=1}^\infty\dfrac1n$发散.%
+为此,我们可以做如下定义.
+\begin{definition}[2.2 绝对收敛与条件收敛]
+    考虑收敛的任意项级数$\displaystyle\sum_{n=1}^{\infty}u_n$.%
+    如果$\displaystyle\sum_{n=1}^{\infty}\left|u_n\right|$也收敛,那么称该级数\tbf{绝对收敛}.%
+    反之,如果$\displaystyle\sum_{n=1}^{\infty}\left|u_n\right|$发散,那么称该级数\tbf{条件收敛}.
+\end{definition}\noindent
+绝对收敛和条件收敛的级数亦有明显的差别.例如,对绝对收敛的级数任意重排(交换顺序)后不改变其和,而对条件收敛的级数则不然.我们下面对此进行说明.
+\begin{formal}[2.3 绝对收敛的级数的和]
+    绝对收敛的级数的和等于其中所有正项组成的级数的和加上其中所有负项组成的级数的和.
+\end{formal}
+\begin{proof}
+    设级数$\displaystyle\sum_{n=1}^{\infty}u_n$绝对收敛.令
+    \[v_n=\dfrac{\left|u_n\right|+u_n}{2}=\max\left\{u_n,0\right\}\]
+    \[w_n=\dfrac{\left|u_n\right|-u_n}{2}=-\min\left\{u_n,0\right\}\]
+    这样,显然有
+    \[0\leqslant v_n,w_n\leqslant\left|u_n\right|\]
+    由于$\displaystyle\sum_{n=1}^{\infty}\left|u_n\right|$收敛以及比较审敛法可知$\displaystyle\sum_{n=1}^{\infty}v_n$和$\displaystyle\sum_{n=1}^{\infty}w_n$都收敛.令
+    \[\sum_{n=1}^{\infty}u_n=S\ \ \ \ \ \sum_{n=1}^{\infty}v_n=P\ \ \ \ \ \sum_{n=1}^{\infty}w_n=Q\]
+    根据$v_n,w_n$的定义可知$\displaystyle\sum_{n=1}^{\infty}u_n$中所有正项构成的级数收敛到$P$,所有负项构成的级数收敛到$-Q$.\\
+    注意到$u_n=v_n-w_n$,于是
+    \[S=\sum_{n=1}^{\infty}u_n=\sum_{n=1}^{\infty}v_n-\sum_{n=1}^{\infty}w_n=P-Q=P+(-Q)\]
+    于是原命题得证.
+\end{proof}
+\begin{formal}[2.4 收敛的正项级数重排后仍收敛]
+    收敛的正项级数经过重排后仍收敛且其和不变.
+\end{formal}
+\begin{proof}
+    设正项级数
+    \[u_1+u_2+\cdots+u_n+\cdots\]
+    收敛到$S$.又设将这个级数中的各项重新排序后得到的级数为
+    \[v_1+v_2+\cdots+v_n+\cdots\]
+    令$\displaystyle S_n=\sum_{k=1}^{n}u_k,T_n=\sum_{k=1}^{n}v_k$.%
+    由于级数$\displaystyle\sum_{n=1}^\infty v_n$中的各项都来自级数$\displaystyle\sum_{n=1}^\infty u_n$,%
+    于是对于任意取定的$n$,都可取足够大的$m$,使得
+    \[\left\{\li v,n\right\}\subseteq\left\{\li u,m\right\}\]
+    于是
+    \[T_n\leqslant S_m\leqslant S\]
+    这说明单调递增序列$\left\{T_n\right\}$有上界$S$,设其收敛到$T$,则有
+    \[T\leqslant S\]
+    一方面,又可以将$\displaystyle\sum_{n=1}^\infty u_n$视作由$\displaystyle\sum_{n=1}^\infty v_n$重排得到,于是交换上述证明中$u$和$v$的位置可得
+    \[S\leqslant T\]
+    于是$T=S$,命题得证.
+\end{proof}\noindent
+绝对收敛的数列也有相似的性质.
+\begin{formal}[2.5 绝对收敛的级数重排后仍收敛]
+    绝对收敛的级数经过重排后仍收敛且其和不变.
+\end{formal}
+\begin{proof}
+    设级数$\displaystyle\sum_{n=1}^\infty u_n$绝对收敛.根据\tbf{2.3}将其表示为两正项级数之差
+    \[\sum_{n=1}^\infty u_n=\sum_{n=1}^\infty v_n-\sum_{n=1}^\infty w_n\]
+    其中$v_n,w_n$的定义同\tbf{2.3}.我们将$\displaystyle\sum_{n=1}^\infty u_n$的各项重排为$\displaystyle\sum_{n=1}^\infty u_n^*$.%
+    同样地,将其表示为两正项级数之差
+    \[\sum_{n=1}^\infty u_n^*=\sum_{n=1}^\infty v_n^*-\sum_{n=1}^\infty w_n^*\]
+    其中$\displaystyle\sum_{n=1}^\infty v_n^*,\sum_{n=1}^\infty w_n^*$分别由%
+    $\sum_{n=1}^\infty v_n,\sum_{n=1}^\infty w_n$相应地改变各项次序而得.由\tbf{2.4}可知它们也收敛,并且有
+    \[\sum_{n=1}^\infty v_n^*=\sum_{n=1}^\infty v_n\ \ \ \ \ \sum_{n=1}^\infty w_n^*=\sum_{n=1}^\infty w_n\]
+    从而
+    \[\sum_{n=1}^\infty u_n^*=\sum_{n=1}^\infty v_n^*-\sum_{n=1}^\infty w_n^*=\sum_{n=1}^\infty v_n-\sum_{n=1}^\infty w_n=\sum_{n=1}^\infty u_n\]
+    \[\sum_{n=1}^\infty u_n^*\left|u_n^*\right|=\sum_{n=1}^\infty v_n^*-\sum_{n=1}^\infty w_n^*=\sum_{n=1}^\infty v_n-\sum_{n=1}^\infty w_n=\sum_{n=1}^\infty \left|u_n\right|\]
+    于是$\displaystyle\sum_{n=1}^\infty u_n^*$也绝对收敛,且其和保持不变.
+\end{proof}\noindent
+对于条件收敛的级数$\displaystyle\sum_{n=1}^\infty u_n$,黎曼证明了一个更为一般的结论:对任意给定的$A$,总是可以调整$\displaystyle\sum_{n=1}^\infty u_n$中各项的顺序使得级数收敛于$A$.
+\end{document}
