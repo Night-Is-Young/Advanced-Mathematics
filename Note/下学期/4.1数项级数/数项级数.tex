@@ -1,0 +1,50 @@
+ \documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks[4]
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 数项级数\end{center}
+\tbf{1.Cauchy收敛准则}\\
+迄今为止,我们所学的知识都只能帮助我们判断序列$\{a_n\}$是否以某个特定的数$A$为极限,而不能判断$\{a_n\}$是否有极限(除非它是单调有界序列).%
+下面的Cauchy收敛准则给出了一个序列有极限的充要条件.
+\begin{formal}[1.1 Cauchy收敛准则]
+    序列$\{a_n\}$有极限的充要条件是对于任意给定的$\ep>0$,都存在$N$使得对任意的$m,n\geqslant N$都有$\left|a_n-a_m\right|<\ep$.
+\end{formal}\noindent
+证明Cauchy收敛准则的必要性是简单的,而充分性则需要用到实数的完备性.因此,略去上述命题的证明.\\
+对于函数极限的情况也是一样的.
+\begin{formal}[1.2 Cauchy收敛准则]
+    设$y=f(x)$在$a$的一个去心邻域内有定义,则$x\to a$时$f(x)$的极限存在的充要条件是对于任意给定的$\ep>0$,都存在$\delta>0$使得对任意$x_1,x_2$满足$\left|x_1-a\right|<\delta$且$\left|x_2-a\right|<\delta$都有%
+    $\left|f(x_1)-f(x_2)\right|<\ep$.
+\end{formal}
+\noindent\tbf{2.数项级数及其敛散性}
+\begin{definition}[2.1 定义:无穷级数及其敛散性]
+    一个形如
+    \[a_1+a_2+\cdots+a_k+\cdots=\sum_{k=1}^{\infty}a_k\]
+    的式子被称作\tbf{无穷级数}.这里的一般项$a_k$被称作级数的\tbf{通项}.\\
+    对于给定的级数$\displaystyle\sum_{k=1}^{\infty}a_k$,我们把级数的前$n$项和
+    \[S_n=\sum_{k=1}^{n}a_k\]
+    称作级数的\tbf{部分和}.\\
+    当$n\to\infty$时,若部分和序列$\left\{S_n\right\}$有极限$S$,则称级数$\displaystyle\sum_{k=1}^\infty a_k$\tbf{收敛},且称$S$为这个级数的\tbf{和},记作
+    \[S=\sum_{k=1}^\infty a_k\]
+    如果部分和序列$\left\{S_n\right\}$没有极限,我们就称级数是\tbf{发散的}.
+\end{definition}
+\begin{formal}[2.2 无穷级数收敛则通项趋于$0$]
+    如果无穷级数$\displaystyle\sum_{k=1}^\infty a_k$收敛,那么有$\displaystyle\lim_{n\to\infty}a_n=0$.
+\end{formal}
+\begin{formal}[2.3 任意长度和收敛于$0$则无穷级数收敛]
+    如果无穷级数$\displaystyle\sum_{k=1}^\infty a_k$满足对任意给定的$\ep>0$和$p\in\N$,都存在$N\in N$使得对任意$n>N$有%
+    \(\displaystyle\left|\sum_{k=n+1}^{n+p}a_k\right|<\ep\),那么该级数收敛.
+\end{formal}
+\begin{formal}[2.4 修改级数的有限项不改变其敛散性]
+    在级数前添上或删去有限项,所得到的新的级数与原来的级数同时收敛或发散.
+\end{formal}
+\end{document}
