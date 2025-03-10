@@ -91,5 +91,30 @@
     \[\sum_{n=1}^\infty u_n^*\left|u_n^*\right|=\sum_{n=1}^\infty v_n^*-\sum_{n=1}^\infty w_n^*=\sum_{n=1}^\infty v_n-\sum_{n=1}^\infty w_n=\sum_{n=1}^\infty \left|u_n\right|\]
     于是$\displaystyle\sum_{n=1}^\infty u_n^*$也绝对收敛,且其和保持不变.
 \end{proof}\noindent
-对于条件收敛的级数$\displaystyle\sum_{n=1}^\infty u_n$,黎曼证明了一个更为一般的结论:对任意给定的$A$,总是可以调整$\displaystyle\sum_{n=1}^\infty u_n$中各项的顺序使得级数收敛于$A$.
+对于条件收敛的级数$\displaystyle\sum_{n=1}^\infty u_n$,黎曼证明了一个更为一般的结论:对任意给定的$A$,总是可以调整$\displaystyle\sum_{n=1}^\infty u_n$中各项的顺序使得级数收敛于$A$.\\
+\tbf{3.狄利克雷判别法和阿贝尔判别法}\\
+狄利克雷判别法和阿贝尔判别法在判断任意项级数的收敛性上是很有效的.我们先介绍阿贝尔变换.
+\begin{formal}[3.1 阿贝尔变换]
+    设有两组数
+    \[\li\alpha,m\ \ \ \ \ \li\beta,m\]
+    令
+    \[B_k=\sum_{i=1}^{k}\beta_i\]
+    则有
+    \[\sum_{k=1}^{m}\alpha_k\beta_k=\sum_{k=1}^{m-1}\left(\alpha_k-\alpha_{k+1}\right)B_k+\alpha_mB_m\]
+\end{formal}
+\begin{formal}[3.2 阿贝尔引理]
+    若数组$\left\{\alpha_k\right\}(k=1,2,\cdots,m)$是单调的,又设数组$\left\{\beta_k\right\}(k=1,2,\cdots,m)$的部分和$B_n$满足
+    \[\left|B_n\right|=\left|\sum_{k=1}^n\beta_k\right|\ \ \ \ \ n=1,2,\cdots,m\]
+    其中$M>0$,则有
+    \[\left|\sum_{k=1}\alpha_k\beta_k\right|\leqslant M\left(\left|a_1+2a_m\right|\right)\]
+\end{formal}
+\begin{formal}[3.3 狄利克雷判别法]
+    考虑级数$\displaystyle\sum_{n=1}^{\infty}\alpha_k\beta_k$.%
+    若序列$\left\{a_k\right\}$单调且$\displaystyle\lim_{n\to\infty}a_n=0$,又级数$\displaystyle\sum_{n=1}^\infty b_n$的部分和有界,即存在常数$M>0$使得
+    \[\left|\sum_{n=1}^\infty b_n\right|\leqslant M\ \ \ \ \ n=1,2,\cdots\]
+    则级数$\displaystyle\sum_{n=1}^{\infty}\alpha_k\beta_k$收敛.
+\end{formal}
+\begin{formal}[3.4 阿贝尔判别法]
+    若无穷数列$\left\{a_n\right\}$单调有界,级数$\displaystyle\sum_{n=1}^\infty b_n$收敛,则级数$\displaystyle\sum_{n=1}^\infty a_Nb_n$收敛.
+\end{formal}
 \end{document}
