@@ -1,0 +1,65 @@
+ \documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks[4]
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 函数项级数\end{center}
+\tbf{1.函数项级数}
+\begin{definition}[函数项级数]
+   设$u_n(x)(n=1,2,\cdots)$是定义在$D$上的函数,和式
+   \[\sum_{n=1}^{\infty}u_n(x)=u_1(x)+u_2(x)+\cdots\]
+   被称为定义在$D$上的\tbf{函数项级数}.在$D$上取定一点$x_0$,如果数项级数
+   \[\sum_{n=1}^{\infty}u_n\left(x_0\right)\]
+   收敛(发散),则称$x_0$为该函数项级数的\tbf{收敛点}(\tbf{发散点}).因此,函数项级数的敛散性是以数项级数的敛散性为基础的.\\
+   函数项级数的收敛点的全体称为它的\tbf{收敛域},发散点的全体称为它的\tbf{发散域}.%
+   对收敛域$X$内的任意一点$x$,上述级数的和记为$S(x)$.显然,$S$是定义在$X$上的函数,称为级数的\tbf{和函数}.
+\end{definition}
+\noindent\tbf{2.函数序列及函数项级数的一致收敛性}
+\begin{definition}[2.1 函数序列的收敛性和极限函数]
+    设有一个函数序列$f_1(x),f_2(x),\cdots$,其中的每一项$f_n(x)$在集合$D$上有定义.\\
+    若一点$x_0\in D$使得序列$\left\{f_n\left(x_0\right)\right\}$收敛,即极限$\displaystyle\lim_{n\to\infty}f_x\left(x_0\right)$%
+    存在,则称序列$\left\{f_n(x)\right\}$\tbf{在$x_0$处收敛},$x_0$称为该序列的\tbf{收敛点},该序列的全体收敛点构成的集合称作序列的\tbf{收敛域}.\\
+    另外,序列$\left\{f_n(x)\right\}$在其收敛域$X$内定义了一个函数
+    \[f(x)=\lim_{n\to\infty}f_n(x)\ \ \ \ \ \forall x\in X\]
+    称$f(x)$为该序列的\tbf{极限函数}.
+\end{definition}\noindent
+显然,函数项级数$\displaystyle\sum_{n=1}^{\infty}f_n(x)$的收敛域就是其部分和序列的收敛域,其和函数就是部分和序列的极限函数.
+\begin{definition}[2.2 一致收敛]
+    设函数序列$\left\{f_n(x)\right\}$在集合$X$上收敛于极限函数$f(x)$.若对于任意$\ep>0$,都存在一个%
+    只依赖于$\ep$而不依赖于$x$的正整数$N$使得$\forall n>N$都有$\left|f_n(x)-f(x)\right|<\ep$对任意$x\in X$成立,%
+    则称函数序列$\left\{f_n(x)\right\}$在$X$上\tbf{一致收敛}于$f(x)$,记作$f_n(x)\rightrightarrows f(x),x\in X(n\to\infty)$.
+\end{definition}\noindent
+一致收敛的几何意义是,对于任意给定的$\ep>0$,都存在足够大的$n$使得$f_n(x)$落在带状区域
+\[f(x)-\ep<f_n(x)<f(x)+\ep\]
+中.需要注意的是,上述定义中的$X$不一定是序列的收敛域,可能只是收敛域的一个子集.
+\begin{formal}[2.3 一致收敛的判据I]
+    设函数序列$\left\{f_n(x)\right\}$在区间$X$上收敛于极限函数$f(x)$,若存在序列$\{a_n\}$使得
+    \[\left|f_n(x)-f(x)\right|\leqslant a_n\ \ \ \ \ x\in X,n\geqslant N\]
+    且$\displaystyle\lim_{n\to\infty}a_n=0$,则$\left\{f_n(x)\right\}$在$X$上一致收敛于$f(x)$.
+\end{formal}
+\begin{proof}
+    对于任意$\ep>0$,由于$\displaystyle\lim_{n\to\infty}a_n=0$,则存在$N\in\N^*$使得对任意$n\geqslant N$有
+    \[\left|a_n\right|<\ep\]
+    于是对任意$\ep>0$,考虑满足上述条件的$N$,对任意$n\geqslant N$和$x\in X$有
+    \[\left|f_n(x)-f(x)\right|\leqslant a_n<\ep\]
+    因而$\left\{f_n\left(x\right)\right\}$一致收敛于$f(x)$.
+\end{proof}
+\begin{formal}[2.4 不一致收敛的判据I]
+    设函数序列$\left\{f_n(x)\right\}$在$X$上收敛到极限函数$f(x)$.若存在常数$l>0$及点列$x_n\in X(n=1,2,\cdots)$使得当$n\geqslant N(N\in\N^*)$时有
+    \[\left|f_n(x_n)-f(x_n)\right|\geqslant l\]
+    则$\left\{f_n(x)\right\}$在$X$上不一致收敛.\\
+    这一定理还有一极限版本.\\
+    设函数序列$\left\{f_n(x)\right\}$在$X$上收敛到极限函数$f(x)$.若存在常数$l>0$及点列$x_n\in X(n=1,2,\cdots)$使得
+    \[\lim_{n\to\infty}\left[f_n(x_n)-f(x_n)\right]=k\neq0\]
+    则$\left\{f_n(x)\right\}$在$X$上不一致收敛.
+\end{formal}
+\end{document}

@@ -93,4 +93,65 @@
         &= \dfrac{8156}{15} 
     \end{aligned}\]
 \end{solution}
+\begin{problem}[5.]
+    二维正态分布函数
+    \[f(x,y)=\dfrac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left[-\dfrac{1}{2\left(1-\rho^2\right)}\left(\dfrac{\left(x-\mu_1\right)^2}{\sigma_1^2}+\dfrac{\left(y-\mu_2\right)^2}{\sigma_1^2}-2\rho\dfrac{\left(x-\mu_1\right)\left(y-\mu_2\right)}{\sigma_1\sigma_2}\right)\right]\]
+    试证明下列重积分.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 试证明\[\iint_{\R^2}xf(x,y)\dx\di y=\mu_1\]
+        \item 试证明\[\iint_{\R^2}x^2f(x,y)\dx\di y=\mu_1^2+\sigma_1^2\]
+        \item 试证明\[\iint_{\R^2}\left(x+y\right)^2f(x,y)\di x\di y=\left(\mu_1+\mu_2\right)^2+\sigma_1^2+\sigma_2^2+2\rho\sigma_1\sigma_2\]
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 做代换$u=\dfrac{x-\mu_1}{\sigma_1},v=\dfrac{y-\mu_2}{\sigma_2}$,则有
+            \[\begin{aligned}
+                \iint_{\R^2}xf(x,y)\dx\di y
+                &= \iint_{\R^2}\left(\sigma_1 u+\mu_1\right)\dfrac{1}{2\pi\sqrt{1-\rho^2}}\exp\left(-\dfrac{u^2+v^2-2\rho uv}{2\left(1-\rho^2\right)}\right)\di u\di v
+            \end{aligned}\]
+            令
+            \[A(u,v)=u\exp\left(-\dfrac{u^2+v^2-2\rho uv}{2\left(1-\rho^2\right)}\right)\]
+            注意到
+            \[A(-u,-v)=-u\exp\left(-\dfrac{u^2+v^2-2\rho uv}{2\left(1-\rho^2\right)}\right)=-A(u,v)\]
+            于是$A(u,v)$关于原点$(0,0)$中心对称,于是
+            \[\iint_{\R^2}A(u,v)\di u\di v=0\]
+            再做一次代换$s=u+v,t=u-v$,于是
+            \[\begin{aligned}
+                \iint_{\R^2}\exp\left(-\dfrac{u^2+v^2-2\rho uv}{2\left(1-\rho^2\right)}\right)
+                &= \dfrac12\iint_{\R^2}\exp\left(-\dfrac{\dfrac{s^2+t^2}{2}-\dfrac{\rho\left(s^2-t^2\right)}{2}}{2\left(1-\rho^2\right)}\right)\di s\di t \\
+                &= \dfrac12\int_{-\infty}^{+\infty}\di s\int_{-\infty}^{+\infty}\exp\left(-\dfrac{s^2}{4(1+\rho)}\right)\exp\left(-\dfrac{t^2}{4(1-\rho)}\right)\di t \\
+                &= \dfrac12\cdot2\sqrt{\pi(1-\rho)}\int_{-\infty}^{+\infty}\exp\left(-\dfrac{s^2}{4(1+\rho)}\right)\di s\\
+                &= 2\pi\sqrt{1-\rho^2}
+            \end{aligned}\]
+            于是
+            \[\begin{aligned}
+                \iint_{\R^2}xf(x,y)\di x\di y
+                &= \iint_{\R^2}\dfrac{\sigma_1A(u,v)+\mu_1\exp\left(-\dfrac{u^2+v^2-2\rho uv}{2\left(1-\rho^2\right)}\right)\di u\di v}{2\pi\sqrt{1-\rho^2}} \\
+                &= \dfrac{\sigma_1\cdot0+\mu_1\cdot2\pi\sqrt{1-\rho^2}}{2\pi\sqrt{1-\rho^2}} \\
+                &= \mu_1
+            \end{aligned}\]
+        \item 仍做\tbf{(1)}中的代换,则有
+            \[\iint_{\R^2}x^2f(x,y)\dx\di y
+            = \iint_{\R^2}\left(\sigma_1^2 u^2+2\sigma_1\mu_1u+\mu_1^2\right)\dfrac{1}{2\pi\sqrt{1-\rho^2}}\exp\left(-\dfrac{u^2+v^2-2\rho uv}{2\left(1-\rho^2\right)}\right)\di u\di v\]
+            第一个括号中的常数项和一次项我们已经计算过对应的积分,现在做代换$s=u+v,t=u-v$,考虑积分
+            \[\begin{aligned}
+                \iint_{\R^2}u^2\exp\left(-\dfrac{u^2+v^2-2\rho uv}{2\left(1-\rho^2\right)}\right)
+                &= \dfrac12\iint_{\R^2}\dfrac{(s+t)^2}{4}\exp\left(-\dfrac{s^2}{4(1+\rho)}\right)\exp\left(-\dfrac{t^2}{4(1-\rho)}\right)\di s\di t \\
+                &= \dfrac12\int_{-\infty}^{+\infty}\di s\int_{-\infty}^{+\infty}\dfrac{(s+t)^2}{4}\exp\left(-\dfrac{s^2}{4(1+\rho)}\right)\exp\left(-\dfrac{t^2}{4(1-\rho)}\right)\di t \\
+                &= \dfrac12\int_{-\infty}^{+\infty}\left(\dfrac{s^2}{4}\cdot2\sqrt{\pi(1-\rho)}+\sqrt{\pi}\left(1-\rho\right)^{\frac32}\right)\exp\left(-\dfrac{s^2}{4(1+\rho)}\right)\di s \\
+                &= \dfrac12\left[2\sqrt{\pi(1-\rho)}\cdot\sqrt{\pi}\left(1+\rho\right)^{\frac32}+\sqrt{\pi}\left(1-\rho\right)^{\frac32}\cdot2\sqrt{\pi(1+\rho)}\right] \\
+                &= \pi\sqrt{1-\rho^2}\left(1-\rho+1+\rho\right) \\
+                &= 2\pi\sqrt{1-\rho^2}
+            \end{aligned}\]
+            类似地可得
+            \[\iint_{\R^2}x^2f(x,y)\dx\di y=\mu_1^2+\sigma_1^2\]
+        \item 仍做\tbf{(1)}中的代换,有
+            \[\iint_{\R^2}(x+y)^2f(x,y)\di x\di y=\iint_{\R^2}\left(\sigma_1u+\sigma_2v+\mu_1+\mu_2\right)^2\dfrac{\exp\left(-\dfrac{u^2+v^2-2\rho uv}{2\left(1-\rho^2\right)}\right)}{2\pi\sqrt{1-\rho^2}}\di u\di v\]
+            注意到
+            \[\iint_{\R^2}uv\exp\left(-\dfrac{u^2+v^2-2\rho uv}{2\left(1-\rho^2\right)}\right)=4\pi\rho\sqrt{1-\rho^2}\]
+            于是
+            \[\iint_{\R^2}(x+y)^2f(x,y)\di x\di y=\sigma_1^2+\sigma_2^2+2\rho\sigma_1+\sigma_2+\left(\mu_1+\mu_2\right)^2\]
+    \end{enumerate}
+\end{proof}
 \end{document}
