@@ -1,0 +1,95 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{solution}
+\usepackage{extarrows,esint}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}
+    \large\tbf{Lecture 10 Function series(函数项级数)}
+\end{center}
+\begin{problem}[L.10.1]
+    试证明:函数项级数
+    \[S(x)=\sum_{n=1}^\infty\dfrac{x^2}{\left(1+x^2\right)^n}\]
+    在$(-\infty,+\infty)$不一致收敛.\\
+    \tbf{提示}:借助连续性的传递,用反证法.
+\end{problem}
+\begin{proof}
+    假设$S(x)$在$(-\infty,+\infty)$上一致收敛.\\
+    由于对于任意$n\in\N^*$,都有$u_n(x)=\dfrac{x^2}{\left(1+x^2\right)^n}$在$(-\infty,+\infty)$上连续,于是$S(x)$在$(-\infty,+\infty)$上连续.\\
+    而
+    \[S(0)=\sum_{n=1}^\infty\dfrac{0}{1^n}=0\]
+    对于$x\neq0$有
+    \[S(x)=\sum_{n=1}^\infty\dfrac{x^2}{\left(1+x^2\right)^n}=x^2\left(\dfrac{1}{1-\dfrac{1}{1+x^2}}-1\right)=x^2\left(\dfrac{x^2+1}{x^2}-1\right)=1\]
+    于是
+    \[\lim_{x\to0^+}S(x)=\lim_{x\to 0^-}S(x)=1\neq S(0)\]
+    从而$S(x)$在$x=0$处不连续,这与假设矛盾.\\
+    于是$S(x)$在$(-\infty,+\infty)$上不一致收敛.
+\end{proof}
+\begin{problem}[L.10.2]
+    试证明:函数项级数
+    \[S(x)=\sum_{n=1}^\infty\dfrac{(-1)^n}{1+nx}\]
+    在$(0,+\infty)$不一致收敛,但是在$(a,+\infty)$一致收敛,其中$a>0$.
+\end{problem}
+\begin{proof}
+    置$u_n(x)=\dfrac{(-1)^n}{1+nx}$.取点列$x_n=\dfrac{1}{n}$,则有$u_n\left(x_n\right)=\dfrac{(-1)^n}{2}$.\\
+    于是$\left\{u_n\left(x_n\right)\right\}$震荡发散,因而$S(x)$在$(0,+\infty)$不一致收敛.\\
+    置$a_n(x)=\dfrac{1}{1+nx},b_n(x)=(-1)^n$.\\
+    取定$x\in(a,+\infty)$,都有$a_n(x)$单调递减.又
+    \[a(x)=\lim_{n\to\infty}a_n(x)=\lim_{n\to\infty}\dfrac{1}{1+nx}=0\]
+    \[\left|a_n(x)-a(x)\right|=\left|\dfrac{1}{1+nx}\right|\leqslant\dfrac{1}{1+na}\]
+    \[\lim_{n\to\infty}\dfrac{1}{1+na}=0\]
+    于是$\left\{a_n(x)\right\}$在$(a,\infty)$上一致收敛于$0$.\\
+    $\left\{b_n(x)\right\}$的部分和序列显然一致有界.\\
+    于是根据Ditichlet判别法可知$S(x)$在$(a,+\infty)$上一致收敛.
+\end{proof}
+\begin{problem}[L.10.3]
+    计算下列极限.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item \[\lim_{x\to3}\sum_{n=1}^{\infty}\dfrac{1}{2^n}\left(\dfrac{x-4}{x-2}\right)^n\]
+        \item \[\lim_{n\to\infty}\int_0^1\left(1+\dfrac xn\right)^n\dx\]
+    \end{enumerate}
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 考虑区间$X=(3-\delta,3+\delta)$,其中$0<\delta<1$.\\
+            不妨令$\delta=\dfrac14$,此时对于任意$x\in X$有$-\dfrac56<\dfrac{x-4}{2(x-2)}<-\dfrac{3}{10}$.\\
+            令$u_n(x)=\left(\dfrac{x-4}{2x-4}\right)^n$,于是$\left|u_n(x)\right|<\left(\dfrac56\right)^n$.\\
+            根据Weierstrass判别法可知$\displaystyle S(x)=\sum_{n\to\infty}^\infty u_n(x)$在$X$上一致收敛.\\
+            又各$u_n(x)$在$X$上连续,于是$S(x)$在$X$上连续.于是
+            \[\lim_{x\to3}\sum_{n=1}^{\infty}\dfrac{1}{2^n}\left(\dfrac{x-4}{x-2}\right)^n=\lim_{x\to3}S(x)=S(3)=\sum_{n=1}^\infty\left(-\dfrac12\right)^n=-\dfrac13\]
+        \item 考虑$f_n(x)=\left(1+\dfrac xn\right)^n$.取定$x\in(0,1)$,则有
+            \[\lim_{n\to\infty}f_n(x)=\lim_{n\to\infty}\left[\left(1+\dfrac xn\right)^{\frac nx}\right]^x=\e^x\]
+            于是$\left\{f_n(x)\right\}$逐点收敛于$f(x)=\e^x$.又有
+            \[\left|f_n(x)-f(x)\right|=\left|\left(1+\dfrac{x}{n}\right)^n-\e^x\right|<\e-\left(1+\dfrac{1}{n}\right)^n\]
+            又
+            \[\lim_{n\to\infty}\e-\left(1+\dfrac{1}{n}\right)^n=\e-\e=0\]
+            于是$\left\{f_n(x)\right\}$在$(0,1)$上一致收敛于$f(x)=\e^x$.于是
+            \[\lim_{n\to\infty}\int_0^1\left(1+\dfrac xn\right)^n\dx=\int_0^1\left(\lim_{n\to\infty}f_n(x)\right)\dx=\int_0^1\e^x\dx=\e-1\]
+    \end{enumerate}
+\end{solution}
+\begin{problem}[L.10.4]
+    设$f(x)$是$[0,1]$上的连续函数,且$f(1)=0$.试用定义证明$f_n(x)=x^nf(x)$在$[0,1]$上一致收敛.
+\end{problem}
+\begin{proof}
+    当$0\leqslant x<1$时$\displaystyle\lim_{n\to\infty}x^nf(x)=f(x)\lim_{n\to\infty}x^n=f(x)\cdot0=0$.\\
+    当$x=1$时$\displaystyle\lim_{n\to\infty}x^nf(x)=0$.于是$\left\{f_n(x)\right\}$在$[0,1]$上逐点收敛于$f(x)=0$.\\
+    由于$f(x)$在$[0,1]$上连续,于是存在$M\geqslant0$使得$\left|f(x)\right|\leqslant M$对任意$x\in[0,1]$成立.\\
+    由于$f(1)=0$,因而$\displaystyle\lim_{x\to1^-}f(x)=0$.\\
+    于是对于任意$\ep_f>0$存在$\delta_f>0$使得$\left|f(x)\right|<\ep$对任意$1-\delta_f<x<1$成立.\\
+    现在,对于任意$\ep>0$,取$\ep_f=\ep$和对应的$\delta _f$,令$\displaystyle N=\max\left\{1,\left\lceil\dfrac{\ln\ep-\ln M}{\ln\left(1-\delta_f\right)}\right\rceil \right\}$.\\
+    对于任意$n>N$,如果$x\leqslant1-\delta_f$,则有
+    \[\left|x^nf(x)-0\right|\leqslant\left|\left(1-\delta_f\right)^N\cdot M\right|\leqslant\left|\dfrac{\ep}{M}\cdot M\right|=\ep\]
+    如果$1-\delta_f<x\leqslant1$,则有
+    \[\left|x^nf(x)-0\right|\leqslant\left|x^n\right|\ep_f\leqslant\ep_f=\ep\]
+    于是根据定义可知$x^nf(x)$在$[0,1]$上一致收敛于$0$.
+\end{proof}
+\end{document}
