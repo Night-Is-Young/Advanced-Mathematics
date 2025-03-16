@@ -1,0 +1,88 @@
+ \documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks[4]
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 幂级数和泰勒级数\end{center}
+\tbf{1.幂级数和幂级数的收敛半径}
+\begin{definition}[1.1 定义:幂级数]
+    形如
+    \[\sum_{n=0}^\infty a_n\left(x-x_0\right)^n\]
+    的无穷级数称作\tbf{幂级数}.其中$a_1,a_2,\cdots$是常数.
+\end{definition}
+\begin{formal}[1.2 幂级数的收敛半径]
+    幂级数的收敛域要么是一个点$\left\{x_0\right\}$,要么是一个以$x_0$为中心的一个区间(两端开闭不定).%
+    该区间长度的一半称作幂级数的\tbf{收敛半径}.
+\end{formal}
+\begin{lemma}
+    \begin{enumerate}[label=\tbf{\arabic*.}]
+        \item 如果幂级数$\displaystyle\sum_{n=0}^\infty a_nx^n$在$x_1$处收敛,那么对于任意$x$满足$|x|<|x_1|$,$\displaystyle\sum_{n=0}^\infty a_nx^n$都在$x$处绝对收敛.
+        \item 如果幂级数$\displaystyle\sum_{n=0}^\infty a_nx^n$在$x_2$处发散,那么对于任意$x$满足$|x|>|x_1|$,$\displaystyle\sum_{n=0}^\infty a_nx^n$都在$x$处发散.
+    \end{enumerate}
+\end{lemma}\noindent
+引理的证明从略,可以由比较审敛法不难得到.这样,我们就得到如下定律.
+\begin{formal}[1.3 幂级数的收敛半径]
+    对于幂级数$\displaystyle\sum_{n=0}^\infty a_nx^n$,存在一个非负数$R(R\text{可以为}+\infty)$,使得
+    \begin{enumerate}[label=\tbf{\arabic*.}]
+        \item 当$|x|<R$时,$\displaystyle\sum_{n=0}^\infty a_nx^n$绝对收敛.
+        \item 当$|x|>R$时,$\displaystyle\sum_{n=0}^\infty a_nx^n$发散.
+        \item 当$|x|=R$时,$\displaystyle\sum_{n=0}^\infty a_nx^n$可能收敛也可能发散.
+    \end{enumerate}
+\end{formal}
+\begin{definition}[1.4 幂级数的收敛半径与收敛区间]
+    \tbf{1.3}中的$R$称为$\displaystyle\sum_{n=0}^\infty a_nx^n$的\tbf{收敛半径},$(-R,R)$称为$\displaystyle\sum_{n=0}^\infty a_nx^n$的\tbf{收敛区间}.
+\end{definition}\noindent
+\tbf{2.收敛半径的求法}
+\begin{formal}[2.1 基于D'Alembert判别法的收敛半径求法]
+    若幂级数$\displaystyle\sum_{n=0}^\infty a_nx^n$的相邻两项系数之比满足
+    \[\lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=l\]
+    设该幂级数的收敛半径为$R$,那么有
+    \begin{enumerate}[label=\tbf{\arabic*.}]
+        \item 如果$0<l<+\infty$,那么$R=\dfrac1l$.
+        \item 如果$l=0$,那么$R=\infty$.
+        \item 如果$l=+\infty$,那么$R=0$.
+    \end{enumerate}
+    广义地说,你可以认为$R=\dfrac1l$.
+\end{formal}
+\begin{formal}[2.2 基于Cauchy判别法的收敛半径求法]
+    若幂级数$\displaystyle\sum_{n=0}^\infty a_nx^n$系数满足
+    \[\lim_{n\to\infty}\sqrt[n]{\left|a_n\right|}=l\]
+    设该幂级数的收敛半径为$R$,那么(广义地)有$R=\dfrac1l$.
+\end{formal}\noindent
+\tbf{3.幂级数的性质}
+\begin{formal}[3.1 幂级数的内闭一致性]
+    设幂级数$\displaystyle\sum_{n=0}^\infty a_nx^n$的收敛半径$R>0$,则有
+    \begin{enumerate}[label=\tbf{\arabic*.}]
+        \item 对任意$0<b<R$,$\displaystyle\sum_{n=0}^\infty a_nx^n$在$[-b,b]$上一致收敛.
+        \item 若$\displaystyle\sum_{n=0}^\infty a_nx^n$在$x=R$收敛,那么它在$[0,R]$上一致收敛.
+        \item 若$\displaystyle\sum_{n=0}^\infty a_nx^n$在$x=-R$收敛,那么它在$[-R,0]$上一致收敛.
+    \end{enumerate}
+\end{formal}
+\begin{formal}[3.2 幂级数的连续性]
+    幂级数$\displaystyle\sum_{n=0}^\infty a_nx^n$的和函数$S(x)$在$(-R,R)$连续.特别地,%
+    如果$\displaystyle\sum_{n=0}^\infty a_nx^n$在$x=R$(或$x=-R$)收敛,那么$S(x)$在在$x=R$(或$x=-R$)右(左)连续.
+\end{formal}
+\begin{formal}[3.3 幂级数的和函数的逐项积分]
+    幂级数$\displaystyle\sum_{n=0}^\infty a_nx^n$的和函数$S(x)$在$(-R,R)$内任意闭区间上可积,且可逐项求积分,并有
+    \[\int_0^xS(t)\di t=\sum_{n=0}^\infty\int_0^xa_nt^n\di t=\sum_{n=0}^\infty\dfrac{a_n}{n+1}x^{n+1}\ \ \ \ \ -R<x<R\]
+\end{formal}
+\begin{formal}[3.4 幂级数的和函数的逐项求导]
+    幂级数$\displaystyle\sum_{n=0}^\infty a_nx^n$的和函数$S(x)$在$(-R,R)$内任意闭区间上可导,且可逐项求导,并有
+    \[S'(x)=\sum_{n=0}^\infty\left(a_nt^n\right)'=\sum_{n=0}^\infty na_nx^{n-1}\ \ \ \ \ -R<x<R\]
+\end{formal}
+\begin{lemma}\\
+    幂级数$\displaystyle\sum_{n=0}^\infty a_nx^n$的收敛半径记为$R$,%
+    由幂级数逐项积分所得的新幂级数$\displaystyle\sum_{n=0}^\infty\dfrac{a_n}{n+1}x^{n+1}$的收敛半径记为$R_1$,%
+    由幂级数逐项求导所得的新幂级数$\displaystyle\sum_{n=0}^\infty na_nx^{n-1}$的收敛半径记为$R_2$,%
+    则有$R=R_1=R_2$.
+\end{lemma}
+\end{document}
