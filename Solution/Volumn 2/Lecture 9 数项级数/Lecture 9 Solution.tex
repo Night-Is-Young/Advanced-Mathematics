@@ -14,93 +14,106 @@
 
 \begin{document}\pagestyle{empty}
 \begin{center}
-    \large\tbf{Lecture 7 Solutions to ODE(常微分方程的解法)}
+    \large\tbf{Lecture 9 Sequence series(数项级数)}
 \end{center}
-\begin{problem}[L.7.1]
-    求解常微分方程$y'=xy+3x+2y+6$.
-\end{problem}
-\begin{solution}
-    整理可得$y'=(x+2)(y+3)$.置$u=x+2,v=y+3$,则有$\dfrac{\di v}{\di u}=uv$.\\
-    移项积分可得$\ln|v|=\dfrac12u^2+C$,回代可得$y=C\e^{\frac{\left(x+2\right)^2}{2}}-3$,其中$C\in\R$.
-\end{solution}
-\begin{problem}[L.7.2]
-    求解常微分方程$y'=\sqrt{\dfrac{1-y^2}{1-x^2}}$.
-\end{problem}
-\begin{solution}
-    当$y^2=1$时,$y\equiv\pm1$是该方程的特解.\\
-    当$y^2\neq1$时,移项可得
-    \[\dfrac{\di y}{\sqrt{1-y^2}}=\dfrac{\di x}{\sqrt{1-x^2}}\]
-    两边积分有
-    \[\arcsin y=\arcsin x+C\]
-    从而该方程的解为
-    \[\arcsin y=\arcsin x+C\text{或}y=1\text{或}y=-1\]
-\end{solution}
-\begin{problem}[L.7.3]
-    设$P(x,y)\di x+Q(x,y)\di y=0$是齐次方程,试证明:函数$\mu(x,y)=\dfrac{1}{xP+yQ}$是该方程的一个积分因子.
+\begin{problem}[L.9.1]
+    设$p$是正实数,判断正项级数
+    \[\sum_{n=1}^\infty\left(\sqrt{n+1}-\sqrt n\right)^p\ln\dfrac{n+1}{n-1}\]
+    的敛散性.
 \end{problem}
 \begin{proof}
-    考虑方程$\mu P\di x+\mu Q\di y=0$,则有
-    \[\dfrac{P}{xP+yQ}\di x+\dfrac{Q}{xP+yQ}\di y=0\]
-    于是
-    \[
-        \dfrac{\p}{\p y}\left(\dfrac{P}{xP+yQ}\right)
-        = \dfrac{P_y\left(xP+yQ\right)-P\left(xP_y+Q+yQ_y\right)}{\left(xP+yQ\right)^2}
-        = \dfrac{yP_yQ-yQ_yP-PQ}{\left(xP+yQ\right)^2}
-    \]
-    \[\dfrac{\p}{\p x}\left(\dfrac{Q}{xP+yQ}\right)
-        = \dfrac{xQ_xP-xP_xQ-PQ}{\left(xP+yQ\right)^2}\]
-    于是
-    \[
-        \dfrac{\p}{\p x}\left(\dfrac{Q}{xP+yQ}\right)-\dfrac{\p}{\p y}\left(\dfrac{P}{xP+yQ}\right)
-        =\dfrac{P\left(xQ_x+yQ_y\right)-Q\left(xP_x+yP_y\right)}{\left(xP+yQ\right)^2}
-    \]
-    由于题设的方程为齐次方程,于是
-    \[\dfrac{\di y}{\dx}=-\dfrac{P(x,y)}{Q(x,y)}=h\left(\dfrac{y}{x}\right)=f(x,y)\]
-    则
-    \[f_y=\dfrac{1}{x}h\left(\dfrac yx\right)=\dfrac{P_yQ-PQ_y}{Q^2}\]
-    \[f_x=-\dfrac{y}{x^2}h\left(\dfrac yx\right)=\dfrac{P_xQ-PQ_x}{Q^2}\]
-    从而
-    \[\dfrac yxh\left(\dfrac yx\right)=\dfrac{yP_yQ-yQ_yP}{Q^2}=\dfrac{xPQ_x-xP_xQ}{Q^2}\]
-    从而
-    \[\dfrac{\p}{\p x}\left(\dfrac{Q}{xP+yQ}\right)-\dfrac{\p}{\p y}\left(\dfrac{P}{xP+yQ}\right)=0\]
-    因此存在$u(x,y)$使得
-    \[\di u=\mu P\dx+\mu Q\di y\]
+    考虑到
+    \[\left(\sqrt{n+1}-\sqrt n\right)^p\ln\dfrac{n+1}{n-1}=\left(\dfrac{1}{\sqrt{n+1}+\sqrt{n}}\right)^p\ln\left(1+\dfrac{2}{n-1}\right)\sim\dfrac{2^{1-p}}{n^{1+\frac p2}}\]
+    又因为$\displaystyle\sum_{n=1}^{\infty}\dfrac{2^{1-p}}{n^{1+\frac p2}}$收敛,于是原正项级数收敛.
 \end{proof}
-\begin{problem}[L.7.4]
-    考虑一阶线性方程$y'+p(x)y=0$.如果$p(x)$是在$\R$上定义的以$T>0$为周期的周期函数,试证明:%
-    该微分方程的任意解都是以$T$为周期的周期函数,当且仅当$\displaystyle\int_0^Tp(t)\di t=0$.
+\begin{problem}[L.9.2]
+    判断正项级数
+    \[\sum_{n=1}^\infty\left(n^\frac1n-\sin\dfrac1n\right)^{n^2}\]
+    的敛散性.\\
+    \tbf{提示}:使用Cauchy判别法,得到的极限借助Taylor公式计算.
 \end{problem}
 \begin{proof}
-    首先,$y=0$是该方程的满足题意的解.考虑$y\neq0$,于是对上述微分方程移项可得
-    \[\dfrac{\di y}{y}=-p(x)\dx\]
-    积分后整理可得
-    \[y=C\e^{-\int_0^{x} p(t)\di t},C\neq0\]
-    于是方程的任意非零解都具有上述形式.于是
+    置$u_n=\left(n^\frac1n-\sin\dfrac1n\right)^{n^2}$,则
     \[\begin{aligned}
-        &\forall C\in\R,y=C\e^{-\int_0^{x} p(t)\di t}\text{都是以}T\text{为周期的周期函数} \\
-        \Leftrightarrow &\forall C\in\R,\forall x\in\R,y(x)=y(x+T) \\
-        \Leftrightarrow &\forall C\in\R,\forall x\in\R,\dfrac{C\e^{-\int_0^{x+T} p(t)\di t}}{C\e^{-\int_0^{x} p(t)\di t}}=1 \\
-        \Leftrightarrow &\forall x\in\R,\int_{x}^{x+T}p(t)\di t=0 \\
-        \Leftrightarrow &\int_{0}^{T}p(t)\di t=0
+        \lim_{n\to\infty}\sqrt[n]{u_n}
+        &= \lim_{n\to\infty}\left(n^{\frac1n}-\sin\dfrac1n\right)^n \\
+        &= \lim_{n\to\infty}\exp\left[n\ln\left(n^\frac1n-\sin\dfrac1n\right)\right] \\
+        &= \lim_{n\to\infty}\exp\left[n\left(n^\frac1n-\sin\dfrac1n-1\right)\right] \\
+        &= \lim_{n\to\infty}\exp\left[n\left(n^\frac1n-1\right)\right]\cdot\exp\left(-n\sin\dfrac1n\right) \\
+        &= \lim_{n\to\infty}\exp\left(\ln n+o(\ln n)-1\right)\\
+        &= +\infty
     \end{aligned}\]
-    最后一个等价关系可以由$p(x)$的周期性得到.于是命题得证.
+    其中
+    \[\ln\left(n^\frac1n-\sin\dfrac1n\right)\sim n^\frac1n-\sin\dfrac1n-1\ \ \ (n\to\infty)\]
+    \[n^{\frac 1n}=\e^{\frac{\ln n}{n}}=1+\dfrac{\ln n}{n}+o\left(\dfrac{\ln n}{n}\right)\]
+    从而$\displaystyle\sum_{n=1}^\infty u_n$发散.
 \end{proof}
-\begin{problem}[L.7.5]
-    设函数$f(x)$在$\R$上有界,求方程$y'+y=f(x)$在$\R$上所有的有界函数解.
+\begin{problem}[L.9.3]
+    判断一般项级数
+    \[\sum_{n=1}^\infty\left(\dfrac{\sin n}{n}\sum_{k=1}^{n}\dfrac1k\right)\]
+    的敛散性.
 \end{problem}
-\begin{solution}
-    方程$y'+y=0$的解为
-    \[y=C\e^{-x}\]
-    设$y=u(x)\e^{-x}$,代入原方程则有
-    \[u'(x)\e^{-x}=f(x)\]
-    从而
-    \[u(x)=\int_{-\infty}^x\e^tf(t)\di t+C\]
+\begin{proof}
+    首先有$\displaystyle\sum_{n=1}^\infty\left|\dfrac{\sin n}{n}\right|$发散,又$\displaystyle\sum_{n=1}^{\infty}>1$,因此这级数不绝对收敛.\\
+    下面证明这级数条件收敛.置$\displaystyle a_n=\dfrac{1}{n}\sum_{k=1}^{n}\dfrac1k,b_n=\sin n$.则
+    \[a_{n}-a_{n+1}=\left(\dfrac{1}{n}-\dfrac{1}{n+1}\right)\sum_{k=1}^n\dfrac1k-\dfrac{1}{(n+1)^2}\geqslant\dfrac{1}{n^2+n}-\dfrac{1}{(n+1)^2}>0\]
+    于是$a_n$单调递减,又$0<a_n\leqslant\dfrac1n\displaystyle\sum_{k=1}^n\dfrac1n=\dfrac1n$,根据夹逼准则有$\displaystyle\lim_{n\to\infty}a_n=0$.\\
+    考虑$\left\{b_n\right\}$的部分和$B_n=\displaystyle\sum_{k=1}^{n}b_k$,则有
+    \[\begin{aligned}
+        B_n
+        &= \sum_{k=1}^{n}\sin n \\
+        &= \dfrac{1}{\sin\frac12}\left(\sin1\sin\frac12+\cdots+\sin n\sin\frac12\right) \\
+        &= \dfrac{1}{2\sin\frac12}\left(\cos\frac12-\cos\frac32+\cdots+\cos\frac{n-1}{2}-\cos\frac{n+1}{2}\right) \\
+        &= \dfrac{1}{2\sin\frac12}\left(\cos\frac12-\cos\frac{n+1}{2}\right)
+    \end{aligned}\]
     于是
-    \[y=C\e^{-x}+\e^{-x}\int_{-\infty}^x\e^tf(t)\di t\]
-    不妨令$\displaystyle\max_{x\in\R}\left|f(x)\right|=M$,则有
-    \[\left|\e^{-x}\int_{-\infty}^x\e^tf(t)\di t\right|\leqslant M\e^{-x}\int_{-\infty}^{x}\e^t\di t=M\]
-    于是表达式的后半部分是有界的.而当$C\neq0$时,$C\e^{-x}$是无界函数,于是
-    \[y=\e^{-x}\int_{-\infty}^{x}\e^tf(t)\di t\]
-    更为严格的叙述需要学习无穷积分.
-\end{solution}
+    \[\left|B_n\right|=\left|\dfrac{1}{2\sin\frac12}\left(\cos\frac12-\cos\frac{n+1}{2}\right)\right|\leqslant\left|\dfrac{1}{\sin\frac12}\right|\]
+    于是该部分和序列有界.\\
+    根据Dirichlet判别法,$\displaystyle\sum_{n=1}^\infty\left(\dfrac{\sin n}{n}\sum_{k=1}^{n}\dfrac1k\right)=\sum_{n=1}^\infty a_nb_n$条件收敛.
+\end{proof}
+\begin{problem}[L.9.4]
+    设$\left\{a_n\right\}$是单调递增的有界序列,试证明:级数
+    \[\sum_{n=1}^\infty\left(1-\dfrac{a_n}{a_{n+1}}\right)\]
+    收敛.\\
+    \tbf{注}:$\left\{a_n\right\}$似应为单调递增的\tbf{正项}有界序列.
+\end{problem}
+\begin{proof}
+    不妨设$\displaystyle\lim_{n\to\infty}a_n=A$.\\
+    \tbf{Method I.}\\
+    我们有
+    \[\sum_{n=1}^\infty\left(1-\dfrac{a_n}{a_{n+1}}\right)=\sum_{n=1}^\infty \dfrac{1}{a_{n+1}}\cdot\left(a_{n+1}-a_n\right)\leqslant\int_{a_1}^A\dfrac1x\dx=\ln A-\ln a_1\]
+    于是原正项级数收敛.\\
+    \tbf{Method II.}\\
+    令$u_n=\dfrac{1}{a_{n+1}},v_n=a_{n+1}-a_n$,则$\left\{u_n\right\}$单调递减且有下界$\dfrac1A$\\
+    又$\displaystyle\sum_{n=1}^{\infty}v_n=\lim_{n\to\infty}a_{n+1}-a_1=A-a_1$收敛.\\
+    于是根据Abel判别法可知原正项级数收敛.
+\end{proof}
+\begin{problem}[L.9.5]
+    设级数$\displaystyle\sum_{n=1}^\infty a_n$满足$a_n>0$且$\displaystyle\lim_{n\to\infty}n\ln\dfrac{a_n}{a_{n+1}}=1$.%
+    试举例说明级数$\displaystyle\sum_{n=1}^\infty a_n$可能收敛也可能发散.
+\end{problem}
+\begin{proof}
+    令$a_n=\dfrac1{n\left(\ln n\right)^p}$,则有
+    \[\begin{aligned}
+        \lim_{n\to\infty}n\ln\dfrac{a_n}{a_{n+1}}
+        &= \lim_{n\to\infty}n\ln\left(\dfrac{(n+1)(\ln(n+1))^p}{n(\ln n)^p}\right) \\
+        &= \lim_{n\to\infty}\left[n\ln\left(1+\dfrac1n\right)+np\ln\left(\dfrac{\ln(n+1)}{\ln n}\right)\right] \\
+        &= \lim_{n\to\infty}\left[\ln\left(1+\dfrac1n\right)^n\right]+\left[np\cdot\dfrac{\ln\left(1+\dfrac1n\right)}{\ln n}\right] \\
+        &= \lim_{n\to\infty}\ln\e+\dfrac{p\ln\e}{\ln n} \\
+        &= 1
+    \end{aligned}\]
+    其中
+    \[\ln\left(\dfrac{\ln(n+1)}{\ln n}\right)\sim\dfrac{\ln(n+1)}{\ln n}-1=\dfrac{\ln\left(1+\dfrac1n\right)}{\ln n}\]
+    而$0<p\leqslant1$时这级数发散,$p>1$时这级数收敛,符合题目条件.
+\end{proof}
+\begin{problem}[L.9.6]
+    我们知道调和级数$\displaystyle\sum_{n=1}^\infty\dfrac1n$是发散的.现在我们去除调和级数中所有分母包含数字$9$的项,如%
+    $\dfrac19$,$\dfrac1{19}$等,得到一个新的级数$\displaystyle\sum_{n=1}^\infty\dfrac{1}{p_n}$.试证明这个新级数收敛.
+\end{problem}
+\begin{proof}
+    将所有自然数按位数分类.所有$k$位的数字中不出现$9$的一共有$8\cdot9^{k-1}$个,这些数中最小的是$10^{k-1}$.于是
+    \[\sum_{n=1}^\infty\dfrac{1}{p_n}\leqslant\sum_{k=1}^\infty\dfrac{1}{10^{k-1}}\cdot\left(8\cdot9^{k-1}\right)
+    =8\cdot\sum_{k=1}^\infty\left(\dfrac{9}{10}\right)^{k-1}=80\]
+    根据比较判别法可知$\displaystyle\sum_{n=1}^\infty\dfrac{1}{p_n}$收敛.
+\end{proof}
 \end{document}
