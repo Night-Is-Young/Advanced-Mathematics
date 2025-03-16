@@ -1,0 +1,106 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{solution}
+\usepackage{extarrows,esint}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}
+    \large\tbf{Lecture 7 Solutions to ODE(常微分方程的解法)}
+\end{center}
+\begin{problem}[L.7.1]
+    求解常微分方程$y'=xy+3x+2y+6$.
+\end{problem}
+\begin{solution}
+    整理可得$y'=(x+2)(y+3)$.置$u=x+2,v=y+3$,则有$\dfrac{\di v}{\di u}=uv$.\\
+    移项积分可得$\ln|v|=\dfrac12u^2+C$,回代可得$y=C\e^{\frac{\left(x+2\right)^2}{2}}-3$,其中$C\in\R$.
+\end{solution}
+\begin{problem}[L.7.2]
+    求解常微分方程$y'=\sqrt{\dfrac{1-y^2}{1-x^2}}$.
+\end{problem}
+\begin{solution}
+    当$y^2=1$时,$y\equiv\pm1$是该方程的特解.\\
+    当$y^2\neq1$时,移项可得
+    \[\dfrac{\di y}{\sqrt{1-y^2}}=\dfrac{\di x}{\sqrt{1-x^2}}\]
+    两边积分有
+    \[\arcsin y=\arcsin x+C\]
+    从而该方程的解为
+    \[\arcsin y=\arcsin x+C\text{或}y=1\text{或}y=-1\]
+\end{solution}
+\begin{problem}[L.7.3]
+    设$P(x,y)\di x+Q(x,y)\di y=0$是齐次方程,试证明:函数$\mu(x,y)=\dfrac{1}{xP+yQ}$是该方程的一个积分因子.
+\end{problem}
+\begin{proof}
+    考虑方程$\mu P\di x+\mu Q\di y=0$,则有
+    \[\dfrac{P}{xP+yQ}\di x+\dfrac{Q}{xP+yQ}\di y=0\]
+    于是
+    \[
+        \dfrac{\p}{\p y}\left(\dfrac{P}{xP+yQ}\right)
+        = \dfrac{P_y\left(xP+yQ\right)-P\left(xP_y+Q+yQ_y\right)}{\left(xP+yQ\right)^2}
+        = \dfrac{yP_yQ-yQ_yP-PQ}{\left(xP+yQ\right)^2}
+    \]
+    \[\dfrac{\p}{\p x}\left(\dfrac{Q}{xP+yQ}\right)
+        = \dfrac{xQ_xP-xP_xQ-PQ}{\left(xP+yQ\right)^2}\]
+    于是
+    \[
+        \dfrac{\p}{\p x}\left(\dfrac{Q}{xP+yQ}\right)-\dfrac{\p}{\p y}\left(\dfrac{P}{xP+yQ}\right)
+        =\dfrac{P\left(xQ_x+yQ_y\right)-Q\left(xP_x+yP_y\right)}{\left(xP+yQ\right)^2}
+    \]
+    由于题设的方程为齐次方程,于是
+    \[\dfrac{\di y}{\dx}=-\dfrac{P(x,y)}{Q(x,y)}=h\left(\dfrac{y}{x}\right)=f(x,y)\]
+    则
+    \[f_y=\dfrac{1}{x}h\left(\dfrac yx\right)=\dfrac{P_yQ-PQ_y}{Q^2}\]
+    \[f_x=-\dfrac{y}{x^2}h\left(\dfrac yx\right)=\dfrac{P_xQ-PQ_x}{Q^2}\]
+    从而
+    \[\dfrac yxh\left(\dfrac yx\right)=\dfrac{yP_yQ-yQ_yP}{Q^2}=\dfrac{xPQ_x-xP_xQ}{Q^2}\]
+    从而
+    \[\dfrac{\p}{\p x}\left(\dfrac{Q}{xP+yQ}\right)-\dfrac{\p}{\p y}\left(\dfrac{P}{xP+yQ}\right)=0\]
+    因此存在$u(x,y)$使得
+    \[\di u=\mu P\dx+\mu Q\di y\]
+\end{proof}
+\begin{problem}[L.7.4]
+    考虑一阶线性方程$y'+p(x)y=0$.如果$p(x)$是在$\R$上定义的以$T>0$为周期的周期函数,试证明:%
+    该微分方程的任意解都是以$T$为周期的周期函数,当且仅当$\displaystyle\int_0^Tp(t)\di t=0$.
+\end{problem}
+\begin{proof}
+    首先,$y=0$是该方程的满足题意的解.考虑$y\neq0$,于是对上述微分方程移项可得
+    \[\dfrac{\di y}{y}=-p(x)\dx\]
+    积分后整理可得
+    \[y=C\e^{-\int_0^{x} p(t)\di t},C\neq0\]
+    于是方程的任意非零解都具有上述形式.于是
+    \[\begin{aligned}
+        &\forall C\in\R,y=C\e^{-\int_0^{x} p(t)\di t}\text{都是以}T\text{为周期的周期函数} \\
+        \Leftrightarrow &\forall C\in\R,\forall x\in\R,y(x)=y(x+T) \\
+        \Leftrightarrow &\forall C\in\R,\forall x\in\R,\dfrac{C\e^{-\int_0^{x+T} p(t)\di t}}{C\e^{-\int_0^{x} p(t)\di t}}=1 \\
+        \Leftrightarrow &\forall x\in\R,\int_{x}^{x+T}p(t)\di t=0 \\
+        \Leftrightarrow &\int_{0}^{T}p(t)\di t=0
+    \end{aligned}\]
+    最后一个等价关系可以由$p(x)$的周期性得到.于是命题得证.
+\end{proof}
+\begin{problem}[L.7.5]
+    设函数$f(x)$在$\R$上有界,求方程$y'+y=f(x)$在$\R$上所有的有界函数解.
+\end{problem}
+\begin{solution}
+    方程$y'+y=0$的解为
+    \[y=C\e^{-x}\]
+    设$y=u(x)\e^{-x}$,代入原方程则有
+    \[u'(x)\e^{-x}=f(x)\]
+    从而
+    \[u(x)=\int_{-\infty}^x\e^tf(t)\di t+C\]
+    于是
+    \[y=C\e^{-x}+\e^{-x}\int_{-\infty}^x\e^tf(t)\di t\]
+    不妨令$\displaystyle\max_{x\in\R}\left|f(x)\right|=M$,则有
+    \[\left|\e^{-x}\int_{-\infty}^x\e^tf(t)\di t\right|\leqslant M\e^{-x}\int_{-\infty}^{x}\e^t\di t=M\]
+    于是表达式的后半部分是有界的.而当$C\neq0$时,$C\e^{-x}$是无界函数,于是
+    \[y=\e^{-x}\int_{-\infty}^{x}\e^tf(t)\di t\]
+    更为严格的叙述需要学习无穷积分.
+\end{solution}
+\end{document}

@@ -62,4 +62,63 @@
     \[\lim_{n\to\infty}\left[f_n(x_n)-f(x_n)\right]=k\neq0\]
     则$\left\{f_n(x)\right\}$在$X$上不一致收敛.
 \end{formal}
+\noindent\tbf{3.函数项级数一致收敛的必要条件和判别法}
+\begin{formal}[3.1]
+    若函数项级数$\displaystyle\sum_{n=1}^\infty u_n(x)$在$X$上一致收敛,那么其一般项序列$\left\{u_n(x)\right\}$也在$X$上一致收敛于$0$.
+\end{formal}
+\begin{formal}[3.2 一致收敛的Cauchy准则]
+    函数项级数$\displaystyle\sum_{n=1}^\infty u_n(x)$在$X$上一致收敛,当且仅当对于任意给定的$\ep>0$,存在一个只依赖于$\ep$的$N\in\N^*$,使得对任意$n>N$和任意$p\in\N^*$都有
+    \[\left|\sum_{k=n+1}^{n+p}u_k(x)\right|<\ep\]
+    对任意$x\in X$成立.
+\end{formal}
+\begin{formal}[3.3 强级数判别法(Weierstrass判别法)]
+    若函数项级数$\displaystyle\sum_{n=1}^\infty u_n(x)$的一般项满足
+    \[\left|u_n(x)\right|<a_n\ \ \ \ \ \forall x\in X,n=1,2,\cdots\]
+    且正项级数$\displaystyle\sum_{n=1}^\infty a_n$收敛,那么该函数项级数在$X$上一致收敛.
+\end{formal}
+\begin{definition}[3.4 一致有界]
+    设函数序列$\left\{f_n(x)\right\}$在$X$上有定义.若存在常数$M$,使得对任意$n=1,2,\cdots$和任意$x\in X$都有
+    \[\left|f_n(x)\right|<M\]
+    则称该函数序列在$X$上一致有界.
+\end{definition}
+\begin{formal}[3.5 Dirichlet判别法]
+    设函数项级数$\displaystyle\sum_{n=1}^\infty u_n(x)$在$X$上有定义,且通项$u_n(x)$可以写成
+    \[u_n(x)=a_n(x)\cdot b_n(x)\ \ \ \ \ \forall x\in X\]
+    若$u_n(x)$满足
+    \begin{enumerate}[label=\tbf{\arabic*.}]
+        \item 在$X$中任意取定$x$,数列$\left\{a_n(x)\right\}$对$n$单调,且函数序列$\left\{a_n(x)\right\}$在$X$上一致收敛于$0$.
+        \item 函数项级数$\displaystyle\sum_{n=1}^{\infty}b_n(x)$的部分和序列$\left\{B_n(x)\right\}$在$X$上一致有界.
+    \end{enumerate}
+    则$\displaystyle\sum_{n=1}^\infty u_n(x)$在$X$上一致收敛.
+\end{formal}\noindent
+只需将数项级数的Dirichlet判别法中$\{a_n\}$收敛于$0$和$\{B_n\}$有界分别换成$\{a_n(x)\}$\tbf{一致}收敛于$0$和%
+$\{B_n(x)\}$\tbf{一致}有界,就可以得出$\displaystyle\sum_{n=1}^\infty a_n(x)b_n(x)$\tbf{一致}收敛.
+\begin{formal}[3.6 Abel判别法]
+    设函数项级数$\displaystyle\sum_{n=1}^\infty u_n(x)$在$X$上有定义,且通项$u_n(x)$可以写成
+    \[u_n(x)=a_n(x)\cdot b_n(x)\ \ \ \ \ \forall x\in X\]
+    若$u_n(x)$满足
+    \begin{enumerate}[label=\tbf{\arabic*.}]
+        \item 在$X$中任意取定$x$,数列$\left\{a_n(x)\right\}$对$n$单调,且函数序列$\left\{a_n(x)\right\}$在$X$上一致有界.
+        \item 函数项级数$\displaystyle\sum_{n=1}^{\infty}b_n(x)$在$X$上一致收敛.
+    \end{enumerate}
+    则$\displaystyle\sum_{n=1}^\infty u_n(x)$在$X$上一致收敛.
+\end{formal}\noindent
+同样地,只需将数项级数的Abel判别法中的有界和收敛换成一致有界和一致收敛即可.\\
+\tbf{4.一致收敛级数的性质}
+\begin{formal}[4.1 和函数的连续性]
+    设函数项级数$\displaystyle\sum_{n=1}^\infty u_n(x)$在$[a,b]$上一致收敛,且其每一个通项$u_n(x)(n=1,2,\cdots)$在$[a,b]$上都连续,则%
+    其和函数$S(x)=\displaystyle\sum_{n=1}^\infty u_n(x)$在$[a,b]$上也连续.
+\end{formal}\noindent
+这就说明当级数一致收敛且各项连续时,无穷多项的求和运算与求极限的运算可以交换次序.
+\begin{formal}[4.2 逐项求积分]
+    设函数项级数$\displaystyle\sum_{n=1}^\infty u_n(x)$在$[a,b]$上一致收敛,且其每一个通项$u_n(x)(n=1,2,\cdots)$在$[a,b]$上都连续,则%
+    其和函数$S(x)=\displaystyle\sum_{n=1}^\infty u_n(x)$在$[a,b]$上可积,而且可以逐项积分,即
+    \[\int_a^b S(x)\dx=\sum_{n=1}^\infty\int_a^b u_n(x)\dx\]
+\end{formal}
+\begin{formal}[4.3 逐项求导]
+    设函数项级数$\displaystyle\sum_{n=1}^\infty u_n(x)$在$[a,b]$上点点收敛,且通项$u_n(x)(n=1,2,\cdots)$的导函数$u'(x)$在$[a,b]$上都连续,且级数%
+    $\displaystyle\sum_{n=1}^\infty u_n'(x)$在$[a,b]$上一直连续,则和函数$S(x)=\displaystyle\sum_{n=1}^\infty u_n(x)$在$[a,b]$上可导,且
+    \[S'(x)=\sum_{n=1}^\infty u_n'(x)\ \ \ \ \ \forall x\in[a,b]\]
+    并且$S'(x)$在$[a,b]$上也连续.
+\end{formal}
 \end{document}
