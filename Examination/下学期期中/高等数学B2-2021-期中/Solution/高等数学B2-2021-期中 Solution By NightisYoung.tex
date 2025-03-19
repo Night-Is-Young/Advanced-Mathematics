@@ -1,6 +1,6 @@
 \documentclass{ctexart}
 \usepackage{template}
-\usepackage{esint}
+\usepackage{esint,extarrows}
 
 \geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
 
@@ -12,12 +12,36 @@
     计算二重积分
     \[\iint_{D}\ln\left(1+x^2+y^2\right)\dx\di y\ \ \ \ \ D:x^2+y^2\leqslant1,x\geqslant0,y\geqslant0\]
 \end{problem}
+\begin{solution}
+    做极坐标变换$x=r\cos\theta,y=r\sin\theta$.于是变换后的积分区域$D':0\leqslant r\leqslant 1,0\leqslant\theta\leqslant\dfrac\pi2$.于是
+    \[\begin{aligned}
+        \iint_{D}\ln\left(1+x^2+y^2\right)\dx\di y
+        &= \iint_{D'}\ln\left(1+r^2\right)r\di r\di\theta \\
+        &= \int_0^{\frac\pi2}\di\theta\int_0^1\ln\left(1+r^2\right)r\di r \\
+        &\xlongequal{t=r^2} \dfrac12\int_0^{\frac\pi2}\di\theta\int_1^2\ln t\di t \\
+        &= \dfrac\pi4\left(\ln 2-1\right)
+    \end{aligned}\]
+\end{solution}
 \begin{problem}[2.(10\songti{分})]
     计算三重积分
-    \[\iiint_{\Omega}\left(y^2+z^2\right)\ \ \ \ \ \Omega:0\leqslant z\leqslant x^2+y^2\leqslant1\]
+    \[\iiint_{\Omega}\left(y^2+z^2\right)\di V\ \ \ \ \ \Omega:0\leqslant z\leqslant x^2+y^2\leqslant1\]
 \end{problem}
+\begin{solution}
+    做柱坐标变换$x=r\cos\theta,y=r\sin\theta,z=z$,于是变换后的积分区域
+    \[\Omega':0\leqslant z\leqslant r^2\leqslant 1,0\leqslant \theta\leqslant 2\pi\]
+    于是
+    \[\begin{aligned}
+        \iiint_{\Omega}\left(y^2+z^2\right)\di V
+        &= \iiint_{\Omega'}\left(r^2\sin^2\theta+z^2\right)r\di r\di z\di\theta \\
+        &= \int_0^{2\pi}\di\theta\int_0^1\di r\int_0^{r^2}\left(r^2\sin^2\theta+z^2\right)r\di z \\
+        &= \int_0^{2\pi}\di\theta\int_0^1r\left(r^4\sin^2\theta+\dfrac{r^6}{3}\right)\di r\\
+        &= \int_0^{2\pi}\left(\dfrac16\sin^2\theta+\dfrac1{24}\right)\di\theta\\
+        &= \dfrac\pi6+\dfrac1{24}\cdot2\pi \\
+        &= \dfrac\pi4
+    \end{aligned}\]
+\end{solution}
 \begin{problem}[3.(10\songti{分})]
-    设曲线$C$为椭圆$\frac{x^2}{16}+\dfrac{y^2}{9}=1$沿逆时针方向.计算曲线积分
+    设曲线$C$为椭圆$\dfrac{x^2}{16}+\dfrac{y^2}{9}=1$沿逆时针方向.计算曲线积分
     \[\oint_{C}\dfrac{x\di y-y\di x}{x^2+y^2}\]
 \end{problem}
 \begin{problem}[4.(10\songti{分})]
