@@ -1,0 +1,106 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{yhmath}
+\usepackage{template,esint,extarrows}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 曲面积分\end{center}
+\tbf{A.}
+\begin{problem}[A.1]
+    给定三元函数$f(x,y,z)$,Laplace算子作用于$f$得到新的函数
+    \[\Delta f=\dfrac{\p^2 f}{\p x^2}+\dfrac{\p^2 f}{\p y^2}+\dfrac{\p^2 f}{\p z^2}\]
+    设$\Omega$是三维有界闭区域,$\Omega$的边界$S$是分段光滑的曲面.\\
+    设三元函数$u(x,y,z)$和$v(x,y,z)$在$\Omega\cup S$%
+    上有连续的二阶偏导数.\\
+    设$\mbf n$表示$S$的单位外法向量.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 试证明\[\iint_S\dfrac{\p u}{\p\mbf n}\di S=\iiint_\Omega\Delta u\di V\]
+        \item 试证明\[\iiint_\Omega\left(u\Delta v-v\Delta u\right)\di V=\iint_S\left(u\dfrac{\p v}{\p\mbf n}-v\dfrac{\p u}{\p\mbf n}\right)\di S\]
+        \item 如果函数$f(x,y,z)$在$\Omega$上满足$\Delta f=0$,则称为\tbf{调和函数}.\\
+            设$u$是调和函数,给定点$P_0\left(x_0,y_0,z_0\right)\in\Omega$,令$\mbf r$是以$P_0$为起点,$S$上的点$P(x,y,z)$为终点的向量,试证明
+            \[u\left(x_0,y_0,z_0\right)=\dfrac{1}{4\pi}\iint_S\left(u\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|^2}+\dfrac{1}{\left|\mbf r\right|}\dfrac{\p u}{\p\mbf n}\right)\]
+        \item 设$u$是$\Omega$上的调和函数,令$\Omega$是以$P_0\left(x_0,y_0,z_0\right)$为球心,以$R$为半径的球,试证明
+            \[u\left(x_0,y_0,z_0\right)=\dfrac{1}{4\pi R^2}\iint_S u\di S\]
+            即球心的函数值等于球面函数值的平均值.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 我们有
+            \[\begin{aligned}
+                \iint_S\dfrac{\p u}{\p\mbf n}\di S
+                &= \iint_S\left(\dfrac{\p u}{\p x},\dfrac{\p u}{\p y},\dfrac{\p u}{\p z}\right)\cdot\mbf n\di S \\
+                &= \oiint_{S^+}\dfrac{\p u}{\p x}\di y\di z+\dfrac{\p u}{\p x}\di z\di x+\dfrac{\p u}{\p x}\di x\di y \\
+                &= \iiint_{\Omega}\left[\dfrac{\p}{\p x}\left(\dfrac{\p u}{\p x}\right)+\dfrac{\p}{\p y}\left(\dfrac{\p u}{\p y}\right)+\dfrac{\p}{\p z}\left(\dfrac{\p u}{\p z}\right)\right]\di V \\
+                &= \iiint_{\Omega}\Delta u\di V
+            \end{aligned}\]
+        \item 我们有
+            \[\begin{aligned}
+                \iint_Sv\dfrac{\p u}{\p\mbf n}\di S
+                &= \iint_S\left(v\dfrac{\p u}{\p x},v\dfrac{\p u}{\p y},v\dfrac{\p u}{\p z}\right)\cdot\mbf n\di S \\
+                &= \iiint_\Omega\left(v_xu_x+vu_{xx}+v_yu_y+vu_{yy}+v_zu_z+vu_{zz}\right)\di V \\
+                &= \iiint_{\Omega}\left(v_xu_x+v_yu_y+v_zu_z+v\Delta u\right)\di V
+            \end{aligned}\]
+            同理
+            \[\iint_Su\dfrac{\p v}{\p\mbf n}\di S=\iiint_{\Omega}\left(u_xv_x+u_yv_y+u_zv_z+u\Delta v\right)\di V\]
+            两式相减即可得
+            \[\iiint_\Omega\left(u\Delta v-v\Delta u\right)\di V=\iint_S\left(u\dfrac{\p v}{\p\mbf n}-v\dfrac{\p u}{\p\mbf n}\right)\di S\]
+        \item 令$v(x,y,z)=\dfrac{1}{\left|\mbf r\right|}=\dfrac{1}{\sqrt{\left(x-x_0\right)^2+\left(y-y_0\right)^2+\left(z-z_0\right)^2}}$,则有
+            \[\dfrac{\p^2 v}{\p x^2}=\dfrac{\p}{\p x}\left(-\dfrac{2\left(x-x_0\right)}{2\left|\mbf r\right|^3}\right)
+            =-\dfrac{\left|\mbf r\right|^3-3\left|\mbf r\right|^2\cdot\dfrac{\left(x-x_0\right)}{\left|\mbf r\right|}\cdot\left(x-x_0\right)}{\left|\mbf r\right|^6}
+            =\dfrac{3\left(x-x_0\right)^2-\left|\mbf r\right|^2}{\left|\mbf r\right|^5}\]
+            同理
+            \[\dfrac{\p^2 v}{\p y^2}=\dfrac{3\left(y-y_0\right)^2-\left|\mbf r\right|^2}{\left|\mbf r\right|^5}\ \ \ \ \ \dfrac{\p^2 v}{\p z^2}=\dfrac{3\left(z-z_0\right)^2-\left|\mbf r\right|^2}{\left|\mbf r\right|^5}\]
+            于是
+            \[\Delta v=\dfrac{3\left(x-x_0\right)^2+3\left(y-y_0\right)^2+3\left(z-z_0\right)^2-3\left|\mbf r\right|^2}{\left|\mbf r\right|^5}=0\]
+            现在处理等式右端,我们有
+            \[\dfrac{\p v}{\p\mbf n}=\left(\dfrac{\p v}{\p x},\dfrac{\p v}{\p y},\dfrac{\p v}{\p z}\right)\cdot\mbf n
+            =-\dfrac{1}{\left|\mbf r\right|^3}\left(x-x_0,y-y_0,z-z_0\right)\cdot\mbf n=-\dfrac{\mbf r\cdot\mbf n}{\left|\mbf r\right|^3}
+            =-\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|^2}\]
+            注意到$v$在$\left(x_0,y_0,z_0\right)$处没有定义.因此取半径为$\ep$,球心为$P_0$的球$\Omega'$,记其外表面为$S'$,%
+            那么$\Omega\backslash\Omega'$的表面的单位外法向量$\mbf n$指向$\Omega'$的内侧,即$\mbf n=-(x-x_0,y-y_0,z-z_0)$.\\
+            命此为$S'$的定向,于是有
+            \[\begin{aligned}
+                \iint_{S'}\left(v\dfrac{\p u}{\p\mbf n}-u\dfrac{\p v}{\p\mbf n}\right)\di S
+                &= \iint_{S'}\left(u\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|^2}+\dfrac{1}{\left|\mbf r\right|}\dfrac{\p u}{\p\mbf n}\right)\di S \\
+                &= \iint_{S'}\left(-\dfrac{u}{\ep^2}+\dfrac{1}{\ep}\dfrac{\p u}{\p\mbf n}\right)\di S \\
+                &= -\dfrac{1}{\ep^2}\iint_{S'}u\di S\\
+            \end{aligned}\]
+            其中在$\Omega'$上应用\tbf{(1)}的结论可得
+            \[-\iint_{S'}\dfrac{\p u}{\p\mbf n}=\iiint_{\Omega'}\Delta u\di V=0\]
+            又有
+            \[\begin{aligned}
+                \left|\iint_{S'}u\di S-4\pi\ep^2u\left(x_0,y_0,z_0\right)\right|
+                &= \left|\iint_{S'}\left(u-u\left(x_0,y_0,z_0\right)\right)\di S\right|
+                \leqslant\iint_{S'}\left|u-u\left(x_0,y_0,z_0\right)\right|\di S
+            \end{aligned}\]
+            而
+            \[\lim_{\ep\to0}u(x,y,z)=u\left(x_0,y_0,z_0\right)\]
+            于是夹逼可得
+            \[u\left(x_0,y_0,z_0\right)=\dfrac{1}{4\pi\ep^2}\iint_{S'}u\di S\ \ \ (\ep\to0)\]
+            现在,在$\Omega\backslash\Omega'$上运用\tbf{(2)}的结论可得
+            \[0=\iint_{S+S'}\left(u\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|^2}+\dfrac{1}{\left|\mbf r\right|}\dfrac{\p u}{\p\mbf n}\right)
+            =\iint_S\left(u\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|^2}+\dfrac{1}{\left|\mbf r\right|}\dfrac{\p u}{\p\mbf n}\right)+\iint_{S'}\left(u\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|^2}+\dfrac{1}{\left|\mbf r\right|}\dfrac{\p u}{\p\mbf n}\right)\]
+            命$\ep\to0$,于是可得
+            \[\begin{aligned}
+                \iint_S\left(u\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|^2}+\dfrac{1}{\left|\mbf r\right|}\dfrac{\p u}{\p\mbf n}\right)
+                &= -\iint_{S'}\left(u\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|^2}+\dfrac{1}{\left|\mbf r\right|}\dfrac{\p u}{\p\mbf n}\right) \\
+                &= \dfrac{1}{\ep^2}\iint_{S'}u\di S \\
+                &= 4\pi u\left(x_0,y_0,z_0\right)
+            \end{aligned}\]
+            于是
+            \[u\left(x_0,y_0,z_0\right)=\dfrac{1}{4\pi}\iint_S\left(u\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|^2}+\dfrac{1}{\left|\mbf r\right|}\dfrac{\p u}{\p\mbf n}\right)\]
+            命题得证.
+        \item 在\tbf{(3)}中令$\Omega$为题中所述的球即可.
+    \end{enumerate}
+\end{proof}
+\end{document}
