@@ -44,32 +44,173 @@
     设曲线$C$为椭圆$\dfrac{x^2}{16}+\dfrac{y^2}{9}=1$沿逆时针方向.计算曲线积分
     \[\oint_{C}\dfrac{x\di y-y\di x}{x^2+y^2}\]
 \end{problem}
+\begin{solution}
+    考虑椭圆$D:\dfrac{x^2}{16}+\dfrac{y^2}{9}\leqslant1$和圆$D_\ep:x^2+y^2\leqslant\ep^2(\ep>0)$.当$\ep<3$时,$D_\ep\subseteq D$.设$C_\ep$为$D\backslash D_\ep$的正向边界.\\
+    在$D\backslash D_\ep$上应用Green公式,则有
+    \[\oint_{C+C_\ep}\dfrac{x\di y-y\di x}{x^2+y^2}
+    =\iint_{D\backslash D_\ep}\dfrac{\left(x^2+y^2-2x^2\right)+\left(x^2+y^2-2y^2\right)}{\left(x^2+y^2\right)^2}\di\sigma=0\]
+    于是
+    \[\begin{aligned}
+        \oint_C\dfrac{x\di y-y\di x}{x^2+y^2}
+        &= -\oint_{C_\ep}\dfrac{x\di y-y\di x}{x^2+y^2} \\
+        &\xlongequal{x=\ep\cos t,y=\ep\sin t} \int_0^{2\pi}\dfrac{\ep^2\cos^2t+\ep^2\sin^2t}{\ep^2}\di t \\
+        &= \int_0^{2\pi}\di t \\
+        &= 2\pi
+    \end{aligned}\]
+\end{solution}
 \begin{problem}[4.(10\songti{分})]
     计算曲面积分
     \[\iint_{S}\left(x^2y^2+y^2z^2+z^2x^2\right)\di S\]
     其中$S$为圆锥面$z=\sqrt{x^2+y^2}$被柱面$x^2+y^2=1$所截下部分.
 \end{problem}
+\begin{solution}
+    曲面方程为$z=g(x,y)=\sqrt{x^2+y^2},0\leqslant x^2+y^2\leqslant 1$.于是
+    \[\sqrt{1+g_x^2+g_y^2}=\sqrt{1+\left(\dfrac{x}{\sqrt{x^2+y^2}}\right)^2+\left(\dfrac{y}{\sqrt{x^2+y^2}}\right)^2}=\sqrt2\]
+    于是
+    \[\begin{aligned}
+        \iint_{S}\left(x^2y^2+y^2z^2+z^2x^2\right)\di S
+        &= \iint_{S}\left(x^2+y^2+\left(x^2+y^2\right)^2\right)\sqrt2\di x\di y \\
+        &= \sqrt2\int_0^{2\pi}\di\theta\int_0^1\left(r^2+r^4\right)r\di r \\
+        &= \dfrac{5\sqrt2\pi}{6}
+    \end{aligned}\]
+\end{solution}
 \begin{problem}[5.(15\songti{分})]
     计算曲面积分
     \[\oiint_Sx\di y\di z+y\di z\di x+z\di x\di y\]
     其中$S$为抛物面$z=x^2+y^2$被平面$z=4$所截部分的外侧.
 \end{problem}
+\begin{solution}
+    考虑空间区域$\Omega:0\leqslant x^2+y^2\leqslant z\leqslant 4$,则$\Omega$的外侧为$S$和圆$D:0\leqslant x^2+y^2\leqslant 4,z=4$.\\
+    在$\Omega$上应用Gauss公式,则有
+    \[\begin{aligned}
+        \oiint_{S+D}x\di y\di z+y\di z\di x+z\di x\di y
+        &= \iiint_{\Omega}3\di V \\
+        &= 3\int_0^{2\pi}\di\theta\int_0^2\di r\int_{r^2}^4r\di z \\
+        &= 3\int_0^{2\pi}\di\theta\int_0^2\left(4r-r^3\right)\di r \\
+        &= 24\pi
+    \end{aligned}\]
+    而$D$的单位外法向量为$(0,0,1)$,于是
+    \[\begin{aligned}
+        \oiint_Dx\di y\di z+y\di z\di x+z\di x\di y
+        &= \oiint_D\left(x,y,z\right)\cdot\left(0,0,1\right)\di S \\
+        &= \iint_Dz\di S \\
+        &= 16\pi
+    \end{aligned}\]
+    于是
+    \[\oiint_Sx\di y\di z+y\di z\di x+z\di x\di y=24\pi-16\pi=8\pi\]
+\end{solution}
 \begin{problem}[6.(10\songti{分})]
     求常微分方程
     \[y'=xy+3x+2y+6\]
     的所有解.
-\end{problem}\begin{problem}[7.(15\songti{分})]
+\end{problem}
+\begin{solution}
+    做换元$v=x+2,u=y+3$,于是$\dfrac{\di u}{\di v}=\dfrac{\di y}{\di x}=y'$.于是原微分方程即为
+    \[\dfrac{\di u}{\di v}=uv\]
+    如果$u\equiv0$,那么显然这是该微分方程的解.\\
+    如果$u\neq0$,则有
+    \[\dfrac{\di u}{u}=v\di v\]
+    两边积分可得
+    \[\ln\left|u\right|=\dfrac12v^2+C\]
+    即
+    \[u=C\e^{\frac12v^2}\ \ \ \left(C\neq0\right)\]
+    合并两种情况并回代可得原方程的解为
+    \[y=C\e^{\frac{(x+2)^2}{2}}-3\ \ \ (C\in\R)\]
+
+\end{solution}
+\begin{problem}[7.(15\songti{分})]
     求常微分方程
     \[y''-4y'+3y-4\e^x=0\]
     的通解.
-\end{problem}\begin{problem}[8.(10\songti{分})]
+\end{problem}
+\begin{solution}
+    该常微分方程对应的齐次方程为
+    \[\lambda^2-4\lambda+3=0\]
+    于是特征根为
+    \[\lambda_1=1\ \ \ \lambda_2=3\]
+    于是设
+    \[y=C_1(x)\e^x+C_2(x)\e^{3x}\]
+    代入原方程则有
+    \[\left\{\begin{array}{l}
+        C_1'(x)\e^x+C_2'(x)\e^{3x}=0\\
+        C_1'(x)\e^x+3C_2'(x)\e^{3x}=4\e^x
+    \end{array}\right.\]
+    解得
+    \[C_1'(x)=-2\ \ \ C_2'(x)=2\e^{-2x}\]
+    于是
+    \[C_1(x)=-2x+C_1\ \ \ C_2(x)=-\e^{-2x}+C_2\]
+    于是原微分方程的通解为
+    \[y=C_1\e^x+C_2\e^{3x}-\e^x(1+2x)\]
+\end{solution}
+\begin{problem}[8.(10\songti{分})]
     设平面有界闭区域为
-    \[D=\left\{(x,y)\in\R^2:\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}\leqslant\right\}\ \ \ \ \ a,b>0\]
+    \[D=\left\{(x,y)\in\R^2:\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}\leqslant1\right\}\ \ \ \ \ a,b>0\]
     设曲线$L$为$D$的边界,函数$P(x,y),Q(x,y)$在$D$上有连续的一阶偏导数.记$\mbf{F}=(P,Q)$,$\mbf{n}$为曲线$L$的单位外法向量.试证明
     \[\oint_{L^+}\mbf{F}\cdot\mbf{n}\di s=\iint_{D}\left(\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}\right)\di x\di y\]
-\end{problem}\begin{problem}[9.(10\songti{分})]
+\end{problem}
+\begin{proof}
+    由于$\mbf n=\left(n_x,n_y\right)$是$L$的单位外法向量,于是$L^+$的单位切向量为$\left(-n_y,n_x\right)$.于是
+    \[\oint_{L^+}\mbf F\cdot\mbf n\di s
+    =\oint_{L^+}(P,Q)\cdot\left(n_x,n_y\right)\di s
+    =\oint_{L^+}(-Q,P)\cdot\left(-n_y,n_x\right)\di s
+    =\oint_{L^+}-Q\di x+P\di y\]
+    在$D$上运用Green公式可得
+    \[\oint_{L^+}-Q\di x+P\di y=\iint_D\left(\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}\right)\di x\di y\]
+    于是
+    \[\oint_{L^+}\mbf{F}\cdot\mbf{n}\di s=\iint_{D}\left(\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}\right)\di x\di y\]
+    命题得证.
+\end{proof}
+\begin{problem}[9.(10\songti{分})]
     设$f(x)$为$\R$上的连续函数.试证明
     \[\iint_{S}f(x+y+z)\di S=2\pi\int_{-1}^{1}f\left(\sqrt{3}\xi\right)\di\xi\]
     其中$S$为单位球面$x^2+y^2+z^2=1$.
 \end{problem}
+\begin{proof}
+    对球面上的点$(x,y,z)$做正交变换$T:(x,y,z)\mapsto(u,v,w)$.设$T$关于$\R^3$的规范正交基的矩阵为$A$.\\
+    现在,令$u=\dfrac{x+y+z}{\sqrt3}$,则
+    \[\begin{pmatrix}x\\y\\z\end{pmatrix}
+    =\begin{pmatrix}
+        \frac{1}{\sqrt3}&\frac{1}{\sqrt3}&\frac{1}{\sqrt3}\\
+        A_{2,1}&A_{2,2}&A_{2,3}\\
+        A_{3,1}&A_{3,2}&A_{3,3}
+    \end{pmatrix}
+    \begin{pmatrix}u\\v\\w\end{pmatrix}\]
+    根据Schmidt正交化过程可以求解出矩阵$A$.\\
+    由于正交变换后依然保持$u^2+v^2+w^2=1$,我们对变换后的坐标进行换元可得
+    \[\left\{\begin{array}{l}
+        u=\xi \\
+        v=\sqrt{1-\xi^2}\cos\theta \\
+        w=\sqrt{1-\xi^2}\sin\theta
+    \end{array}\right.\]
+    于是
+    \[\begin{pmatrix}x_\theta\\y_\theta\\z_\theta\end{pmatrix}
+    =A^{-1}\begin{pmatrix}
+        u_\theta\\v_\theta\\w_\theta
+    \end{pmatrix}
+    =A^{-1}\begin{pmatrix}
+        0\\-\sqrt{1-\xi^2}\sin\theta\\\sqrt{1-\xi^2}\cos\theta
+    \end{pmatrix}\]
+    以及
+    \[\begin{pmatrix}x_\xi\\y_\xi\\z_\xi\end{pmatrix}
+    =A^{-1}\begin{pmatrix}
+        u_\xi\\v_\xi\\w_\xi
+    \end{pmatrix}
+    =A^{-1}\begin{pmatrix}
+        1\\-\dfrac{\xi}{\sqrt{1-\xi^2}}\cos\theta\\-\dfrac{\xi}{\sqrt{1-\xi^2}}\sin\theta
+    \end{pmatrix}\]
+    于是
+    \[E=\begin{pmatrix}x_\theta&y_\theta&z_\theta\end{pmatrix}
+    \begin{pmatrix}x_\theta\\y_\theta\\z_\theta\end{pmatrix}=1-\xi^2\]
+    \[F=\begin{pmatrix}x_\theta&y_\theta&z_\theta\end{pmatrix}
+    \begin{pmatrix}x_\xi\\y_\xi\\z_\xi\end{pmatrix}=0\]
+    \[G=\begin{pmatrix}x_\xi&y_\xi&z_\xi\end{pmatrix}
+    \begin{pmatrix}x_\xi\\y_\xi\\z_\xi\end{pmatrix}=\dfrac{1}{1-\xi^2}\]
+    变换后的积分区域为$D:-1\leqslant\xi\leqslant 1,0\leqslant\theta\leqslant2\pi$.于是
+    \[\begin{aligned}
+        \iint_Sf(x+y+z)\di S
+        &= \iint_Df\left(\sqrt3\xi\right)\sqrt{EG-F^2}\di\sigma \\
+        &= \int_0^{2\pi}\di\theta\int_{-1}^{1}f\left(\sqrt3\xi\right)\di\xi \\
+        &= 2\pi\int_{-1}^{1}f\left(\sqrt3\xi\right)\di\xi
+    \end{aligned}\]
+\end{proof}
 \end{document}

@@ -7,30 +7,30 @@
     北京大学数学科学学院2022-23高等数学B2期中考试
 \end{center}
 \begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
-    \item \textbf{(10\songti{分})}\ 设$D$是由
-        \[\iint_{D}\ln\left(1+x^2+y^2\right)\dx\di y\ \ \ \ \ D:x^2+y^2\leqslant1,x\geqslant0,y\geqslant0\]
-    \item \textbf{(10\songti{分})}\ 计算三重积分
-        \[\iiint_{\Omega}\left(y^2+z^2\right)\ \ \ \ \ \Omega:0\leqslant z\leqslant x^2+y^2\leqslant1\]
-    \item \textbf{(10\songti{分})}\ 设曲线$C$为椭圆$\frac{x^2}{16}+\dfrac{y^2}{9}=1$沿逆时针方向.计算曲线积分
-        \[\oint_{C}\dfrac{x\di y-y\di x}{x^2+y^2}\]
-    \item \textbf{(10\songti{分})}\ 计算曲面积分
-        \[\iint_{S}\left(x^2y^2+y^2z^2+z^2x^2\right)\di S\]
-        其中$S$为圆锥面$z=\sqrt{x^2+y^2}$被柱面$x^2+y^2=1$所截下部分.
-    \item \textbf{(15\songti{分})}\ 计算曲面积分
-        \[\oiint_Sx\di y\di z+y\di z\di x+z\di x\di y\]
-        其中$S$为抛物面$z=x^2+y^2$被平面$z=4$所截部分的外侧.
+    \item \textbf{(10\songti{分})}\ 设$D$是由直线$y=0,y=1,y=x,y=x+1$所围成的有界闭区域,求二重积分
+        \[\iint_D(4y-2x)\di x\di y\]
+    \item \textbf{(10\songti{分})}\ 设$V$是由平面$x=0,y=0,z=0,x+y+z=1$围成的四面体,求三重积分
+        \[\iiint_V\dfrac{1}{\left(1+x+y+z\right)^2}\di V\]
+    \item \textbf{(10\songti{分})}\ 设$E$是椭圆$x^2+\dfrac{y^2}{4}=1$,求曲线积分
+        \[\int_E\left|xy\right|\di s\]
+    \item \textbf{(15\songti{分})}\ 设$n\in\N^*$,有向曲线$L_n=\left\{\left(t,\left|\sin t\right|\right):0\leqslant t\leqslant n\pi\right\}$.求极限
+        \[\lim_{n\to\infty}\int_{L_n}\e^{y^2-x^2}\cos(2xy)\di x+\e^{y^2-x^2}\sin(2xy)\di y\]
+    \item \textbf{(10\songti{分})}\ 设$S$是曲面$\left\{(x,y,z)\in\R^3:x^2+z^2=1,x\geqslant 0,z\geqslant 0,0\leqslant y\leqslant 1\right\}$.求曲面积分
+        \[\iint_Sx\di S\]
+    \item \textbf{(10\songti{分})}\ 设$S$是单位球面$x^2+y^2+z^2=1$,求曲面积分
+        \[\iint_{S^+}x\di y\di z+y\di z\di x+z\di x\di y\]
+    \item \textbf{(15\songti{分})}\ 设平面直角坐标系$Oxy$中有曲线$L:\left\{(x,y(x)):x\geqslant0\right\}$,其中$y(0)=1$,%
+        $y(x)$是严格递减的正的可导函数.任取$L$上一点$M$,$L$在$M$点的切线交$x$轴于$A$点,假定$\left|MA\right|\equiv1$.%
+        写出$y=y(x)$满足的一阶常微分方程,并求解该方程对应的初值问题$y(0)=1$.
     \item \textbf{(10\songti{分})}\ 求常微分方程
-        \[y'=xy+3x+2y+6\]
-        的所有解.
-    \item \textbf{(15\songti{分})}\ 求常微分方程
-        \[y''-4y'+3y-4\e^x=0\]
+        \[y''+4y=\sin3x\]
         的通解.
-    \item \textbf{(10\songti{分})}\ 设平面有界闭区域为
-        \[D=\left\{(x,y)\in\R^2:\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}\leqslant\right\}\ \ \ \ \ a,b>0\]
-        设曲线$L$为$D$的边界,函数$P(x,y),Q(x,y)$在$D$上有连续的一阶偏导数.记$\mbf{F}=(P,Q)$,$\mbf{n}$为曲线$L$的单位外法向量.试证明
-        \[\oint_{L^+}\mbf{F}\cdot\mbf{n}\di s=\iint_{D}\left(\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}\right)\di x\di y\]
-    \item \textbf{(10\songti{分})}\ 设$f(x)$为$\R$上的连续函数.试证明
-        \[\iint_{S}f(x+y+z)\di S=2\pi\int_{-1}^{1}f\left(\sqrt{3}\xi\right)\di\xi\]
-        其中$S$为单位球面$x^2+y^2+z^2=1$.
+    \item \textbf{(10\songti{分})}\ 回答下列问题.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item 设$D=\R^2\backslash\left\{(x,0)\in\R^2:x\geqslant 0\right\}$,写出一个在$D$上可微的函数$T:D\to\R$且满足
+                \[\dfrac{\p T}{\p x}=\dfrac{-y}{x^2+y^2}\ \ \ \ \ \dfrac{\p T}{\p y}=\dfrac{x}{x^2+y^2}\]
+            \item 设$\Omega=\R^2\backslash\left\{(0,0)\right\}$,试证明:不存在函数$U\to\R$使得$U$在$\Omega$上可微,且满足
+                \[\dfrac{\p U}{\p x}=\dfrac{-y}{x^2+y^2}\ \ \ \ \ \dfrac{\p U}{\p y}=\dfrac{x}{x^2+y^2}\]
+        \end{enumerate}
 \end{enumerate}
 \end{document}

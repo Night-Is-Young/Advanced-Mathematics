@@ -1,0 +1,191 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2022-23高等数学B2期中考试
+\end{center}
+\begin{problem}[1.(10\songti{分})]
+    设$D$是由直线$y=0,y=1,y=x,y=x+1$所围成的有界闭区域,求二重积分
+    \[\iint_D(4y-2x)\di x\di y\]
+
+\end{problem}
+\begin{solution}
+    做变换$u=y,v=y-x$,则变换的Jacobi行列式
+    \[\dfrac{\text D(u,v)}{\text D(x,y)}=\begin{vmatrix}
+        0&1\\-1&1
+    \end{vmatrix}=1\]
+    积分区域变换为$D':0\leqslant u\leqslant 1,0\leqslant v\leqslant 1$.于是
+    \[\begin{aligned}
+        \iint_D(4y-2x)\di x\di y
+        &= \iint_{D'}2(u+v)\di u\di v \\
+        &= 2\int_0^1\di v\int_0^1(u+v)\di u \\
+        &= 2\int_0^1\left(\dfrac12+v\right)\di v \\
+        &= \dfrac12
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[2.(10\songti{分})]
+    设$V$是由平面$x=0,y=0,z=0,x+y+z=1$围成的四面体,求三重积分
+    \[\iiint_V\dfrac{1}{\left(1+x+y+z\right)^2}\di V\]
+    
+\end{problem}
+\begin{solution}
+    考虑平面$D_z=\left\{(x,y,z):0\leqslant x,y,x+y\leqslant 1-z\right\}$,则有
+    \[\begin{aligned}
+        \iiint_V\dfrac{1}{\left(1+x+y+z\right)^2}\di V
+        &= \int_0^1\di z\iint_{D_z}\dfrac{\di\sigma}{\left(1+x+y+z\right)^2} \\
+        &= \int_0^1\di z\int_0^{1-z}\di x\int_0^{1-z-x}\dfrac{\di y}{\left(1+x+y+z\right)^2} \\
+        &= \int_0^1\di z\int_0^{1-z}\left(\dfrac{1}{1+x+z}-\dfrac12\right)\di x \\
+        &= \int_0^1\left(\ln 2-\ln(1+z)-\dfrac12(1-z)\right)\di z \\
+        &= \dfrac34-\ln2
+    \end{aligned}\]
+
+\end{solution}
+\begin{problem}[3.(10\songti{分})]
+    设$E$是椭圆$x^2+\dfrac{y^2}{4}=1$,求曲线积分
+    \[\int_E\left|xy\right|\di s\]
+
+\end{problem}
+\begin{solution}
+    做代换$x=\cos\theta,y=2\sin\theta$,则有
+    \[\begin{aligned}
+        \int_E\left|xy\right|\di s
+        &= \int_0^{2\pi}\left|2\sin\theta\cos\theta\right|\sqrt{\sin^2\theta+4\cos^2\theta}\di\theta \\
+        &= 8\int_0^{\frac\pi2}\sqrt{\sin^2\theta+4\cos^2\theta}\sin\theta\cos\theta\di\theta \\
+        &\xlongequal{t=\sin\theta} 8\int_0^1t\sqrt{4-3t^2}\di t \\
+        &\xlongequal{u=t^2} 4\int_0^1\sqrt{4-3u}\di u \\
+        &= 4\left.\left(-\dfrac29\left(4-3u\right)^{\frac32}\right)\right|_0^1 \\
+        &= \dfrac{56}{9}
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[4.(15\songti{分})]
+    设$n\in\N^*$,有向曲线$L_n=\left\{\left(t,\left|\sin t\right|\right):0\leqslant t\leqslant n\pi\right\}$.求极限
+    \[\lim_{n\to\infty}\int_{L_n}\e^{y^2-x^2}\cos(2xy)\di x+\e^{y^2-x^2}\sin(2xy)\di y\]
+
+\end{problem}
+\begin{solution}
+    考虑有向直线$T_n=\left\{(x,0):0\leqslant x\leqslant n\pi\right\}$.\\
+    $L_n$的负向和$T_n$共同构成区域$D=\left\{(x,y):0\leqslant x\leqslant n\pi,0\leqslant y\leqslant \left|\sin x\right|\right\}$的正向边界.\\
+    令$P(x,y)=\e^{y^2-x^2}\cos(2xy),Q(x,y)=\e^{y^2-x^2}\sin(2xy)$,不难得出$P,Q$在$D$上可微,并且
+    \[\dfrac{\p P}{\p y}=2y\e^{y^2-x^2}\cos(2xy)-\e^{y^2-x^2}2x\sin(2xy)=2\e^{y^2-x^2}\left(y\cos(2xy)-x\sin(2xy)\right)\]
+    \[\dfrac{\p Q}{\p x}=-2x\e^{y^2-x^2}\sin(2xy)+\e^{y^2-x^2}2y\cos(2xy)=2\e^{y^2-x^2}\left(y\cos(2xy)-x\sin(2xy)\right)\]
+    在$D$上使用Green公式可得
+    \[\int_{\left(L_n\right)^-+T_n}P\di x+Q\di y
+    =\iint_{D}\left(\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)\di\sigma
+    =\iint_D0\di\sigma=0
+    \]
+    在直线$T_n$上有
+    \[\int_{T_n}P\di x+Q\di y=\int_0^{n\pi}\e^{-x^2}\di x\]
+    于是
+    \[\int_{L_n}P\di x+Q\di y=\int_{T_n}P\di x+Q\di y=\int_0^{n\pi}\e^{-x^2}\di x\]
+    现在考虑上述积分.我们有
+    \[\begin{aligned}
+        \left(\int_{0}^{+\infty}\e^{-x^2}\di x\right)^2
+        &= \int_0^{+\infty}\di y\int_0^{+\infty}\e^{-x^2-y^2}\di x \\
+        &= \iint_{x,y\geqslant 0}\e^{-x^2-y^2}\di x\di y \\
+        &= \iint_{0\leqslant\theta\leqslant\frac\pi2,r\geqslant 0}r\e^{-r^2}\di r\di \theta\\
+        &\xlongequal{t=r^2} \int_0^{\frac\pi2}\di\theta\int_0^{+\infty}\e^{-t}\di t \\
+        &= \dfrac{\pi}{4}
+    \end{aligned}\]
+    于是
+    \[\lim_{n\to\infty}\int_{L_n}P\di x+Q\di y=\int_0^{+\infty}\e^{-x^2}\dx=\dfrac{\sqrt\pi}{2}\]
+
+\end{solution}
+\begin{problem}[5.(10\songti{分})]
+    设$S$是曲面$\left\{(x,y,z)\in\R^3:x^2+z^2=1,x\geqslant 0,z\geqslant 0,0\leqslant y\leqslant 1\right\}$.求曲面积分
+    \[\iint_Sx\di S\]
+
+\end{problem}
+\begin{solution}
+    由题意可得$S$是圆柱的侧面.根据积分区域和被积函数的对称性,我们可以考虑第一卦限内的曲面$S_1$.\\
+    在$S_1$上有$z=\sqrt{1-x^2}$,投影区域为$D_1:[0,1]\times[0,1]$,于是
+    \[\begin{aligned}
+        \iint_{S_1}x\di S
+        &= \iint_{D_1}x\sqrt{1+\left(-\dfrac{x}{\sqrt{1-x^2}}\right)^2+0}\di\sigma \\
+        &= \int_0^1\di y\int_0^1\dfrac{x\di x}{\sqrt{1-x^2}} \\
+        &\xlongequal{t=x^2} \dfrac12\int_0^1\di y\int_0^1\dfrac{\di t}{\sqrt{1-t}} \\
+        &= 1
+    \end{aligned}\]
+    于是
+    \[\iint_Sx\di S=4\iint_{S_1}x\di S=4\]
+\end{solution}
+\begin{problem}[6.(10\songti{分})]
+    设$S$是单位球面$x^2+y^2+z^2=1$,求曲面积分
+    \[\iint_{S^+}x\di y\di z+y\di z\di x+z\di x\di y\]
+
+\end{problem}
+\begin{solution}
+    $S$的单位外法向量为$\mbf n=(x,y,z)$.于是
+    \[\begin{aligned}
+        \iint_{S^+}x\di y\di z+y\di z\di x+z\di x\di y
+        &= \iint_S\left(x,y,z\right)\cdot\mbf n\di S \\
+        &= \iint_S(x^2+y^2+z^2)\di S \\
+        &= \iint_S\di S \\
+        &= 4\pi
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[7.(15\songti{分})]
+    设平面直角坐标系$Oxy$中有曲线$L:\left\{(x,y(x)):x\geqslant0\right\}$,其中$y(0)=1$,%
+    $y(x)$是严格递减的正的可导函数.任取$L$上一点$M$,$L$在$M$点的切线交$x$轴于$A$点,假定$\left|MA\right|\equiv1$.%
+    写出$y=y(x)$满足的一阶常微分方程,并求解该方程对应的初值问题$y(0)=1$.
+\end{problem}
+\begin{solution}
+    设$M(x_M,y\left(x_M\right))$,则此处的切线方程$l_m:y=y'\left(x_M\right)\left(x-x_M\right)+y\left(x_M\right)$.\\
+    于是$l_M$交$x$轴于$A\left(-\dfrac{y\left(x_M\right)}{y'\left(x_M\right)}+x_M,0\right)$.由$\left|MA\right|\equiv1$可知
+    \[\left(\dfrac{y}{y'}\right)^2+y^2=1\]
+    由于$y(x)$恒正且严格递减,于是$y>0>y'$.于是$\dfrac{y}{y'}=-\sqrt{1-y^2}$,即
+    \[\dfrac{\sqrt{1-y^2}\di y}{y}=-\dx\]
+    而
+    \[\begin{aligned}
+        \int\dfrac{\sqrt{1-y^2}}{y}\di y
+        &\xlongequal{y=\sin t}\int\dfrac{\cos^2 t}{\sin t}\di t \\
+        &= \int\left(\dfrac{1}{\sin t}-\sin t\right)\di t \\
+        &= \dfrac{1}{2}\ln\left|\dfrac{1-\cos t}{1+\cos t}\right|+\cos t+C \\
+        &= \dfrac12\ln\left|\dfrac{1-\sqrt{1-y^2}}{1+\sqrt{1-y^2}}\right|+\sqrt{1-y^2}+C
+    \end{aligned}\]
+    于是对上式两边积分可得
+    \[\dfrac{1}{2}\ln\left|\dfrac{1-\sqrt{1-y^2}}{1+\sqrt{1-y^2}}\right|+\sqrt{1-y^2}+C=-x\]
+    即
+    \[\ln\left(1-\sqrt{1-y^2}\right)-\ln y+\sqrt{1-y^2}+x=C\]
+    代入初值$y(0)=1$可得该初值问题的解为
+    \[\ln\left(1-\sqrt{1-y^2}\right)-\ln y+\sqrt{1-y^2}+x=1\]
+\end{solution}
+\begin{problem}[8.(10\songti{分})]
+    求常微分方程
+    \[y''+4y=\sin3x\]
+    的通解.
+\end{problem}
+\begin{solution}
+    对应的齐次方程的特征根为$\lambda_{1,2}=\pm2\i$,于是原方程的通解为
+    \[y=C_1\cos2x+C_2\sin2x\]
+    令$y=\alpha\sin3x$,代入原方程可得
+    \[-9\alpha\sin3x+4\alpha\sin3x=\sin3x\]
+    于是$\alpha=-\dfrac15$,于是原方程的特解为
+    \[y=-\dfrac15\sin3x\]
+    于是原方程的通解为
+    \[y=C_1\cos2x+C_2\sin2x-\dfrac{1}{5}\sin3x\]
+\end{solution}
+\begin{problem}[9.(10\songti{分})]
+    回答下列问题.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 设$D=\R^2\backslash\left\{(x,0)\in\R^2:x\geqslant 0\right\}$,写出一个在$D$上可微的函数$T:D\to\R$且满足
+            \[\dfrac{\p T}{\p x}=\dfrac{-y}{x^2+y^2}\ \ \ \ \ \dfrac{\p T}{\p y}=\dfrac{x}{x^2+y^2}\]
+        \item 设$\Omega=\R^2\backslash\left\{(0,0)\right\}$,试证明:不存在函数$U\to\R$使得$U$在$\Omega$上可微,且满足
+            \[\dfrac{\p U}{\p x}=\dfrac{-y}{x^2+y^2}\ \ \ \ \ \dfrac{\p U}{\p y}=\dfrac{x}{x^2+y^2}\]
+    \end{enumerate}
+
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 令$T=\arctan\dfrac yx$即可.
+        \item 令圆周$C:x^2+y^2=1(\ep>0)$,定向为逆时针方向.考虑第二型曲线积分
+            \[\oint_{C^+}\dfrac{-y\dx+x\di y}{x^2+y^2}=\oint_{C^+}\left(\dfrac{\p U}{\p x}\dx+\dfrac{\p U}{\p y}\di y\right)=U(1,0)-U(1,0)=0\]
+            另一方面
+            \[\oint_{C^+}\dfrac{-y\dx+x\di y}{x^2+y^2}=\oint_{C}\dfrac{y^2\di s+x^2\di s}{x^2+y^2}=\oint_{C}\di s=2\pi\]
+            这与题设矛盾,因而命题不成立.
+    \end{enumerate}
+\end{solution}
+\end{document}
