@@ -1,0 +1,83 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2022-23高等数学B2期中考试
+\end{center}
+\begin{problem}[1.(10\songti{分})]
+    求常微分方程
+    \[\left(xy-x^3y^3\right)\dx+\left(1+x^2\right)\di y=0\]
+    的满足$y(0)=1$的解.
+\end{problem}
+
+\begin{problem}[2.(10\songti{分})]
+    求常微分方程
+    \[x^2y''+3xy'+4y=0(x>0)\]
+    的满足$y(1)=y'(1)=1$的解.
+\end{problem}
+
+\begin{problem}[3.(10\songti{分})]
+    求常微分方程
+    \[y''+y'-2y=x+\e^x+\sin x\]
+    的满足$y(0)=-\dfrac{7}{20},y'(0)=\dfrac{38}{15}$的解.
+\end{problem}
+
+\begin{problem}[4.(10\songti{分})]
+    设关于$R$的函数
+    \[I(R)=\oint_{x^2+y^2=R^2}\dfrac{x\di y-y\di x}{\left(x^2+xy+y^2\right)}\]
+    试证明
+    \[\lim_{R\to\infty}I(R)=0\]
+    其中积分方向为圆周的逆时针方向.
+\end{problem}
+
+\begin{problem}[5.(10\songti{分})]
+    设$L$为空间曲线
+    \[\left\{\begin{array}{l}
+        x^2+y^2=1\\
+        x+z=1
+    \end{array}\right.\]
+    其方向为自$z$轴正方向向负方向看的逆时针方向.计算曲线积分
+    \[\int_{L}\left(y-x+\sin^2x\right)\dx+(z-x+\sin^2y)\di y+\left(x-y+\sin^2z\right)\di z\]
+
+\end{problem}
+
+\begin{problem}[6.(10\songti{分})]
+    设$D$是单位圆$x^2+y^2\leqslant1$,求积分
+    \[\iint_D\left(x+y+xy\right)^2\di\sigma\]
+
+\end{problem}
+
+\begin{problem}[7.(10\songti{分})]
+    设平面闭区域$D$由直线$y=x$和曲线$y=x^3$围成,求积分
+    \[\iint_D\left(\dfrac{3x^2\sin y}{y}+2\e^{x^2}\right)\di\sigma\]
+
+\end{problem}
+
+\begin{problem}[8.(10\songti{分})]
+    设空间闭区域$\Omega$由曲面$z=\sqrt{1+x^2+y^2},z=\sqrt{3\left(1+x^2+y^2\right)}$和$x^2+y^2=1$围成,求积分
+    \[\iiint_{\Omega}\dfrac{(x+y+z)^2\sqrt{1+x^2+y^2}}{\left(x^2+y^2+z^2\right)\left(1+x^2+y^2+z^2\right)}\di V\]
+
+\end{problem}
+
+\begin{problem}[9.(10\songti{分})]
+    设$\Gamma$由闭曲线$x^2+y^2=9(y\geqslant0)$和$\dfrac{x^2}{9}+\dfrac{y^2}{16}=1(y\leqslant0)$组成,方向沿逆时针方向,求曲线积分
+    \[\oint_{\Gamma}\left(\dfrac{y^2+y+4x^2}{4x^2+y^2}\sin x^2\right)\dx+\left(\dfrac{4x^2-x+y^2}{4x^2+y^2}+\sin y^2\right)\di y\]
+
+\end{problem}
+
+\begin{problem}[10.(10\songti{分})]
+    设曲面$S$是柱体$\Omega=\left\{(x,y,z)\in\R^3:x^2+y^2\leqslant1,0\leqslant z\leqslant1\right\}$的表面的外侧.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 求曲面积分
+            \[\iint_S(y-z)|x|\di y\di z+(z-x)|y|\di z\di x+(x-y)z\di x\di y\]
+        \item 求曲面积分
+            \[\iint_S(y-z)x^2\di y\di z+(z-x)y^2\di z\di x+(x-y)z^2\di x\di y\]
+        \item 求曲面积分
+            \[\iint_S(y-z)x^3\di y\di z+(z-x)y^3\di z\di x+(x-y)z^3\di x\di y\]
+    \end{enumerate}
+\end{problem}
+\end{document}

@@ -1,0 +1,245 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2022-23高等数学B2期中模拟考试
+\end{center}
+\begin{problem}[1.(10\songti{分})]
+    设$D$是由直线$x=1,y=x,y=2x$所围成的有界闭区域,求二重积分
+    \[\iint_D(\sqrt x+y)\di x\di y\]
+
+\end{problem}
+\begin{solution}
+    我们有
+    \[\begin{aligned}
+        \iint_D(\sqrt x+y)\di x\di y
+        &= \int_0^1\dx\int_x^{2x}\left(\sqrt x+y\right)\di y \\
+        &= \int_0^1\left(x\sqrt x+\dfrac32x^2\right)\dx \\
+        &= \left.\left(\dfrac25x^{\frac52}+\dfrac12x^3\right)\right|_0^1 \\
+        &= \dfrac{9}{10}
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[2.(10\songti{分})]
+    求三重积分
+    \[\iiint_\Omega\dfrac{1}{\sqrt{x^2+y^2+z^2}}\di V\]
+    其中$\Omega$是球$x^2+y^2+z^2\leqslant 2x$.
+\end{problem}
+\begin{solution}
+    积分区域$\Omega$即$\left\{(x,y,z):0\leqslant x\leqslant 2,0\leqslant y^2+z^2\leqslant 2x-x^2\right\}$.\\
+    做球坐标变换$x=\rho\cos\varphi,y=\rho\cos\theta\sin\varphi,z=\rho\sin\theta\sin\varphi$,则积分区域变换为
+    \[\Omega'=\left\{(\rho,\theta,\varphi):0\leqslant\theta\leqslant2\pi,0\leqslant\varphi\leqslant\dfrac\pi2,0\leqslant\rho\leqslant2\cos\varphi\right\}\]
+    于是
+    \[\begin{aligned}
+        \iiint_\Omega\dfrac{1}{\sqrt{x^2+y^2+z^2}}\di V
+        &= \iiint_{\Omega'}\dfrac{\rho^2\sin\varphi}{\rho}\di\rho\di\varphi\di\theta \\
+        &= \int_0^{2\pi}\di\theta\int_0^{\frac\pi2}\di\varphi\int_0^{2\cos\varphi}\rho\sin\varphi\di\rho \\
+        &= \int_0^{2\pi}\di\theta\int_0^{\frac\pi2}2\cos^2\varphi\sin\varphi\di\varphi \\
+        &= 2\pi\cdot\dfrac{2}{3} \\
+        &= \dfrac{4\pi}{3}
+    \end{aligned}\]
+\end{solution}
+\begin{problem}[3.(10\songti{分})]
+    求曲线积分
+    \[\int_L\dfrac{\di y-\di x}{x-y+1}\]
+    其中$L$是圆周$x^2+y^2-2x=0$在$y\leqslant 0$的部分,沿逆时针方向.
+\end{problem}
+\begin{solution}
+    考虑二元函数
+    \[P(x,y)=-\dfrac{1}{x-y+1}\ \ \ Q(x,y)=\dfrac{1}{x-y+1}\]
+    将半圆周按方向补成半圆周$S$,在半圆$D:\left\{(x,y):(x-1)^2+y^2\leqslant1,y\leqslant0\right\}$上根据Green公式有
+    \[\begin{aligned}
+        \oint_SP\dx+Q\di y
+        &= \iint_{D}\left(\dfrac{\p Q}{\p y}-\dfrac{\p P}{\p x}\right)\di\sigma \\
+        &= \iint_{D}\dfrac{1-1}{(x-y+1)^2}\di\sigma \\
+        &= 0
+    \end{aligned}\]
+    于是可将路径变换为半圆的直径,方向向右.于是
+    \[\oint_{L}P\di x+Q\di y=\int_0^2\dfrac{\dx}{x+1}=\ln3\]
+\end{solution}
+\begin{problem}[4.(15\songti{分})]
+    求曲面积分
+    \[\iint_Sy(x-z)\di y\di z+x^2\di z\di x+\left(y^2+xz\right)\di x\di y\]
+    其中$S$是球面$x^2+y^2+z^2=5$在$z\geqslant 1$的部分,取外侧.
+\end{problem}
+\begin{solution}
+    该球面的单位外法向量为$\mbf n=\dfrac{1}{\sqrt5}\left(x,y,z\right)$.于是
+    \[\begin{aligned}
+        &\iint_Sy(x-z)\di y\di z+x^2\di z\di x+\left(y^2+xz\right)\di x\di y \\
+        =&\dfrac{1}{\sqrt5}\iint_S\left(x^2y-xyz+x^2y+zy^2+xz^2\right)\di S \\
+        =&\dfrac{1}{\sqrt5}\iint_S\left(2x^2y+y^2z+z^2x-xyz\right)\di S
+    \end{aligned}\]
+    考虑到积分区域关于$Oxz$平面和$Oyz$平面对称,于是只需考虑$y^2z$一项.\\
+    记$S$在$Oxy$平面的投影为$D:x^2+y^2\leqslant4$,则有
+    \[\begin{aligned}
+        \dfrac{1}{\sqrt5}\iint_{S}y^2z\di S
+        &= \dfrac{1}{\sqrt5}\iint_{D}y^2\sqrt{5-x^2-y^2}\sqrt{1+\dfrac{x^2+y^2}{5-x^2-y^2}}\dx\di y \\
+        &= \iint_{D}y^2\dx\di y \\
+        &= \int_0^{2\pi}\di\theta\int_0^2 r^3\sin^2\theta\di r \\
+        &= 2\pi
+    \end{aligned}\]
+    于是
+    \[\iint_Sy(x-z)\di y\di z+x^2\di z\di x+\left(y^2+xz\right)\di x\di y=2\pi\]
+
+\end{solution}
+\begin{problem}[5.(10\songti{分})]
+    求常微分方程
+    \[xy'+2y=\sin x\]
+    满足$y(\pi)=\dfrac1\pi$的特解.
+\end{problem}
+\begin{solution}
+    原方程两端同乘$x$,则有
+    \[x^2y'+2xy=x\sin x\]
+    令$u=x^2y$,则有
+    \[u'=x\sin x\]
+    两端积分可得
+    \[u=-x\cos x+\sin x+C\]
+    当$x=0$时,$y=0$,不是满足题设条件的特解.当$x\neq0$时,原方程的通解为
+    \[y=-\dfrac{x\cos x-\sin x}{x^2}+C\]
+    令$y(\pi)=\dfrac1\pi$,可得$C=0$,于是
+    \[y=\dfrac{\sin x-x\cos x}{x^2}\]
+\end{solution}
+\begin{problem}[6.(10\songti{分})]
+    求常微分方程
+    \[y''+2y'=3+4\sin 2x\]
+    的通解.
+\end{problem}
+\begin{solution}
+    该方程对应的齐次方程的特征根为$\lambda_1=0,\lambda_2=-2$.于是通解的形式为
+    \[y=C_1+C_2\e^{-2x}\]
+    考虑方程$y''+2y'=3$的特解,设$y=Ax^2+Bx$,则有
+    \[A=0\ \ \ B=\dfrac32\]
+    考虑方程$y''+2y'=4\sin2x$的特解,设$y=A\sin2x+B\cos2x$,则有
+    \[\left\{\begin{array}{l}
+        -4A-4B=4\\
+        -4B+4A=0
+    \end{array}\right.\]
+    从而解得
+    \[A=-\dfrac12\ \ \ B=-\dfrac12\]
+    于是方程的通解为
+    \[y=C_1+C_2\e^{-2x}+\dfrac32x-\dfrac12\sin2x-\dfrac12\cos2x\]
+
+\end{solution}
+\begin{problem}[7.(10\songti{分})]
+    设参数$a>0$,$\R^3$中的圆柱$x^2+z^2=a^2$和$y^2+z^2=a^2$相交的区域为$\Omega$,求$\Omega$的体积.
+\end{problem}
+\begin{solution}
+    由于对称性,考虑第一卦限$\Omega'$即可.对于特定的$z$,$\Omega'$在第一卦限占的区域为
+    \[D_z=\left\{(x,y):0\leqslant x,y\leqslant\sqrt{a^2-z^2}\right\}\]
+    于是
+    \[\begin{aligned}
+        V_{\Omega'}
+        &= \iiint_{\Omega'}\di V \\
+        &= \int_0^a\di z\iint_{D_z}\di\sigma \\
+        &= \int_0^a\left(a^2-z^2\right)\di z \\
+        &= \dfrac{2a^3}{3}
+    \end{aligned}\]
+    于是
+    \[V=8V_{\Omega'}=\dfrac{16}{3}a^3\]
+
+\end{solution}
+\begin{problem}[8.(10\songti{分})]
+    设$u(x,y)$是闭矩形$D:[a,b]\times[c,d]$上的连续函数,在$D$上存在连续的二阶偏导数,并且$u(x,y)=0$对$D$的边界上任意一点都成立,试证明
+    \[\iint_D\left|u(x,y)\right|^2\di\sigma\leqslant\left(\iint_D\left|\dfrac{\p u}{\p x}\right|\di\sigma\right)\left(\iint_D\left|\dfrac{\p u}{\p y}\right|\di\sigma\right)\]
+
+\end{problem}
+\begin{solution}
+    考虑Newton-Lebniz公式,对任意$(x,y)\in D$有
+    \[u(x,y)=\int_a^x\dfrac{\p u}{\p x}(t,y)\di t=\int_c^y\dfrac{\p u}{\p y}(x,s)\di s\]
+    于是
+    \[\left|u(x,y)\right|\leqslant\int_a^x\left|\dfrac{\p u}{\p x}(t,y)\right|\di t\leqslant\int_a^b\left|\dfrac{\p u}{\p x}(t,y)\right|\di t\]
+    同理
+    \[\left|u(x,y)\right|\leqslant\int_c^y\left|\dfrac{\p u}{\p y}(x,s)\right|\di s\leqslant\int_c^d\left|\dfrac{\p u}{\p y}(x,s)\right|\di s\]
+    于是
+    \[\left|u(x,y)\right|^2\leqslant\left(\int_a^b\left|\dfrac{\p u}{\p x}(t,y)\right|\di t\right)\left(\int_c^d\left|\dfrac{\p u}{\p y}(x,s)\right|\di s\right)\]
+    对$(x,y)\in D$做二重积分有
+    \[\begin{aligned}
+        \iint_D\left|u(x,y)\right|^2\di\sigma
+        &\leqslant \left(\int_c^d\di y\int_a^b\left|\dfrac{\p u}{\p x}(t,y)\right|\di t\right)\left(\int_a^b\di x\int_c^d\left|\dfrac{\p u}{\p y}(x,s)\right|\di s\right) \\
+        &\leqslant \left(\iint_D\left|\dfrac{\p u}{\p x}\right|\di\sigma\right)\left(\iint_D\left|\dfrac{\p u}{\p y}\right|\di\sigma\right)
+    \end{aligned}\]
+
+\end{solution}
+\begin{problem}[9.(15\songti{分})]
+    在如下的常微分方程
+    \[\left\{\begin{array}{l}
+        u''(x)+\lambda u(x)=0\\
+        -a_1u'(0)+a_2u(0)=b_1u'(L)+b_2u(L)=0
+    \end{array}\right.\]
+    中,我们想求解定义在$[0,L]$上的函数$u(x)$,其中参数$a_1,a_2,b_1,b_2,L$都是给定的函数.\\
+    对于大多数参数$\lambda$,上述常微分方程并没有解.如果对于某个$\lambda$,上述方程存在不恒等于$0$的解,%
+    我们就成$\lambda$为一个\tbf{本征值},对应的解$u_\lambda(x)$称为\tbf{本征函数}.据此,回答下列问题.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 当$a_1=-1,b_1=1,a_2=b_2=0$时,试证明$0$是本征值.
+        \item 对于$a_1=-1,b_1=1,a_2=b_2=0$以及$a_1=b_1=0,a_2=b_2=1$的情形,分别求解所有本征值和每个本征值对应的所有本征函数.
+        \item 如果$a_1,a_2,b_1,b_2>0$,试不通过求解方程证明所有本征值都是正数.
+        \item 如果$a_1,a_2,b_1,b_2>0$,设$\lambda$和$\mu$是两个不同的本征值,对应本征函数分别为$u_\lambda(x)$和$u_\mu(x)$.试证明
+            \[\int_0^Lu_\lambda(x)u_\mu(x)\di x=0\]
+
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 由题意有
+            \[u'(0)=u'(L)=0\]
+            不妨令$u(x)=C(C\neq0)$,于是$u''(x)=0$且有$u'(0)=u'(L)=0$.\\
+            于是$0$是方程的本征值.
+        \item 对于$-a_1=b_1=1,a_2=b_2=0$的情形有$u'(0)=u'(L)=0$.\\
+            对于$a_1=b_1=0,a_2=b_2=1$的情形有$u(0)=u(L)=0$.\\
+            若$\lambda\leqslant0$,则特征根为重根$\sqrt{-\lambda}$,通解为$u(x)=\e^{\sqrt{-\lambda} x}\left(C_1x+C_2\right)$,其中$C_1,C_2$不全为$0$.\\
+            此时又有$u'(x)=\e^{\sqrt{-\lambda} x}\left(\sqrt{-\lambda} C_1x+\sqrt{-\lambda} C_2+C_1\right)$.\\
+            要求$u'(0)=u'(L)=0$,则$\sqrt{-\lambda} C_2+C_1=\e^{\sqrt{-\lambda} L}\left(\sqrt{-\lambda} C_1L+\sqrt{-\lambda} C_2+C_1\right)$,这只有$\lambda=0$时才成立.\\
+            要求$u(0)=u(L)=0$,则$C_2=\e^{\sqrt{-\lambda} L}\left(C_1 L+C_2\right)$,这也只有$\lambda=0$时才成立.\\
+            若$\lambda>0$,则特征根为共轭复根$\pm\sqrt{\lambda}i$,通解为$u(x)=C_1\sin\sqrt{\lambda}x+C_2\cos\sqrt{\lambda}x$,其中$C_1,C_2$不全为$0$.\\
+            要求$u'(0)=u'(L)=0$,则$C_1=C_1\cos\sqrt{\lambda}L-C_2\sin\sqrt{\lambda}L=0$.于是$L=\dfrac{k\pi}{\sqrt{\lambda}}$.\\
+            要求$u(0)=u(L)=0$,则$C_2=C_1\sin\sqrt\lambda L+C_2\cos\sqrt\lambda L$,于是$L=\dfrac{k\pi}{\sqrt\lambda}$.\\
+            于是对于$-a_1=b_1=1,a_2=b_2=0$的情形,本征值$\lambda\geqslant0$,对应的本征函数为
+            \[u(x)=\left\{\begin{array}{l}
+                C(C\neq0),\lambda=0\\
+                C\cos\dfrac{k\pi x}{L}(C\neq0,k\in\mathbb{Z}),\lambda>0
+            \end{array}\right.\]
+            对于$a_1=b_1=0,a_2=b_2=1$的情形,本征值$\lambda\geqslant0$,对应的本征函数为
+            \[u(x)=\left\{\begin{array}{l}
+                C(C\neq0),\lambda=0\\
+                C\sin\dfrac{k\pi x}{L}(C\neq0,k\in\mathbb{Z}),\lambda>0
+            \end{array}\right.\]
+        \item 在$u''(x)+\lambda u(x)=0$两端同乘$u(x)$后在$[0,L]$上定积分有
+            \[\begin{aligned}
+                0
+                &= \int_0^Lu''(x)u(x)\dx+\lambda\int_0^L\left(u(x)\right)^2\dx \\
+                &= \left.u(x)u'(x)\right|_0^L-\int_0^L\left(u'(x)\right)^2\dx+\lambda\int_0^L\left(u(x)\right)^2\dx \\
+                &= -\dfrac{b_2}{b_1}\left(u(L)\right)^2-\dfrac{a_2}{a_1}\left(u(0)\right)^2-\int_0^L\left(u'(x)\right)^2\dx+\lambda\int_0^L\left(u(x)\right)^2\dx
+            \end{aligned}\]
+            前三项都是非正的,这就要求$\lambda\geqslant0$.\\
+            又$\lambda=0$时要求
+            \[\left(u(L)\right)^2=\left(u(0)\right)^2=0\ \ \ \ \ \left(u'(x)\right)^2\equiv0\]
+            于是$u(x)\equiv0$,这与$\lambda$是本征值相悖.\\
+            于是必有$\lambda>0$.
+        \item 我们有
+            \[\left\{\begin{array}{l}
+                u_\lambda''(x)+\lambda u_\lambda(x)=0 \\
+                u_\mu''(x)+\mu u_\mu(x)=0
+            \end{array}\right.\]
+            分别同乘$u_\mu(x)$和$u_\lambda(x)$在$[0,L]$上定积分有
+            \[\left\{\begin{array}{l}
+                \displaystyle\int_0^Lu_\lambda''(x)u_\mu(x)\dx+\lambda\int_0^Lu_\lambda(x)u_\mu(x)\dx=0 \\
+                \displaystyle\int_0^Lu_\mu''(x)u_\lambda(x)\dx+\mu\int_0^Lu_\mu(x)u_\lambda(x)\dx=0 
+            \end{array}\right.\]
+            而
+            \[\begin{aligned}
+                &\int_0^Lu_\lambda''(x)u_\mu(x)\dx-\int_0^Lu_\mu''(x)u_\lambda(x)\dx \\
+                =&\left.u_\mu(x)u_\lambda'(x)\right|_0^L-\int_0^Lu_\lambda'(x)u_\mu'(x)\dx-\left(\left.u_\lambda(x)u_\mu'(x)\right|_0^L-\int_0^Lu_\mu'(x)u_\lambda'(x)\dx\right) \\
+                =&\left.u_\mu(x)u_\lambda'(x)-u_\mu'(x)u_\lambda(x)\right|_0^L \\
+                =&0
+            \end{aligned}\]
+            于是
+            \[(\lambda-\mu)\int_0^Lu_\lambda(x)u_\mu(x)\dx=0\]
+            如果后面的定积分不为$0$,这就要求$\lambda=\mu$,与题设不符.于是
+            \[\int_0^Lu_\lambda(x)u_\mu(x)\dx=0\]
+
+    \end{enumerate}
+\end{proof}
+\end{document}
