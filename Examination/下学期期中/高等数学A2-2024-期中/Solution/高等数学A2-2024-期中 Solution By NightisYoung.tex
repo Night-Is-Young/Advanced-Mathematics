@@ -13,16 +13,74 @@
     \[I=\iint_{D}r^2\sin\theta\sqrt{1-r^2\cos(2\theta)}\di r\di\theta\]
     其中积分区域$D=\left\{(r,\theta):0\leqslant r\leqslant\sec\theta,0\leqslant\theta\leqslant\dfrac\pi4\right\}$.
 \end{problem}
+\begin{solution}
+    做极坐标变换$x=r\cos\theta,y=r\sin\theta$的逆变换,变换的Jacobi矩阵
+    \[|J|=\begin{vmatrix}
+        \dfrac{x}{\sqrt{x^2+y^2}}&\dfrac{y}{\sqrt{x^2+y^2}}\\
+        -\dfrac{y}{x^2+y^2}&\dfrac{x}{x^2+y^2}
+    \end{vmatrix}=\dfrac{1}{\sqrt{x^2+y^2}}\]
+    积分区域变换为
+    \[D'=\left\{(x,y):0\leqslant y\leqslant x\leqslant 1\right\}\]
+    于是
+    \[\begin{aligned}
+        &\iint_{D}r^2\sin\theta\sqrt{1-r^2\cos(2\theta)}\di r\di\theta\\
+        =&\iint_{D'}\sqrt{x^2+y^2}y\sqrt{1-\left(x^2-y^2\right)}\cdot\dfrac{1}{\sqrt{x^2+y^2}}\di x\di y \\
+        =&\int_0^1\dx\int_0^xy\sqrt{1-x^2+y^2}\di y \\
+        =&\int_0^1\left.\left(\dfrac13\left(1-x^2+y^2\right)^{\frac32}\right)\right|_0^x\dx \\
+        =&\dfrac13\int_0^1\left[1-\left(1-x^2\right)^{\frac32}\right]\dx \\
+        =&\dfrac13\int_0^{\frac{\pi}{2}}\left(1-\cos^3t\right)\cos t\di t \\
+        =&\dfrac13-\dfrac{\pi}{16}
+    \end{aligned}\]
+
+\end{solution}
 \begin{problem}[2.(20\songti{分})]
     求曲线积分
     \[I=\oint_{L^+}\dfrac{-y}{4x^2+y^2}\dx+\dfrac{x}{4x^2+y^2}\di y+z\di z\]
     其中曲线$L$是由曲面$4x^2+y^2=1$与平面$2x+y+z=1$所截得的曲线,其正向$L^+$规定为从$z$轴看的逆时针方向.
 \end{problem}
+\begin{solution}
+    令
+    \[P(x,y,z)=\dfrac{-y}{4x^2+y^2}\ \ \ \ \ Q(x,y,z)=\dfrac{x}{4x^2+y^2}\ \ \ \ \ R(x,y,z)=z\]
+    设$\Gamma:4x^2+y^2=\ep^2,z=1$,$0<\ep<1$,定向为顺时针方向.\\
+    在$L\cup\Gamma$所围的曲面$S$上运用Stokes公式有
+    \[\begin{aligned}
+        &\oint_{L^+\cup\Gamma^-}P\dx+Q\di y+R\di z\\
+        =&\iint_{S^+}\left(0-0\right)\di y\di z+\left(0-0\right)\di z\dx+\left(\dfrac{4x^2+y^2-8x^2+4x^2+y^2-2y^2}{\left(4x^2+y^2\right)^2}\right)\dx\di y \\
+        =&\iint_{S}0\di S \\
+        =&0
+    \end{aligned}\]
+    又因为
+    \[\begin{aligned}
+        \oint_{\Gamma^+}P\di x+Q\di y+R\di z
+        &= \oint_{\Gamma^+}\dfrac{-y\dx+x\di y}{\ep^2}\di s \\
+        &= \dfrac{1}{\ep^2}\iint_{4x^2+y^2\leqslant\ep^2}2\di x\di y \\
+        &= \pi
+    \end{aligned}\]
+    于是
+    \[\oint_{L^+}\dfrac{-y}{4x^2+y^2}\dx+\dfrac{x}{4x^2+y^2}\di y+z\di z=\pi\]
+
+\end{solution}
 \begin{problem}[3.(20\songti{分})]
     设$f:\R\to\R$是连续函数,求曲面积分
     \[I=\iint_S\left[xf(xy)+2x-y\right]\di y\di z+\left[yf(xy)+2y+x\right]\di z\dx+\left[zf(xy)+z\right]\dx\di y\]
     其中$S$为锥面$z=\sqrt{x^2+y^2}$夹在平面$z=1$和$z=2$之间的部分,方向取下侧.
 \end{problem}
+\begin{solution}
+    令
+    \[P(x,y,z)=xf(xy)+2x-y\ \ \ \ \ Q(x,y,z)=yf(xy)+2y+x\ \ \ \ \ R(x,y,z)=zf(xy)+z\]
+    考虑到$S$的曲面方程$z=\sqrt{x^2+y^2}$,其单位外法向量
+    \[\mbf n=\dfrac{\left(z_x,z_y,-1\right)}{\sqrt{1+z_x^2+z_y^2}}
+    =\dfrac{1}{\sqrt2}\left(\dfrac{x}{\sqrt{x^2+y^2}},\dfrac{y}{\sqrt{x^2+y^2}},-1\right)\]
+    于是
+    \[\begin{aligned}
+        &\iint_{S}P\di y\di z+Q\di z\dx+R\dx\di y\\
+        =&\iint_{S}\dfrac{1}{\sqrt2}\left(\dfrac{\left(x^2+y^2\right)\left(f(xy)+2\right)}{\sqrt{x^2+y^2}}-zf(xy)-z\right)\di S \\
+        =&\iint_{S}\dfrac{1}{\sqrt2}\left(\sqrt{x^2+y^2}+\left(f(xy)+1\right)\left(\sqrt{x^2+y^2}-z\right)\right)\di S \\
+        =&\dfrac{1}{\sqrt2}\iint_{S}\sqrt{x^2+y^2}\di S \\
+        =&\int_0^{2\pi}\di\theta\int_1^2r^2\di r \\
+        =&\dfrac{14}{3}\pi
+    \end{aligned}\]
+\end{solution}
 \begin{problem}[4.(20\songti{分})]
     回答下列问题.
     \begin{enumerate}[label=\tbf{(\arabic*)}]
@@ -36,16 +94,107 @@
             \end{enumerate}
     \end{enumerate}    
 \end{problem}
-
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 令$t=\ln y$,于是$y'=\dfrac{\di y}{\di t}\cdot t'=t'\e^t$.代入原方程有
+            \[x\e^t t'+\e^t\left(\ln x-t\right)=0\]
+            即
+            \[xt'-t+\ln x=0\]
+            对应的齐次方程$xt'=t$的通解为$t=Cx$.将$t=C(x)x$代入原方程有
+            \[x^2C'(x)+\ln x=0\]
+            即
+            \[C'(x)=-\dfrac{\ln x}{x^2}\]
+            于是
+            \[C(x)=\dfrac{\ln x+1}{x}+C\]
+            代入$t$和$y$后可得
+            \[y=\exp\left(\ln x+1+Cx\right)=x\e^{Cx+1}\]
+            又因为
+            \[y(1)=\e^3\]
+            于是
+            \[y=x\e^{2x+1}\]
+        \item 
+            \begin{enumerate}[label=\tbf{(\alph*)}]
+                \item 对应的齐次方程$y'=-y$的通解为$y=C\e^{-x}$.设$y=C(x)\e^{-x}$,代入原方程有
+                    \[C'(x)\e^{-x}=x\]
+                    即
+                    \[C'(x)=x\e^x\]
+                    即
+                    \[C(x)=\e^x(x-1)+C\]
+                    从而方程的通解为
+                    \[y=C\e^{-x}+x-1\]
+                \item 
+                    假定存在不同的$y_1,y_2$使得
+                    \[y_1+y_1'=y_2+y_2'=f(x)\]
+                    令$u(x)=y_2-y_1$,于是
+                    \[u(x)+u'(x)=0\]
+                    这齐次方程的通解为
+                    \[u(x)=C\e^{-x}\]
+                    如果$y_1,y_2$均以$T$为周期,就对任意$x\in\R$有
+                    \[y_2(x+T)=y_1(x+T)+C\e^{-x-T}=y_1(x)+C\e^{-x-T}=y_2(x)+C\e^{-x-T}-C\e^{-x}\]
+                    又因为$y_2(x+T)=y_2(x)$,于是
+                    \[C\left(\e^{-x-T}-\e^{-x}\right)=0\]
+                    对任意$x\in\R$成立,这要求$C=0$,即$y_1=y_2$.这与我们的假设相悖.\\
+                    于是该常微分方程有唯一以$T$为周期的解.
+            \end{enumerate}
+    \end{enumerate}  
+\end{solution}
 \begin{problem}[5.(10\songti{分})]
     求曲面积分
     \[I=\oiint_{S}xy\di y\di z+\left(y^2+\e^{xz^2}\right)\di z\dx+\sin(xy)\dx\di y\]
     其中$S$为柱面$z=1-x^2$与平面$z=0,y=0,y+z=2$围成区域$\Omega$的外表面.
 \end{problem}
+\begin{solution}
+    令
+    \[P(x,y,z)=xy\ \ \ \ \ Q(x,y,z)=y^2+\e^{xz^2}\ \ \ \ \ R(x,y,z)=\sin(xy)\]
+    在$\Omega$上运用Gauss公式有
+    \[\begin{aligned}
+        &\oiint_SP\di y\di z+Q\di z\dx+R\dx\di y \\
+        =&\iiint_{\Omega}\left(\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}+\dfrac{\p R}{\p z}\right)\di V \\
+        =&\iiint_{\Omega}3y\di V
+    \end{aligned}\]
+    考虑到$\Omega$与$Oxy$平面平行的截面
+    \[D_z=\left\{(x,y,z):x^2\leqslant 1-z,0\leqslant y\leqslant 2-z\right\}\]
+    于是
+    \[\begin{aligned}
+        \iiint_Vy\di V
+        &= \int_0^1\di z\int_0^{2-z}\di y\int_{-\sqrt{1-z}}^{\sqrt{1-z}}y\dx \\
+        &= \int_0^1\di z\int_0^{2-z}2\sqrt{1-z}y\di y \\
+        &= \int_0^1\left(2-z\right)^2\sqrt{1-z}\di z \\
+        &\xlongequal{t=\sqrt{1-z}}2\int_0^1\left(1+t^2\right)^2t^2\di t \\
+        &= 2\left(\dfrac17+\dfrac{2}{5}+\dfrac13\right) \\
+        &= \dfrac{184}{105}
+    \end{aligned}\]
+    于是
+    \[\oiint_SP\di y\di z+Q\di z\dx+R\dx\di y=3\iiint_{\Omega}y\di V=\dfrac{184}{35}\]
 
+\end{solution}
 \begin{problem}[6.(10\songti{分})]
-    设$L$为平面上一条分段光滑的简单闭曲线,求曲面积分
+    设$L$为平面上一条分段光滑的简单闭曲线,求曲线积分
     \[I=\oint_{L}\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|}\di s\]
     其中$\mbf r=(x,y)$,$\mbf n$是$L$的单位外法向量.
 \end{problem}
+\begin{solution}
+    我们有
+    \[\cos\left(\mbf r,\mbf n\right)=\dfrac{\mbf r\cdot\mbf n}{\left|\mbf n\right|\left|\mbf r\right|}\]
+    又因为$\left|\mbf n\right|=1$,于是
+    \[\oint_{L}\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|}\di s
+    =\oint_{L}\dfrac{\mbf r\cdot\mbf n}{\left|\mbf r\right|^2}\di s
+    =\oint_{L}\dfrac{x\di y-y\di x}{x^2+y^2}\]
+    设$D$为$L$所围的区域.\\
+    若$(0,0)\notin D$,则在$D$上运用Green公式有
+    \[\oint_{L}\dfrac{x\di y-y\di x}{x^2+y^2}=\iint_D\dfrac{\left(y^2-x^2\right)-\left(x^2-y^2\right)}{\left(x^2+y^2\right)^2}\di\sigma=0\]
+    若$(0,0)\in D$,则必然存在$(0,0)$的邻域$D_\ep:x^2+y^2\leqslant\ep^2$使得$D_\ep\subset D$.设$D_\ep$的边界为$\Gamma_\ep$.\\
+    在$D\backslash D_\ep$上运用Green公式,同理有
+    \[\oint_{L\cup\Gamma^-}\dfrac{x\di y-y\di x}{x^2+y^2}=0\]
+    又因为
+    \[\oint_{\Gamma^+}\dfrac{x\di y-y\di x}{x^2+y^2}=\dfrac{1}{\ep}\int_{\Gamma}\di s=2\pi\]
+    于是此时
+    \[\oint_{L}\dfrac{x\di y-y\di x}{x^2+y^2}=2\pi\]
+    因此
+    \[I=\left\{\begin{array}{l}
+        0,(0,0)\notin D \\
+        2\pi,(0,0)\in D
+    \end{array}\right.\]
+    其中$D$为$L$所围的区域.
+\end{solution}
 \end{document}
