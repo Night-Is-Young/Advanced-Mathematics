@@ -13,27 +13,99 @@
     \[\left(xy-x^3y^3\right)\dx+\left(1+x^2\right)\di y=0\]
     的满足$y(0)=1$的解.
 \end{problem}
-
+\begin{solution}
+    对原方程变形可得
+    \[\dfrac{\di y}{\di x}=\dfrac{x^3y^3-xy}{1+x^2}\]
+    令$u=\dfrac{1}{y^2}$,则有
+    \[\dfrac{\di u}{\di x}=\dfrac{x^3y^3-xy}{1+x^2}\cdot\left(-\dfrac{2}{y^3}\right)=\dfrac{2ux-2x^3}{1+x^2}\]
+    即
+    \[\dfrac{\di u}{\di x}-\dfrac{2ux}{1+x^2}=-\dfrac{2x^3}{1+x^2}\]
+    对应齐次方程为
+    \[\dfrac{\di u}{u}=\dfrac{2x\di x}{1+x^2}\]
+    通解为
+    \[u=C(1+x^2)\]
+    现在将$u=C(x)\left(1+x^2\right)$代入原方程可得
+    \[C'(x)\left(1+x^2\right)=-\dfrac{2x^3}{1+x^2}\]
+    于是
+    \[C(x)=-\dfrac{1}{1+x^2}-\ln(1+x^2)+C\]
+    于是
+    \[u(x)=-1-\left(1+x^2\right)\ln(1+x^2)+C\left(1+x^2\right)\]
+    $y(0)=1$要求$u(0)=1$,于是$C=1$,即原方程的解为
+    \[y=\dfrac{1}{\sqrt{x^2+\left(1+x^2\right)\ln\left(1+x^2\right)}}\]
+\end{solution}
 \begin{problem}[2.(10\songti{分})]
     求常微分方程
     \[x^2y''+3xy'+4y=0(x>0)\]
     的满足$y(1)=y'(1)=1$的解.
 \end{problem}
-
+\begin{solution}
+    做代换$x=\e^t$,于是
+    \[\dfrac{\di y}{\di x}=\dfrac{\di y}{\di t}\cdot\dfrac{\di t}{\dx}=\e^{-t}\dfrac{\di y}{\di t}\]
+    \[\dfrac{\di^2y}{\dx^2}=\dfrac{\di}{\di t}\left(\dfrac{\di y}{\di x}\right)\dfrac{\di t}{\di x}=\e^{-2t}\left(\dfrac{\di^2y}{\di t^2}-\dfrac{\di y}{\di t}\right)\]
+    于是
+    \[y''_t-y'_t+3y'_t+4y=0\]
+    这是一个齐次方程,对应的特征根为$\lambda_{1,2}=-1\pm\sqrt3\i$,其通解为
+    \[y=\e^{-t}\left(C_1\cos\sqrt3t+C_2\sin\sqrt3t\right)\]
+    于是原方程的通解为
+    \[y=\dfrac{C_1\cos\sqrt3\ln x+C_2\sin\sqrt3\ln x}{x}\]
+    要求$y(1)=1$则有$C_1=1$.而
+    \[y'_x=\e^{-t}y'_t=\e^{-2t}\left(\left(\sqrt3C_2-C_1\right)\cos\sqrt3t-\left(\sqrt3C_1+C_2\right)\sin\sqrt3t\right)\]
+    要求$y'(1)=1$就有$\sqrt3C_2-C_1=1$.于是$C_1=1,C_2=\dfrac{\sqrt3}{3}$,于是原方程的解为
+    \[y=\dfrac{3\cos\sqrt3\ln x+\sqrt{3}\sin\sqrt3\ln x}{3x}\]
+\end{solution}
 \begin{problem}[3.(10\songti{分})]
     求常微分方程
     \[y''+y'-2y=x+\e^x+\sin x\]
     的满足$y(0)=-\dfrac{7}{20},y'(0)=\dfrac{38}{15}$的解.
 \end{problem}
+\begin{solution}
+    原方程对应的齐次方程的特征根为$\lambda_1=1,\lambda_2=-2$,于是原方程的通解为
+    \[y=C_1\e^{x}+C_2\e^{-2x}\]
+    考虑方程$y''+y'-2y=x$的特解,设$y=Ax^2+Bx+C$,则
+    \[2A+(2Ax+B)-2\left(Ax^2+Bx+C\right)=x\]
+    于是$A=0,B=-\dfrac12,C=-\dfrac14$.\\
+    考虑方程$y''+y'-2y=\e^x$的特解,设$y=Ax\e^x$,则有
+    \[A\e^x\left(x+2+x+1-2x\right)=\e^x\]
+    于是$A=\dfrac13$.\\
+    考虑方程$y''+y'-2y=\sin x$的特解,设$y=A\cos x+B\sin x$,则有
+    \[(-B-A-2B)\sin x+(-A+B-2A)\cos x=\sin x\]
+    于是$A=-\dfrac{1}{10},B=-\dfrac{3}{10}$.\\
+    于是原方程的通解为
+    \[y=C_1\e^{x}+C_2\e^{-2x}-\dfrac12x-\dfrac14+\dfrac13x\e^x-\dfrac{1}{10}\cos x-\dfrac{3}{10}\sin x\]
+    于是
+    \[\left\{\begin{array}{l}
+        y(0)=C_1+C_2-\dfrac14-\dfrac{1}{10}=-\dfrac{7}{20}\\
+        y'(0)=C_1-2C_2-\dfrac12+\dfrac{1}{3}-\dfrac{3}{10}=\dfrac{38}{15}
+    \end{array}\right.\]
+    解得$C_1=1,C_2=-1$,于是原方程的解为
+    \[y=\e^{x}-\e^{-2x}-\dfrac12x-\dfrac14+\dfrac13x\e^x-\dfrac{1}{10}\cos x-\dfrac{3}{10}\sin x\]
 
+\end{solution}
 \begin{problem}[4.(10\songti{分})]
     设关于$R$的函数
-    \[I(R)=\oint_{x^2+y^2=R^2}\dfrac{x\di y-y\di x}{\left(x^2+xy+y^2\right)}\]
+    \[I(R)=\oint_{x^2+y^2=R^2}\dfrac{x\di y-y\di x}{\left(x^2+xy+y^2\right)^2}\]
     试证明
     \[\lim_{R\to\infty}I(R)=0\]
     其中积分方向为圆周的逆时针方向.
 \end{problem}
+\begin{proof}
+    考虑二元函数
+    \[P(x,y)=\dfrac{-y}{\left(x^2+xy+y^2\right)^2}\ \ \ \ \ Q(x,y)=\dfrac{x}{\left(x^2+xy+y^2\right)^2}\]
+    积分曲线$S_R:x^2+y^2=R^2$的单位切向量为$\mbf n=(-y,x)$,于是
+    \[\begin{aligned}
+        I(R)
+        &= \oint_{S_R^+}\left(P,Q\right)\cdot\mbf n\di s \\
+        &= \oint_S\dfrac{x^2+y^2}{\left(x^2+xy+y^2\right)^2}\di s \\
+        &= \int_0^{2\pi}\dfrac{R^2}{\left(R^2\left(1+\cos t\sin t\right)\right)^2}\di t \\
+        &\leqslant \int_0^{2\pi}\dfrac{4}{R^2}\di t \\
+        &= \dfrac{8\pi}{R^2}
+    \end{aligned}\]
+    于是
+    \[0\leqslant I(R)\leqslant \dfrac{8\pi}{R^2}\]
+    由夹逼准证可知
+    \[\lim_{R\to+\infty}I(R)=0\]
 
+\end{proof}
 \begin{problem}[5.(10\songti{分})]
     设$L$为空间曲线
     \[\left\{\begin{array}{l}
@@ -41,34 +113,127 @@
         x+z=1
     \end{array}\right.\]
     其方向为自$z$轴正方向向负方向看的逆时针方向.计算曲线积分
-    \[\int_{L}\left(y-x+\sin^2x\right)\dx+(z-x+\sin^2y)\di y+\left(x-y+\sin^2z\right)\di z\]
+    \[\int_{L}\left(y-z+\sin^2x\right)\dx+(z-x+\sin^2y)\di y+\left(x-y+\sin^2z\right)\di z\]
 
 \end{problem}
-
+\begin{solution}
+    令$P(x,y,z)=y-z+\sin^2x,Q(x,y,z)=z-x+\sin^2y,R(x,y,z)=x-y+\sin^2z$.%
+    于是$P,Q,R$在$\R^3$上可微.$L$围成的空间曲面$S:z=1-x,x^2+y^2\leqslant 1$,其单位外法向量为$\mbf n=\dfrac{(1,0,1)}{\sqrt2}$.\\
+    于是据Stokes公式有
+    \[\begin{aligned}
+        \int_LP\di x+Q\di y+R\di z
+        &= \iint_{S^+}\begin{vmatrix}
+            \di x\di y&\di y\di z&\di z\di x\\
+            \dfrac{\p}{\p x}&\dfrac{\p}{\p y}&\dfrac{\p}{\p z}\\
+            P&Q&R
+        \end{vmatrix}\\
+        &= -2\iint_{S^+}\dx\di y+\di y\di z+\di z\di x \\
+        &= -2\sqrt2\iint_{x^2+y^2\leqslant 1}\di\sigma \\
+        &= -2\sqrt2\pi
+    \end{aligned}\]
+    
+\end{solution}
 \begin{problem}[6.(10\songti{分})]
     设$D$是单位圆$x^2+y^2\leqslant1$,求积分
     \[\iint_D\left(x+y+xy\right)^2\di\sigma\]
 
 \end{problem}
-
+\begin{solution}
+    做极坐标变换$x=r\cos\theta,y=r\sin\theta$,于是积分区域变为$D':0\leqslant r\leqslant 1,0\leqslant\theta\leqslant2\pi$.于是
+    \[\begin{aligned}
+        \iint_{D}\left(x+y+xy\right)^2\di\sigma
+        &= \iint_{D}\left(x^2+y^2+x^2y^2+2xy+2x^2y+2xy^2\right)\di\sigma \\
+        &= \iint_{D}\left(x^2+y^2+x^2y^2\right)\di\sigma \\
+        &= \int_0^{2\pi}\di\theta\int_0^1\left(r^2+r^4\sin^2\theta\cos^2\theta\right)r\di r \\
+        &= \int_0^{2\pi}\left(\dfrac14+\dfrac16\sin^2\theta\cos^2\theta\right)\di\theta \\
+        &\xlongequal{t=2\theta} \dfrac\pi2+\dfrac{1}{48}\int_0^{4\pi}\sin^2 t\di t \\
+        &= \dfrac{13}{24}\pi
+    \end{aligned}\]
+\end{solution}
 \begin{problem}[7.(10\songti{分})]
     设平面闭区域$D$由直线$y=x$和曲线$y=x^3$围成,求积分
     \[\iint_D\left(\dfrac{3x^2\sin y}{y}+2\e^{x^2}\right)\di\sigma\]
 
 \end{problem}
+\begin{solution}
+    首先考虑第一项,有
+    \[\begin{aligned}
+        \iint_D\dfrac{3x^2\sin y}{y}\di x\di y
+        &= \int_{-1}^0\di y\int_{\sqrt[3]y}^{y}\dfrac{3x^2\sin y}{y}\di x+\int_{0}^1\di y\int_{y}^{\sqrt[3]y}\dfrac{3x^2\sin y}{y}\di x \\
+        &\xlongequal{t=x^3} \int_{-1}^0\di y\int_y^{y^3}\dfrac{\sin y}{y}\di t+\int_{0}^1\di y\int_{y^3}^{y}\dfrac{\sin y}{y}\di t\\
+        &= \int_{-1}^0\sin y\left(y^2-1\right)\di y+\int_{0}^1\sin y\left(1-y^2\right)\di y\\
+        &= 2\int_{0}^1\sin y\left(1-y^2\right)\di y \\
+        &= 2\left.\left(y^2\cos y-2y\sin y-3\cos y\right)\right|_0^1 \\
+        &= 6-4\cos 1-4\sin 1
+    \end{aligned}\]
+    再考虑第二项,有
+    \[\begin{aligned}
+        \iint_D2\e^{x^2}\di\sigma
+        &= \int_{-1}^0\dx\int_{x}^{x^3}2\e^{x^2}\di y+\int_{0}^1\dx\int_{x^3}^{x}2\e^{x^2}\di y \\
+        &= 4\int_{0}^1\left(x-x^3\right)\e^{x^2}\dx \\
+        &\xlongequal{t=x^2}2\int_0^1\left(1-t\right)\e^t\di t \\
+        &= 2\left.\left(\e^t(2-t)\right)\right|_0^1 \\
+        &= 2\e-4
+    \end{aligned}\]
+    于是
+    \[\iint_D\left(\dfrac{3x^2\sin y}{y}+2\e^{x^2}\right)\di\sigma=2\e+2-4\cos 1-4\sin 1\]
 
+\end{solution}
 \begin{problem}[8.(10\songti{分})]
     设空间闭区域$\Omega$由曲面$z=\sqrt{1+x^2+y^2},z=\sqrt{3\left(1+x^2+y^2\right)}$和$x^2+y^2=1$围成,求积分
     \[\iiint_{\Omega}\dfrac{(x+y+z)^2\sqrt{1+x^2+y^2}}{\left(x^2+y^2+z^2\right)\left(1+x^2+y^2+z^2\right)}\di V\]
 
 \end{problem}
+\begin{solution}
+    做柱坐标变换$z=z,x=r\cos\theta,y=r\sin\theta$,于是积分区域变为
+    \[\Omega':0\leqslant r\leqslant 1,0\leqslant\theta\leqslant2\pi,\sqrt{1+r^2}\leqslant z\leqslant \sqrt3\sqrt{1+r^2}\]
+    于是
+    \[\begin{aligned}
+        &\iiint_{\Omega}\dfrac{(x+y+z)^2\sqrt{1+x^2+y^2}}{\left(x^2+y^2+z^2\right)\left(1+x^2+y^2+z^2\right)}\di V \\
+        =&\iiint_{\Omega'}\dfrac{\left(r^2+z^2+r^2\sin\theta\cos\theta+2rz\left(\sin\theta+\cos\theta\right)\sqrt{1+r^2}\right)}{\left(r^2+z^2\right)\left(1+r^2+z^2\right)}r\di V \\
+        =&\int_0^{2\pi}\di\theta\int_0^1\di r\int_{\sqrt{1+r^2}}^{\sqrt3\sqrt{1+r^2}}\dfrac{r\sqrt{1+r^2}}{\left(z^2+r^2+1\right)}\di z \\
+        =&\int_0^{2\pi}\di\theta\int_0^1\di r\left.\left(r\arctan\dfrac{z}{\sqrt{1+r^2}}\right)\right|_{\sqrt{1+r^2}}^{\sqrt3\sqrt{1+r^2}} \\
+        =&\int_0^{2\pi}\di\theta\int_0^1\dfrac{\pi}{12}r\di r \\
+        =&\dfrac{\pi^2}{12}
+    \end{aligned}\]
 
+\end{solution}
 \begin{problem}[9.(10\songti{分})]
     设$\Gamma$由闭曲线$x^2+y^2=9(y\geqslant0)$和$\dfrac{x^2}{9}+\dfrac{y^2}{16}=1(y\leqslant0)$组成,方向沿逆时针方向,求曲线积分
-    \[\oint_{\Gamma}\left(\dfrac{y^2+y+4x^2}{4x^2+y^2}\sin x^2\right)\dx+\left(\dfrac{4x^2-x+y^2}{4x^2+y^2}+\sin y^2\right)\di y\]
+    \[\oint_{\Gamma}\left(\dfrac{y^2+y+4x^2}{4x^2+y^2}+\sin x^2\right)\dx+\left(\dfrac{4x^2-x+y^2}{4x^2+y^2}+\sin y^2\right)\di y\]
 
 \end{problem}
+\begin{solution}
+    设$\Omega$为$\Gamma$围成的闭区域.\\
+    首先令
+    \[P(x,y)=\dfrac{y}{4x^2+y^2}\ \ \ \ \ Q(x,y)=\dfrac{-x}{4x^2+y^2}\]
+    再令
+    \[A(x,y)=1+\sin x^2\ \ \ \ \ B(x,y)=1+\sin y^2\]
+    于是原曲线积分即为
+    \[\oint_{\Gamma}(A+P)\dx+(B+Q)\di y\]
+    首先有
+    \[\dfrac{\p A}{\p y}=\dfrac{\p B}{\p x}=0\]
+    在$\R^2$上成立,于是据Green公式有
+    \[\oint_{L}A\di x+B\di y=\iint_{\Omega}0\di\sigma=0\]
+    考虑小椭圆$\Omega_\ep:x^2+y^2\leqslant\ep^2$和其边界$S_\ep$,其中$0<\ep<3$.在$\Omega\backslash\Omega_\ep$上根据Green公式有
+    \[\begin{aligned}
+        \oint_{\Gamma+S_\ep^-}P\di x+Q\di y
+        &= \iint_{\Omega\backslash\Omega_\ep}\left(\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)\di\sigma \\
+        &= \iint_{\Omega\backslash\Omega_\ep}-\dfrac{\left(4x^2+y^2\right)-8x^2+\left(4x^2+y^2\right)-2y^2}{\left(4x^2+y^2\right)^2}\di\sigma \\
+        &= 0
+    \end{aligned}\]
+    现在做换元$x=\dfrac12\ep\cos\theta,y=\ep\sin\theta$.椭圆周$S_\ep$逆时针方向的单位切向量为$\mbf n=\dfrac{(-y,x)}{\sqrt{x^2+y^2}}$.于是
+    \[\begin{aligned}
+        \oint_{\Gamma}P\di x+Q\di y
+        &= \oint_{S_\ep^+}P\dx+Q\di y \\
+        &= \dfrac{1}{\ep^2}\oint_Sy\dx-x\di y \\
+        &= \dfrac{1}{\ep^2}\int_0^{2\pi}-\sqrt{x^2+y^2}\di\theta \\
+        &= -\dfrac{\pi}{2}
+    \end{aligned}\]
+    于是
+    \[\oint_{\Gamma}\left(\dfrac{y^2+y+4x^2}{4x^2+y^2}+\sin x^2\right)\dx+\left(\dfrac{4x^2-x+y^2}{4x^2+y^2}+\sin y^2\right)\di y=-\dfrac\pi2\]
 
+\end{solution}
 \begin{problem}[10.(10\songti{分})]
     设曲面$S$是柱体$\Omega=\left\{(x,y,z)\in\R^3:x^2+y^2\leqslant1,0\leqslant z\leqslant1\right\}$的表面的外侧.
     \begin{enumerate}[label=\tbf{(\arabic*)}]
@@ -80,4 +245,30 @@
             \[\iint_S(y-z)x^3\di y\di z+(z-x)y^3\di z\di x+(x-y)z^3\di x\di y\]
     \end{enumerate}
 \end{problem}
+\begin{solution}
+    $S$可分为三个部分,即
+    \[D_1=\left\{(x,y,z)\in\R^3:z=0,x^2+y^2\leqslant1\right\}\]
+    \[D_2=\left\{(x,y,z)\in\R^3:z=1,x^2+y^2\leqslant1\right\}\]
+    \[D_3=\left\{(x,y,z)\in\R^3:0\leqslant z\leqslant 1,x^2+y^2=1\right\}\]
+    三个面的单位外法向量分别为$\mbf n_1=(0,0,-1),\mbf n_2=(0,0,1),\mbf n_3=(x,y,0)$.\\
+    各区域都关于$Oxz$和$Oyz$平面对称,也关于$z$轴对称.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 在$D_1$面上有
+            \[I_1=\iint_{D_1}-1(x-y)z\di S=0\]
+            在$D_2$面上有
+            \[I_2=\iint_{D_1}-1(x-y)z\di S=-\iint_{x^2+y^2\leqslant 1}(x-y)\di\sigma=0\]
+            在$D_3$面上有
+            \[I_3=\iint_{D_3}x|x|(y-z)+y|y|(z-x)\di S=0\]
+            于是
+            \[\iint_S(y-z)|x|\di y\di z+(z-x)|y|\di z\di x+(x-y)z\di x\di y=0\]
+        \item 同理不难有$I_1=I_2=0$,而
+            \[I_3=\iint_{D_3}(y-z)x^3+(z-x)y^3\di S=0\]
+            于是
+            \[\iint_S(y-z)x^2\di y\di z+(z-x)y^2\di z\di x+(x-y)z^2\di x\di y=0\]
+        \item 仍然不难有$I_1=I_2=0$,而
+            \[I_3=\iint_{D_3}(y-z)x^4+(z-x)y^4\di S=\iint_{D_3}x^4y-xy^4+z\left(y^4-x^4\right)\di S=0\]
+            于是
+            \[\iint_S(y-z)x^3\di y\di z+(z-x)y^3\di z\di x+(x-y)z^3\di x\di y=0\]
+    \end{enumerate}
+\end{solution}
 \end{document}

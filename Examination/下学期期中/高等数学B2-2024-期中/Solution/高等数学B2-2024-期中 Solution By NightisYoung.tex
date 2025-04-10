@@ -1,0 +1,195 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2023-24高等数学B2期中考试
+\end{center}
+\begin{problem}[1.(10\songti{分})]
+    设$L=\left\{(x,y)\in\R^2:x^2+y^2=1,y\geqslant0\right\}$,求曲线积分
+    \[\int_{L}(3+x)\di s\]
+
+\end{problem}
+\begin{solution}
+    做代换$x=\cos t,y=\sin t$,其中$0\leqslant t\leqslant \pi$.于是
+    \[\int_L(3+x)\di s=\int_0^{\pi}(3+\cos t)\di t=3\pi\]
+
+\end{solution}
+\begin{problem}[2.(10\songti{分})]
+    设$E$是曲线$\left\{(x,y)\in\R^2:x^2+\dfrac{y^2}{4}=1\right\}$沿逆时针方向.求第二型曲线积分
+    \[\oint_{E}\dfrac{-y\di x+x\di y}{x^2+y^2}\]
+
+\end{problem}
+\begin{solution}
+    令
+    \[P(x,y)=\dfrac{-y}{x^2+y^2}\ \ \ \ \ Q(x,y)=\dfrac{x}{x^2+y^2}\]
+    设$E$所围的区域为$D$,令$D_\ep=\left\{(x,y)\in\R^2:x^2+y^2\leqslant\ep^2\right\}$,其中$\ep>0$,记$D_\ep$的正向边界为$S_{\ep}^+$.%
+    在区域$D\backslash D_\ep$上运用Green公式有
+    \[\begin{aligned}
+        &\oint_{E}\dfrac{-y\di x+x\di y}{x^2+y^2}+\oint_{S_{\ep}^-}\dfrac{-y\di x+x\di y}{x^2+y^2}\\
+        =&\iint_{D\backslash D_\ep}\left(\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)\dx\di y \\
+        =&\iint_{D\backslash D_\ep}\dfrac{y^2-x^2+\left(x^2-y^2\right)}{\left(x^2+y^2\right)^2}\dx\di y \\
+        =&0
+    \end{aligned}\]
+    又$S_{\ep}^+$的单位切向量$\mbf n=\dfrac{1}{\ep}(-y,x)$,于是
+    \[\oint_{E}\dfrac{-y\di x+x\di y}{x^2+y^2}
+    =\oint_{S_{\ep}^+}\dfrac{-y\di x+x\di y}{x^2+y^2}
+    =\oint_{S_\ep}\dfrac1\ep\cdot\dfrac{x^2+y^2}{x^2+y^2}\di s
+    =\oint_{S_\ep}\dfrac{\di s}{\ep}=\dfrac{2\pi\ep}{\ep}=2\pi\]
+
+\end{solution}
+\begin{problem}[3.(10\songti{分})]
+    设$D$是由直线$y=0,y=2,y=x,y=x+2$围成的有界闭区域,求二重积分
+    \[\iint_D\left(\dfrac12x-y\right)\di x\di y\]
+
+\end{problem}
+\begin{solution}
+    做代换$u=y-x,v=y$,于是积分区域变为$D'=\left\{(u,v)\in\R^2:0\leqslant u,v\leqslant 2\right\}$.\\
+    变换的Jacobi行列式
+    \[\left|D\right|=\begin{vmatrix}
+        u_x&u_y\\v_x&v_y
+    \end{vmatrix}=\begin{vmatrix}
+        -1&1\\0&1
+    \end{vmatrix}=1\]
+    于是
+    \[\begin{aligned}
+        \iint_{D}\left(\dfrac12x-y\right)\di x\di y
+        &= \iint_{D'}-\dfrac12(v+u)\di v\di u \\
+        &= -\dfrac12\int_0^2\di u\int_0^2(u+v)\di v \\
+        &= -\dfrac12\int_0^2(2u+2)\di u \\
+        &= -4
+    \end{aligned}\]
+
+\end{solution}
+\begin{problem}[4.(10\songti{分})]
+    设曲面$M=\left\{(x,y,z)\in\R^3:x^2+z^2=1,x^2+y^2\leqslant1,x\geqslant0,y\geqslant0,z\geqslant0\right\}$,求曲面积分
+        \[\iint_{M}x\di S\]
+        
+\end{problem}
+\begin{solution}
+    曲面方程为$z=\sqrt{1-x^2}$,投影区域为$D=\left\{(x,y)\in\R^2:0\leqslant x,y,x^2+y^2\leqslant 1\right\}$.于是
+    \[\begin{aligned}
+        \iint_{M}x\di S
+        &= \iint_{D}x\sqrt{1+z_x^2}\di\sigma \\
+        &= \iint_{D}\dfrac{x}{\sqrt{1-x^2}}\di x\di y \\
+        &= \int_0^1\dx\int_0^{\sqrt{1-x^2}}\dfrac{x}{\sqrt{1-x^2}}\di y \\
+        &= \int_0^1x\dx \\
+        &= \dfrac12
+    \end{aligned}\]
+
+\end{solution}
+\begin{problem}[5.(10\songti{分})]
+    求一阶常微分方程初值问题
+        \[y'=x+y^2,y(0)=0\]
+        的皮卡序列的前两项$y_1,y_2$.
+\end{problem}
+\begin{solution}
+    所求的初值问题与积分方程
+    \[y=\int_0^x\left(x+y^2\right)\dx\]
+    等价.将$y=y_0(x)\equiv0$代入上式右端,得到
+    \[y_1(x)=\int_0^xx\dx=\dfrac12x^2\]
+    再将$y=y_1(x)=\dfrac12x^2$代入上式右端,得到
+    \[y_2(x)=\int_0^x\left(x+\dfrac14x^4\right)\dx=\dfrac12x^2+\dfrac{1}{20}x^5\]
+
+\end{solution}
+\begin{problem}[6.(10\songti{分})]
+    求二阶常微分方程
+        \[y''-2y'+y=\e^x\]
+        的通解.
+\end{problem}
+\begin{solution}
+    对应的齐次方程$y''-2y'+y=0$的特征根为$\lambda_1=\lambda_2=1$,于是方程的通解为
+    \[y=C_1\e^x+C_2x\e^x\]
+    设方程的特解为$y=Ax^2\e^x$,代入原方程有
+    \[A\e^x\left(x^2+4x+2-2x^2-4x+x^2\right)=\e^x\]
+    于是$A=\dfrac12$,因此原方程的通解为
+    \[y=C_1\e^x+C_2x\e^x+\dfrac12x^2\e^x\]
+
+\end{solution}
+\begin{problem}[7.(10\songti{分})]
+    设有界闭区域$V=\left\{(x,y,z)\in\R^3:x^2+2y^2\leqslant z\leqslant 3-2x^2-y^2\right\}$,%
+        $S^-$是$V$的边界内侧,求曲面积分
+        \[\iint_{S^-}\left(x^2+y\sin z\right)\di y\di z-\left(2y+z\cos x\right)\di z\di x+\left(-2xz+x\sin y\right)\di x\di y\]
+
+\end{problem}
+\begin{solution}
+    令
+    \[P(x,y,z)=x^2+y\sin z\ \ \ \ \ Q(x,y,z)=-2y-z\cos x\ \ \ \ \ R(x,y,z)=-2xz+x\sin y\]
+    在$V$上运用Gauss公式有
+    \[\begin{aligned}
+        &\iint_{S^+}Q\di y\di z+Q\di z\di x+R\di x\di y\\
+        =&\iiint_V\left(\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}+\dfrac{\p R}{\p z}\right)\di V \\
+        =&\iiint_V\left(2x-2-2x\right)\di V \\
+        =&-2\iiint_V\di V
+    \end{aligned}\]
+    考虑到$V$在$Oxy$平面上的投影为$D=\left\{(x,y)\in\R^2:x^2+y^2\leqslant1\right\}$,于是
+    \[\begin{aligned}
+        \iiint_V\di V
+        &= \iint_D\di\sigma\int_{x^2+2y^2}^{3-2x^2-y^2}\di z \\
+        &= \iint_D3\left(1-x^2-y^2\right)\di\sigma \\
+        &= 3\int_0^{2\pi}\di\theta\int_0^1\left(1-r^2\right)r\di r \\
+        &= \dfrac{3\pi}{2}
+    \end{aligned}\]
+    于是
+    \[\iint_{S^-}Q\di y\di z+Q\di z\di x+R\di x\di y=2\iiint_{V}\di V=3\pi\]
+
+\end{solution}
+\begin{problem}[8.(15\songti{分})]
+    设$r>0$,$f:(-r,r)\to\R$连续,$f(0)=0$,且$f$在$x=0$处可导.对于$t>0$,定义
+    \[V(t)=\left\{(x,y,z)\in\R^3:x^2+16y^2+\dfrac{z^2}{25}\leqslant t^2\right\}\]
+    试证明
+    \[\lim_{t\to0}\dfrac{1}{t^5}\iiint_{V(t)}f\left(x^2+16y^2+\dfrac{z^2}{25}\right)\di x\di y\di z=\pi f'(0)\]
+
+\end{problem}
+\begin{solution}
+    做代换
+    \[x=\rho\cos\theta\sin\varphi\ \ \ \ \ y=\dfrac14\rho\sin\theta\sin\varphi\ \ \ \ \ z=5\rho\cos\varphi\]
+    于是区域$V(t)$变换为
+    \[V'(t)=\left\{(\rho,\theta,\varphi):0\leqslant\rho\leqslant t,0\leqslant\theta\leqslant2\pi,0\leqslant\varphi\leqslant\pi\right\}\]
+    变换的Jacobi行列式
+    \[\left|J\right|=\dfrac{5}{4}\rho^2\sin\varphi\]
+    于是
+    \[\begin{aligned}
+        &\iiint_{V(t)}f\left(x^2+16y^2+\dfrac{z^2}{25}\right)\di x\di y\di z \\
+        =&\iiint_{V'(t)}\dfrac54f\left(\rho^2\right)\rho^2\sin\varphi\di\rho\di\varphi\di\theta \\
+        =&\dfrac54\int_0^t\di\rho\int_0^{2\pi}\di\theta\int_0^\pi f\left(\rho^2\right)\rho^2\sin\varphi\di\varphi \\
+        =&5\pi\int_0^{t}\rho^2f\left(\rho^2\right)\di\rho
+    \end{aligned}\]
+    由于$f$在$x=0$处可导,于是
+    \[\lim_{x\to0}\dfrac{f\left(x^2\right)-f(0)}{x^2}=\lim_{x\to0}\dfrac{f\left(x^2\right)}{x^2}=f'(0)\]
+    于是
+    \[\begin{aligned}
+        &\lim_{t\to0}\dfrac{1}{t^5}\iiint_{V(t)}f\left(x^2+16y^2+\dfrac{z^2}{25}\right)\di x\di y\di z \\
+        =&\lim_{t\to0}\dfrac{5\pi}{t^5}\int_0^{t}\rho^2f\left(\rho^2\right)\di\rho \\
+        =&\lim_{t\to0}\dfrac{\pi t^2f\left(t^2\right)}{t^4} \\
+        =&\pi f'(0)
+    \end{aligned}\]
+
+\end{solution}
+\begin{problem}[9.(15\songti{分})]
+    求出所有可导的$f:\R\to\R$使得
+    \[f'(x)=xf(x)+x\int_0^1tf(t)\di t\]
+    
+\end{problem}
+\begin{solution}
+    令$I=\displaystyle\int_0^1tf(t)\di t$,再令$u=f(x)+I$,原方程即
+    \[u'=ux\]
+    移项积分可得方程的解为$u=C\e^{\frac12x^2}$.这样即有
+    \[f(x)=C\e^{\frac12x^2}-\int_0^{1}tf(t)\di t\]
+    于是
+    \[\begin{aligned}
+        I=\int_0^1xf(x)\dx
+        &= \int_0^1\left(Cx\e^{\frac12x^2}-Ix\right)\dx \\
+        &= \left.\left(\dfrac12C\e^{\frac12x^2}-\dfrac{1}{2}Ix^2\right)\right|_0^1 \\
+        &= \dfrac{1}{2}C\left(\sqrt\e-1\right)-\dfrac{1}{4}I
+    \end{aligned}\]
+    于是
+    \[I=\dfrac{2}{3}C\left(\sqrt\e-1\right)\]
+    代入$u=f(x)+I$即有
+    \[f(x)=C\e^{\frac12x^2}-\dfrac{2}{3}C\left(\sqrt\e-1\right),C\in\R\]
+    即为原方程的解.
+\end{solution}
+\end{document}
