@@ -1,0 +1,64 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2022-23高等数学A2期中考试
+\end{center}
+\begin{problem}[1.(32\songti{分})]
+    指出下列各积分的积分类型,并计算其积分值,其中
+    \[D_1=[0,1]\subset\R\ \ \ \ \ D_2=[0,1]\times[0,1]\subset\R^2\ \ \ \ \ D_3=[0,1]\times[0,1]\times[0,1]\subset\R^3\]
+    记$\p\Omega$表示$\Omega$的边界.记$S_1=\p D_2,S_2=\p D_3$,$S_1^+$为逆时针方向的$S_1$,$S_2^+$为外法线方向的$S_2$.
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item $\displaystyle\int_{D_1}x\dx$
+        \item $\displaystyle\oint_{S_1}xy\di s$
+        \item $\displaystyle\oiint_{S_2}xyz\di S$
+        \item $\displaystyle\iint_{D_2}xy\dx\di y$
+        \item $\displaystyle\oint_{S_1^+}2xy\dx+\left(x^2+y^2\right)\di y$
+        \item $\displaystyle\iiint_{D_3}x^6y^{16}z^{16}\dx\di y\di z$
+        \item $\displaystyle\oiint_{S_2^+}\left(\dfrac x2+z^3\sin y^2\right)\di y\di z+\left(\dfrac y3+\e^{x\cos z}\right)\di z\dx+\left(\dfrac z6+\arctan(xy)\right)\dx\di y$
+        \item $\displaystyle\oint_{\Gamma^+}x\di x+y\di y+z\di z$,其中$\Gamma^+$是由$(0,0,0)$出发,依次经过点$(1,0,0),(1,1,0),(1,1,1),(0,1,1),(0,1,0)$后回到$(0,0,0)$的直线段构成.
+    \end{enumerate}
+
+\end{problem}
+\begin{problem}[2.(12\songti{分})]
+    求二重积分
+    \[I=\iint_{D}\left|y-x^2\right|\dx\di y\]
+    其中$D=\left\{(x,y)\in\R^2:-1\leqslant x\leqslant1,0\leqslant y\leqslant1\right\}$.
+
+\end{problem}
+\begin{problem}[3.(12\songti{分})]
+    计算由封闭曲面
+    \[S=\left\{(x,y,z)\in\R^3:\left(x^2+\dfrac{y^2}{4}+\dfrac{z^2}{5}\right)^2\leqslant x\right\}\]
+    围成区域的体积.
+
+\end{problem}
+\begin{problem}[4.(12\songti{分})]
+    设$S^+$是单位球面$x^2+y^2+z^2=1$的外侧,试求曲面积分
+    \[I=\oiint_{S^+}\dfrac{x\di y\di z+y\di z\dx+z\dx\di y}{\left(x^2+4y^2+9z^2\right)^{\frac32}}\]  
+\end{problem}
+
+\begin{problem}[5.(12\songti{分})]
+    设$f(t)$是$[0,1]$上的可积函数,满足
+    \[\int_0^1f(t)\di t=1\ \ \ \ \ \int_0^1tf(t)\di t=2\ \ \ \ \ \int_0^1t^2f(t)\di t=3\]
+    试求累次积分
+    \[I=\int_0^1\dx\int_0^x\di y\int_0^yf(z)\di z\]
+
+\end{problem}
+
+\begin{problem}[6.(10\songti{分})]
+    设
+    \[F(t)=\iiint_{x^2+y^2+z^2\leqslant t^2}f(x^2+y^2+z^2)\dx\di y\di z\]
+    其中$f(s)$连续,在$s=0$处可导,并且满足$f(0)=0,f'(0)=10$.求极限
+    \[\lim_{t\to0^+}\dfrac{F(t)}{t^5}\]
+
+\end{problem}
+\begin{problem}[7.(10\songti{分})]
+    设$f(x,y)$是$\R^2$上的非负连续函数.对于$r>0,\rho>0$,令
+    \[I_r=\iint_{x^2+y^2\leqslant r^2}f(x,y)\dx\di y\ \ \ \ \ J_{\rho}=\iint_{-\rho\leqslant x,y\leqslant\rho}f(x,y)\dx\di y\]
+    试证明:当极限$\lim_{r\to+\infty}I_r$与极限$\lim_{\rho\to+\infty}J_\rho$之一存在且有限时,另一个极限必然也存在且有限,并且两者相等.
+\end{problem}
+\end{document}
