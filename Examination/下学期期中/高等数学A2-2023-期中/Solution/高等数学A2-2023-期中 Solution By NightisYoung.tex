@@ -24,23 +24,105 @@
     \end{enumerate}
 
 \end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 定积分.我们有
+            \[\int_{D_1}x\dx=\left.\left(\dfrac12x^2\right)\right|_0^1=\dfrac12\]
+        \item 第一型曲线积分.我们只需考虑线段$L_1:x=1,0\leqslant y\leqslant1$和$L_2:y=1,0\leqslant x\leqslant1$即可.此时有
+            \[\oint_{S_1}xy\di s=\int_{L_1}xy\di s+\int_{L_2}xy\di s=\int_{0}^1y\di y+\int_0^1x\dx=1\]
+        \item 第一型曲面积分.我们只需考虑面$D_1:x=1,0\leqslant y,z\leqslant 1$,$D_2:y=1,0\leqslant x,z\leqslant 1$和$D_3:z=1,0\leqslant x,y\leqslant 1$即可.于是
+            \[\oiint_{S_2}xyz\di S
+            = \iint_{D_1}yz\di S+\iint_{D_2}xz\di S+\iint_{D_3}xy\di S
+            = 3\iint_{[0,1]\times[0,1]}xy\di\sigma
+            = \dfrac{3}{4}\]
+        \item 二重积分.我们有
+            \[\iint_{D_2}xy\dx\di y=\int_0^1\dx\int_0^1xy\di y=\dfrac12\int_0^1x\di x=\dfrac14\]
+        \item 第二型曲线积分.在$D_2$上运用Green公式有
+            \[\oint_{S_1^+}2xy\dx+\left(x^2+y^2\right)\di y
+            =\iint_{D_2}\left(2x-2x\right)\di\sigma=0\]
+        \item 三重积分.我们有
+            \[\iiint_{D_3}x^6y^{16}z^{16}\dx\di y\di z
+            =\int_0^1\dx\int_0^1\di y\int_0^1x^6y^{16}z^{16}\di z=\dfrac17\cdot\dfrac{1}{17}\cdot\dfrac{1}{17}=\dfrac{1}{2023}\]
+        \item 第二型曲面积分.在$D_3$上运用Gauss公式有
+            \[\begin{aligned}
+                &\oiint_{S_2^+}\left(\dfrac x2+z^3\sin y^2\right)\di y\di z+\left(\dfrac y3+\e^{x\cos z}\right)\di z\dx+\left(\dfrac z6+\arctan(xy)\right)\dx\di y \\
+                =&\iiint_{D_3}\left(\dfrac12+\dfrac13+\dfrac16\right)\di V \\
+                =&\iiint_{D_3}\di V=1
+            \end{aligned}\]
+        \item 第二型曲线积分.考虑两个正方形$\Omega_1:z=0,0\leqslant x,y\leqslant1$和$\Omega_2:y=1,0\leqslant x,z\leqslant 1$.%
+            则$\Omega=\Omega_1\cup\Omega_2$的边界就是$\Gamma^+$.运用Stokes公式有
+            \[\begin{aligned}
+                \oint_{\Gamma^+}x\di x+y\di y+z\di z
+                &= \iint_{\Omega^+}0\di y\di z+0\di z\dx+0\dx\di y=0
+            \end{aligned}\]
+
+    \end{enumerate}
+\end{solution}
 \begin{problem}[2.(12\songti{分})]
     求二重积分
     \[I=\iint_{D}\left|y-x^2\right|\dx\di y\]
     其中$D=\left\{(x,y)\in\R^2:-1\leqslant x\leqslant1,0\leqslant y\leqslant1\right\}$.
 
 \end{problem}
+\begin{solution}
+    考虑到被积函数$\left|y-x^2\right|$和积分区域$D$都关于$y$轴对称,于是仅需考虑$D':[0,1]\times[0,1]$即可.我们有
+    \[\begin{aligned}
+        I'
+        &= \iint_{D'}\left|y-x^2\right|\dx\di y \\
+        &= \int_0^1\dx\left(\int_0^{x^2}\left(x^2-y\right)\di y+\int_{x^2}^1\left(y-x^2\right)\di y\right) \\
+        &= \int_0^1\left(x^4-x^2+\dfrac12\right)\dx \\
+        &= \dfrac{11}{30}
+    \end{aligned}\]
+    于是
+    \[I=2I'=\dfrac{11}{15}\]
+
+\end{solution}
 \begin{problem}[3.(12\songti{分})]
     计算由封闭曲面
     \[S=\left\{(x,y,z)\in\R^3:\left(x^2+\dfrac{y^2}{4}+\dfrac{z^2}{5}\right)^2\leqslant x\right\}\]
     围成区域的体积.
 
 \end{problem}
+\begin{solution}
+    做变换
+    \[x=\rho\cos\varphi\ \ \ \ \ y=2\rho\sin\varphi\cos\theta\ \ \ \ \ z=\sqrt{5}\rho\sin\varphi\sin\theta\]
+    这变换的Jacobi矩阵
+    \[|J|=2\sqrt{5}\rho^2\sin\varphi\]
+    曲面$S$围成的区域变换后即为
+    \[\Omega=\left\{(\rho,\theta,\varphi):0\leqslant\varphi\leqslant\dfrac\pi2,0\leqslant\theta\leqslant2\pi,0\leqslant\rho^3\leqslant\cos\varphi\right\}\]
+    于是
+    \[\begin{aligned}
+        V
+        &= \iiint_{\Omega}|J|\di\rho\di\theta\di\varphi \\
+        &= 2\sqrt{5}\int_0^{2\pi}\di\theta\int_0^{\frac\pi2}\di\varphi\int_0^{\sqrt[3]{\cos\varphi}}\rho^2\sin\varphi\di\rho \\
+        &= \dfrac{2\sqrt{5}}{3}\int_0^{2\pi}\di\theta\int_0^{\frac\pi2}\cos\varphi\sin\varphi\di\varphi \\
+        &\xlongequal{u=\sin\varphi} \dfrac{2\sqrt5}{3}\int_0^{2\pi}\di\theta\int_0^1u\di u \\
+        &= \dfrac{2\sqrt5\pi}{3}
+    \end{aligned}\]
+
+\end{solution}
 \begin{problem}[4.(12\songti{分})]
     设$S^+$是单位球面$x^2+y^2+z^2=1$的外侧,试求曲面积分
     \[I=\oiint_{S^+}\dfrac{x\di y\di z+y\di z\dx+z\dx\di y}{\left(x^2+4y^2+9z^2\right)^{\frac32}}\]  
 \end{problem}
+\begin{solution}
+    考虑球体$\Omega:x^2+y^2+z^2\leqslant 1$和小椭球$\Omega':x^2+4y^2+9z^2\leqslant\ep^2$,$\ep<1$,并记$S_\ep^+$为$\Omega_\ep$的表面的外侧.\\
+    在$\Omega\backslash\Omega'$上运用Gauss公式有
+    \[\begin{aligned}
+        &\oiint_{S^+\cup S_\ep^-}\dfrac{x\di y\di z+y\di z\dx+z\dx\di y}{\left(x^2+4y^2+9z^2\right)^{\frac32}}\\
+        =&\iiint_{\Omega\backslash\Omega'}\dfrac{3\left(x^2+4y^2+9z^2\right)^{\frac32}-\left(2x^2+8y^2+18z^2\right)\cdot\dfrac{3}{2}\sqrt{x^2+4y^2+9z^2}}{\left(x^2+4y^2+9z^2\right)^3}\di V \\
+        =&0
+    \end{aligned}\]
+    于是
+    \[\begin{aligned}
+        \oiint_{S^+}\dfrac{x\di y\di z+y\di z\dx+z\dx\di y}{\left(x^2+4y^2+9z^2\right)^{\frac32}}
+        &= \oiint_{S_\ep^+}\dfrac{x\di y\di z+y\di z\dx+z\dx\di y}{\left(x^2+4y^2+9z^2\right)^{\frac32}} \\
+        &= \dfrac{1}{\ep^3}\oiint_{S_\ep^+}x\di y\di z+y\di z\di x+z\di x\di y \\
+        &= \dfrac{1}{\ep^3}\iiint_{\Omega_\ep}3\di V = \dfrac{3}{\ep^3}\cdot\dfrac{1}{2}\cdot\dfrac{1}{3}\cdot\dfrac{4\pi\ep^3}{3} \\
+        &= \dfrac{2\pi}{3}
+    \end{aligned}\]
 
+\end{solution}
 \begin{problem}[5.(12\songti{分})]
     设$f(t)$是$[0,1]$上的可积函数,满足
     \[\int_0^1f(t)\di t=1\ \ \ \ \ \int_0^1tf(t)\di t=2\ \ \ \ \ \int_0^1t^2f(t)\di t=3\]
@@ -48,7 +130,21 @@
     \[I=\int_0^1\dx\int_0^x\di y\int_0^yf(z)\di z\]
 
 \end{problem}
+\begin{solution}
+    考虑区域$D_1:0\leqslant z\leqslant y\leqslant x\leqslant 1$,于是
+    \[I_1=\int_0^1\dx\int_0^x\di y\int_0^yf(z)\di z=\iiint_{D_1}f(z)\di V\]
+    考虑区域$D_2:0\leqslant z\leqslant x\leqslant y\leqslant 1$,于是
+    \[I_2=\int_0^1\dx\int_x^1\di y\int_0^y f(z)\di z=\iiint_{D_2}f(z)\di V\]
+    注意到被积函数$f(z)$关于平面$x=y$对称,而$D_1$和$D_2$也关于平面$x=y$对称,于是$I_1=I_2$.考虑积分
+    \[\begin{aligned}
+        I_3=I_1+I_2
+        &= \iiint_{D_1\cup D_2}f(z)\di V = \int_0^1\di z\iint_{[z,1]\times[z,1]}f(z)\di x\di y \\
+        &= \int_0^1\left(1-z\right)^2f(z)\di z = 3-2\cdot 2+1=0
+    \end{aligned}\]
+    于是
+    \[I=\dfrac12I_3=0\]
 
+\end{solution}
 \begin{problem}[6.(10\songti{分})]
     设
     \[F(t)=\iiint_{x^2+y^2+z^2\leqslant t^2}f(x^2+y^2+z^2)\dx\di y\di z\]
@@ -56,9 +152,51 @@
     \[\lim_{t\to0^+}\dfrac{F(t)}{t^5}\]
 
 \end{problem}
+\begin{solution}
+    做球坐标变换
+    \[x=\rho\sin\varphi\cos\theta\ \ \ \ \ y=\rho\sin\varphi\sin\theta\ \ \ \ \ z=\rho\cos\theta\]
+    则
+    \[\begin{aligned}
+        F(t)
+        &= \iiint_{x^2+y^2+z^2\leqslant t^2}f(x^2+y^2+z^2)\dx\di y\di z \\
+        &= \iiint_{0\leqslant\rho\leqslant t}f\left(\rho^2\right)\rho^2\sin\varphi\di\rho\di\theta\di\varphi \\
+        &= \int_0^t\di\rho\int_0^{2\pi}\d\theta\int_0^{\pi}\rho^2f\left(\rho^2\right)\sin\varphi\di\varphi \\
+        &= 4\pi\int_0^{t}\rho^2f\left(\rho^2\right)\di\rho
+    \end{aligned}\]
+    于是
+    \[\begin{aligned}
+        \lim_{t\to0^+}\dfrac{F(t)}{t^5}
+        &= \lim_{t\to0^+}\dfrac{\displaystyle4\pi\int_0^{t}\rho^2f\left(\rho^2\right)\di\rho}{t^5} \\
+        &= \lim_{t\to0^+}\dfrac{\pi t^2f\left(t^2\right)}{t^4} \\
+        &= \lim_{t\to0^+}\pi\cdot\dfrac{f\left(t^2\right)-f(0)}{t^2} \\
+        &= \pi f'(0)=10\pi
+    \end{aligned}\]
+
+\end{solution}
 \begin{problem}[7.(10\songti{分})]
     设$f(x,y)$是$\R^2$上的非负连续函数.对于$r>0,\rho>0$,令
     \[I_r=\iint_{x^2+y^2\leqslant r^2}f(x,y)\dx\di y\ \ \ \ \ J_{\rho}=\iint_{-\rho\leqslant x,y\leqslant\rho}f(x,y)\dx\di y\]
-    试证明:当极限$\lim_{r\to+\infty}I_r$与极限$\lim_{\rho\to+\infty}J_\rho$之一存在且有限时,另一个极限必然也存在且有限,并且两者相等.
+    试证明:当极限$\displaystyle\lim_{r\to+\infty}I_r$与极限$\displaystyle\lim_{\rho\to+\infty}J_\rho$之一存在且有限时,另一个极限必然也存在且有限,并且两者相等.
 \end{problem}
+\begin{proof}
+    首先假定$\displaystyle\lim_{r\to+\infty}I_r$存在有限,不妨记为$I$.我们有
+    \[\left\{(x,y):x^2+y^2\leqslant r^2\right\}
+    \subset\left\{(x,y):-r\leqslant x,y\leqslant r\right\}
+    \subset\left\{(x,y):x^2+y^2\leqslant 2r^2\right\}\]
+    又因为$f(x,y)$非负,于是
+    \[I_r\leqslant J_r\leqslant I_{\sqrt{2}r}\]
+    两边取极限,有$\displaystyle\lim_{r\to+\infty}I_{\sqrt2r}=\lim_{r\to+\infty}I_{r}=I$.由夹逼准则可知
+    \[I\leqslant\lim_{r\to+\infty}J_r\leqslant I\]
+    于是
+    \[\lim_{r\to+\infty}J_r=I\]
+    现在假定$\displaystyle\lim_{r\to\infty}J_r$存在有限,不妨记为$J$.我们有
+    \[\left\{(x,y):-\rho\leqslant x,y\leqslant\rho\right\}
+    \subset\left\{(x,y):x^2+y^2\leqslant 2\rho^2\right\}
+    \subset\left\{(x,y):-\sqrt2\rho\leqslant x,y\leqslant\sqrt2\rho\right\}\]
+    同理夹逼可得
+    \[J\leqslant\lim_{\rho\to+\infty}I_{\sqrt2\rho}\leqslant J\]
+    于是
+    \[\lim_{\rho\to+\infty}I_{\rho}=J\]
+    从而命题得证.
+\end{proof}
 \end{document}
