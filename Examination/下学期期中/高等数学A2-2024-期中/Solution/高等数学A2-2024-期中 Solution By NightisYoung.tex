@@ -122,8 +122,23 @@
                     \[C(x)=\e^x(x-1)+C\]
                     从而方程的通解为
                     \[y=C\e^{-x}+x-1\]
-                \item 
-                    假定存在不同的$y_1,y_2$使得
+                \item 同样地,根据常数变易法可知方程的通解为
+                    \[y=\e^{-x}\left(\int_0^x\e^xf(x)\dx+y(0)\right)\]
+                    如果$y(x)=y(x+T)$对所有$x\in\R$成立,就有
+                    \[\e^{-x-T}\left(\int_0^{x+T}\e^xf(x)\dx+y(0)\right)=\e^{-x}\left(\int_0^x\e^xf(x)\dx+y(0)\right)\]
+                    即
+                    \[\e^{-T}\left(\int_0^{x+T}\e^xf(x)\dx+y(0)\right)=\int_0^x\e^xf(x)\dx+y(0)\]
+                    又因为
+                    \[\begin{aligned}
+                        \e^{-T}\int_0^{x+T}\e^{x}f(x)\dx
+                        &= \e^{-T}\int_{-T}^{x}\e^{x-T}f(x-T)\di(x-T) \\
+                        &= \int_{-T}^x\e^xf(x)\dx
+                    \end{aligned}\]
+                    于是
+                    \[\int_{-T}^{0}\e^{x}f(x)\dx=\left(1-\e^{-T}\right)y(0)\]
+                    这样,原方程的以$T$为周期的周期函数解即为
+                    \[y=\e^{-x}\left(\int_0^x\e^xf(x)\dx+\dfrac{1}{1-\e^{-T}}\int_{-T}^0\e^{x}f(x)\dx\right)\]
+                    为了证明解的唯一性,假定存在不同的以$T$为周期的周期函数$y_1,y_2$使得
                     \[y_1+y_1'=y_2+y_2'=f(x)\]
                     令$u(x)=y_2-y_1$,于是
                     \[u(x)+u'(x)=0\]
@@ -175,8 +190,8 @@
 \end{problem}
 \begin{solution}
     我们有
-    \[\cos\left(\mbf r,\mbf n\right)=\dfrac{\mbf r\cdot\mbf n}{\left|\mbf n\right|\left|\mbf r\right|}\]
-    又因为$\left|\mbf n\right|=1$,于是
+    \[\cos\left(\mbf r,\mbf n\right)=\dfrac{\mbf r\cdot\mbf n}{\left|\mbf r\right|\left|\mbf n\right|}\]
+    设$\mbf n=(\cos\alpha,\cos\beta)$,那么沿$L$的逆时针方向单位切向量即为$\mbf m=(-\cos\beta,\cos\alpha)$,于是$\mbf n\di s=\left(-\di y,\dx\right)$,于是
     \[\oint_{L}\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|}\di s
     =\oint_{L}\dfrac{\mbf r\cdot\mbf n}{\left|\mbf r\right|^2}\di s
     =\oint_{L}\dfrac{x\di y-y\di x}{x^2+y^2}\]
