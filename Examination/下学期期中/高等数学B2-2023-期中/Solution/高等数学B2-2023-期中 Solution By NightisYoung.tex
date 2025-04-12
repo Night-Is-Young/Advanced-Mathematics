@@ -91,17 +91,17 @@
 \begin{proof}
     考虑二元函数
     \[P(x,y)=\dfrac{-y}{\left(x^2+xy+y^2\right)^2}\ \ \ \ \ Q(x,y)=\dfrac{x}{\left(x^2+xy+y^2\right)^2}\]
-    积分曲线$S_R:x^2+y^2=R^2$的单位切向量为$\mbf n=(-y,x)$,于是
+    积分曲线$S_R:x^2+y^2=R^2$的单位切向量为$\mbf n=\frac{1}{R}(-y,x)$,于是
     \[\begin{aligned}
         I(R)
         &= \oint_{S_R^+}\left(P,Q\right)\cdot\mbf n\di s \\
-        &= \oint_S\dfrac{x^2+y^2}{\left(x^2+xy+y^2\right)^2}\di s \\
-        &= \int_0^{2\pi}\dfrac{R^2}{\left(R^2\left(1+\cos t\sin t\right)\right)^2}\di t \\
-        &\leqslant \int_0^{2\pi}\dfrac{4}{R^2}\di t \\
-        &= \dfrac{8\pi}{R^2}
+        &= \oint_S\dfrac{x^2+y^2}{R\left(x^2+xy+y^2\right)^2}\di s \\
+        &= \int_0^{2\pi}\dfrac{R}{\left(R^2\left(1+\cos t\sin t\right)\right)^2}\di t \\
+        &\leqslant \int_0^{2\pi}\dfrac{4}{R^3}\di t \\
+        &= \dfrac{8\pi}{R^3}
     \end{aligned}\]
     于是
-    \[0\leqslant I(R)\leqslant \dfrac{8\pi}{R^2}\]
+    \[0\leqslant I(R)\leqslant \dfrac{8\pi}{R^3}\]
     由夹逼准证可知
     \[\lim_{R\to+\infty}I(R)=0\]
 
@@ -128,8 +128,8 @@
             P&Q&R
         \end{vmatrix}\\
         &= -2\iint_{S^+}\dx\di y+\di y\di z+\di z\di x \\
-        &= -2\sqrt2\iint_{x^2+y^2\leqslant 1}\di\sigma \\
-        &= -2\sqrt2\pi
+        &= -4\iint_{x^2+y^2\leqslant 1}\di\sigma \\
+        &= -4\pi
     \end{aligned}\]
     
 \end{solution}
@@ -190,7 +190,7 @@
     于是
     \[\begin{aligned}
         &\iiint_{\Omega}\dfrac{(x+y+z)^2\sqrt{1+x^2+y^2}}{\left(x^2+y^2+z^2\right)\left(1+x^2+y^2+z^2\right)}\di V \\
-        =&\iiint_{\Omega'}\dfrac{\left(r^2+z^2+r^2\sin\theta\cos\theta+2rz\left(\sin\theta+\cos\theta\right)\sqrt{1+r^2}\right)}{\left(r^2+z^2\right)\left(1+r^2+z^2\right)}r\di V \\
+        =&\iiint_{\Omega'}\dfrac{\left(r^2+z^2+r^2\sin\theta\cos\theta+2rz\left(\sin\theta+\cos\theta\right)\right)\sqrt{1+r^2}}{\left(r^2+z^2\right)\left(1+r^2+z^2\right)}r\di V \\
         =&\int_0^{2\pi}\di\theta\int_0^1\di r\int_{\sqrt{1+r^2}}^{\sqrt3\sqrt{1+r^2}}\dfrac{r\sqrt{1+r^2}}{\left(z^2+r^2+1\right)}\di z \\
         =&\int_0^{2\pi}\di\theta\int_0^1\di r\left.\left(r\arctan\dfrac{z}{\sqrt{1+r^2}}\right)\right|_{\sqrt{1+r^2}}^{\sqrt3\sqrt{1+r^2}} \\
         =&\int_0^{2\pi}\di\theta\int_0^1\dfrac{\pi}{12}r\di r \\
@@ -215,23 +215,23 @@
     \[\dfrac{\p A}{\p y}=\dfrac{\p B}{\p x}=0\]
     在$\R^2$上成立,于是据Green公式有
     \[\oint_{L}A\di x+B\di y=\iint_{\Omega}0\di\sigma=0\]
-    考虑小椭圆$\Omega_\ep:x^2+y^2\leqslant\ep^2$和其边界$S_\ep$,其中$0<\ep<3$.在$\Omega\backslash\Omega_\ep$上根据Green公式有
+    考虑小椭圆$\Omega_\ep:4x^2+y^2\leqslant\ep^2$和其边界$S_\ep$,其中$0<\ep<3$.在$\Omega\backslash\Omega_\ep$上根据Green公式有
     \[\begin{aligned}
         \oint_{\Gamma+S_\ep^-}P\di x+Q\di y
         &= \iint_{\Omega\backslash\Omega_\ep}\left(\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)\di\sigma \\
         &= \iint_{\Omega\backslash\Omega_\ep}-\dfrac{\left(4x^2+y^2\right)-8x^2+\left(4x^2+y^2\right)-2y^2}{\left(4x^2+y^2\right)^2}\di\sigma \\
         &= 0
     \end{aligned}\]
-    现在做换元$x=\dfrac12\ep\cos\theta,y=\ep\sin\theta$.椭圆周$S_\ep$逆时针方向的单位切向量为$\mbf n=\dfrac{(-y,x)}{\sqrt{x^2+y^2}}$.于是
+    又有
     \[\begin{aligned}
         \oint_{\Gamma}P\di x+Q\di y
         &= \oint_{S_\ep^+}P\dx+Q\di y \\
         &= \dfrac{1}{\ep^2}\oint_Sy\dx-x\di y \\
-        &= \dfrac{1}{\ep^2}\int_0^{2\pi}-\sqrt{x^2+y^2}\di\theta \\
-        &= -\dfrac{\pi}{2}
+        &= -\dfrac{2}{\ep^2}\iint_{\Omega_\ep}\di\sigma \\
+        &= -\pi
     \end{aligned}\]
     于是
-    \[\oint_{\Gamma}\left(\dfrac{y^2+y+4x^2}{4x^2+y^2}+\sin x^2\right)\dx+\left(\dfrac{4x^2-x+y^2}{4x^2+y^2}+\sin y^2\right)\di y=-\dfrac\pi2\]
+    \[\oint_{\Gamma}\left(\dfrac{y^2+y+4x^2}{4x^2+y^2}+\sin x^2\right)\dx+\left(\dfrac{4x^2-x+y^2}{4x^2+y^2}+\sin y^2\right)\di y=-\pi\]
 
 \end{solution}
 \begin{problem}[10.(10\songti{分})]
