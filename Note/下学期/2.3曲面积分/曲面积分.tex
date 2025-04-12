@@ -72,5 +72,17 @@
 在考虑方向余弦具有的正负性后,我们也可以得到
 \[\iint_S\mbf F\di\mbf S=\iint_SP\di x\di y+Q\di z\di x+R\di x\di y\]
 上式中的$\di x\di y$等微元并不一定为正(这需要与二重积分做区别),而取决于方向余弦的正负(即法向量的指向).\\
-第二型曲线积分的计算,就可以利用上面的转化将其写为第一型曲面积分后进行计算,在此就不再多叙.
+第二型曲线积分的计算,就可以利用上面的转化将其写为第一型曲面积分后进行计算.我们现在完整地演示一遍第二型曲面积分向二重积分的转化.
+\begin{solution}
+    假定积分曲面$S$可以写作$z=f(x,y)$,其中$(x,y)\in D$.于是$S$的法向量
+    \[\mbf n=\pm\dfrac{\left(z_x,z_y,-1\right)}{\sqrt{1+z_x^2+z_y^2}}\]
+    令$\mbf F=(P,Q,R)$.于是
+    \[\begin{aligned}
+        &\iint_{S^+}P\di y\di z+Q\di z\dx+R\dx\di y\\
+        =&\pm\iint_{S}\mbf F\cdot\mbf n\di S \\
+        =&\pm\iint_{S}\dfrac{\left(Pz_x+Qz_y-R\right)}{\sqrt{1+z_x^2+z_y^2}}\di S \\
+        =&\pm\iint_{D}\left(Pz_x+Qz_y-R\right)\di\sigma
+    \end{aligned}\]
+    事实上,可以注意到$\sqrt{1+z_x^2+z_y^2}$一项被抵消.
+\end{solution}
 \end{document}
