@@ -24,7 +24,7 @@
         &= \iint_{D'}2(u+v)\di u\di v \\
         &= 2\int_0^1\di v\int_0^1(u+v)\di u \\
         &= 2\int_0^1\left(\dfrac12+v\right)\di v \\
-        &= \dfrac12
+        &= 2
     \end{aligned}\]
 \end{solution}
 \begin{problem}[2.(10\songti{分})]
@@ -100,17 +100,16 @@
 
 \end{problem}
 \begin{solution}
-    由题意可得$S$是圆柱的侧面.根据积分区域和被积函数的对称性,我们可以考虑第一卦限内的曲面$S_1$.\\
-    在$S_1$上有$z=\sqrt{1-x^2}$,投影区域为$D_1:[0,1]\times[0,1]$,于是
+    由题意可得$S$是圆柱的侧面.
+    在$S$上有$z=\sqrt{1-x^2}$,投影区域为$D:[0,1]\times[0,1]$,于是
     \[\begin{aligned}
-        \iint_{S_1}x\di S
-        &= \iint_{D_1}x\sqrt{1+\left(-\dfrac{x}{\sqrt{1-x^2}}\right)^2+0}\di\sigma \\
+        \iint_{S}x\di S
+        &= \iint_{D}x\sqrt{1+\left(-\dfrac{x}{\sqrt{1-x^2}}\right)^2+0}\di\sigma \\
         &= \int_0^1\di y\int_0^1\dfrac{x\di x}{\sqrt{1-x^2}} \\
         &\xlongequal{t=x^2} \dfrac12\int_0^1\di y\int_0^1\dfrac{\di t}{\sqrt{1-t}} \\
         &= 1
     \end{aligned}\]
-    于是
-    \[\iint_Sx\di S=4\iint_{S_1}x\di S=4\]
+    
 \end{solution}
 \begin{problem}[6.(10\songti{分})]
     设$S$是单位球面$x^2+y^2+z^2=1$,求曲面积分
