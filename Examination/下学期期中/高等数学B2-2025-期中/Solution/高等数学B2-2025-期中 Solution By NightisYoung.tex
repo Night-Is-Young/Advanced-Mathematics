@@ -1,0 +1,177 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2024-25高等数学B2期中考试
+\end{center}
+\begin{problem}[1.(12\songti{分})]
+    求二重积分
+    \[\iint_{D}\left(|x|+y\right)^2\di\sigma\]
+    其中$D:x^2+y^2\leqslant a^2$.
+
+\end{problem}
+\begin{solution}
+    我们有
+    \[\left(|x|+y\right)^2=x^2+y^2+2y|x|\]
+    注意到$2y|x|$关于$x$轴反对称,积分区域$D$关于$y$轴对称,故此项最终为$0$.于是
+    \[\iint_{D}\left(|x|+y\right)^2\di\sigma
+    =\iint_{D}\left(x^2+y^2\right)\di\sigma=\int_0^{2\pi}\di\theta\int_0^ar^3\di r=\dfrac{\pi a^4}{2}\]
+
+\end{solution}
+\begin{problem}[2.(12\songti{分})]
+    求由三个圆柱面$x^2+y^2=R^2,y^2+z^2=R^2$和$x^2+z^2=R^2$围成的立体的表面积.
+
+\end{problem}
+\begin{solution}
+    根据图形的对称性,我们考虑第一卦限中$x^2+z^2=R^2$被截出的曲面$S_1$.\\
+    $S_1$在$Oxy$平面上的投影为$D_1=\left\{(x,y):0\leqslant y\leqslant x,x^2+y^2\leqslant R^2\right\}$.\\
+    曲面方程为$z=\sqrt{R^2-x^2}$,于是该部分的面积
+    \[\begin{aligned}
+        \iint_{S_1}\di S
+        &= \iint_{D_1}\sqrt{1+z_x^2+z_y^2}\di x\di y \\
+        &= \iint_{D_1}\dfrac{R}{\sqrt{R^2-x^2}}\di x\di y \\
+        &\xlongequal{\text{极坐标换元}}\int_0^{\frac\pi4}\int_0^R\dfrac{R}{\sqrt{R^2-r^2\cos^2\theta}}r\di r \\
+        &= \int_0^{\frac\pi4}\left(\left.-\dfrac{R\sqrt{R^2-r^2\cos^2\theta}}{\cos^2\theta}\right|_0^R\right)\di\theta \\
+        &= \int_0^{\frac\pi4}\dfrac{R^2\left(1-\sin\theta\right)}{\cos^2\theta}\di\theta \\
+        &= R^2\left.\left(\tan\theta-\dfrac{1}{\cos\theta}\right)\right|_0^{\frac\pi4} \\
+        &= R^2\left(2-\sqrt2\right)
+    \end{aligned}\]
+    考虑到每个卦限内有三个与$S_1$相同的曲面,于是总表面积
+    \[S=24R^2\left(2-\sqrt2\right)\]
+
+\end{solution}
+\begin{problem}[3.(12\songti{分})]
+    求第一型曲线积分
+    \[\oint_C\left(x+y+1\right)\di s\]
+    其中$C$是以$O(0,0),A(1,0),B(0,1)$为顶点的三角形的边界.
+
+\end{problem}
+\begin{solution}
+    我们分三条边考虑.\\
+    在$OA$上有$y=0,0\leqslant x\leqslant 1$且$\di s=\di x$,于是
+    \[\int_{OA}\left(x+y+1\right)\di s=\int_0^1\left(x+1\right)\di x=\dfrac32\]
+    在$OB$上有$x=0,0\leqslant y\leqslant 1$且$\di s=\di y$,于是
+    \[\int_{OB}\left(x+y+1\right)\di s=\int_0^1\left(y+1\right)\di y=\dfrac32\]
+    在$AB$上,令$x=t,y=1-t$,其中$0\leqslant t\leqslant 1$,则有
+    \[\int_{AB}\left(x+y+1\right)\di s=\int_0^1\left(t+1-t+1\right)\sqrt{\left(x'(t)\right)^2+\left(y'(t)\right)^2}\di t=\int_0^12\sqrt2\di t=2\sqrt2\]
+    于是
+    \[\oint_C\left(x+y+1\right)\di s=\dfrac32+\dfrac32+2\sqrt2=3+2\sqrt2\]
+
+\end{solution}
+\begin{problem}[4.(14\songti{分})]
+    求第二型曲线积分
+    \[\oint_{C^+}y\dx+z\di y+x\di z\]
+    其中$C$为圆周$x^2+y^2+z^2=a^2,x+y+z=0$.从$x$轴正方向看,$C^+$为逆时针方向.
+        
+\end{problem}
+\begin{solution}
+    \tbf{Method I.}\\
+    将$z=-(x+y)$代入$x^2+y^2+z^2=a^2$有
+    \[\left(y+\dfrac x2\right)^2+\left(\dfrac{\sqrt3}{2}x\right)^2=\left(\dfrac{\sqrt2}{2}a\right)^2\]
+    令$\dfrac{\sqrt3}{2}x=\dfrac{\sqrt2}{2}a\cos t,y+\dfrac x2=\dfrac{\sqrt2}{2}a\sin t$,就有
+    \[\left\{\begin{array}{l}
+        x=\frac{\sqrt6}{3}a\cos t \\
+        y=\frac{\sqrt2}{2}a\sin t-\frac{\sqrt6}{6}a\cos t \\
+        z=-\frac{\sqrt2}{2}a\sin t-\frac{\sqrt6}{6}a\cos t
+    \end{array}\right.\]
+    曲线沿$C^+$方向的单位切向量为
+    \[\mbf n=\left(-\dfrac{\sqrt6}{3}\sin t,\dfrac{\sqrt2}{2}\cos t+\frac{\sqrt6}{6}\sin t,-\dfrac{\sqrt2}{2}\cos t+\frac{\sqrt6}{6}\sin t\right)\]
+    于是
+    \[\begin{aligned}
+        &\oint_{C^+}y\dx+z\di y+x\di z \\
+        =&\oint_C(y,z,x)\cdot\mbf n\di s \\
+        =&\oint_Ca\left(-\frac{\sqrt3}{3}\sin^2 t+\frac13\sin t\cos t-\frac23\sin t\cos t-\frac{\sqrt3}{6}-\frac{\sqrt3}{3}\cos^2t+\frac13\sin t\cos t\right)\di s \\
+        =&\int_0^{2\pi}-\dfrac{\sqrt3}{2}a\sqrt{\left(x'(t)\right)^2+\left(y'(t)\right)^2+\left(z'(t)\right)^2}\di t \\
+        =&\int_0^{2\pi}-\dfrac{\sqrt3}{2}a^2\di t \\
+        =&-\sqrt3\pi a^2
+    \end{aligned}\]
+
+\end{solution}
+\begin{problem}[5.(14\songti{分})]
+    求第二型曲面积分
+    \[\oiint_{S^+}\left(x^2+x\right)\di y\di z+\left(y^2+y\right)\di z\dx+\left(z^2+z\right)\dx\di y\]
+    其中$S^+$为球面$x^2+y^2+z^2=R^2$的外侧.
+\end{problem}
+\begin{solution}
+    考虑$S$所围的球体$\Omega:x^2+y^2+z^2\leqslant R^2$.在$\Omega$上运用Gauss公式有
+    \[\oiint_{S^+}\left(x^2+x\right)\di y\di z+\left(y^2+y\right)\di z\dx+\left(z^2+z\right)\dx\di y=\iiint_{\Omega}\left(2x+2y+2z+3\right)\di V\]
+    考虑到$f(x,y,z)=z$关于$Oxy$平面反对称,而$\Omega$关于$Oxy$平面对称,于是此项积分为零.同理可知$x,y$的一次项的积分也为零.于是
+    \[\oiint_{S^+}\left(x^2+x\right)\di y\di z+\left(y^2+y\right)\di z\dx+\left(z^2+z\right)\dx\di y=3\iiint_{\Omega}\di V=3\cdot\dfrac43\pi R^3=4\pi R^3\]
+
+\end{solution}
+\begin{problem}[6.(15\songti{分})]
+    求微分方程
+    \[xy'-y=\left(x+y\right)\ln\dfrac{x+y}{x}\]
+    的通解.
+\end{problem}
+\begin{solution}
+    移项整理可得
+    \[y'=\left(1+\dfrac{y}{x}\right)\ln\left(1+\dfrac{y}{x}\right)+\dfrac{y}{x}\]
+    令$u=\dfrac yx$,则$y'=u+u'x$.代入上式有
+    \[u=\dfrac{(1+u)\ln(1+u)}{x}\]
+    移项积分可得
+    \[\ln\ln(1+u)=\ln x+C\]
+    于是
+    \[u=\e^{Cx}-1\]
+    于是
+    \[y=x\e^{Cx}-x\]
+
+\end{solution}
+\begin{problem}[7.(15\songti{分})]
+    求微分方程
+    \[y''+3y'+2y=\dfrac{1}{2+\e^x}\]
+    的通解.
+\end{problem}
+\begin{solution}
+    对应的齐次方程的特征根$\lambda_1=-1,\lambda_2=-2$,于是通解为$y=C_1\e^{-x}+C_2\e^{-2x}$.令
+    \[y=C_1(x)\e^{-x}+C_2(x)\e^{-2x}\]
+    代入原方程得
+    \[\left\{\begin{array}{l}
+        C_1'(x)\e^{-x}+C_2'\e^{-2x}=0\\
+        -C_1'(x)\e^{-x}-2C_2'(x)\e^{-2x}=\dfrac{1}{2+\e^x}
+    \end{array}\right.\]
+    解得
+    \[C_1'(x)=\dfrac{\e^x}{2+\e^x}\ \ \ \ \ C_2'(x)=-\dfrac{\e^{2x}}{2+\e^x}\]
+    积分可得
+    \[C_1(x)=\ln\left(\e^x+2\right)+C_1\ \ \ \ \ C_2(x)=2\ln\left(\e^x+2\right)-\e^x+C_2\]
+    于是原方程的通解为
+    \[y=C_1\e^{-x}+C_2\e^{-2x}+\left(\dfrac{1}{\e^x}+\dfrac{2}{\e^{2x}}\right)\ln\left(\e^x+2\right)\]
+
+\end{solution}
+\begin{problem}[8.(6\songti{分})]
+    设函数$P(x,y),Q(x,y)$在$\R^2$上有连续的一阶偏导数,且对任意以$\left(x_0,y_0\right)\in\R^2$为圆心,%
+    任意$R>0$为半径的上半圆$L:y=y_0+\sqrt{R^2-\left(x-x_0\right)^2}$都有
+    \[\int_LP\di x+Q\di y=0\]
+    上式对$L$的两个方向都成立.试证明:对任意$(x,y)\in\R^2$都有$P(x,y)\equiv0,\dfrac{\p Q(x,y)}{\p x}\equiv0$.
+\end{problem}
+\begin{solution}
+    记半圆$L$的两端点为$A,B$,令$L+AB$围成的半圆区域为$D$.\\
+    根据Green公式和积分中值定理可知,存在$M\in D$使得
+    \[\begin{aligned}
+        \int_{AB}P\dx+Q\di y
+        &= \oint_{AB+L}P\dx+Q\di y = \iint_{D}\left(\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)\di x\di y \\
+        &= \left.\left(\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)\right|_{M}\iint_{D}\di x\di y=\left.\left(\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)\right|_{M}\cdot\dfrac{\pi R^2}{2}
+    \end{aligned}\]
+    另一方面,$AB$的切向量即为$(1,0)$.再由积分中值定理可知存在$\xi\in\left(x_0-R,x_0+R\right)$使得
+    \[\int_{AB}P\dx+Q\di y
+    = \int_{AB}P\di x
+    = \int_{x_0-R}^{x_0+R}P\di x
+    = P\left(\xi,y_0\right)\int_{x_0-R}^{x_0+R}\di x
+    = 2P\left(\xi,y_0\right)R\]
+    结合上述两式就有
+    \[\left.\left(\dfrac{\p Q}{\p x}-\dfrac{\p P}{\p y}\right)\right|_{M}\pi R=4P\left(\xi,y_0\right)\]
+    此时对于任意$R>0$都成立.令$R\to0^+$就有
+    \[P\left(x_0,y_0\right)=0\]
+    又因为$\left(x_0,y_0\right)\in\R^2$是任取的,所以对于任意$(x,y)\in\R^2$有$P(x,y)\equiv0$.\\
+    将此时再代入前面的式子就有
+    \[\left.\left(\dfrac{\p Q}{\p x}\right)\right|_{M}=0\]
+    同理令$R\to0^+$可知$\dfrac{\p Q\left(x_0,y_0\right)}{\p x}=0$,又根据$\left(x_0,y_0\right)$的任意性可知对任意$(x,y)\in\R^2$都有
+    \[\dfrac{\p Q(x,y)}{\p x}\equiv0\]
+    于是命题得证.
+
+\end{solution}
+\end{document}
