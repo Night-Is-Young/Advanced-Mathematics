@@ -1,0 +1,43 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2023-24高等数学A2期中考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.}]
+    \item \textbf{(20\songti{分})}\ 求二重积分
+        \[I=\iint_{D}r^2\sin\theta\sqrt{1-r^2\cos(2\theta)}\di r\di\theta\]
+        其中积分区域$D=\left\{(r,\theta):0\leqslant r\leqslant\sec\theta,0\leqslant\theta\leqslant\dfrac\pi4\right\}$.
+
+    \item \textbf{(20\songti{分})}\ 求曲线积分
+        \[I=\oint_{L^+}\dfrac{-y}{4x^2+y^2}\dx+\dfrac{x}{4x^2+y^2}\di y+z\di z\]
+        其中曲线$L$是由曲面$4x^2+y^2=1$与平面$2x+y+z=1$所截得的曲线,其正向$L^+$规定为从$z$轴看的逆时针方向.
+
+    \item \textbf{(20\songti{分})}\ 设$f:\R\to\R$是连续函数,求曲面积分
+        \[I=\iint_S\left[xf(xy)+2x-y\right]\di y\di z+\left[yf(xy)+2y+x\right]\di z\dx+\left[zf(xy)+z\right]\dx\di y\]
+        其中$S$为锥面$z=\sqrt{x^2+y^2}$夹在平面$z=1$和$z=2$之间的部分,方向取下侧.
+
+    \item \textbf{(20\songti{分})}\ 回答下列问题.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item 求常微分方程
+                \[xy'+y\left(\ln x-\ln y\right)=0\]
+                满足$y(1)=\e^3$的解.
+            \item 给定常微分方程$y'+y=f(x)$,其中$f(x)$是定义在$\R$上的连续函数.
+                \begin{enumerate}[label=\tbf{(\alph*)}]
+                    \item 若$f(x)=x$,给出方程的通解.
+                    \item 若$f(x)$以$T$为周期,试证明方程有唯一以$T$为周期的解.
+                \end{enumerate}
+        \end{enumerate}
+        
+    \item \textbf{(10\songti{分})}\ 求曲面积分
+        \[I=\oiint_{S}xy\di y\di z+\left(y^2+\e^{xz^2}\right)\di z\dx+\sin(xy)\dx\di y\]
+        其中$S$为柱面$z=1-x^2$与平面$z=0,y=0,y+z=2$围成区域$\Omega$的外表面.
+
+    \item \textbf{(10\songti{分})}\ 设$L$为平面上一条分段光滑的简单闭曲线,求曲线积分
+        \[I=\oint_{L}\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|}\di s\]
+        其中$\mbf r=(x,y)$,$\mbf n$是$L$的单位外法向量.
+
+\end{enumerate}
+\end{document}
