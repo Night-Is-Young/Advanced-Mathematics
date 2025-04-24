@@ -1,0 +1,27 @@
+ \documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks[4]
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large 广义积分\end{center}
+\tbf{1.无穷积分}
+\begin{definition}[1.1 无穷积分]
+    设函数$f(x)$在$[a,+\infty)$上有定义,且对于任意$A>a$,$f(x)$在$(a,A)$上都可积.如果极限
+    \[\lim_{A\to+\infty}\int_a^Af(x)\dx\]
+    存在,就称无穷积分
+    \[\int_a^{+\infty}f(x)\dx\]
+    \tbf{收敛},并定义
+    \[\int_a^{+\infty}f(x)\dx=\lim_{A\to+\infty}\int_a^Af(x)\dx\]
+    否则称该积分\tbf{发散}.
+\end{definition}
+
+\end{document}

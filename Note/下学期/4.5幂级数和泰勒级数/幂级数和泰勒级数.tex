@@ -85,4 +85,17 @@
     由幂级数逐项求导所得的新幂级数$\displaystyle\sum_{n=0}^\infty na_nx^{n-1}$的收敛半径记为$R_2$,%
     则有$R=R_1=R_2$.
 \end{lemma}
+\noindent\tbf{4.泰勒级数}\\
+关于泰勒级数的理论这里就不再多说.以下是几个常见函数的泰勒级数.
+\begin{enumerate}[label=\tbf{(\arabic*)},leftmargin=*]
+    \item $\e^x=1+x+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+\cdots=\displaystyle\sum_{n=0}^\infty\dfrac{x^n}{n!}$\ \ \ 收敛域$(-\infty,+\infty)$.
+    \item $\sin x=x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}-\cdots=\displaystyle\sum_{n=0}^\infty\dfrac{(-1)^{n}x^{2n+1}}{(2n+1)!}$\ \ \ 收敛域$(-\infty,+\infty)$.
+    \item $\cos x=1-\dfrac{x^2}{2}+\dfrac{x^4}{4!}+\cdots=\displaystyle\sum_{n=0}^\infty\dfrac{(-1)^{n}x^{2n}}{(2n)!}$\ \ \ 收敛域$(-\infty,+\infty)$.
+    \item $\arctan x=x-\dfrac{x^3}{3}+\dfrac{x^5}{5}-\cdots=\displaystyle\sum_{n=0}^\infty\dfrac{(-1)^nx^{2n+1}}{(2n+1)!}$\ \ \ 收敛域$[-1,1]$.
+    \item $\ln(1+x)=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}-\cdots=\displaystyle\sum_{n=0}^\infty\dfrac{(-1)^nx^{n+1}}{n+1}$\ \ \ 收敛域$(-1,1]$.
+    \item $\sqrt{x+1}=1+\dfrac{1}{2}x-\dfrac{1}{8}x^2+\cdots=1+\displaystyle\sum_{n=1}^\infty\dfrac{(2n-3)!!}{(2n)!!}(-1)^{n-1}x^n$\ \ \ 收敛域$[-1,1]$.
+    \item $\dfrac{1}{\sqrt{x+1}}=1-\dfrac12x+\dfrac{3}{8}x^2+\cdots=\displaystyle\sum_{n=0}^\infty\dfrac{(2n-1)!!}{(2n)!!}(-1)^nx^n$\ \ \ 收敛域$(-1,1)$.
+    \item $\dfrac{1}{1+x}=1-x+x^2-\cdots=\displaystyle\sum_{n=0}^\infty(-1)^nx^n$\ \ \ 收敛域$(-1,1)$.
+    \item $(1+x)^\alpha=1+\alpha x+\dfrac{\alpha(\alpha-1)}{2!}x^2+\cdots=1+\displaystyle\sum_{n=1}^\infty\dfrac{\alpha(\alpha-1)\cdots(\alpha-n)}{n!}x^n$\ \ \ 收敛域$(-1,1)$.
+\end{enumerate}
 \end{document}
