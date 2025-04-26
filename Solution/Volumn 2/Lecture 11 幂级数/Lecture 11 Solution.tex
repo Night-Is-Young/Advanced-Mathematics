@@ -1,0 +1,95 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{solution}
+\usepackage{extarrows,esint}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}
+    \large\tbf{Lecture 11 Power series (幂级数)}
+\end{center}
+\begin{problem}[L.11.1]
+    求函数
+    \[f(x)=\dfrac{1}{2}\ln\dfrac{1+x^2}{1-x^2}\]
+    的Maclaurin级数.
+\end{problem}
+\begin{solution}
+    注意到
+    \[f(x)=\dfrac12\left(\ln\left(1+x^2\right)-\ln\left(1-x^2\right)\right)\]
+    考虑$\ln(1+x)$的Maclaurin级数
+    \[\ln(1+x)=\sum_{n=1}^\infty\dfrac{(-1)^{n-1}x^n}{n}\]
+    于是
+    \[\ln\left(1+x^2\right)=\sum_{n=1}^\infty\dfrac{(-1)^{n-1}x^{2n}}{n}\]
+    \[\ln\left(1-x^2\right)=\sum_{n=1}^\infty\dfrac{(-1)^{2n-1}x^{2n}}{n}\]
+    于是
+    \[f(x)=\dfrac12\left(\sum_{n=1}^\infty\dfrac{(-1)^{n-1}x^{2n}}{n}+\sum_{n=1}^\infty\dfrac{x^{2n}}{n}\right)
+    =\sum_{n=1}^\infty\dfrac{x^{4n-2}}{2n-1}\]
+    收敛域为$(-1,1)$.
+\end{solution}
+\begin{problem}[L.11.2]
+    求幂级数
+    \[S(x)=\sum_{n=1}^\infty\dfrac{(-1)^{n-1}}{n(2n-1)}x^{2n}\]
+    的显式表达式.
+\end{problem}
+\begin{solution}
+    我们有
+    \[S'(x)=\sum_{n=1}^\infty\dfrac{(-1)^{n-1}}{n(2n-1)}\cdot 2nx^{2n-1}
+    =\sum_{n=1}^\infty\dfrac{2(-1)^{n-1}}{(2n-1)}x^{2n-1}\]
+    \[S''(x)=\sum_{n=1}^\infty\dfrac{2(-1)^{n-1}}{(2n-1)}(2n-1)x^{2n-2}
+    =2\sum_{n=1}^\infty(-1)^{n-1}x^{2n-2}=2\sum_{n=0}^\infty(-1)^nx^{2n}\]
+    注意到
+    \[\dfrac{1}{1+x}=\sum_{n=0}^\infty(-1)^nx^n\]
+    于是比较可得
+    \[S''(x)=\dfrac{2}{1+x^2}\]
+    于是
+    \[S'(x)=2\arctan x\]
+    于是
+    \[S(x)=2x\arctan x-\ln\left(1+x^2\right)\]
+
+\end{solution}
+\begin{problem}[L.11.3]
+    如果幂级数
+    \[\sum_{n=0}^\infty a_nx^n\]
+    的收敛半径为$R$,试证明其逐项求导幂级数
+    \[\sum_{n=0}^\infty na_nx^{n-1}\]
+    在$(-R,R)$上内闭一致收敛.
+\end{problem}
+\begin{proof}
+    考虑任意$t\in(0,R)$.取$r\in(t,R)$,当$x\in[-t,t]$时总有
+    \[\left|na_nx^{n-1}\right|
+    \leqslant n\left|a_b\right|t^{n-1}
+    =\dfrac{n}{r}\left|a_nr^n\right|\left(\dfrac{t}{r}\right)^{n-1}\]
+    由于级数$\displaystyle\sum_{n=0}^\infty\left|a_nx^n\right|$在$[-t,t]$收敛,其一般项有界,于是存在$M>0$使得
+    \[\left|a_nr^n\right|\leqslant M,\forall n\in\N\]
+    于是就有
+    \[\left|na_nx^{n-1}\right|
+    \leqslant\dfrac{Mn}{r}\left|\dfrac{t}{r}\right|^{n-1}\]
+    由于$\dfrac{t}{r}<1$,因此级数
+    \[\sum_{n=0}^\infty\dfrac{Mn}{r}\left(\dfrac tr\right)^{n-1}\]
+    收敛,于是根据强级数判别法可知
+    \[\sum_{n=0}^\infty na_nx^{n-1}\]
+    在$[-t,t]$上收敛.于是它在$(-R,R)$上内闭一致收敛.
+\end{proof}
+\begin{problem}[L.11.4]
+    设幂级数
+    \[\sum_{n=0}^\infty a_nx^n\]
+    的收敛半径$R>0$.试证明:幂级数
+    \[\sum_{n=0}^\infty\dfrac{a_n}{n!}x^n\]
+    的收敛半径为$+\infty$.
+\end{problem}
+\begin{proof}
+    对于任意$t\in(0,R)$有
+    \[\sum_{n=0}^\infty\dfrac{a_n}{n!}x^n
+    =\sum_{n=0}^\infty a_nt^n\cdot\sum_{n=0}^\infty\dfrac{1}{n!}\left(\dfrac{x}{t}\right)^n\]
+    注意到$\displaystyle\sum_{n=0}^\infty a_nt^n$收敛,而$\dfrac{1}{n!}\left(\dfrac xt\right)^n$对任意$x\in\R$都收敛于$0$且从某一项开始对$n$单调.\\
+    根据Dirichlet判别法,$\displaystyle\sum_{n=0}^\infty\dfrac{a_n}{n!}x^n$对任意$x\in\R$都收敛,于是其收敛半径为$+\infty$.
+\end{proof}
+\end{document}
