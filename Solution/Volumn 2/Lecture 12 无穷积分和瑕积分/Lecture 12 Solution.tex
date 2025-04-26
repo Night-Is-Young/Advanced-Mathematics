@@ -1,0 +1,107 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{solution}
+\usepackage{extarrows,esint}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}
+    \large\tbf{Lecture 12 Improper integral(无穷积分和瑕积分)}
+\end{center}
+\begin{problem}[L.12.1]
+    求无穷瑕积分
+    \[\int_0^{+\infty}\dfrac{\ln x}{1+x^2}\dx\]
+
+\end{problem}
+\begin{solution}
+    做变换$u=\arctan x$,则有
+    \[\int_0^{+\infty}\dfrac{\ln x}{1+x^2}\dx=\int_0^{\frac\pi2}\ln(\tan u)\di u\]
+    再做变换$v=\dfrac\pi2-u$,则有
+    \[\int_0^{\frac\pi2}\ln(\tan u)\di u
+    =\int_0^{\frac\pi2}\ln\left(\tan\left(\dfrac\pi2-v\right)\right)\di v
+    =\int_0^{\frac\pi2}\ln\left(\dfrac{1}{\tan v}\right)\di v
+    =-\int_0^{\frac\pi2}\ln(\tan v)\di v\]
+    于是
+    \[\int_0^{\frac\pi2}\ln(\tan u)\di u=0\]
+    于是
+    \[\int_0^{+\infty}\dfrac{\ln x}{1+x^2}\dx=0\]
+
+\end{solution}
+\begin{problem}[L.12.2]
+    设参数$\alpha>2$,函数$f(x)$在$[0,+\infty)$可导,并且满足
+    \[\lim_{x\to+\infty}f(x)=0\ \ \ \ \ \lim_{x\to+\infty}x^\alpha f'(x)=1\]
+    试证明:无穷积分
+    \[\int_0^\infty f(x)\dx\]
+    收敛.
+\end{problem}
+\begin{proof}
+    先采取分部积分法,有
+    \[\int_0^\infty f(x)\dx
+    =\left.xf(x)\right|_0^{+\infty}-\int_0^\infty xf'(x)\dx\]
+    由于$\displaystyle\lim_{x\to+\infty}f(x)=0$,于是$\left.xf(x)\right|_0^{+\infty}=0$,于是
+    \[\int_0^\infty f(x)\dx=-\int_0^\infty xf'(x)\dx
+    =-\int_0^1 xf'(x)\dx-\int_1^\infty xf'(x)\dx\]
+    由题意
+    \[\lim_{x\to+\infty}\dfrac{xf'(x)}{x^{1-\alpha}}
+    =\lim_{x\to+\infty}x^\alpha f'(x)=1\]
+    又因为$\alpha>2$,于是$1-\alpha<-1$,于是
+    \[\int_1^{+\infty}x^{1-\alpha}\dx=\dfrac{1}{\alpha-2}\]
+    于是$\displaystyle\int_1^\infty xf'(x)\dx$收敛.\\
+    由于$f(x)$在$[0,1]$可导,不妨设$\displaystyle\max_{x\in[0,1]}\left|f'(x)\right|=M$,于是
+    \[\left|\int_0^1 xf'(x)\dx\right|\leqslant\int_0^1Mx\dx=\dfrac M2\]
+    于是$\displaystyle\int_0^1 xf'(x)\dx$有界.\\
+    于是
+    \[\int_0^{+\infty}f(x)\dx\]
+    收敛.
+\end{proof}
+\begin{problem}[L.12.3]
+    判断无穷积分
+    \[\int_2^{+\infty}\dfrac{\sin x}{x\ln x}\di x\]
+    的收敛性和绝对收敛性.
+\end{problem}
+\begin{solution}
+    先考虑其收敛性.令
+    \[a(x)=\dfrac{1}{x\ln x}\ \ \ \ \ b(x)=\sin x\]
+    由于$a(x)$单调递减并且$\displaystyle\lim_{x\to+\infty}a(x)=0$,并且
+    \[I(X)=\int_2^Xb(x)\di x=\cos 2-\cos X\]
+    对任意$X>2$都有界.于是根据Dirichlet判别法,$\displaystyle\int_2^{+\infty}\dfrac{\sin x}{x\ln x}\dx$收敛.\\
+    现在考虑其绝对收敛性.我们有
+    \[\dfrac{\left|\sin x\right|}{x\ln x}
+    \geqslant\dfrac{\sin^2x}{x\ln x}
+    =\dfrac{1}{2}\left(\dfrac{1}{x\ln x}-\dfrac{\cos 2x}{x\ln x}\right)\]
+    根据Dirichlet判别法,类似地可知$\displaystyle\int_2^{+\infty}\dfrac{\cos 2x}{x\ln x}\di x$收敛.而
+    \[\int_2^{+\infty}\dfrac{\dx}{x\ln x}=\left.\ln\ln x\right|_2^{+\infty}\]
+    由于$\lim_{x\to+\infty}\ln\ln x=+\infty$,于是上述积分发散.根据比较判别法可知
+    \[\int_0^{+\infty}\left|\dfrac{\sin x}{x\ln x}\right|\dx\]
+    发散.综上所述,该无穷积分条件收敛.
+\end{solution}
+\begin{problem}[L.12.4]
+    设$f(x)$在$[1,+\infty)$上单调且连续.试证明:如果无穷积分$\displaystyle\int_1^{+\infty}f(x)\dx$收敛,%
+    那么
+    \[\lim_{x\to+\infty}f(x)=0\]
+
+\end{problem}
+\begin{proof}
+    假定$\displaystyle\lim_{x\to+\infty}f(x)=0$不成立.\\
+    不妨设$f(x)$单调递减.如果$f(x)$无界,那么$\displaystyle\lim_{x\to+\infty}f(x)=-\infty$,这与无穷积分收敛显然不符.\\
+    如果$f(x)$有界,那么根据单调有界序列的性质不妨设$\lim_{x\to+\infty}f(x)=A\neq0$.根据函数极限的定义有
+    \[\forall\ep>0,\exists\delta>1\st\forall x>\delta,\left|f(x)-A\right|<\ep\]
+    取$\ep=\dfrac{A}{2}$,就有$\dfrac{A}{2}<f(x)<\dfrac{3A}{2}$.若$A>0$,则有
+    \[\int_\delta^{+\infty}f(x)\di x>\int_\delta^{+\infty}\dfrac{A}{2}\di x\]
+    发散.若$A<0$,同理有
+    \[\int_\delta^{+\infty}f(x)\di x<\int_\delta^{+\infty}\dfrac{A}{2}\di x\]
+    发散.因此
+    \[\int_1^{+\infty}f(x)\di x\]
+    发散.于是只能有
+    \[\displaystyle\lim_{x\to+\infty}f(x)=0\]
+    
+\end{proof}
+\end{document}
