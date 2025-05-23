@@ -1,0 +1,47 @@
+ \documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks[4]
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\large\tbf{含参变量的正常积分}\end{center}
+\begin{formal}[连续性]
+    假定二元函数$f(x,y)$在闭矩形域$[a,b]\times[c,d]$上连续,那么含参变量积分
+    \[g(y)=\int_a^bf(x,y)\di x\]
+    在$[c,d]$上连续.特别地,对于任意$y_0\in[c,d]$,都有
+    \[\lim_{y\to y_0}g(y)=g(y_0)=\int_a^bf(x,y_0)\di y\]
+
+\end{formal}
+\begin{formal}[可积性]
+    假定二元函数$f(x,y)$在闭矩形域$[a,b]\times[c,d]$上连续,那么含参变量积分
+    \[g(y)=\int_a^bf(x,y)\di x\]
+    在$[c,d]$上可积,且
+    \[\int_c^d g(y)\di y=\int_a^b\left(\int_c^d f(x,y)\di y\right)\di x\]
+    即积分顺序可以交换.
+
+\end{formal}
+\begin{formal}[可微性]
+    假定二元函数$f(x,y)$在闭矩形域$[a,b]\times[c,d]$上连续,那么含参变量积分
+    \[g(y)=\int_a^bf(x,y)\di x\]
+    在$[c,d]$上可微,且
+    \[g'(y)=\int_a^b f_y(x,y)\di x\]
+    即求导和积分的顺序可以交换.
+
+\end{formal}
+对于变上下限的积分,可以通过多元函数的求导法则确定其导函数.
+\begin{formal}[变上限含参积分的求导方法]
+    假定二元函数$f(x,y)$在闭矩形域$[a,b]\times[u,v]$上连续,其中$u,v$均是$y$的函数,那么含参变量积分
+    \[g(y)=\int_u^vf(x,y)\di x\]
+    的导函数为
+    \[g'(y)=-f(u,y)\dfrac{\di u}{\di y}+f(v,y)\dfrac{\di v}{\di y}+\int_u^vf_y(x,y)\di x\]
+    
+\end{formal}
+\end{document}
