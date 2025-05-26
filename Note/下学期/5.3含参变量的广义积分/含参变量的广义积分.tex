@@ -89,5 +89,24 @@ $M$判别法事实上和比较判别法的原理一致.将含参的被积函数$
 
 \end{formal}
 瑕积分的相关定理与性质和无穷积分是类似的,在这里不再叙述.\\
-\tbf{2.$\Gamma$函数和$\text{B}$函数}
+\tbf{2.$\Gamma$函数和$\text{B}$函数}\\
+\indent $\Gamma$函数和B函数是Euler积分中的两个重要函数.其定义如下.
+\begin{definition}[2.1 $\Gamma$函数和\text{B}函数]
+    $\Gamma$函数定义为
+    \[\Gamma(\alpha)=\int_0^{+\infty}x^{\alpha-1}\e^{-x}\di x\]
+    B函数定义为
+    \[B(p,q)=\int_0^1x^{p-1}(1-x)^{q-1}\di x\]
+
+\end{definition}
+两者的性质与关系如下.
+\begin{formal}[2.2 $\Gamma$函数和\text{B}函数的关系]
+    $\Gamma$函数满足
+    \[\Gamma(\alpha+1)=\alpha\Gamma(\alpha)\]
+    并且$\Gamma(1)=1$.因此$\Gamma$函数可看作是阶乘延拓至实数域的结果,即
+    \[\Gamma(\alpha+1)=\alpha!\]
+    常用的$\Gamma$函数值为$\Gamma\left(\dfrac12\right)=\sqrt{\pi}$.\\
+    B函数与$\Gamma$函数满足如下关系.
+    \[B(p,q)=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}\]
+    
+\end{formal}
 \end{document}

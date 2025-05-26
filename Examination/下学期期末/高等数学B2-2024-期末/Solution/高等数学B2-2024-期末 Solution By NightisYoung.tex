@@ -1,0 +1,96 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2023-24高等数学B2期末考试
+\end{center}
+\begin{problem}[1.(10\songti{分})]
+    求幂级数
+    \[\sum_{n=1}^{\infty}\dfrac{x^{n^3}}{10^n}\]
+    的收敛域.
+
+\end{problem}
+
+\begin{problem}[2.(10\songti{分})]
+    在$(-1,1)$上将函数
+    \[f(x)=\arctan x+\dfrac12\ln\dfrac{1+x}{1-x}\]
+    展开为幂级数.
+
+\end{problem}
+
+\begin{problem}[3.(10\songti{分})]
+    求瑕积分
+    \[\int_0^1\sqrt{\dfrac{x^5}{1-x}}\dx\]
+    的值.本题的结果可以用B函数和$\Gamma$函数表示.
+
+\end{problem}
+
+\begin{problem}[4.(10\songti{分})]
+    判断级数
+    \[\sum_{n=1}^{\infty}\dfrac{\sin(2n)}{n+\dfrac1n}\left(1+\dfrac1n\right)^n\]
+    的敛散性.
+        
+\end{problem}
+
+\begin{problem}[5.(10\songti{分})]
+    设$E\in\R$.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \textbf{(5\songti{分})}\ 求出所有$E\in\R$使得
+            \[\int_0^{+\infty}\sum_{n=0}^{\infty}\left(\dfrac{(Ex)^n}{n!}\e^{-x}\right)\di x\]
+            收敛.
+        \item \textbf{(5\songti{分})}\ 求出所有$E\in\R$使得
+            \[\sum_{n=0}^{\infty}\int_0^{+\infty}\left(\dfrac{(Ex)^n}{n!}\e^{-x}\right)\di x\]
+            收敛.本小问的结果可以用$\Gamma$函数表示.
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}[6.(10\songti{分})]
+    对于每个$x\in[0,1],n=1,2,\cdots$,定义
+    \[f_1(x)=\int_0^x\sqrt{1+t^4}\di t\ \ \ \ \ f_{n+1}(x)=\int_0^xf_n(t)\di t\]
+    试证明
+    \[\sum_{n=1}^{\infty}f_n(x)\]
+    在$[0,1]$上一致收敛.
+\end{problem}
+
+\begin{problem}[7.(15\songti{分})]
+    设$b\in\R$.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \textbf{(5\songti{分})}\ 试证明含参变量$b$的无穷积分
+            \[\int_0^{+\infty}x\e^{-x^2}\cos(2bx)\di x\]
+            在$(-\infty,+\infty)$上一致收敛.
+        \item \textbf{(10\songti{分})}\ 试证明
+            \[\int_0^{+\infty}\e^{-x^2}\sin(2bx)\di x=\e^{-b^2}\int_0^b\e^{t^2}\di t\]
+    \end{enumerate}
+
+\end{problem}
+
+\begin{problem}[8.(15\songti{分})]
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \textbf{(10\songti{分})}\ 设$f:\R\to\R$是周期为$2\pi$的函数,$\forall x\in(-\pi,\pi),f(x)=\e^x$.%
+            求出$f(x)$的傅里叶级数,并求出$f(x)$的傅里叶级数在$x=\pi$处的和.
+        \item \textbf{(5\songti{分})}\ 求出级数
+            \[\sum_{n=1}^{\infty}\dfrac{1}{1+n^2}\]
+            的和.
+    \end{enumerate}
+
+\end{problem}
+
+\begin{problem}[9.(10\songti{分})]
+    设正项级数
+    \[\sum_{n=0}^{\infty}a_n\]
+    收敛,$T$是序列$\left\{a_n\right\}$中的最大项.对于任意$x\in\R$,定义$L(x)$是序列$\left\{a_n\right\}$中大于$x$的项的个数.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \textbf{(2\songti{分})}\ 试证明$0$是$L(x)$的瑕点.
+        \item \textbf{(8\songti{分})}\ 试证明瑕积分
+            \[\int_0^TL(x)\di x\]
+            收敛,并且
+            \[\int_0^TL(x)\di x=\sum_{n=0}^{\infty}a_n\]
+    \end{enumerate}
+    
+\end{problem}
+
+\end{document}
