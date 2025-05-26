@@ -1,0 +1,72 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院20xx高等数学B2期末考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+    \item \textbf{(10\songti{分})}\ 对于$n\in\N^*$,设
+        \[u_{2n-1}=\dfrac1n\ \ \ \ \ u_{2n}=\int_n^{n+1}\dfrac{\di x}{x}\]
+        判断级数
+        \[\sum_{n=1}^{\infty}(-1)^{n-1}u_n\]
+        的敛散性.
+
+    \item \textbf{(10\songti{分})}\ 求积分
+        \[\int_0^{\infty}\dfrac{\e^{-\alpha x}-\e^{-\beta x}}{x}\sin mx\di x\]
+        其中$\alpha>0,\beta>0,m\neq0$.
+
+    \item \textbf{(10\songti{分})}\ 设
+        \[\sum_{n=1}^{\infty}a_n\]
+        为正项级数,并有
+        \[\lim_{n\to\infty}\dfrac{\ln\dfrac{1}{a_n}}{\ln n}=b\]
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(5\songti{分})}\ 试证明:当$b>1$时,级数
+                \[\sum_{n=1}^{\infty}a_n\]
+                收敛.
+            \item \textbf{(5\songti{分})}\ 试求$b$的取值范围,使得上述级数一定发散.
+        \end{enumerate}
+
+    \item \textbf{(10\songti{分})}\ 求下列函数项级数的收敛区间和收敛域.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(5\songti{分})}\ 
+                \[\sum_{n=2}^{\infty}\dfrac{x^{n-1}}{n\cdot2^n\cdot\ln n}\]
+            \item \textbf{(5\songti{分})}\ 
+                \[\sum_{n=1}^{\infty}\left(\sum_{k=1}^{n}\dfrac{1}{k}\right)x^n\]
+
+        \end{enumerate}
+        
+    \item \textbf{(10\songti{分})}\ 讨论级数
+        \[\sum_{n=1}^{\infty}\dfrac{\sin nx}{n^p}(0<x<\pi)\]
+        的敛散性.
+
+    \item \textbf{(10\songti{分})}\ 判断下列广义积分的敛散性.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(5\songti{分})}
+                \[\int_0^{+\infty}\dfrac{\ln(1+x)}{x^p}\di x\]
+            \item \textbf{(5\songti{分})}
+                \[\int_0^{\frac12}\dfrac{\ln x}{\sqrt{x}\left(1-x\right)^2}\di x\]
+
+        \end{enumerate}
+    \item \textbf{(10\songti{分})}\ 求含参变量$x$的无穷积分
+        \[I(x)=\int_0^{+\infty}\e^{-t^2}\cos 2xt\di t\]
+    \item \textbf{(15\songti{分})}\ 设$f(x)$以$2\pi$为周期,且在$[-\pi,\pi]$上可积的函数.$a_n,b_n$为$f(x)$的Fourier系数.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(3\songti{分})}\ 试求延迟函数$f(x+t)$的Fourier系数.
+            \item \textbf{(12\songti{分})}\ 设$f(x)$连续且在$[-\pi,\pi]$上分段光滑,试求卷积函数
+                \[F(x)=\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(t)f(x+t)\di t\]
+                的Fourier展开式,并由此推出Parseval等式.
+
+        \end{enumerate}
+    \item \textbf{(15\songti{分})}\ 回答下列问题.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(5\songti{分})}\ 把$f(x)=x^2$在$(-\pi,\pi]$上展开为Fourier级数.
+            \item \textbf{(5\songti{分})}\ 利用\tbf{(1)}的结论证明
+                \[\sum_{n=1}^{\infty}\dfrac{1}{n^2}=\dfrac{\pi^2}{6}\ \ \ \ \ \sum_{n=1}^{\infty}\dfrac{1}{(2n-1)^2}=\dfrac{\pi^2}{8}\]
+            \item \textbf{(5\songti{分})}\ 利用Parseval等式求级数
+                \[\sum_{n=1}^{\infty}\dfrac{1}{n^4}\]
+                的值.
+        \end{enumerate}
+\end{enumerate}
+\end{document}

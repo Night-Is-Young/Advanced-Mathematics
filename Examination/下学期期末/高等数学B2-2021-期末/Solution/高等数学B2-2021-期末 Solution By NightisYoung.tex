@@ -1,0 +1,72 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2021-22高等数学B2期末考试
+\end{center}
+\begin{problem}[1.(15\songti{分})]
+    求函数
+    \[f(x)=\dfrac12\ln\dfrac{1+x^2}{1-x^2}\]
+    在$x=0$处的幂级数展开式.
+
+\end{problem}
+
+\begin{problem}[2.(15\songti{分})]
+    计算下列广义积分的值.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \textbf{(8\songti{分})}
+            \[\int_0^{+\infty}\sqrt{x}\e^{-x}\di x\]
+        \item \textbf{(7\songti{分})}\ 
+            \[\int_0^1\dfrac{1}{\sqrt{x(1-x)}}\di x\]
+    \end{enumerate}
+
+\end{problem}
+
+\begin{problem}[3.(15\songti{分})]
+    求幂级数
+    \[\sum_{n=1}^{+\infty}(n+1)x^n\]
+    的收敛区间及其和函数.
+
+\end{problem}
+
+\begin{problem}[4.(15\songti{分})]
+    任意取定$r>0$,证明含参变量$y$的无穷积分
+    \[\int_0^{+\infty}\e^{-xy^2}\cos x\di x\]
+    在$y\in[r,+\infty)$上一致收敛.
+        
+\end{problem}
+
+\begin{problem}[5.(10\songti{分})]
+    求函数项级数
+    \[\sum_{n=1}^\infty\dfrac{(-1)^n}{n^x+n}\]
+    的收敛域.
+\end{problem}
+
+\begin{problem}[6.(20\songti{分})]
+    回答下列问题.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \textbf{(10\songti{分})}\ 设$p\in\R$且不是整数,定义在$(-\infty,+\infty)$上的函数$f(x)$以$2\pi$为周期,它在$(-\pi,\pi)$上等于$\cos(px)$.%
+            求出$f(x)$的傅里叶级数及其和函数.
+        \item \textbf{(3\songti{分})}\ 根据\tbf{(1)}的结论证明:当$t\in\R$且$\dfrac{t}{\pi}$不是整数时,有
+            \[\dfrac{1}{\sin t}=\dfrac1t+\sum_{n=1}^{\infty}(-1)^n\left(\dfrac{1}{t+n\pi}+\dfrac{1}{t-n\pi}\right)\]
+        \item \textbf{(7\songti{分})}\ 根据\tbf{(2)}的结论证明
+            \[\int_0^{+\infty}\dfrac{\sin t}{t}\di t=\dfrac\pi2\]
+
+    \end{enumerate}
+\end{problem}
+
+\begin{problem}[7.(10\songti{分})]
+    设$f:(0,+\infty)\to\R$是单调递减的连续函数(没有假定其导函数$f'(x)$的存在).%
+    $C,D\in\R$满足
+    \[\lim_{x\to0^+}f(x)=C\ \ \ \ \ \lim_{x\to+\infty}f(x)=D\]
+    对于$0<a<b$,求广义积分
+    \[\int_0^{+\infty}\dfrac{f(ax)-f(bx)}{x}\di x\]
+    的值.
+
+\end{problem}
+
+\end{document}
