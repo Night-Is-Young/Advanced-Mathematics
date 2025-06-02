@@ -63,22 +63,21 @@
 \end{problem}
 \begin{solution}
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
-        \item 我们有
-            \[\exp\left(\dfrac{\ln\frac{1}{a_n}}{\ln n}\right)=\sqrt[n]{\dfrac{1}{a_n}}\]
-            于是题设条件等价于
-            \[\lim_{n\to\infty}\dfrac{1}{\sqrt[n]{a_n}}=\e^b\]
-            即
-            \[\lim_{n\to\infty}\sqrt[n]{a_n}=\dfrac{1}{\e^b}<\dfrac{1}{\e}<1\]
-            根据Cauchy判别法,原正项级数收敛.
-        \item 与\tbf{(1)}同理,根据Cauchy判别法可知当$\dfrac{1}{\e^b}<1$,即$b>0$时,原级数一定收敛.
-
+        \item 注意到题设条件等价于
+            \[\lim_{n\to\infty}\dfrac{\ln a_n}{\ln\dfrac{1}{n^b}}=1\]
+            于是
+            \[\lim_{n\to\infty}\dfrac{a_n}{n^{-b}}=1\]
+            于是级数$\displaystyle\sum_{n=1}^{\infty}a_n$与$\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{n^b}$同敛散.因此当$b>1$时该级数收敛.
+        \item 若$b=0$,那么对任意$\ep>0$都存在$N\in\N^*$使得$\forall n>N$都有$\left|\dfrac{\ln\frac{1}{a_n}}{\ln n}\right|<\ep$,即$a_n>\dfrac{\e^{\ep}}{n}$,于是根据比较判别法可知级数发散.\\
+            若$b\neq0$且$b<1$,由\tbf{(1)}可知于是级数$\displaystyle\sum_{n=1}^{\infty}a_n$与$\displaystyle\sum_{n=1}^{\infty}\dfrac{1}{n^b}$同敛散,于是此时级数发散.\\
+            综上所述,当$b<1$时级数发散.
     \end{enumerate}
 \end{solution}
 \begin{problem}[4.(10\songti{分})]
     求下列函数项级数的收敛区间和收敛域.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
         \item \textbf{(5\songti{分})}\ 
-            \[\sum_{n=2}^{\infty}\dfrac{x^{n-1}}{n\cdot2^n\cdot\ln n}\]
+            \[\sum_{n=2}^{\infty}\dfrac{x^{n-1}}{n\cdot3^n\cdot\ln n}\]
         \item \textbf{(5\songti{分})}\ 
             \[\sum_{n=1}^{\infty}\left(\sum_{k=1}^{n}\dfrac{1}{k}\right)x^n\]
 
@@ -87,18 +86,19 @@
 \begin{solution}
     题中给出的两个函数项级数均为幂级数.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
-        \item 令$u_n=\dfrac{1}{n\cdot 2^n\cdot\ln n}$,于是
-            \[\lim_{n\to\infty}\dfrac{u_{n+1}}{u_n}=\lim_{n\to\infty}\dfrac{n\ln n}{2(n+1)\ln(n+1)}=\dfrac12\]
-            根据D'Alembert判别法可知收敛半径$R=2$,即收敛区间为$(-2,2)$.\\
-            当$x=2$时,有
-            \[\sum_{n=2}^{\infty}\dfrac{1}{2n\ln n}>\int_2^{+\infty}\ln\ln x\di x\]
-            发散.当$x=-2$时有
+        \item 令$u_n=\dfrac{1}{n\cdot 3^n\cdot\ln n}$,于是
+            \[\lim_{n\to\infty}\dfrac{u_{n+1}}{u_n}=\lim_{n\to\infty}\dfrac{n\ln n}{3(n+1)\ln(n+1)}=\dfrac13\]
+            根据D'Alembert判别法可知收敛半径$R=3$,即收敛区间为$(-3,3)$.\\
+            当$x=3$时,有
+            \[\sum_{n=2}^{\infty}\dfrac{1}{3n\ln n}>\dfrac{1}{3}\int_2^{+\infty}\ln\ln x\di x\]
+            发散.当$x=-3$时,原级数为交错级数,由于
+            \[\lim_{n\to\infty}\dfrac{1}{n\ln n}\]
             \[\begin{aligned}
-                \sum_{n=2}^{\infty}\dfrac{(-2)^{n-1}}{n\cdot2^n\cdot\ln n}
-                &= -\dfrac12\sum_{n=1}^{\infty}\left(\dfrac{1}{2n\ln 2n}-\dfrac{1}{(2n+1)\ln(2n+1)}\right) \\
-                &> -\dfrac12\sum_{n=1}^{\infty}\dfrac{1}{4n^2+2n}
+                \sum_{n=2}^{\infty}\dfrac{(-3)^{n-1}}{n\cdot3^n\cdot\ln n}
+                &= -\dfrac13\sum_{n=1}^{\infty}\left(\dfrac{1}{2n\ln 2n}-\dfrac{1}{(2n+1)\ln(2n+1)}\right) \\
+                &> -\dfrac13\sum_{n=1}^{\infty}\dfrac{1}{4n^2+2n}
             \end{aligned}\]
-            收敛.于是收敛域为$[-2,2)$.
+            收敛.于是收敛域为$[-3,3)$.
         \item 令$u_n=\displaystyle\sum_{k=1}^n\dfrac{1}{k}$,于是
             \[\lim_{n\to\infty}\dfrac{u_{n+1}}{u_n}=\lim_{n\to\infty}1+\dfrac{1}{(n+1)u_n}=1\]
             根据D'Alembert判别法可知收敛半径$R=1$,收敛区间为$(-1,1)$.\\
@@ -199,13 +199,28 @@
 \end{problem}
 \begin{solution}
     令$f(x,t)=\e^{-t^2}\cos 2xt$,则
-    \[\dfrac{\p f}{\p x}(x,t)=-2t\e^{-t^2}\]
+    \[\dfrac{\p f}{\p x}(x,t)=-2t\e^{-t^2}\sin 2tx\]
     于是$f(x,t)$与$\dfrac{\p f}{\p t}(x,t)$均在$(-\infty,+\infty)\times[0,+\infty)$上连续.\\
     注意到对任意$x\in\R$有
-    \[\left|f(x,t)\right|\leqslant \e^{-t^2}\]
+    \[\left|\dfrac{\p f}{\p x}(x,t)\right|\leqslant 2t\e^{-t^2}\]
     而
-    \[\int_0^{+\infty}\e^{-t^2}=\dfrac{\sqrt{\pi}}{2}\]
-    收敛,于是原无穷积分在$x\in\R$上一致收敛.
+    \[\int_0^{+\infty}2t\e^{-t^2}\di t=\int_0^{+\infty}\e^{-u}\di u=1\]
+    收敛,于是$\displaystyle\int_0^{+\infty}\dfrac{\p f}{\p x}(x,t)\di t$在$x\in\R$上一致收敛.于是有
+    \[\begin{aligned}
+        I'(x)
+        &= \int_0^{+\infty}\dfrac{\p f}{\p x}(x,t)\di t
+        = \int_0^{+\infty}\left(-2t\e^{-t^2}\sin 2xt\right)\di t
+        = \int_0^{+\infty}\sin 2xt\di\left(\e^{-t^2}\right) \\
+        &= \left.\left(\e^{-t^2}\sin 2xt\right)\right|_0^{+\infty}-\int_0^{+\infty}2x\e^{-t^2}\cos 2xt\di t \\
+        &= -2xI(x)
+    \end{aligned}\]
+   考虑微分方程$I'(x)=-2xI(x)$,其通解为
+   \[I(x)=C\e^{-x^2}\]
+   又
+   \[I(0)=\int_0^{+\infty}\e^{-t^2}\di t=\dfrac{\sqrt{\pi}}{2}\]
+   于是
+   \[I(x)=\dfrac{\sqrt\pi}{2}\e^{-x^2}\]
+
 \end{solution}
 \begin{problem}[8.(15\songti{分})]
     设$f(x)$以$2\pi$为周期,且在$[-\pi,\pi]$上可积的函数.$a_n,b_n$为$f(x)$的Fourier系数.
@@ -217,6 +232,37 @@
 
     \end{enumerate}
 \end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 设$f(x+t)$的Fourier系数为$a_n',b_n'$.我们有
+            \[\begin{aligned}
+                a_n'
+                &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x+t)\cos nx\di x \\
+                &\xlongequal{u=x+t}\dfrac{1}{\pi}\int_{-\pi+t}^{\pi+t}f(u)\left(\cos(nu)\cos(nt)+\sin(nu)\sin(nt)\right)\di u \\
+                &= \dfrac{1}{\pi}\left(\cos(nt)\int_{-\pi}^{\pi}f(u)\cos(nu)\di u+\sin(nt)\int_{-\pi}^{\pi}f(u)\sin(nu)\di u\right) \\
+                &= a_n\cos(nt)+b_n\sin(nt)
+            \end{aligned}\]
+            其中由于$f(x)$和$\sin nx,\cos nx$均以$2\pi$为周期,因此积分区域平移后不改变积分值.同理可知
+            \[b_n'=b_n\cos(nt)-a_n\sin(nt)\]
+        \item 设$F(x)$的Fourier系数为$A_n,B_n$.我们有
+            \[\begin{aligned}
+                A_n
+                &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}F(x)\di x \\
+                &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}\left(\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(t)f(x+t)\di t\right)\cos(nx)\di x \\
+                &= \dfrac{1}{\pi^2}\int_{-\pi}^{\pi}f(t)\left(\int_{-\pi}^{\pi}f(t+x)\cos(nx)\di x\right)\di t \\
+                &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}f(t)\left(a_n\cos(nt)+b_n\sin(nt)\right)\di t \\
+                &= \dfrac{a_n}{\pi}\int_{-\pi}^{\pi}f(t)\cos(nt)\di t+\dfrac{b_n}{\pi}\int_{-\pi}^{\pi}f(t)\sin(nt)\di t \\
+                &= a_n^2+b_n^2
+            \end{aligned}\]
+            同理可知
+            \[B_n=\dfrac{b_n}{\pi}\int_{-\pi}^{\pi}f(t)\cos(nt)\di t-\dfrac{a_n}{\pi}\int_{-\pi}^{\pi}f(t)\sin(nt)\di t=a_nb_n-b_na_n=0\]
+            于是$F(x)$的Fourier展开式为
+            \[F(x)=\dfrac{a_0^2}{2}+\sum_{n=1}^{\infty}\left(a_n^2+b_n^2\right)\cos(nx)\]
+            现在,取$x=0$,就有
+            \[F(0)=\dfrac{a_0^2}{2}+\sum_{n=1}^{\infty}\left(a_n^2+b_n^2\right)=\dfrac{1}{\pi}\int_{-\pi}^{\pi}\left(f(t)\right)^2\di t\]
+            这就是Parseval等式.
+    \end{enumerate}
+\end{solution}
 \begin{problem}[9.(15\songti{分})]
     回答下列问题.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
@@ -228,4 +274,29 @@
             的值.
     \end{enumerate}
 \end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 这是一个偶函数,因此只需考虑$a_n$即可.有
+            \[a_0=\dfrac{1}{\pi}\int_{-\pi}^{\pi}x^2\di x=\dfrac{2\pi^2}{3}\]
+            \[a_n=\dfrac{1}{\pi}\int_{-\pi}^{\pi}x^2\cos(nx)\di x
+            =\dfrac{1}{\pi}\left.\left(\dfrac{x^2\sin(nx)}{n}+\dfrac{2x\cos(nx)}{n^2}-\dfrac{2}{n^3}\sin(nx)\right)\right|_{-\pi}^{\pi}
+            =\dfrac{4\cdot(-1)^n}{n^2}\]
+            因而
+            \[f(x)=\dfrac{\pi^2}{3}+\sum_{n=1}^{\infty}\dfrac{4\cdot(-1)^n\cos(nx)}{n^2}\]
+        \item 在\tbf{(1)}的结论中令$x=0$,即可得
+            \[\sum_{n=1}^{\infty}\dfrac{(-1)^n}{n^2}=-\dfrac{\pi^2}{12}\]
+            由于
+            \[\sum_{n=1}^{\infty}\dfrac{(-1)^n}{n^2}=-\sum_{n=1}^{\infty}\dfrac{1}{n^2}+2\sum_{n=1}^{\infty}\dfrac{1}{(2n)^2}=-\dfrac12\sum_{n=1}^{\infty}\dfrac{1}{n^2}\]
+            于是
+            \[\sum_{n=1}^{\infty}\dfrac{1}{n^2}=\dfrac{\pi^2}{6}\]
+            由此亦可得
+            \[\sum_{n=1}^{\infty}\dfrac{1}{(2n-1)^2}=\sum_{n=1}^{\infty}\dfrac{1}{n^2}-\sum_{n=1}^{\infty}\dfrac{1}{(2n)^2}=\dfrac34\cdot\dfrac{\pi^2}{6}=\dfrac{\pi^2}{8}\]
+        \item 对$f(x)$使用Parseval等式可得
+            \[\dfrac{a_0^2}{2}+\sum_{n=1}^{\infty}a_n^2=\dfrac{1}{\pi}\int_{-\pi}^{\pi}x^4\di x\]
+            即
+            \[\dfrac{2\pi^4}{9}+\sum_{n=1}^{\infty}\dfrac{16}{n^4}=\dfrac{2\pi^4}{5}\]
+            于是
+            \[\sum_{n=1}^{\infty}\dfrac{1}{n^4}=\dfrac{\pi^4}{16}\left(\dfrac{2}{5}-\dfrac{2}{9}\right)=\dfrac{\pi^4}{90}\]
+    \end{enumerate}
+\end{solution}
 \end{document}
