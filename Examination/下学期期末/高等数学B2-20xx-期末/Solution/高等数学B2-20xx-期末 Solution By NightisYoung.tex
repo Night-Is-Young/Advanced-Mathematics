@@ -16,14 +16,39 @@
     的敛散性.
 
 \end{problem}
-
+\begin{solution}
+    对原级数变形可得
+    \[\sum_{n=1}^{\infty}(-1)^{n-1}u_n
+    =\sum_{n=1}^{\infty}\left(\dfrac1n-\int_n^{n+1}\dfrac{\di x}{x}\right)
+    =\sum_{n=1}^{\infty}\left(\dfrac{1}{n}-\ln\dfrac{n+1}{n}\right)\]
+    又因为对任意$x>0$有
+    \[\ln(1+x)>x-\dfrac{x^2}{2}\]
+    成立,于是对任意$n\in\N^*$有
+    \[\dfrac{1}{n}-\ln\left(1+\dfrac1n\right)<\dfrac1n-\left(\dfrac1n-\dfrac{1}{2n^2}\right)=\dfrac{1}{2n^2}\]
+    又因为
+    \[\sum_{n=1}^{\infty}\dfrac{1}{2n^2}<\dfrac12+\dfrac12\sum_{n=2}^{\infty}\left(\dfrac{1}{n-1}-\dfrac1n\right)=1\]
+    收敛,于是根据比较判别法可知原级数收敛.
+\end{solution}
 \begin{problem}[2.(10\songti{分})]
     求积分
-    \[\int_0^{\infty}\dfrac{\e^{-\alpha x}-\e^{-\beta x}}{x}\sin mx\di x\]
+    \[\int_0^{+\infty}\dfrac{\e^{-\alpha x}-\e^{-\beta x}}{x}\sin mx\di x\]
     其中$\alpha>0,\beta>0,m\neq0$.
 
 \end{problem}
+\begin{solution}
+    我们有
+    \[\int_0^{+\infty}\dfrac{\e^{-\alpha x}-\e^{-\beta x}}{x}\sin mx\di x
+    =\int_0^{+\infty}\left(\int_{\alpha}^{\beta}\e^{-xy}\sin mx\di y\right)\di x\]
+    由于二元函数$f(x,y)=\e^{-xy}\sin mx$在$[0,+\infty)\times[\alpha,\beta]$上连续,于是
+    \[\begin{aligned}
+        \int_0^{+\infty}\left(\int_{\alpha}^{\beta}\e^{-xy}\sin mx\di y\right)\di x
+        &= \int_{\alpha}^{\beta}\left(\int_0^{+\infty}\e^{-yx}\sin mx\di x\right)\di y \\
+        &= \int_{\alpha}^{\beta}\left(\left.-\dfrac{\e^{-yx}(m\cos mx+y\sin mx)}{m^2+y^2}\right|_0^{+\infty}\right)\di y \\
+        &= \int_{\alpha}^{\beta}\dfrac{m}{m^2+y^2}\di y \\
+        &= \arctan\dfrac{\beta}{m}-\arctan\dfrac{\alpha}{m}
+    \end{aligned}\]
 
+\end{solution}
 \begin{problem}[3.(10\songti{分})]
     设
     \[\sum_{n=1}^{\infty}a_n\]
@@ -36,7 +61,19 @@
         \item \textbf{(5\songti{分})}\ 试求$b$的取值范围,使得上述级数一定发散.
     \end{enumerate}
 \end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 我们有
+            \[\exp\left(\dfrac{\ln\frac{1}{a_n}}{\ln n}\right)=\sqrt[n]{\dfrac{1}{a_n}}\]
+            于是题设条件等价于
+            \[\lim_{n\to\infty}\dfrac{1}{\sqrt[n]{a_n}}=\e^b\]
+            即
+            \[\lim_{n\to\infty}\sqrt[n]{a_n}=\dfrac{1}{\e^b}<\dfrac{1}{\e}<1\]
+            根据Cauchy判别法,原正项级数收敛.
+        \item 与\tbf{(1)}同理,根据Cauchy判别法可知当$\dfrac{1}{\e^b}<1$,即$b>0$时,原级数一定收敛.
 
+    \end{enumerate}
+\end{solution}
 \begin{problem}[4.(10\songti{分})]
     求下列函数项级数的收敛区间和收敛域.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
@@ -46,15 +83,71 @@
             \[\sum_{n=1}^{\infty}\left(\sum_{k=1}^{n}\dfrac{1}{k}\right)x^n\]
 
     \end{enumerate}
-        
 \end{problem}
-
+\begin{solution}
+    题中给出的两个函数项级数均为幂级数.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 令$u_n=\dfrac{1}{n\cdot 2^n\cdot\ln n}$,于是
+            \[\lim_{n\to\infty}\dfrac{u_{n+1}}{u_n}=\lim_{n\to\infty}\dfrac{n\ln n}{2(n+1)\ln(n+1)}=\dfrac12\]
+            根据D'Alembert判别法可知收敛半径$R=2$,即收敛区间为$(-2,2)$.\\
+            当$x=2$时,有
+            \[\sum_{n=2}^{\infty}\dfrac{1}{2n\ln n}>\int_2^{+\infty}\ln\ln x\di x\]
+            发散.当$x=-2$时有
+            \[\begin{aligned}
+                \sum_{n=2}^{\infty}\dfrac{(-2)^{n-1}}{n\cdot2^n\cdot\ln n}
+                &= -\dfrac12\sum_{n=1}^{\infty}\left(\dfrac{1}{2n\ln 2n}-\dfrac{1}{(2n+1)\ln(2n+1)}\right) \\
+                &> -\dfrac12\sum_{n=1}^{\infty}\dfrac{1}{4n^2+2n}
+            \end{aligned}\]
+            收敛.于是收敛域为$[-2,2)$.
+        \item 令$u_n=\displaystyle\sum_{k=1}^n\dfrac{1}{k}$,于是
+            \[\lim_{n\to\infty}\dfrac{u_{n+1}}{u_n}=\lim_{n\to\infty}1+\dfrac{1}{(n+1)u_n}=1\]
+            根据D'Alembert判别法可知收敛半径$R=1$,收敛区间为$(-1,1)$.\\
+            当$x=1$时有
+            \[\sum_{n=1}^{\infty}u_n>\sum_{n=1}^{\infty}\dfrac1n\]
+            发散.当$x=-1$时有
+            \[\sum_{n=1}^{\infty}u_n(-1)^n=\sum_{n=1}^{\infty}\dfrac{1}{2n}\]
+            发散.于是收敛域为$(-1,1)$.
+    \end{enumerate}
+\end{solution}
 \begin{problem}[5.(10\songti{分})]
-    讨论级数
-    \[\sum_{n=1}^{\infty}\dfrac{\sin nx}{n^p}(0<x<\pi)\]
-    的敛散性.
+    讨论数项级数
+    \[\sum_{n=1}^{\infty}\dfrac{\sin n\varphi}{n^p}\]
+    的敛散性,其中$\varphi\in(0,\pi)$为取定的参数.
 \end{problem}
-
+\begin{solution}
+    对$p$的取值分类讨论.
+    \begin{enumerate}[label=\tbf{\roman*.},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt,leftmargin=*]
+        \item $p>1$.此时有
+            \[\sum_{n=1}^{\infty}\left|\dfrac{\sin n\varphi}{n^p}\right|\leqslant
+            \sum_{n=1}^{\infty}\dfrac{1}{n^p}\]
+            于是级数绝对收敛.
+        \item $0<p\leqslant 1$.令$a_n=\dfrac{1}{n^p},b_n=\sin n\varphi$.我们有
+            \[\left|\sum_{n=1}^{\infty}b_n\right|=\left|\dfrac{1}{\sin\frac{\varphi}{2}}\sin\dfrac{n\varphi}{2}\sin\dfrac{(n+1)\varphi}{2}\right|\leqslant\left|\dfrac{1}{\sin\frac{\varphi}{2}}\right|\]
+            于是$\displaystyle\sum_{n=1}^{\infty}b_n$一致有界.而当$p>0$时,对任意$x\in(0,\pi)$有$\displaystyle\lim_{n\to\infty}a_n=0$,即$a_n$一致收敛于$0$,且对任意$x$单调递减.\\
+            于是根据Dirichlet判别法,原级数条件收敛.现在考虑该级数是否绝对收敛.我们有
+            \[\left|\dfrac{\sin n\varphi}{n^p}\right|\geqslant\dfrac{\sin^2n\varphi}{n^p}=\dfrac{1-\cos 2n\varphi}{2n^p}\]
+            与前面同理可得级数
+            \[\sum_{n=1}^{\infty}\dfrac{\cos 2n\varphi}{2n^p}\]
+            收敛,而级数
+            \[\sum_{n=1}^{\infty}\dfrac{1}{2n^p}\]
+            发散,于是根据比较判别法可知
+            \[\sum_{n=1}^{\infty}\left|\dfrac{\sin n\varphi}{n^p}\right|=1\]
+            发散.于是原级数条件收敛.
+        \item $p\leqslant 0$.如果
+            \[\lim_{n\to\infty}\dfrac{\sin n\varphi}{n^p}=0\]
+            成立,那么必然有
+            \[\lim_{n\to\infty}\sin n\varphi=0\]
+            于是要求
+            \[\lim_{n\to\infty}\left[\sin (n+1)\varphi-\sin(n-1)\varphi\right]=0\]
+            而
+            \[\sin (n+1)\varphi-\sin (n-1)\varphi=2\cos n\varphi\sin\varphi\]
+            又因为$\sin\varphi\neq0$,于是
+            \[\lim_{n\to\infty}\cos n\varphi=0\]
+            因而
+            \[\lim_{n\to\infty}\cos^2 n\varphi+\sin^2 n\varphi=0\]
+            这与$\cos^2 n\varphi+\sin^2 n\varphi=1$矛盾,于是原级数发散.
+    \end{enumerate}
+\end{solution}
 \begin{problem}[6.(10\songti{分})]
     判断下列广义积分的敛散性.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
@@ -65,12 +158,55 @@
 
     \end{enumerate}
 \end{problem}
-
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 先考虑在$(0,1)$上的积分.当$x\to0^+$时,有
+            \[\lim_{n\to0^+}\dfrac{\frac{\ln(1+x)}{x^p}}{\frac{1}{x^{p-1}}}
+            =\lim_{n\to0^+}\dfrac{\ln(1+x)}{x}=1\]
+            当$p\geqslant 2$时
+            \[\int_0^1\dfrac{1}{x^{p-1}}\di x\]
+            发散,而$p<2$时上述瑕积分收敛.根据比较判别法可知当$p<2$时瑕积分
+            \[\int_0^1\dfrac{\ln(1+x)}{x^p}\di x\]
+            收敛.\\
+            现在考虑在$(1,+\infty)$上的积分.对$p$的取值分类讨论.
+            \begin{enumerate}[label=\tbf{\roman*.},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt,leftmargin=*]
+                \item $p>1$.此时有
+                    \[\lim_{n\to+\infty}\dfrac{\frac{\ln(x+1)}{x^p}}{\frac{1}{x^{\frac{p+1}{2}}}}
+                    =\lim_{n\to+\infty}\dfrac{\ln(x+1)}{x^{\frac{p-1}{2}}}=0\]
+                    于是无穷积分
+                    \[\int_1^{+\infty}\dfrac{\ln(1+x)}{x^p}\di x\]
+                    收敛.
+                \item $p\leqslant1$.此时有
+                    \[\int_1^{+\infty}\dfrac{\ln(1+x)}{x^p}\di x
+                    \geqslant\int_1^{+\infty}\dfrac{\ln(1+x)}{x}\di x
+                    >\int_1^{+\infty}\dfrac{\ln x}{x}\di x
+                    \xlongequal{u=\ln x}\int_0^{+\infty}u\di u\to\infty\]
+                    发散.
+            \end{enumerate}
+            综上所述,当$1<p<2$时原积分收敛,当$p\geqslant 2$或$p\leqslant 1$时原积分发散.
+        \item 我们有
+            \[\int_0^{\frac12}\dfrac{\ln x}{\sqrt{x}(1-x)^2}
+            >\int_0^{\frac12}\dfrac{4\ln x}{\sqrt{x}}\di x
+            \xlongequal{u=\sqrt{x}}\int_0^{\frac{\sqrt2}{2}}4\ln u\di u
+            =4\left.\left(u\ln u-u\right)\right|_0^{\frac{\sqrt{2}}{2}}=-\sqrt{2}\left(2+\ln 2\right)\]
+            收敛.
+    \end{enumerate}
+\end{solution}
 \begin{problem}[7.(10\songti{分})]
     求含参变量$x$的无穷积分
     \[I(x)=\int_0^{+\infty}\e^{-t^2}\cos 2xt\di t\]
+     
 \end{problem}
-
+\begin{solution}
+    令$f(x,t)=\e^{-t^2}\cos 2xt$,则
+    \[\dfrac{\p f}{\p x}(x,t)=-2t\e^{-t^2}\]
+    于是$f(x,t)$与$\dfrac{\p f}{\p t}(x,t)$均在$(-\infty,+\infty)\times[0,+\infty)$上连续.\\
+    注意到对任意$x\in\R$有
+    \[\left|f(x,t)\right|\leqslant \e^{-t^2}\]
+    而
+    \[\int_0^{+\infty}\e^{-t^2}=\dfrac{\sqrt{\pi}}{2}\]
+    收敛,于是原无穷积分在$x\in\R$上一致收敛.
+\end{solution}
 \begin{problem}[8.(15\songti{分})]
     设$f(x)$以$2\pi$为周期,且在$[-\pi,\pi]$上可积的函数.$a_n,b_n$为$f(x)$的Fourier系数.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
