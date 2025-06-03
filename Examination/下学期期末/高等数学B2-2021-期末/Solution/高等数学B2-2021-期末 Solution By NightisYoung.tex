@@ -14,6 +14,16 @@
     在$x=0$处的幂级数展开式.
 
 \end{problem}
+\begin{solution}
+    注意到
+    \[f(x)=\dfrac{1}{2}\left(\ln(1+x^2)-\ln(1-x^2)\right)\]
+    而$\ln(1+x)$在$x=0$处的Taylor级数展开式为
+    \[\ln(1+x)=\sum_{n=1}^{\infty}\dfrac{(-1)^{n+1}x^n}{n}\]
+    于是
+    \[f(x)=\dfrac{1}{2}\left(\sum_{n=1}^{\infty}\dfrac{(-1)^{n+1}x^{2n}}{n}+\sum_{n=1}^{\infty}\dfrac{x^{2n}}{n}\right)
+    =\sum_{n=0}^{\infty}\dfrac{x^{4n+2}}{2n+1}\]
+
+\end{solution}
 
 \begin{problem}[2.(15\songti{分})]
     计算下列广义积分的值.
@@ -25,27 +35,71 @@
     \end{enumerate}
 
 \end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 根据$\Gamma$函数的定义可知
+            \[\int_0^{+\infty}\sqrt{x}\e^{-x}\di x
+            =\int_{0}^{+\infty}\e^{-x}x^{\frac32-1}\di x
+            =\Gamma\left(\dfrac32\right)
+            =\dfrac12\Gamma\left(\dfrac12\right)
+            =\dfrac{\sqrt\pi}{2}\]
+        \item 根据B函数的定义可知
+            \[\int_0^1\dfrac{1}{\sqrt{x(1-x)}}\di x
+            =\int_0^1x^{\frac12-1}(1-x)^{\frac12-1}\di x
+            =\text{B}\left(\dfrac12,\dfrac12\right)
+            =\dfrac{\Gamma\left(\frac12\right)\Gamma\left(\frac12\right)}{\Gamma(1)}
+            =\pi\]
 
+    \end{enumerate}
+\end{solution}
 \begin{problem}[3.(15\songti{分})]
     求幂级数
-    \[\sum_{n=1}^{+\infty}(n+1)x^n\]
+    \[\sum_{n=1}^{\infty}(n+1)x^n\]
     的收敛区间及其和函数.
 
 \end{problem}
+\begin{solution}
+    令$a_n=n+1$,则有
+    \[\lim_{n\to\infty}\dfrac{a_{n+1}}{a_n}=\lim_{n\to\infty}\dfrac{n+2}{n+1}=1\]
+    于是该级数的收敛半径$R=1$,即收敛区间为$(-1,1)$.\\
+    设$S(x)=\displaystyle\sum_{n=1}^{\infty}(n+1)x^n$.对其逐项求积分可得
+    \[\int S(x)\di x=\sum_{n=1}^{\infty}x^{n+1}=\dfrac{x^2}{1-x}\]
+    于是
+    \[S(x)=\dfrac{\di}{\di x}\left(\dfrac{x^2}{1-x}\right)=\dfrac{2x(1-x)+x^2}{(1-x)^2}=\dfrac{x(2-x)}{(1-x)^2}\]
 
+\end{solution}
 \begin{problem}[4.(15\songti{分})]
     任意取定$r>0$,证明含参变量$y$的无穷积分
     \[\int_0^{+\infty}\e^{-xy^2}\cos x\di x\]
     在$y\in[r,+\infty)$上一致收敛.
         
 \end{problem}
-
+\begin{proof}
+    设$f(x,y)=\cos x,g(x,y)=\e^{-xy^2}$.\\
+    $g(x,y)$对$x$单调递减,且对任意$\ep>0$,存在$l=-\dfrac{\ln\ep}{r^2}$使得对任意$x>l$都有
+    \[\e^{-xy^2}<\e^{-ly^2}<\e^{-lr^2}=\e^{\ln\ep}=\ep\]
+    于是$g(x,y)$一致收敛于$0$.而对任意$A>0$,总有
+    \[\left|\int_0^{A}f(x,y)\di x\right|=\left|\sin A\right|<1\]
+    一致有界.于是根据Dirichlet判别法可知
+    \[\int_0^{+\infty}\e^{-xy^2}\cos x\di x=\int_0^{+\infty}f(x,y)g(x,y)\di x\]
+    在$y\in[r,+\infty)$上一致收敛.
+\end{proof}
 \begin{problem}[5.(10\songti{分})]
     求函数项级数
     \[\sum_{n=1}^\infty\dfrac{(-1)^n}{n^x+n}\]
     的收敛域.
 \end{problem}
-
+\begin{solution}
+    题设级数是一个交错级数.令$u_n(x)=\dfrac{1}{n^x+n}$.为研究$u_n(x)$对$n$的单调性,令$f(x,y)=\dfrac{1}{y^x+y}(y>0)$,则
+    \[\dfrac{\p f}{\p y}(x,y)=-\dfrac{xy^{x-1}+1}{\left(y^x+y\right)^2}\]
+    若$x\geqslant0$,则$xy^{x-1}>0$,即$f(x,y)$对$y$单调递减.\\
+    若$x<0$,则当$y>\left(-\dfrac{1}{x}\right)^{\frac{1}{x-1}}$时$xy^{x-1}+1>0$,仍然有$f(x,y)$对$y$单调递减.\\
+    因此对充分大的$n$和任意$x\in\R$,总有$u_{n+1}(x)<u_n(x)$.\\
+    而$0<u_n(x)<\dfrac{1}{n}$,因此
+    \[\lim_{n\to\infty}u_n(x)=0\]
+    于是根据Leibniz判别法可知原级数对任意$x\in\R$都收敛.\\
+    于是级数的收敛域为$(-\infty,+\infty)$.
+\end{solution}
 \begin{problem}[6.(20\songti{分})]
     回答下列问题.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
@@ -58,7 +112,57 @@
 
     \end{enumerate}
 \end{problem}
-
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item $f(x)$是偶函数,因此只需考虑$a_n$项即可.
+            \[a_0=\dfrac{1}{\pi}\int_{-\pi}^{\pi}\cos(px)\di x=\dfrac{1}{\pi}\left.\left(\dfrac{\sin(px)}{p}\right)\right|_{-\pi}^{\pi}=\dfrac{2\sin(p\pi)}{p\pi}\]
+            \[\begin{aligned}
+                a_n
+                &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}\cos(px)\cos(nx)\di x \\
+                &= \dfrac{1}{\pi}\int_{-\pi}^{\pi}\dfrac{1}{2}\left(\cos(p+n)x+\cos(p-n)x\right)\di x \\
+                &= \dfrac{1}{\pi}\left(\dfrac{\sin[(p+n)\pi]}{p+n}+\dfrac{\sin[(p-n)\pi]}{p-n}\right)
+            \end{aligned}\]
+            于是$f(x)$的Fourier级数为
+            \[f(x)\sim\dfrac{\sin(p\pi)}{p\pi}+\dfrac{1}{\pi}\sum_{n=1}^{\infty}\left(\dfrac{\sin[(p+n)\pi]}{p+n}+\dfrac{\sin[(p-n)\pi]}{p-n}\right)\cos(nx)\]
+            其和函数
+            \[S(x)=\cos(px)\]
+        \item 令$p=\dfrac{t}{\pi},x=0$,代入\tbf{(1)}中的Fourier级数可得
+            \[1=\dfrac{\sin t}{t}+\dfrac{1}{\pi}\sum_{n=1}^{\infty}\left(\dfrac{\sin t}{\frac{t}{\pi}+n}+\dfrac{\sin t}{\frac{t}{\pi}-n}\right)(-1)^n\]
+            两边同除$\sin t$即可得
+            \[\dfrac{1}{\sin t}=\dfrac1t+\sum_{n=1}^{\infty}(-1)^n\left(\dfrac{1}{t+n\pi}+\dfrac{1}{t-n\pi}\right)\]
+        \item 首先有
+            \[\int_0^{+\infty}\dfrac{\sin t}{t}\di t=\lim_{A\to+\infty}\int_0^A\dfrac{\sin t}{t}\di t\]
+            令$k\in\N^*$使得$\dfrac{k\pi}{2}<A<\dfrac{(k+1)\pi}{2}$,有
+            \[\lim_{A\to+\infty}\int_{\frac{k\pi}{2}}^{A}\left|\dfrac{\sin t}{t}\right|\di t<\lim_{A\to+\infty}\int_{\frac{k\pi}{2}}^{A}\dfrac1t\di t=\lim_{A\to+\infty}\ln\dfrac{2A}{k\pi}=\ln 1=0\]
+            于是
+            \[\int_0^{+\infty}\dfrac{\sin t}{t}\di t=\lim_{k\to\infty}\int_0^{\frac{k\pi}{2}}\dfrac{\sin t}{t}\di t
+            =\sum_{n=0}^{\infty}\left(\int_{n\pi}^{n\pi+\frac\pi2}\dfrac{\sin t}{t}\di t+\int_{n\pi+\frac\pi2}^{(n+1)\pi}\dfrac{\sin t}{t}\di t\right)\]
+            我们对上述两部分定积分分别做代换,使得积分区域为$\left(0,\dfrac\pi2\right)$.令$x=t-n\pi$,则有
+            \[\int_{n\pi}^{n\pi+\frac\pi2}\dfrac{\sin t}{t}\di t=(-1)^n\int_{0}^{\frac\pi2}\dfrac{\sin x}{x+n\pi}\di x\]
+            注意到$\dfrac{\sin t}{t}$为偶函数.令$y=t+(n+1)\pi$,则有
+            \[\int_{n\pi+\frac\pi2}^{(n+1)\pi}\dfrac{\sin t}{t}\di t
+            =\int^{-n\pi-\frac\pi2}_{-(n+1)\pi}\dfrac{\sin t}{t}\di t
+            =(-1)^{n+1}\int_0^{\frac\pi2}\dfrac{\sin y}{y-(n+1)\pi}\di y\]
+            将经过代换的积分代回上式,然后统一下标,即可得
+            \[\sum_{n=0}^{\infty}\left(\int_{n\pi}^{n\pi+\frac\pi2}\dfrac{\sin t}{t}\di t+\int_{n\pi+\frac\pi2}^{(n+1)\pi}\dfrac{\sin t}{t}\di t\right)
+            =\int_0^{\frac\pi2}\dfrac{\sin x}{x}\di x+\sum_{n=1}^{\infty}(-1)^n\int_0^{\frac\pi2}\left(\dfrac{\sin x}{x-n\pi}+\dfrac{\sin x}{x+n\pi}\right)\di x\]
+            为了将第二项中的求和与积分顺序交换,注意到对任意$x\in\left(0,\dfrac\pi2\right)$都有
+            \[\sum_{n=1}^{\infty}\left|\dfrac{\sin x}{x-n\pi}+\dfrac{\sin x}{x+n\pi}\right|
+            \leqslant\sum_{n=1}^{\infty}\dfrac{2x}{x^2-n^2\pi}
+            \leqslant\sum_{n=1}^{\infty}\dfrac{\pi}{\frac{\pi^2}{4}-n^2\pi}\]
+            根据强级数判别法可知函数项级数
+            \[\sum_{n=1}^{\infty}(-1)^n\left(\dfrac{\sin x}{x-n\pi}+\dfrac{\sin x}{x+n\pi}\right)\]
+            在$x\in\left(0,\dfrac\pi2\right)$上一致收敛.因此,对其逐项求积分可得
+            \[\begin{aligned}
+                &\sum_{n=1}^{\infty}(-1)^n\int_0^{\frac\pi2}\left(\dfrac{\sin x}{x-n\pi}+\dfrac{\sin x}{x+n\pi}\right)\di x \\
+                =&\int_{0}^{\frac\pi2}\left[\sum_{n=1}^{\infty}(-1)^n\left(\dfrac{\sin x}{x-n\pi}+\dfrac{\sin x}{x+n\pi}\right)\right]\di x \\
+                =&\int_0^{\frac\pi2}\left(1-\dfrac{\sin t}{t}\right)\di t
+            \end{aligned}\]
+            代回原式可得
+            \[\int_0^{+\infty}\dfrac{\sin t}{t}\di t=\int_0^{\frac\pi2}\dfrac{\sin x}{x}\di x+\int_0^{\frac\pi2}\left(1-\dfrac{\sin t}{t}\right)\di t=\dfrac\pi2\]
+            
+    \end{enumerate}
+\end{solution}
 \begin{problem}[7.(10\songti{分})]
     设$f:(0,+\infty)\to\R$是单调递减的连续函数(没有假定其导函数$f'(x)$的存在).%
     $C,D\in\R$满足
@@ -68,5 +172,32 @@
     的值.
 
 \end{problem}
-
+\begin{solution}
+    我们有
+    \[\begin{aligned}
+        &\int_0^{+\infty}\dfrac{f(ax)-f(bx)}{x}\di x\\
+        =&\lim_{\delta\to0^+,A\to+\infty}\int_{\delta}^{A}\dfrac{f(ax)-f(bx)}{x}\di x \\
+        =&\lim_{\delta\to0^+,A\to+\infty}\left(\int_{\delta}^{A}\dfrac{f(ax)}{x}\di x-\int_{\delta}^{A}\dfrac{f(bx)}{x}\di x\right) \\
+        =&\lim_{\delta\to0^+,A\to+\infty}\left(\int_{a\delta}^{aA}\dfrac{f(u)}{u}\di u-\int_{b\delta}^{bA}\dfrac{f(v)}{v}\di v\right) \\
+        =&\lim_{\delta\to0^+,A\to+\infty}\left(\int_{a\delta}^{b\delta}\dfrac{f(x)}{x}\di x-\int_{aA}^{bA}\dfrac{f(x)}{x}\di x\right) \\
+        =&\lim_{\delta\to0^+}\int_{a\delta}^{b\delta}\dfrac{f(x)}{x}\di x-\lim_{A\to+\infty}\int_{aA}^{bA}\dfrac{f(x)}{x}\di x
+    \end{aligned}\]
+    现在分别处理上述积分.\\
+    由于$f(x)$是单调递减的,因此对任意$x\in(a\delta,b\delta)$有
+    \[\dfrac{f(a\delta)}{x}<\dfrac{f(x)}{x}<\dfrac{f(b\delta)}{x}\]
+    于是根据定积分的保序性有
+    \[\int_{a\delta}^{b\delta}\dfrac{f(a\delta)}{x}\di x<\int_{a\delta}^{b\delta}\dfrac{f(x)}{x}\di x<\int_{a\delta}^{b\delta}\dfrac{f(b\delta)}{x}\di x\]
+    上式左右两端积分可以求出,即有
+    \[f(a\delta)\ln\dfrac{b}{a}<\int_{a\delta}^{b\delta}\dfrac{f(x)}{x}\di x<f(b\delta)\ln\dfrac{b}{a}\]
+    令$\delta\to0^+$,由夹逼准则可知
+    \[\lim_{\delta\to0^+}\int_{a\delta}^{b\delta}\dfrac{f(x)}{x}\di x=C\ln\dfrac ba\]
+    同理有
+    \[\int_{aA}^{bA}\dfrac{f(aA)}{x}\di x<\int_{aA}^{bA}\dfrac{f(x)}{x}\di x<\int_{aA}^{bA}\dfrac{f(bA)}{x}\di x\]
+    即
+    \[f(aA)\ln\dfrac{b}{a}<\int_{aA}^{bA}\dfrac{f(x)}{x}\di x<f(bA)\ln\dfrac{b}{a}\]
+    令$A\to+\infty$,由夹逼准则可知
+    \[\lim_{A\to+\infty}\int_{aA}^{bA}\dfrac{f(x)}{x}\di x=D\ln\dfrac ba\]
+    综上所述,有
+    \[\int_0^{+\infty}\dfrac{f(ax)-f(bx)}{x}\di x=(C-D)\ln\dfrac ba\]
+\end{solution}
 \end{document}
