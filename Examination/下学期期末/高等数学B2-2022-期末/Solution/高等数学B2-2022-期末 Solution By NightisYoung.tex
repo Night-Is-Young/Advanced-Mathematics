@@ -14,13 +14,37 @@
     在$x=0$处的幂级数展开式,并指出此幂级数的收敛域.
 
 \end{problem}
-
+\begin{solution}
+    注意到$\ln(1+x)$在$x=0$处的幂级数展开式
+    \[\ln(1+x)=\sum_{n=1}^{\infty}\dfrac{(-1)^{n+1}x^n}{n}\]
+    于是
+    \[\ln\dfrac{1+x}{1-x}=\ln(1+x)-\ln(1-x)=2\sum_{n=0}\dfrac{x^{2n+1}}{2n+1}\]
+    于是
+    \[\dfrac{x}{2}\ln\dfrac{1+x}{1-x}=\sum_{n=0}^{\infty}\dfrac{x^{2n+2}}{2n+1}\]
+    代入$x=\sqrt{|x|}$后即有
+    \[f(x)=\sum_{n=0}^{\infty}\dfrac{x^{n+1}}{2n+1}\]
+    其收敛域为$(-1,1)$.
+\end{solution}
 \begin{problem}[2.(15\songti{分})]
     设$f:\R\to\R$是周期为$2\pi$的而函数,$f(x)$在$(-\pi,\pi]$上等于$\e^x$.%
     求$f(x)$的傅里叶级数,以及此傅里叶级数在$x=\pi$处的收敛值.
 
 \end{problem}
+\begin{solution}
+    我们有
+    \[a_0=\dfrac{1}{\pi}\int_{-\pi}^{\pi}\e^{x}\di x=\dfrac{\e^{\pi}-\e^{-\pi}}{\pi}\]
+    \[a_n=\dfrac{1}{\pi}\int_{-\pi}^{\pi}\e^{x}\cos nx\di x 
+    =\dfrac{1}{\pi}\left.\left(\dfrac{\e^x\left(n\sin nx+\cos nx\right)}{n^2+1}\right)\right|_{-\pi}^{\pi} 
+    =\dfrac{(-1)^n\left(\e^{\pi}-\e^{-\pi}\right)}{\pi\left(n^2+1\right)}\]
+    \[b_n=\dfrac{1}{\pi}\int_{-\pi}^{\pi}\e^{x}\sin nx\di x 
+    =\dfrac{1}{\pi}\left.\left(\dfrac{\e^x\left(\sin nx-n\cos nx\right)}{n^2+1}\right)\right|_{-\pi}^{\pi} 
+    =\dfrac{(-1)^{n+1}n\left(\e^{\pi}-\e^{-\pi}\right)}{\pi\left(n^2+1\right)}\]
+    于是$f(x)$的Fourier级数为
+    \[f(x)\sim\dfrac{\e^{\pi}-\e^{-\pi}}{2\pi}+\sum_{n=1}^{\infty}\dfrac{(-1)^n\left(\e^{\pi}-\e^{-\pi}\right)}{\pi\left(n^2+1\right)}\left(\cos nx-n\sin nx\right)\]
+    根据Dirichlet定理有
+    \[S(\pi)=\dfrac{\e^x+\e^{-x}}{2}\]
 
+\end{solution}
 \begin{problem}[3.(10\songti{分})]
     求无穷积分
     \[\int_0^{+\infty}\sqrt{x^3}\e^{-x}\di x\]
@@ -29,26 +53,89 @@
     的值.
 
 \end{problem}
+\begin{solution}
+    由$\Gamma$函数的定义可知
+    \[\int_0^{+\infty}\sqrt{x^3}\e^{-x}\di x
+    =\int_0^{+\infty}x^{\frac52-1}\e^{-x}\di x
+    =\Gamma\left(\dfrac52\right)
+    =\dfrac32\cdot\dfrac12\Gamma\left(\dfrac12\right)
+    =\dfrac{3\sqrt\pi}{4}\]
+    由B函数的定义可知
+    \[\int_0^1\sqrt{\dfrac{x^3}{1-x}}\di x
+    =\int_0^1x^{\frac52-1}(1-x)^{\frac12-1}\di x
+    =\text{B}\left(\dfrac52,\dfrac12\right)
+    =\dfrac{\Gamma\left(\frac52\right)\Gamma\left(\frac12\right)}{\Gamma(3)}
+    =\dfrac{3\pi}{8}\]
 
+\end{solution}
 \begin{problem}[4.(10\songti{分})]
     求幂级数
     \[\sum_{n=0}^{\infty}(n+1)(n+2)x^n\]
     的收敛区间,以及此幂级数的和函数.    
 
 \end{problem}
+\begin{solution}
+    令$a_n=(n+1)(n+2)$,则有
+    \[\lim_{n\to\infty}\dfrac{a_{n+1}}{a_n}
+    =\lim_{n\to\infty}\dfrac{n+3}{n+1}=1\]
+    于是收敛半径$R=1$,即收敛区间为$(-1,1)$.令原级数为$S(x)$,逐项求积分可得
+    \[\int S(x)\di x=\sum_{n=0}^{\infty}\int(n+1)(n+2)x^n\di x=\sum_{n=0}^{\infty}(n+2)x^{n+1}\]
+    令上述和函数为$T(x)$,对$T(x)$再次逐项求积分可得
+    \[\int T(x)\di x=\sum_{n=0}^{\infty}\int(n+2)x^{n+1}\di x=\sum_{n=0}^{\infty}x^{n+2}\]
+    而
+    \[R(x)=\sum_{n=0}^{\infty}x^{n+2}=\dfrac{x^2}{1-x}=\dfrac{1}{1-x}-1-x\]
+    于是
+    \[S(x)=\dfrac{\di^2}{\di x^2}R(x)
+    =\dfrac{\di}{\di x}\left(\dfrac{1}{(1-x)^2}-1\right)
+    =\dfrac{2}{(1-x)^3}\]
 
+\end{solution}
 \begin{problem}[5.(10\songti{分})]
     任意给定常数$r>0$,试证明函数项级数
     \[\sum_{n=1}^\infty n^2\e^{-nx}\]
     在$[r,+\infty)$上一致收敛.
 \end{problem}
-
+\begin{solution}
+    注意到对任意$n\in\N^*,x\in[r,+\infty)$都有
+    \[\e^{-nx}\leqslant\e^{-nr}\]
+    现在只需证明级数
+    \[\sum_{n=1}^{\infty}n^2\e^{-nr}\]
+    收敛即可.注意到
+    \[\lim_{n\to\infty}\dfrac{\ln n}{n}=0\]
+    因此对任意$r>0$,总存在$N\in\N^*$使得对任意$n>N$有
+    \[\dfrac{\ln n}{n}<\dfrac{r}{4}\]
+    即$\e^{-nr}<\dfrac{1}{n^4}$.于是
+    \[\sum_{n=N+1}^{\infty}n^2\e^{-nr}<\sum_{n=N+1}^{\infty}\dfrac1{n^2}\]
+    收敛,于是上述数项级数收敛.对任意$x\in[r,+\infty)$有
+    \[\sum_{n=1}^\infty n^2\e^{-nx}<\sum_{n=1}^{\infty}n^2\e^{-nr}\]
+    根据强级数判别法,题设函数项级数在$[r,+\infty)$上一致收敛.
+\end{solution}
 \begin{problem}[6.(15\songti{分})]
     函数项级数
     \[\sum_{n=1}^\infty\dfrac{(-1)^n}{n^x+2n}\]
     的收敛域,全体绝对收敛点,全体条件收敛点.
 \end{problem}
-
+\begin{solution}
+    这是一个交错级数.令
+    \[u_n(x)=\dfrac{1}{n^x+2n}\]
+    为说明上述$u_n(x)$在固定$x$时对$n$的单调性,令二元函数
+    \[f(x,y)=\dfrac{1}{y^x+2y}(y>0,x\in\R)\]
+    则有
+    \[\dfrac{\p f}{\p y}(x,y)=-\dfrac{xy^{x-1}+2}{\left(y^x+2y\right)^2}\]
+    若$x\geqslant0$,则$\dfrac{\p f}{\p y}(x,y)\leqslant0$,即$f(x,y)$对$y$单调递减.\\
+    若$x<0$,则当$y>\left(-\dfrac x2\right)^{\frac{1}{x-1}}$时$\dfrac{\p f}{\p y}(x,y)<0$,即$f(x,y)$对$y$单调递减.\\
+    因此,当$n$充分大时,总有$u_{n+1}(x)<u_{n}(x)$成立.\\
+    又因为$0<u_n(x)<\dfrac{1}{n}$,于是由夹逼准则可得
+    \[\lim_{n\to\infty}u_n(x)=0\]
+    综合上述条件,根据Leibniz判别法可知原函数项级数的收敛域为$(-\infty,+\infty)$.\\
+    现在来考察其绝对收敛点.当$x>1$时有
+    \[\sum_{n=1}^{\infty}u_n(x)<\sum_{n=1}^{\infty}\dfrac{1}{n^x}\]
+    根据比较判别法可知此时级数绝对收敛.\\
+    当$x\leqslant 1,n\geqslant 1$时总有$n^x<n$,于是
+    \[\sum_{n=1}^{\infty}u_n(x)>\sum_{n=1}^{\infty}\dfrac{1}{3n}\]
+    根据比较判别法可知此时级数发散.\\
+    于是全体绝对收敛点为$(1,+\infty)$,全体条件收敛点为$(-\infty,1]$.
+\end{solution}
 \begin{problem}[7.(15\songti{分})]
     定义函数$\theta:[0,+\infty)\to[0,+\infty)$为
     \[\theta(x)=\int_0^x\sqrt{(t+1)(t+2)(t+3)}\di t\]
@@ -57,7 +144,38 @@
     收敛.本题要求写出详细过程和依据.
 
 \end{problem}
+\begin{proof}
+    $\theta(x)$中的被积函数恒正,故$\theta(x)$在$[0,+\infty)$上单调递增.\\
+    又$\theta(0)=0,\displaystyle\lim_{x\to+\infty}\theta(x)=+\infty$,%
+    因此$\theta(x)$是$[0,+\infty)$到$[0,+\infty)$上的一一映射.\\
+    考虑$\theta(x)$的反函数$f(x)$.于是
+    \[\int_0^{+\infty}\cos\left(\theta(x)\right)\di x
+    =\sum_{n=0}^{\infty}\left(\int_{f\left(\frac{n\pi}{2}\right)}^{f\left(\frac{(n+1)\pi}{2}\right)}\cos(\theta(x))\di x\right)\]
+    考虑到当$x\in\left(2k\pi-\frac\pi2,2k\pi+\frac\pi2\right)$时$\cos(x)>0$,$x\in\left(2k\pi+\frac\pi2,2k\pi+\frac{3\pi}{2}\right)$时$\cos x<0$,于是
+    \[\sum_{n=0}^{\infty}\left(\int_{f\left(\frac{n\pi}{2}\right)}^{f\left(\frac{(n+1)\pi}{2}\right)}\cos(\theta(x))\di x\right)
+    =\int_0^{f\left(\frac\pi2\right)}\cos\left(\theta(x)\right)\di x
+    +\sum_{n=1}^{\infty}(-1)^n\int_{f\left(n\pi-\frac\pi2\right)}^{f\left(n\pi-\frac\pi2\right)}\left|\cos(\theta(x))\right|\di x\]
+    求和中的每项积分均为正值,因此这是一个交错级数.令
+    \[u_n=\int_{f\left(n\pi-\frac\pi2\right)}^{f\left(n\pi+\frac\pi2\right)}\left|\cos(\theta(x))\right|\di x\]
+    令$f_n=f\left(n\pi-\dfrac{\pi}{2}\right)$.注意到$\sqrt{(t+1)(t+2)(t+3)}>t$,因此
+    \[\pi=\theta\left(f_{n+1}\right)-\theta\left(f_n\right)=\int_{f_n}^{f_{n+1}}\sqrt{(t+1)(t+2)(t+3)}\di t>\int_{f_n}^{f_{n+1}}t\di t=\dfrac{f_{n+1}^2-f_n^2}{2}\]
+    于是
+    \[0<u_n<\int_{f_n}^{f_{n+1}}1\di x=f_{n+1}-f_n<\dfrac{2\pi}{f_n+f_{n+1}}\]
+    注意到$n\to\infty$时显然有$f_{n}\to+\infty$,因此由夹逼准则可知
+    \[\lim_{n\to\infty}u_n=0\]
+    又
+    \[u_n
+    =\int_{f_n}^{f_{n+1}}\left|\cos(\theta(x))\right|\di x
+    =\int_{f_n}^{f_{n+1}}\left|\dfrac{\di(\sin(\theta(x)))}{\theta'(x)}\right|\]
+    即
+    \[\dfrac{2}{\theta'\left(f_{n+1}\right)}=\int_{-1}^{1}\dfrac{\di t}{\theta'\left(f_{n+1}\right)}
+    <\int_{f_n}^{f_{n+1}}\left|\dfrac{\di(\sin(\theta(x)))}{\theta'(x)}\right|
+    <\int_{-1}^{1}\dfrac{\di t}{\theta'(f_{n})}<\dfrac{2}{\theta'\left(f_n\right)}\]
+    于是$u_n>u_{n+1}$对所有$n\in\N^*$成立.因此根据Leibniz判别法,可得原级数收敛,因而无穷积分
+    \[\int_0^{+\infty}\cos(\theta(x))\di x\]
+    收敛.
 
+\end{proof}
 \begin{problem}[8.(15\songti{分})]
     设$n$是正整数.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
@@ -70,5 +188,39 @@
     \end{enumerate}
     本题要求写出详细过程和依据.
 \end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 注意到$t\in[a,+\infty)$时有$t>0$,于是当$x>1$时有
+            \[\dfrac{1}{(t+x^2)^n}<\dfrac{1}{x^{2n}}<\dfrac{1}{x^2}\]
+            于是
+            \[\int_1^{+\infty}\dfrac{1}{\left(t+x^2\right)^n}\di x<\int_1^{+\infty}\dfrac{1}{x^2}\di x=1\]
+            收敛.又因为$t+x^2>t\geqslant a$,于是
+            \[\int_0^1\dfrac{1}{\left(t+x^2\right)^n}\di x<\int_0^1\dfrac{1}{a^n}\di x=\dfrac{1}{a^n}\]
+            收敛.于是无穷积分
+            \[\int_0^{+\infty}\dfrac{1}{\left(t+x^2\right)^n}\di x\]
+            收敛.
+        \item 记
+            \[I_n(t)=\int_0^{+\infty}\dfrac{1}{\left(t+x^2\right)^n}\di x\]
+            我们已经证明$I_n(t)$在$(0,+\infty)$内闭一致收敛.令$f_n(x,t)=\dfrac{1}{\left(t+x^2\right)^n}$,于是
+            \[\dfrac{\p f_n}{\p t}(x,t)=-\dfrac{n}{(t+x^2)^{n+1}}=-nf_{n+1}(x,t)\]
+            于是可对$I_n(t)$求导,并有
+            \[I_n'(t)=\int_0^{+\infty}\dfrac{\p f_n}{\p t}(x,t)\di x
+            =-n\int_0^{+\infty}f_{n+1}(x,t)\di x=-nI_{n+1}(t)\]
+            而
+            \[I_1(t)=\int_{0}^{+\infty}\dfrac{1}{t+x^2}\di x
+            =\left.\left(\dfrac{1}{\sqrt{t}}\arctan\dfrac{x}{\sqrt{t}}\right)\right|_0^{+\infty}
+            =\dfrac{\pi}{2\sqrt{t}}\]
+            于是
+            \[I_{n+1}(t)=\dfrac{I_1^{(n)}(t)}{(-1)^{n+1}n!}
+            =\dfrac{\pi}{2}\cdot\dfrac{1}{(-1)^{n+1}n!}\cdot\dfrac{(2n-1)!!}{(-2)^n}t^{-\frac{2n+1}{2}}\]
+            用$n$代替$n+1$可得
+            \[I_n(t)=-\dfrac{\pi(2n-3)!!}{2^n(n-1)!\sqrt{t^{\frac{2n-1}{2}}}}(n\geqslant 2)\]
+            综上可得
+            \[I_n(t)=\left\{\begin{array}{l}
+                \dfrac{\pi}{2\sqrt{t}},n=1\\
+                -\dfrac{\pi(2n-3)!!}{2^n(n-1)!\sqrt{t^{\frac{2n-1}{2}}}},n\geqslant 2
+            \end{array}\right.\]
 
+    \end{enumerate}
+\end{solution}
 \end{document}
