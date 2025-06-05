@@ -14,28 +14,80 @@
     的收敛域.
 
 \end{problem}
+\begin{solution}
+    令$u_n(x)=\dfrac{x^{n^3}}{10^n}$,考虑比值判别法
+    \[\lim_{n\to\infty}\left|\dfrac{u_{n+1}(x)}{u_n(x)}\right|
+    =\dfrac{|x|^{n^3+3n^3+3n+1}10^{n}}{|x|^{n^3}10^{n+1}}
+    =\dfrac{|x|^{3n^2+3n+1}}{10}=\left\{\begin{array}{l}
+        0,|x|<1\\\dfrac1{10},|x|=1\\+\infty,|x|>1
+    \end{array}\right.\]
+    于是收敛半径$R=1$.此外,当$|x|=1$时有
+    \[\sum_{n=1}^{\infty}\dfrac{x^{n^3}}{10^n}=\sum_{n=1}^{\infty}\dfrac{1}{10^n}=\dfrac19\]
+    收敛.于是原级数的收敛域为$[-1,1]$.
 
+\end{solution}
 \begin{problem}[2.(10\songti{分})]
     在$(-1,1)$上将函数
     \[f(x)=\arctan x+\dfrac12\ln\dfrac{1+x}{1-x}\]
     展开为幂级数.
 
 \end{problem}
+\begin{solution}
+    $\ln(1+x)$在$x=0$处的幂级数展开为
+    \[\ln(1+x)\sim\sum_{n=1}^{\infty}\dfrac{(-1)^{n+1}x^n}{n}\]
+    于是
+    \[\dfrac12\ln\dfrac{1+x}{1-x}=\sum_{n=0}^{\infty}\dfrac{x^{2n+1}}{2n+1}\]
+    而$\arctan x$在$x=0$处的幂级数展开为
+    \[\arctan x=\sum_{n=0}^{\infty}\dfrac{(-1)^{n}x^{2n+1}}{2n+1}\]
+    于是
+    \[f(x)\sim\sum_{n=0}^{+\infty}\dfrac{2x^{4n+1}}{4n+1}\]
 
+\end{solution}
 \begin{problem}[3.(10\songti{分})]
     求瑕积分
     \[\int_0^1\sqrt{\dfrac{x^5}{1-x}}\dx\]
-    的值.本题的结果可以用B函数和$\Gamma$函数表示.
+    的值.
 
 \end{problem}
+\begin{solution}
+    \[\int_0^1\sqrt{\dfrac{x^5}{1-x}}\dx
+    =\int_0^1x^{\frac72-1}(1-x)^{\frac12-1}\di x
+    =\text{B}\left(\dfrac72,\dfrac12\right)
+    =\dfrac{\Gamma\left(\frac72\right)\Gamma\left(\frac12\right)}{\Gamma(4)}=\dfrac{5\pi}{16}\]
 
+\end{solution}
 \begin{problem}[4.(10\songti{分})]
     判断级数
     \[\sum_{n=1}^{\infty}\dfrac{\sin(2n)}{n+\dfrac1n}\left(1+\dfrac1n\right)^n\]
     的敛散性.
         
 \end{problem}
+\begin{solution}
+    首先令$a_n=\sin(2n),b_n=\dfrac{n}{n^2+1}\left(1+\dfrac1n\right)^n$.\\
+    为了考虑$b_n$的单调递减性,令$f(x)=\ln x-\ln\left(x^2+1\right)+x\left(\ln(x+1)-\ln x\right)$,则
+    \[\begin{aligned}
+        f'(x)
+        &= \dfrac{1}{x}-\dfrac{2x}{x^2+1}+\dfrac{x}{x+1}-1+\ln\left(1+\dfrac1x\right) \\
+        &< \dfrac{1}{x}-\dfrac{2x}{x^2+1}-\dfrac{1}{x+1}+\dfrac{1}{x} \\
+        &= \dfrac{-x^3+x+2}{x(x+1)\left(x^2+1\right)}
+    \end{aligned}\]
+    对于充分大的$x$,总有$f'(x)<0$,即$f(x)$单调递减.因此,对于充分大的$n$,$b_n$单调递减,且
+    \[\lim_{n\to\infty}b_n=\lim_{n\to\infty}\dfrac{\e}{n+0}=0\]
+    而对于任意$k\in\N^*$总有
+    \[\left|\sum_{n=1}^{k}a_n\right|=\left|\dfrac{1}{\sin 1}\sin\dfrac{k}{2}\sin\dfrac{k+1}{2}\right|<\dfrac{1}{\sin 1}\]
+    即部分和序列$\displaystyle\sum_{n=1}^{\infty}a_n$有界.\\
+    综上,根据Dirichlet判别法,原级数收敛.\\
+    现在考虑其绝对收敛性.我们有
+    \[\sum_{n=1}^{\infty}\left|\dfrac{\sin(2n)}{n+\dfrac1n}\left(1+\dfrac1n\right)^n\right|
+    >\sum_{n=1}^{\infty}\left|\dfrac{\sin 2n}{n}\right|
+    >\sum_{n=1}^{\infty}\dfrac{\sin^2 2n}{n}
+    =\sum_{n=1}^{\infty}\left(\dfrac{1}{2n}-\dfrac{\cos 4n}{2n}\right)\]
+    同理可证$\displaystyle\sum_{n=1}^{\infty}\dfrac{\cos 4n}{2n}$收敛,而级数
+    \[\sum_{n=1}^{\infty}\dfrac{1}{2n}\]
+    发散,于是原级数不绝对收敛.\\
+    综上可知原级数条件收敛.
 
+\end{solution}
 \begin{problem}[5.(10\songti{分})]
     设$E\in\R$.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
@@ -47,7 +99,28 @@
             收敛.本小问的结果可以用$\Gamma$函数表示.
     \end{enumerate}
 \end{problem}
-
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 对任意$E\in\R$,总有
+            \[\sum_{n=0}^{\infty}\dfrac{(Ex)^n}{n!}=\e^{Ex}\]
+            于是
+            \[\int_0^{+\infty}\sum_{n=0}^{\infty}\left(\dfrac{(Ex)^n}{n!}\e^{-x}\right)\di x
+            =\int_0^{+\infty}\e^{(E-1)x}\di x\]
+            当$E<1$时有
+            \[\int_0^{+\infty}\e^{(E-1)x}\di x=\left.\left(\dfrac{\e^{(E-1)x}}{E-1}\right)\right|_0^{+\infty}=\dfrac{1}{1-E}\]
+            收敛,而当$E\geqslant 1$时有
+            \[\int_0^{+\infty}\e^{(E-1)x}\di x>\int_1^{+\infty}\di x\]
+            发散.于是$E\in(-\infty,1)$.
+        \item 我们有
+            \[\int_0^{+\infty}\left(\dfrac{(Ex)^n}{n!}\e^{-x}\right)\di x
+            =\dfrac{E^n}{n!}\int_0^{+\infty}x^{(n+1)-1}\e^{-x}\di x
+            =\dfrac{E^n}{n!}\Gamma(n+1)=E^n\]
+            于是
+            \[\sum_{n=0}^{\infty}\int_0^{+\infty}\left(\dfrac{(Ex)^n}{n!}\e^{-x}\right)\di x
+            =\sum_{n=0}^{\infty}E^n=\lim_{n\to\infty}\dfrac{1-E^n}{1-E}\]
+            当且仅当$E\in(-1,1)$时原级数收敛.
+    \end{enumerate}
+\end{solution}
 \begin{problem}[6.(10\songti{分})]
     对于每个$x\in[0,1],n=1,2,\cdots$,定义
     \[f_1(x)=\int_0^x\sqrt{1+t^4}\di t\ \ \ \ \ f_{n+1}(x)=\int_0^xf_n(t)\di t\]
@@ -55,7 +128,17 @@
     \[\sum_{n=1}^{\infty}f_n(x)\]
     在$[0,1]$上一致收敛.
 \end{problem}
-
+\begin{solution}
+    注意到
+    \[f_1(x)=\int_0^x\sqrt{1+t^4}\di t<\int_0^x\sqrt{1+2t^2+t^4}\di t=\dfrac{x^3}{3}+x<2x\]
+    于是
+    \[f_2(x)=\int_0^xf_1(t)\di t<\int_0^x2t\di t=x^2\]
+    如此递推可得
+    \[0<f_n(x)<\dfrac{2x^n}{n!}<\dfrac{2}{n!}\]
+    而
+    \[\sum_{n=1}^{\infty}\dfrac{2}{n!}=2(\e-1)\]
+    收敛.于是根据M-判别法可知原级数在$[0,1]$上一致收敛.
+\end{solution}
 \begin{problem}[7.(15\songti{分})]
     设$b\in\R$.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
@@ -67,7 +150,40 @@
     \end{enumerate}
 
 \end{problem}
-
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 我们有
+            \[\int_0^{+\infty}\left|x\e^{-x^2}\cos(2bx)\right|\di x\leqslant\int_0^{+\infty}x\e^{-x^2}\di x=\dfrac{1}{2}\int_0^{+\infty}\e^{-u}\di u=\dfrac12\]
+            由比较判别法可知该无穷积分在$(-\infty,+\infty)$上一致收敛.
+        \item 令
+            \[I(b)=\int_0^{+\infty}x\e^{-x^2}\cos(2bx)\di x\]
+            \[J(b)=\int_0^{+\infty}\e^{-x^2}\sin(2bx)\di x\]
+            首先有
+            \[\int_0^{+\infty}\left|\e^{-x^2}\sin(2bx)\right|\di x
+            <\int_0^{+\infty}\e^{-x^2}\di x<\int_0^{+\infty}\e^{-x}\di x=1\]
+            于是$J(b)$对$b\in(-\infty,+\infty)$一致收敛.于是有
+            \[J'(b)=\int_0^{+\infty}2x\e^{-x^2}\cos(2bx)\di x=2I(b)\]
+            另一方面又有
+            \[\begin{aligned}
+                I(b)
+                &= \int_0^{+\infty}x\e^{-x^2}\cos(2bx)\di x \\
+                &= -\dfrac12\int_0^{+\infty}\cos(2bx)\di\left(\e^{-x^2}\right) \\
+                &= -\dfrac12\left(\left.\e^{-x^2}\cos(2bx)\right|_0^{+\infty}+\int_0^{+\infty}2b\e^{-x^2}\sin(2bx)\di x\right) \\
+                &= \dfrac12-bJ(b)
+            \end{aligned}\]
+            从而有
+            \[J'(b)=1-2bJ(b)\]
+            这是一个一阶线性微分方程,其对应的齐次方程的解为
+            \[J(b)=C\e^{-b^2}\]
+            设$J(b)=C(b)\e^{-b^2}$,代入原方程可得
+            \[C'(b)=\e^{b^2}\]
+            于是
+            \[C(b)=\int_0^{b}\e^{t^2}\di t+C\]
+            注意到$J(0)=0$,因此$C=0$,于是
+            \[J(b)=\e^{-b^2}\int_0^{b}\e^{t^2}\di t\]
+            这就证明了题设等式.
+    \end{enumerate}
+\end{solution}
 \begin{problem}[8.(15\songti{分})]
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
         \item \textbf{(10\songti{分})}\ 设$f:\R\to\R$是周期为$2\pi$的函数,$\forall x\in(-\pi,\pi),f(x)=\e^x$.%
@@ -78,11 +194,31 @@
     \end{enumerate}
 
 \end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 我们有
+            \[a_0=\dfrac{1}{\pi}\int_{-\pi}^{\pi}\e^{x}\di x=\dfrac{\e^{\pi}-\e^{-\pi}}{\pi}\]
+            \[a_n=\dfrac{1}{\pi}\int_{-\pi}^{\pi}\e^{x}\cos nx\di x 
+            =\dfrac{1}{\pi}\left.\left(\dfrac{\e^x\left(n\sin nx+\cos nx\right)}{n^2+1}\right)\right|_{-\pi}^{\pi} 
+            =\dfrac{(-1)^n\left(\e^{\pi}-\e^{-\pi}\right)}{\pi\left(n^2+1\right)}\]
+            \[b_n=\dfrac{1}{\pi}\int_{-\pi}^{\pi}\e^{x}\sin nx\di x 
+            =\dfrac{1}{\pi}\left.\left(\dfrac{\e^x\left(\sin nx-n\cos nx\right)}{n^2+1}\right)\right|_{-\pi}^{\pi} 
+            =\dfrac{(-1)^{n+1}n\left(\e^{\pi}-\e^{-\pi}\right)}{\pi\left(n^2+1\right)}\]
+            于是$f(x)$的Fourier级数为
+            \[f(x)\sim\dfrac{\e^{\pi}-\e^{-\pi}}{2\pi}+\sum_{n=1}^{\infty}\dfrac{(-1)^n\left(\e^{\pi}-\e^{-\pi}\right)}{\pi\left(n^2+1\right)}\left(\cos nx-n\sin nx\right)\]
+            根据Dirichlet定理有
+            \[S(\pi)=\dfrac{\e^{\pi}+\e^{-\pi}}{2}\]
+        \item 在上述$f(x)$的Fourier级数中令$x=\pi$,则有
+            \[S(\pi)=\dfrac{\e^{\pi}-\e^{-\pi}}{2\pi}+\sum_{n=1}^{\infty}\dfrac{\e^{\pi}-\e^{-\pi}}{\pi\left(n^2+1\right)}=\dfrac{\e^\pi+\e^{-\pi}}{2}\]
+            于是
+            \[\sum_{n=1}^{\infty}\dfrac{1}{1+n^2}=\dfrac{\pi\left(\e^{\pi}+\e^{-\pi}\right)}{2\left(\e^{\pi}-\e^{-\pi}\right)}-\dfrac12\]
 
+    \end{enumerate}
+\end{solution}
 \begin{problem}[9.(10\songti{分})]
-    设正项级数
+    设级数
     \[\sum_{n=0}^{\infty}a_n\]
-    收敛,$T$是序列$\left\{a_n\right\}$中的最大项.对于任意$x\in\R$,定义$L(x)$是序列$\left\{a_n\right\}$中大于$x$的项的个数.
+    收敛,每项$a_n>0$.$T$是序列$\left\{a_n\right\}$中的最大项.对于任意$x\in\R$,定义$L(x)$是序列$\left\{a_n\right\}$中大于$x$的项的个数.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
         \item \textbf{(2\songti{分})}\ 试证明$0$是$L(x)$的瑕点.
         \item \textbf{(8\songti{分})}\ 试证明瑕积分
@@ -92,5 +228,30 @@
     \end{enumerate}
     
 \end{problem}
-
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 由于每项$a_n>0$,因此对总存在无穷多的$a_n>0$,从而$\displaystyle\lim_{x\to0^+}L(x)=+\infty$,于是$0$是$L(x)$的瑕点.
+        \item 由于改变正项级数中各项的排列顺序并不影响其收敛值,因此将$\left\{a_n\right\}$中的各项从大到小重排为序列$\left\{u_n\right\}$.%
+            如此,对任意$n\in\N^*$,总有$u_{n+1}\leqslant u_n$.去除$\left\{u_n\right\}$中重复的项,得到序列$\{v_n\}$,满足$v_{n+1}<v_n$.%
+            特别地,有$v_1=T$.这样就有
+            \[L(v_n)-L(v_{n+1})=f\left(v_{n}\right)\]
+            其中$f(v_n)$是序列中$v_n$的数目.对于每个确定的$v_n>0$,$f\left(v_n\right)$都为有限的正整数,否则原级数将不收敛.\\
+            这样,就可以将$L(x)$分段表示为
+            \[L(x)=\left\{\begin{array}{l}
+                0,x\geqslant T\\
+                f(T),v_2\leqslant x<T\\
+                L(v_{n})+f(v_n),v_{n+1}\leqslant x<v_n
+            \end{array}\right.\]
+            因此就有
+            \[\begin{aligned}
+                \int_0^{T}L(x)\di x
+                &= f(T)(T-v_2)+L(v_3)\left(v_2-v_3\right)+L(v_4)(v_3-v_4)+\cdots \\
+                &= Tf(T)+v_2(L(v_3)-f(T))+v_3(L(v_4)-L(v_3))+\cdots \\
+                &= Tf(T)+v_2f(v_2)+v_3f(v_3)+\cdots
+            \end{aligned}\]
+            即这一积分等于各不同项乘以其出现次数,这与对$\{a_n\}$求和等价.于是
+            \[\int_0^{T}L(x)\di x=\sum_{n=0}^{\infty}a_n\]
+            又因为原级数收敛,于是这瑕积分也收敛.
+    \end{enumerate}
+\end{solution}
 \end{document}
