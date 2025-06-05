@@ -20,40 +20,131 @@
     \end{enumerate}
 
 \end{problem}
-
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 注意到
+            \[\sum_{n=3}^{\infty}\dfrac{2}{n\ln\sqrt{n}}
+            =\sum_{n=3}^{\infty}\dfrac{4}{n\ln n}
+            >\int_3^{+\infty}\dfrac{4}{x\ln x}\di x
+            =\left.\left(4\ln\ln x\right)\right|_2^{+\infty}\]
+            而$\displaystyle\lim_{x\to+\infty}\ln\ln x=+\infty$,于是原级数发散.
+        \item 注意到
+            \[\dfrac{3\sqrt[5]{n}+1}{\left(\sqrt[4]{n}+n\right)\left(\sqrt[3]{n}+n\right)}<\dfrac{3\sqrt[5]{n}+1}{n^2}<\dfrac{1}{n^{\frac{9}{5}}}\]
+            而
+            \[\sum_{n=1}^{\infty}\dfrac{1}{n^{\frac{9}{5}}}\]
+            收敛,于是根据比较判别法可知原级数收敛.
+        \item 首先有
+            \[\sum_{n=1}^{\infty}\dfrac{4\cdot3^n}{5^n}=\dfrac{12}{5}\lim_{n\to\infty}\cdot\dfrac{1-\left(\frac35\right)^n}{1-\frac35}=6\]
+            又有
+            \[\sum_{n=1}^{\infty}\left(\dfrac{1}{n}-\dfrac{1}{n+2}\right)
+            =\lim_{n\to\infty}\left(1+\dfrac{1}{2}-\dfrac{1}{n+1}-\dfrac{1}{n+2}\right)
+            =\dfrac32\]
+            于是
+            \[\sum_{n=1}^{\infty}\left(\dfrac{4\cdot3^n}{5^n}-\dfrac{1}{n}+\dfrac{1}{n+2}\right)=\dfrac{9}{2}\]
+            因而原级数收敛.
+    \end{enumerate}
+\end{solution}
 \begin{problem}[2.(10\songti{分})]
     讨论函数序列
     \[f_n(x)=\left(1-\dfrac{1}{\sqrt{n}}\right)^{x^2}\ \ \ \ \ n=1,2,\cdots\]
     在$(0,+\infty)$上的一致收敛性.
 
 \end{problem}
-
+\begin{solution}
+    对任意$x\in(0,+\infty)$,都有
+    \[\lim_{n\to\infty}f_n(x)=\lim_{n\to\infty}\left(1-\dfrac{1}{\sqrt{n}}\right)^{x^2}=1\]
+    于是函数序列$\left\{f_n(x)\right\}$逐点收敛于极限函数$f(x)=1$.然而,对于点列$x_n=\sqrt[4]{n}$,有
+    \[\lim_{n\to\infty}\left|f_n\left(x_n\right)-f\left(x_n\right)\right|
+    =\lim_{n\to\infty}1-\left(1-\dfrac{1}{\sqrt{n}}\right)^{\sqrt{n}}=1-\e\neq0\]
+    于是原函数序列在$(0,+\infty)$上不一致收敛.
+\end{solution}
 \begin{problem}[3.(15\songti{分})]
     求幂级数
     \[\sum_{n=1}^{\infty}\dfrac{(-1)^n}{n}x^n\]
     的收敛半径,收敛域,和函数.
 
 \end{problem}
+\begin{solution}
+    令$a_n=\dfrac{(-1)^n}{n}$,则有
+    \[\lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|
+    =\lim_{n\to\infty}\dfrac{n}{n+1}=1\]
+    于是收敛半径$R=1$.当$x=1$时,
+    \[\sum_{n=1}^{\infty}\dfrac{(-1)^n}{n}x^n=\sum_{n=1}^{\infty}\left(\dfrac{1}{2n-1}-\dfrac{1}{2n}\right)=\sum_{n=1}^{\infty}\dfrac{1}{4n^2-2n}\]
+    收敛,而当$x=-1$时
+    \[\sum_{n=1}^{\infty}\dfrac{(-1)^n}{n}x^n=\sum_{n=1}^{\infty}\dfrac{1}{n}\]
+    发散.于是原级数的收敛域为$(-1,1]$.设该级数的和函数为$S(x)$,在收敛域上对级数逐项求导可得
+    \[S'(x)=\sum_{n=1}^{\infty}(-1)^nx^{n-1}=-2+\sum_{n=1}^{\infty}(-1)^{n+1}x^{n}=-1+\dfrac{1}{1+x}\]
+    于是
+    \[S(x)=\int S'(x)\di x+C=-2x+\ln(1+x)+C\]
+    又$S(0)=0$,于是
+    \[S(x)=\sum_{n=1}^{\infty}\dfrac{(-1)^n}{n}x^n=-2x+\ln(1+x)\]
 
+\end{solution}
 \begin{problem}[4.(10\songti{分})]
     求函数
     \[f(x)=\dfrac{1}{x^2-2x-3}\]
     于$x=1$处的泰勒展开式,并计算$f^{(2022)}(1),f^{(2023)}(1)$的值.
         
 \end{problem}
-
+\begin{solution}
+    注意到
+    \[f(x)=\dfrac{1}{x^2-2x-3}=\dfrac{1}{(x-1)^2-4}=-\dfrac14\cdot\dfrac{1}{1-\left(\frac{x-1}{2}\right)^2}\]
+    而$g(x)=\dfrac{1}{1+x}$在$x=0$处的泰勒展开式为
+    \[g(x)=\dfrac{1}{1+x}=\sum_{n=0}^{\infty}(-1)^nx^n\]
+    于是
+    \[f(x)=-\dfrac14\sum_{n=0}^{\infty}(-1)^n\left(-\left(\dfrac{x-1}{2}\right)^2\right)^n
+    =-\dfrac14\sum_{n=0}^{\infty}\dfrac{(x-1)^{2n}}{4^n}=\sum_{n=0}^{\infty}\dfrac{-(x-1)^{2n}}{4^{n+1}}\]
+    又因为$f(x)$的泰勒展开式的通项为
+    \[f(x)=\sum_{n=0}^{\infty}\dfrac{f^{(n)}(1)(x-1)^n}{n!}\]
+    于是$f^{(2022)}(1)=-\dfrac{2022!}{4^{1012}},f^{(2023)}=0$.
+\end{solution}
 \begin{problem}[5.(10\songti{分})]
     讨论无穷积分
     \[\int_1^{+\infty}\dfrac{\sin x}{\sqrt{x}}\arctan x\di x\]
     的敛散性.
 \end{problem}
-
+\begin{solution}
+    首先考虑积分
+    \[\int_1^{+\infty}\left|\dfrac{\sin x}{\sqrt{x}}\arctan x\right|\di x\]
+    为了说明其无界性,考虑一个充分大的$n\in\N$.我们有
+    \[\int_1^{+\infty}\left|\dfrac{\sin x}{\sqrt{x}}\arctan x\right|\di x
+    >\int_{\pi}^{n\pi}\left|\dfrac{\sin x}{\sqrt{x}}\arctan x\right|\di x
+    >\arctan\pi\int_{\pi}^{n\pi}\left|\dfrac{\sin x}{\sqrt{x}}\right|\di x\]
+    而
+    \[\int_{\pi}^{n\pi}\left|\dfrac{\sin x}{\sqrt{x}}\right|\di x
+    =\sum_{k=1}^{n-1}\int_{k\pi}^{(k+1)\pi}\left|\dfrac{\sin x}{\sqrt{x}}\right|\di x
+    >\sum_{k=1}^{n-1}\int_{k\pi}^{(k+1)\pi}\dfrac{\left|\sin x\right|\di x}{\sqrt{k+1}}
+    =\sum_{k=1}^{n-1}\dfrac{1}{\sqrt{k+1}}\]
+    注意到
+    \[\lim_{n\to\infty}\sum_{k=1}^{n-1}\dfrac{1}{\sqrt{k+1}}=\sum_{n=2}^{\infty}\dfrac{1}{\sqrt{n}}\]
+    发散,于是这积分不绝对收敛.\\
+    现在令$f(x)=\sin x,g(x)=\dfrac{\arctan x}{\sqrt{x}}$.对任意$A>a>1$总有
+    \[\left|\int_a^{A}f(x)\di x\right|=\left|\cos A-\cos a\right|\leqslant 2\]
+    一致有界,而
+    \[g'(x)=\dfrac{1}{(x^2+1)\sqrt{x}}-\dfrac{\arctan x}{2x\sqrt{x}}\]
+    当$x>\tan 1>1$时总有$\arctan x>1$且$x^2+1>2x$,因此$g(x)$在$(\tan 1,+\infty)$单调递减.又因为
+    \[\lim_{x\to+\infty}g(x)=\lim_{x\to+\infty}\dfrac{\pi}{2\sqrt{x}}=0\]
+    于是$g(x)$单调递减且收敛于$0$.根据Dirichlet判别法,无穷积分
+    \[\int_1^{+\infty}\dfrac{\sin x}{\sqrt{x}}\arctan x\di x\]
+    收敛.综上所述,该积分条件收敛.
+\end{solution}
 \begin{problem}[6.(10\songti{分})]
     讨论级数
     \[\sum_{n=1}^{\infty}\dfrac{\sin^n x}{1+\sin^{2n}x}\]
     在$x\in(-\infty,+\infty)$上的绝对收敛性和条件收敛性.
 \end{problem}
-
+\begin{solution}
+    考虑到$\sin x$的周期性,只需考虑$x\in(-\pi,\pi]$的情形即可.令$u=\sin x,a_n=\dfrac{u^n}{1+u^{2n}}$.\\
+    当$x=0,\pi$时$u=0$,于是$a_n=0$,原级数显然收敛.
+    当$x\in\left(0,\dfrac\pi2\right)\cup\left(\dfrac\pi2,\pi\right)$时,有$0<u<1$.于是
+    \[\sum_{n=1}^{\infty}\dfrac{u^n}{1+u^{2n}}<\sum_{n=1}^{\infty}u^n=\dfrac{u}{1-u}\]
+    收敛.\\
+    当$x=\dfrac\pi2$时$u=1$,$a_n=\dfrac12$,不满足$\displaystyle\lim_{n\to\infty}a_n=0$的条件,原级数发散.\\
+    当$x\in\left(-\pi,-\dfrac\pi2\right)\cup\left(-\dfrac\pi2,0\right)$时,有$-1<u<0$.由前面的推导同理可得
+    \[\sum_{n=1}^{\infty}\left|\dfrac{u^n}{1+u^{2n}}\right|<\sum_{n=1}^{\infty}\left|u^n\right|=\dfrac{-u}{1+u}\]此时级数绝对收敛.\\
+    当$x=-\dfrac\pi2$时$u=-1$,$a_n=\dfrac{(-1)^n}{2}$,仍然发散.\\
+    因此,原级数在$\left(k\pi-\dfrac\pi2,k\pi+\dfrac{\pi}{2}\right)(k\in\mathbb{Z})$上绝对收敛,在$x=k\pi+\dfrac\pi2$时发散.
+\end{solution}
 \begin{problem}[7.(20\songti{分})]
     设以$2\pi$为周期的函数$f(x)$在$[-\pi,\pi]$上的表达式为
     \[f(x)=x^2\]
@@ -64,7 +155,28 @@
     的值.
 
 \end{problem}
+\begin{solution}
+    这是一个偶函数,因此只需考虑$a_n$即可.有
+    \[a_0=\dfrac{1}{\pi}\int_{-\pi}^{\pi}x^2\di x=\dfrac{2\pi^2}{3}\]
+    \[a_n=\dfrac{1}{\pi}\int_{-\pi}^{\pi}x^2\cos(nx)\di x
+    =\dfrac{1}{\pi}\left.\left(\dfrac{x^2\sin(nx)}{n}+\dfrac{2x\cos(nx)}{n^2}-\dfrac{2}{n^3}\sin(nx)\right)\right|_{-\pi}^{\pi}
+    =\dfrac{4\cdot(-1)^n}{n^2}\]
+    因而
+    \[f(x)=\dfrac{\pi^2}{3}+\sum_{n=1}^{\infty}\dfrac{4\cdot(-1)^n\cos(nx)}{n^2}\]
+    令$x=0$,即可得
+    \[\sum_{n=1}^{\infty}\dfrac{(-1)^n}{n^2}=-\dfrac{\pi^2}{12}\]
+    由于
+    \[\sum_{n=1}^{\infty}\dfrac{(-1)^n}{n^2}=-\sum_{n=1}^{\infty}\dfrac{1}{n^2}+2\sum_{n=1}^{\infty}\dfrac{1}{(2n)^2}=-\dfrac12\sum_{n=1}^{\infty}\dfrac{1}{n^2}\]
+    于是
+    \[\sum_{n=1}^{\infty}\dfrac{1}{n^2}=\dfrac{\pi^2}{6}\]
+    对$f(x)$使用Parseval等式可得
+    \[\dfrac{a_0^2}{2}+\sum_{n=1}^{\infty}a_n^2=\dfrac{1}{\pi}\int_{-\pi}^{\pi}x^4\di x\]
+    即
+    \[\dfrac{2\pi^4}{9}+\sum_{n=1}^{\infty}\dfrac{16}{n^4}=\dfrac{2\pi^4}{5}\]
+    于是
+    \[\sum_{n=1}^{\infty}\dfrac{1}{n^4}=\dfrac{\pi^4}{16}\left(\dfrac{2}{5}-\dfrac{2}{9}\right)=\dfrac{\pi^4}{90}\]
 
+\end{solution}
 \begin{problem}[8.(10\songti{分})]
     证明和计算下列各题.
     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
@@ -79,5 +191,49 @@
     \end{enumerate}
 
 \end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 令$f(x,t)=\e^{-tx},g(x,t)=\dfrac{\sin x}{x}$.对任意$t\in[0,+\infty)$和$x\in[0,+\infty)$,总有
+            \[\left|f(x,t)\right|=\left|\e^{-tx}\right|\leqslant e^0=1\]
+            即$f(x,t)$对任意$t\in[0,+\infty)$一致收敛.\\
+            令$a(x)=\sin x,b(x)=\dfrac1x$.我们有
+            \[\int_0^1\dfrac{\sin x}{x}\di x<\int_0^1\di x=1\]
+            又对任意$1<a<A$有
+            \[\left(\int_a^Aa(x)\di x\right)\left|\cos A-\cos a\right|\leqslant 2\]
+            对$x$一致有界,$b(x)=\dfrac{1}{x}$单调递减且收敛于$0$,于是根据Dirichlet判别法可知
+            \[\int_0^{+\infty}g(x,t)\di x=\int_0^{+\infty}a(x)b(x)\di x\]
+            收敛,即对任意$t\in[0,+\infty)$都一致收敛.\\
+            于是根据Abel判别法可知含参变量$t$的无穷积分
+            \[I(t)=\int_0^{+\infty}\e^{-tx}\dfrac{\sin x}{x}\di x\]
+            在$t\in[0,+\infty)$上一致收敛.
+        \item 令$F(x,t)=\dfrac{\e^{-tx}\sin x}{x}$.注意到$F(x)$在矩形域$(0,+\infty)\times(0,+\infty)$上二元连续.由\tbf{(1)}可得
+            \[\int_0^{+\infty}F(x,t)\di x\]
+            在$t\in(0,+\infty)$一致收敛,又
+            \[\int_0^{+\infty}\dfrac{\p F}{\p t}(x,t)\di x=\int_0^{+\infty}-\e^{-tx}\sin x\di x\]
+            令$\alpha(x,t)=x\e^{-tx},\beta(x,t)=\sin x$.同理有
+            \[\left|\int_a^A\beta(x)\di x\right|=\left|\cos A-\cos a\right|\leqslant 2\]
+            一致有界,并且$\alpha(x,t)$对$x$单调递减,且$\displaystyle\lim_{x\to\infty}\alpha(x,t)=0$.\\
+            根据Dirichlet判别法可知上述级数对任意$t_0\in(0,+\infty)$和包含$t_0$的闭区间$[c,d]$上都一致收敛.\\
+            因此,$I(t)$在$(0,+\infty)$上可导,并且有
+            \[I'(t)=-\int_0^{+\infty}\e^{-tx}\sin x\di x\]
+        \item 我们有
+            \[\int-\e^{-tx}\sin x\di x=\dfrac{\e^{-tx}(t\sin x+\cos x)}{t^2+1}+C\]
+            于是
+            \[I'(t)=\int_0^{+\infty}-\e^{-tx}\sin x\di x
+            =\left.\left(\dfrac{\e^{-tx}(t\sin x+\cos x)}{t^2+1}\right)\right|_0^{+\infty}
+            =-\dfrac{1}{t^2+1}\]
+            即
+            \[I(t)=-\arctan t+C\]
+            又因为
+            \[0<\left|\int_0^{+\infty}\e^{-tx}\dfrac{\sin x}{x}\di x\right|
+            <\left|\int_0^{+\infty}\e^{-tx}\di x\right|=\dfrac1t\]
+            由夹逼准则可得
+            \[\lim_{t\to\infty}I(t)=0\]
+            从而$C=\dfrac\pi2$.因此有
+            \[\int_0^{+\infty}\dfrac{\sin x}{x}\di x
+            =\lim_{t\to0}\int_0^{+\infty}\e^{-tx}\dfrac{\sin x}{x}\di x
+            =\lim_{t\to0}I(t)=I(0)=\dfrac\pi2\]
 
+    \end{enumerate}
+\end{solution}
 \end{document}
