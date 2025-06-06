@@ -1,0 +1,99 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[strict]{changepage}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{solution}
+\usepackage{extarrows,esint}
+
+\allowdisplaybreaks
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}
+    \large\tbf{Lecture 13 Integrals with parameters(含参变量积分)}
+\end{center}
+\begin{problem}[L.13.1]
+    计算含参变量$\alpha$的积分
+    \[\int_0^1\dfrac{\ln(1+\alpha x)}{1+x^2}\di x\]
+    其中参数$\alpha\geqslant0$.由此计算积分
+    \[\int_0^1\dfrac{\ln(1+x)}{1+x^2}\di x\]
+
+\end{problem}
+\begin{solution}
+    首先注意到对任意$x\in[0,1]$和$\alpha\geqslant0$都有函数
+    \[f(x,\alpha)=\dfrac{\ln(1+\alpha x)}{1+x^2}\]
+    二元连续.令$I(\alpha)=\displaystyle\int_0^1f(x,\alpha)\di x$,就有
+    \[\begin{aligned}
+        I'(\alpha)
+        &= \int_0^1\dfrac{\p f}{\p \alpha}(x,\alpha)\di x=\int_0^1\dfrac{x}{\left(1+x^2\right)\left(1+\alpha x\right)}\di x \\
+        &= \dfrac{1}{1+\alpha^2}\int_0^1\left(\dfrac{x+\alpha}{1+x^2}-\dfrac{\alpha}{1+\alpha x}\right)\di x \\
+        &= \dfrac{1}{1+\alpha^2}\left(\dfrac{\ln 2}{2}+\dfrac{\pi\alpha}{4}-\ln(1+\alpha)\right) \\
+        &= \dfrac{2\ln 2-4\ln(1+\alpha)+\pi\alpha}{4\left(1+\alpha^2\right)}
+    \end{aligned}\]
+    于是
+    \[\begin{aligned}
+        I(\alpha)
+        &= I(0)+\int_0^{\alpha}I'(t)\di t=\int_0^\alpha\dfrac{2\ln 2-4\ln(1+t)+\pi t}{4\left(1+t^2\right)}\di t \\
+        &= \dfrac{\ln 2}{2}\arctan\alpha+\dfrac{\pi}{8}\ln\left(1+\alpha^2\right)-\int_0^{\alpha}\dfrac{\ln(1+t)}{1+t^2}\di t
+    \end{aligned}\]
+    特别地,当$\alpha=1$时有
+    \[I(1)=\dfrac{\pi\ln2}{8}+\dfrac{\pi\ln2}{8}+I(1)\]
+    于是
+    \[\int_0^1\dfrac{\ln(1+x)}{1+x^2}\di x=I(1)=\dfrac{\pi\ln2}{8}\]
+
+\end{solution}
+\begin{problem}[L.13.2]
+    计算无穷积分
+    \[\int_0^{+\infty}\dfrac{\sin^3x}{x}\di x\]
+
+\end{problem}
+\begin{solution}
+    由于
+    \[\sin 3x=3\sin x-4\sin^3 x\]
+    于是
+    \[\int_0^{+\infty}\dfrac{\sin^3x}{x}\di x
+    =\int_0^{+\infty}\dfrac{3\sin x-\sin 3x}{4x}\di x
+    =\dfrac34\int_0^{+\infty}\dfrac{\sin x}{x}\di x-\dfrac14\int_0^{+\infty}\dfrac{\sin 3x}{3x}\di(3x)=\dfrac{\pi}{4}\]
+
+\end{solution}
+\begin{problem}[L.13.3]
+    设参数$A>0$,考虑含参变量$y$的无穷积分
+    \[I(y)=\int_0^{+\infty}\dfrac{\sin(xy)}{x}\di x\]
+    试证明:
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item $I(y)$在$y\in[A,+\infty)$一致收敛.
+        \item $I(y)$在$y\in[0,+\infty)$不一致收敛.
+    \end{enumerate}
+\end{problem}
+\begin{proof}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 设$f(x,y)=\sin(xy),g(x,y)=\dfrac1x$.注意到$g(x,y)$对$x$单调递减且趋于$0$,又对任意$0<b<c$有
+            \[\left|\int_b^cf(x,y)\di x\right|=\dfrac1y\left|\cos(cy)-\cos(by)\right|\leqslant\dfrac{2}{A}\]
+            即$\displaystyle\int_b^cf(x,y)\di x$对$y\in[A,+\infty)$一致有界.根据Dirichlet判别法可知$I(y)$在$y\in[A,+\infty)$一致收敛.
+        \item 采取反证法.假定$I(y)$在$y\in[0,+\infty)$一致收敛,由Cauchy收敛准则可知对任意$\ep>0$和$y\in[0,+\infty)$,总存在$N\in\R$使得对任意$A,A'>N$都有
+            \[\left|\int_A^{A'}\dfrac{\sin(xy)}{x}\di x\right|<\ep\]
+            令$u=xy$,代换后就有
+            \[\left|\int_A^{A'}\dfrac{\sin(xy)}{x}\di x\right|
+            =\left|\int_{Ay}^{A'y}\dfrac{\sin(u)}{u}\di u\right|\]
+            令$y=\dfrac{1}{A},A'=2A$,则有
+            \[\left|\int_A^{A'}\dfrac{\sin(xy)}{x}\di x\right|=\left|\int_1^2\dfrac{\sin u}{u}\di u\right|\]
+            右式是一个确定的正数,不可能比任意的$\ep$都小.因此$I(y)$在$y\in[0,+\infty)$不一致收敛.
+    \end{enumerate}
+\end{proof}
+\begin{problem}[L.13.4]
+    试证明含参变量$y$的无穷积分
+    \[I(y)=\int_0^{+\infty}\dfrac{x}{2+x^y}\di x\]
+    在$y\in(2,+\infty)$连续.
+\end{problem}
+\begin{proof}
+    只需证明对任意$y_0\in(2,0)$,$I(y)$在$y\in[y_0,+\infty)$一致收敛即可.我们有
+    \[\int_0^1\dfrac{x}{2+x^y}\di x\leqslant\int_0^1\dfrac{x}{2}\di x=\dfrac14\]
+    收敛.又有
+    \[\int_1^{+\infty}\dfrac{x}{2+x^y}\di x<\int_1^{+\infty}\dfrac{x}{2+x^2}\di x<\int_1^{+\infty}\dfrac{1}{x^{y_0-1}}\di x\]
+    收敛,于是对任意$y_0\in(2,+\infty)$都有$I(y)$在$[y_0,+\infty]$连续,即$I(y)$在$(2,+\infty)$连续.
+\end{proof}
+\end{document}
