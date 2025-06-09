@@ -1,0 +1,74 @@
+\documentclass{ctexart}
+\usepackage{geometry}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+\usepackage{template}
+
+\allowdisplaybreaks[4]
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}\Large\tbf{佛脚}\end{center}
+\begin{theorem}[判断正项级数收敛的方法]
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 比较判别法.
+        \item 比较判别法的极限形式.如果$\left\{u_n\right\}$和$\left\{v_n\right\}$满足
+            \[\lim_{n\to\infty}\dfrac{u_n}{v_n}=h\]
+            当$0<h<+\infty$时,级数$\displaystyle\sum_{n=1}^{\infty}u_n$和$\displaystyle\sum_{n=1}^{\infty}v_n$同敛散.
+        \item 达朗贝尔判别法.如果$\left\{u_n\right\}$满足
+            \[\lim_{n\to\infty}\dfrac{u_{n+1}}{u_n}=l\]
+            $l>1$时$\displaystyle\sum_{n=1}^{\infty}u_n$收敛,$l<1$时发散,$l=1$时敛散性不定.
+        \item 柯西判别法.将\tbf{(2)}中的$\dfrac{u_{n+1}}{u_n}$替换为$\sqrt[n]{u_n}$,其余不变.
+        \item 拉比判别法.如果$\left\{u_n\right\}$满足
+            \[\lim_{n\to\infty}n\left(\dfrac{u_n}{u_{n+1}}-1\right)=R\]
+            $R<1$时$\displaystyle\sum_{n=1}^{\infty}u_n$收敛,$R>1$时发散,$R=1$时敛散性不定.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}[判断任意项级数收敛的方法]
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 莱布尼茨判别法.如果$\left\{u_n\right\}$满足
+            \[\lim_{n\to\infty}u_n=0\]
+            且对充分大的$n$单调递减,那么交错级数$\displaystyle\sum_{n=1}^{\infty}(-1)^nu_n$收敛.
+        \item 狄利克雷判别法.
+            \begin{enumerate}[label=\tbf{\roman*.},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+                \item $\left\{a_n\right\}$单调趋于$0$.
+                \item $\left\{b_n\right\}$的部分和序列有界,即存在$M\in\R$使得对任意$k\in\N$有
+                    \[\left|\sum_{n=1}^{k}b_n\right|\leqslant M\]
+            \end{enumerate}
+            那么任意项级数$\displaystyle\sum_{n=1}^{\infty}a_nb_n$收敛.
+        \item 阿贝尔判别法.
+            \begin{enumerate}[label=\tbf{\roman*.},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+                \item $\left\{a_n\right\}$单调有界.
+                \item $\displaystyle\sum_{n=1}^{\infty}b_n$收敛.
+            \end{enumerate}
+            那么任意项级数$\displaystyle\sum_{n=1}^{\infty}a_nb_n$收敛.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}[判断函数项级数收敛的方法]
+    对于给定的$x$,当作数项级数判断即可.常见于求含有$\sin(x),\cos(x)$等项的函数项级数的收敛域中.
+\end{theorem}
+\begin{theorem}[判断函数项级数一致收敛的方法]
+     \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 强级数判别法.如果对任意$x\in X$都有
+            \[\left|u_n(x)\right|<a_n\]
+            并且$\displaystyle\sum_{n=1}^{\infty}a_n$收敛,那么函数项级数$\displaystyle\sum_{n=1}^{\infty}u_n(x)$在$x\in X$上一致收敛.
+        \item 狄利克雷判别法.
+            \begin{enumerate}[label=\tbf{\roman*.},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+                \item 对任意取定的$x\in X$,$a_n(x)$对$n$单调趋于$0$.
+                \item $\left\{b_n\right\}$的部分和序列在$x\in X$上一致有界,即存在$M\in\R$使得对任意$x\in X$和任意$k\in\N$有
+                    \[\left|\sum_{n=1}^{k}b_n(x)\right|\leqslant M\]
+            \end{enumerate}
+            那么函数项级数$\displaystyle\sum_{n=1}^{\infty}a_n(x)b_n(x)$在$x\in X$上一致收敛.
+        \item 阿贝尔判别法.
+            \begin{enumerate}[label=\tbf{\roman*.},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+                \item 对任意取定的$x\in X$,$a_n(x)$对$n$单调且一致有界.
+                \item $\displaystyle\sum_{n=1}^{\infty}b_(x)$在$x\in X$上一致收敛.
+            \end{enumerate}
+            那么函数项级数$\displaystyle\sum_{n=1}^{\infty}a_n(x)b_(x)$在$x\in X$上一致收敛.
+    \end{enumerate}
+\end{theorem}
+\end{document}

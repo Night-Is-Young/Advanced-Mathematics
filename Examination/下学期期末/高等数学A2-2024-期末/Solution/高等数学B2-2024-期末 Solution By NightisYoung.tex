@@ -1,0 +1,189 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2023-24高等数学A2期末考试
+\end{center}
+\begin{problem}[1.(15\songti{分})]
+    回答下列问题并简述理由.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \textbf{(5\songti{分})}\ 设$\left\{a_n\right\}_{n=1}^{+\infty}$是一给定数列,$\displaystyle\lim_{n\to\infty}na_n=0$,问级数$\displaystyle\sum_{n=1}^{\infty}a_n$的敛散性如何:
+            \begin{center}
+                $(a)$一定收敛\ \ \ \ \ $(b)$一定发散\ \ \ \ \ $(c)$敛散性不确定
+            \end{center}
+        \item \textbf{(5\songti{分})}\ 设$\left\{a_n\right\}_{n=1}^{+\infty}$是一给定数列,$\displaystyle\lim_{n\to\infty}na_n$不存在,问级数$\displaystyle\sum_{n=1}^{\infty}a_n$的敛散性如何:
+            \begin{center}
+                $(a)$一定收敛\ \ \ \ \ $(b)$一定发散\ \ \ \ \ $(c)$敛散性不确定
+            \end{center}
+        \item \textbf{(5\songti{分})}\ 设$\left\{a_n\right\}_{n=1}^{+\infty}$是一给定数列,$\displaystyle\lim_{n\to\infty}\left|na_n\right|=+\infty$,问级数$\displaystyle\sum_{n=1}^{\infty}a_n$的敛散性如何:
+            \begin{center}
+                $(a)$一定收敛\ \ \ \ \ $(b)$一定发散\ \ \ \ \ $(c)$敛散性不确定
+            \end{center}
+    \end{enumerate}
+
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 令$a_n=\dfrac{1}{n^2}$可知级数收敛,令$a_n=\dfrac{1}{n\ln n}$可知级数发散.于是级数的敛散性不确定.
+        \item 令$a_n=\dfrac{(-1)^n}{n}$可知级数收敛,令$a_n=(-1)^n$可知级数发散.于是级数的敛散性不确定.
+        \item 令$a_n=\dfrac{(-1)^n}{n^{\frac23}}$可知级数收敛,令$a_n=1$可知级数发散.于是级数的敛散性不确定.
+    \end{enumerate}
+\end{solution}
+\begin{problem}[2.(10\songti{分})]
+    试求幂级数的收敛半径.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \textbf{(5\songti{分})}
+            \[\sum_{n=1}^{\infty}\dfrac{\left(n!\right)^2}{(2n)!}x^n\]
+        \item \textbf{(5\songti{分})}
+            \[\sum_{n=1}^{\infty}\dfrac{(-1)^n+(-2)^n+3^n}{n(n+1)(n+2)}x^n\]
+
+    \end{enumerate}
+
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 令$u_n=\dfrac{\left(n!\right)^2}{(2n)!}$,则有
+            \[\lim_{n\to\infty}\dfrac{u_{n+1}}{u_n}=\dfrac{\left((n+1)!\right)^2(2n)!}{\left(n!\right)^2(2n+2)!}
+            =\lim_{n\to\infty}\dfrac{(n+1)^2}{(2n+1)(2n+2)}=\dfrac14\]
+            于是收敛半径$R=4$.
+        \item 令$u_n=\dfrac{(-1)^n+(-2)^n+3^n}{n(n+1)(n+2)}$,则有
+            \[\lim_{n\to\infty}\left|\dfrac{u_{n+1}}{u_n}\right|
+            =\lim_{n\to\infty}\left|\dfrac{\left((-1)^{n+1}+(-2)^{n+1}+3^{n+1}\right)n(n+1)(n+2)}{\left((-1)^n+(-2)^n+3^n\right)(n+1)(n+2)(n+3)}\right|=\dfrac13\]
+            于是收敛半径$R=3$.
+
+    \end{enumerate}
+\end{solution}
+\begin{problem}[3.(10\songti{分})]
+    求微分方程
+    \[y''+y'=x^2+x\]
+    的通解.
+
+\end{problem}
+
+\begin{problem}[4.(10\songti{分})]
+    判断下列级数的敛散性.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \textbf{(5\songti{分})}
+            \[\sum_{n=2}^{\infty}\dfrac{1}{(\ln n)^{\ln n}}\]
+        \item \textbf{(5\songti{分})}
+            \[\sum_{n=2}^{\infty}\dfrac{(-1)^n}{\sqrt{n}+(-1)^n}\]
+
+    \end{enumerate}
+        
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 注意到
+            \[\ln\left(\left(\ln n\right)^{\ln n}\right)=\ln n\cdot\ln\ln n=\ln\left(n^{\ln\ln n}\right)\]
+            当$n>27>\e^\e$时就有
+            \[\sum_{n=27}^{\infty}\dfrac{1}{\left(\ln n\right)^{\ln n}}=\sum_{n=27}^{\infty}\dfrac{1}{n^{\ln\ln n}}<\sum_{n=27}^{\infty}\dfrac{1}{n^2}\]
+            收敛,于是原级数收敛.
+        \item 我们有
+            \[\dfrac{(-1)^n}{\sqrt{n}+(-1)^n}=\dfrac{(-1)^n\sqrt{n}-1}{n-1}\]
+            于是
+            \[\sum_{n=2}^{\infty}\dfrac{(-1)^n}{\sqrt{n}+(-1)^n}
+            =\sum_{n=2}^{\infty}\dfrac{\sqrt{n}}{n-1}(-1)^{n}+\sum_{n=2}^{\infty}\dfrac{1}{n-1}\]
+            注意到$a_n=\dfrac{\sqrt{n}}{n-1}$对$n$单调递减且有
+            \[\lim_{n\to\infty}a_n=\lim_{n\to\infty}\dfrac{1}{\sqrt{n}-\dfrac{1}{\sqrt{n}}}=0\]
+            于是根据Leibniz判别法可知第一部分收敛.又因为级数
+            \[\sum_{n=2}\dfrac{1}{n-1}=\sum_{n=1}^{\infty}\dfrac1n\]
+            发散,从而原级数发散.
+    \end{enumerate}
+\end{solution}
+\begin{problem}[5.(15\songti{分})]
+    证明函数
+    \[f(x)=\sum_{n=2}^{\infty}\left(\dfrac{x\sin x}{\ln n}\right)^n\]
+    是$(-\infty,+\infty)$上的连续函数.
+\end{problem}
+\begin{proof}
+    注意到
+    \[\sum_{n=2}^{\infty}\left|\left(\dfrac{x\sin x}{\ln n}\right)^{n}\right|<\sum_{n=1}^{\infty}\dfrac{x^n}{\left(\ln n\right)^n}\]
+    右边是一个幂级数.令$u_n=\dfrac{1}{(\ln n)^n}$,则有
+    \[\lim_{n\to\infty}\sqrt[n]{u_n}=\lim_{n\to\infty}\dfrac{1}{\ln n}=0\]
+    于是收敛半径$R=+\infty$,即该幂级数对$x\in(-\infty,+\infty)$一致收敛.进而原函数在$(-\infty,+\infty)$一致收敛,于是在其上连续.
+\end{proof}
+\begin{problem}[6.(10\songti{分})]
+    计算含参变量$t$的无穷积分
+    \[I(t)=\int_0^{+\infty}\e^{-x^2}\cos(tx)\di x(-\infty<t<+\infty)\]
+    已知$I(0)=\dfrac{\sqrt{\pi}}{2}$.
+\end{problem}
+\begin{solution}
+    令$f(x,t)=\e^{-x^2}\cos(tx)$.首先有
+    \[\int_0^{+\infty}\left|f(x)\right|\di x\leqslant\int_0^{+\infty}\e^{-x^2}\di x=\dfrac{\sqrt{\pi}}{2}\]
+    于是$I(t)$对$t\in(-\infty,+\infty)$一致收敛.\\
+    同样地有
+    \[\int_0^{+\infty}\left|\dfrac{\p f}{\p t}(x,t)\right|\di x
+    =\int_0^{+\infty}\left|x\e^{-x^2}\sin(tx)\right|\di x
+    \leqslant\int_0^{+\infty}x\e^{-x^2}\di x=1\]
+    同样对$t\in(-\infty,+\infty)$一致收敛.因此$I(t)$可以求导,并且有
+    \[\begin{aligned}
+        I'(t)
+        &= \int_0^{+\infty}\dfrac{\p f}{\p t}(x,t)\di x=-\int_0^{+\infty}x\e^{-x^2}\sin(tx)\di x \\
+        &= \dfrac12\int_0^{+\infty}\sin(tx)\di\left(\e^{-x^2}\right)=\dfrac12\left[\left.\left(\sin(tx)\e^{-x^2}\right)\right|_0^{+\infty}+\int_0^{+\infty}t\e^{-x^2}\cos(tx)\di x\right] \\
+        &= \dfrac{t}{2}I(t)
+    \end{aligned}\]
+    于是即有
+    这一微分方程的通解为
+    \[I(t)=C\e^{-\frac{x^2}{4}}\]
+    由于$I(0)=\dfrac{\sqrt{\pi}}{2}$,于是
+    \[I(t)=\dfrac{\sqrt{\pi}}{2}C\e^{-\frac{x^2}{4}}\]
+
+\end{solution}
+\begin{problem}[7.(12\songti{分})]
+    回答下列问题.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \textbf{(2\songti{分})}\ 写出$\Gamma$函数的表达式.
+        \item \textbf{(5\songti{分})}\ 试证明$\Gamma(s)$在$s\in(0,+\infty)$上连续.
+        \item \textbf{(5\songti{分})}\ 用$\Gamma$函数表示积分
+            \[\int_0^{+\infty}\e^{-x^n}\di x\]
+            并求极限
+            \[\lim_{n\to+\infty}\int_0^{+\infty}\e^{-x^n}\di x\]
+
+    \end{enumerate}
+
+\end{problem}
+\begin{problem}[8.(13\songti{分})]
+    设函数
+    \[f(x)=\left\{\begin{array}{l}
+        x,0\leqslant x\leqslant 1\\
+        0,1<x\leqslant 2
+    \end{array}\right.\]
+    计算$f(x)$在$[0,2]$上的Fourier展开式,并证明
+    \[\sum_{n=0}^{\infty}\dfrac{1}{(2n+1)^2}=\dfrac{\pi^2}{8}\ \ \ \ \ \sum_{n=1}^{\infty}\dfrac{1}{n^2}=\dfrac{\pi^2}{6}\]
+
+\end{problem}
+
+\begin{problem}[9.(5\songti{分})]
+    试证明
+    \[\int_0^1\dfrac{1}{x^x}\di x=\sum_{n=1}^{\infty}\dfrac{1}{n^n}\]
+    
+\end{problem}
+\begin{proof}
+    我们有
+    \[\int_0^1\dfrac{1}{x^x}\di x=\int_0^1\e^{-x\ln x}\]
+    考虑$\e^t$在$t=0$处的泰勒展开
+    \[\e^t=\sum_{n=0}^{\infty}\dfrac{t^n}{n!}\]
+    代入$t=-x\ln x$可得
+    \[\e^{-x\ln x}=\sum_{n=0}^{\infty}\dfrac{x^n\left(-\ln x\right)^n}{n!}\]
+    注意到对任意$x\in(0,1)$都有$-\dfrac1\e<x\ln x<0$,因此
+    \[\sum_{n=0}^{\infty}\left|\dfrac{x^n\left(-\ln x\right)^n}{n!}\right|<\sum_{n=0}^{\infty}\dfrac{1}{\e^nn!}\]
+    收敛,于是根据强级数判别法可知
+    \[\sum_{n=0}^{\infty}\dfrac{x^n\left(-\ln x\right)^n}{n!}\]
+    在$(0,1)$一致收敛于$\e^{-x\ln x}$.于是,可逐项求积分有
+    \[\int_0^1\dfrac{1}{x^x}\di x=\int_0^1\sum_{n=0}^{\infty}\dfrac{x^n\left(-\ln x\right)^n}{n!}\di x
+    =\sum_{n=0}^{+\infty}\int_0^1\dfrac{x^n\left(-\ln x\right)^n}{n!}\di x\]
+    做代换$u=-\ln x$,则有
+    \[\begin{aligned}
+        \int_0^1\dfrac{x^n\left(-\ln x\right)^n}{n!}\di x
+        &=\int_0^{+\infty}\dfrac{\e^{-(n+1)u}u^n}{n!}\di u \\
+        &\xlongequal{v=(n+1)u}\dfrac{1}{n!(n+1)^{n+1}}\int_0^{+\infty}\e^{-v}v^n\di v \\
+        &=\dfrac{\Gamma(n+1)}{(n+1)^{n+1}n!}=\dfrac{1}{(n+1)^{n+1}}
+    \end{aligned}\]
+    从而
+    \[\int_0^1\dfrac{1}{x^x}\di x=\sum_{n=1}^{\infty}\dfrac{1}{n^n}\]
+\end{proof}
+\end{document}

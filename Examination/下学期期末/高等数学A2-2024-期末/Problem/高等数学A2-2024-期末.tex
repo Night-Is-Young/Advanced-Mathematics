@@ -1,0 +1,80 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2023-24高等数学A2期末考试
+\end{center}
+\begin{enumerate}[leftmargin=*,label=\textbf{\arabic*.},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+    \item \textbf{(15\songti{分})}\ 回答下列问题并简述理由.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(5\songti{分})}\ 设$\left\{a_n\right\}_{n=1}^{+\infty}$是一给定数列,$\displaystyle\lim_{n\to\infty}na_n=0$,问级数$\displaystyle\sum_{n=1}^{\infty}a_n$的敛散性如何:
+                \begin{center}
+                    $(a)$一定收敛\ \ \ \ \ $(b)$一定发散\ \ \ \ \ $(c)$敛散性不确定
+                \end{center}
+            \item \textbf{(5\songti{分})}\ 设$\left\{a_n\right\}_{n=1}^{+\infty}$是一给定数列,$\displaystyle\lim_{n\to\infty}na_n$不存在,问级数$\displaystyle\sum_{n=1}^{\infty}a_n$的敛散性如何:
+                \begin{center}
+                    $(a)$一定收敛\ \ \ \ \ $(b)$一定发散\ \ \ \ \ $(c)$敛散性不确定
+                \end{center}
+            \item \textbf{(5\songti{分})}\ 设$\left\{a_n\right\}_{n=1}^{+\infty}$是一给定数列,$\displaystyle\lim_{n\to\infty}\left|na_n\right|=+\infty$,问级数$\displaystyle\sum_{n=1}^{\infty}a_n$的敛散性如何:
+                \begin{center}
+                    $(a)$一定收敛\ \ \ \ \ $(b)$一定发散\ \ \ \ \ $(c)$敛散性不确定
+                \end{center}
+        \end{enumerate}
+
+    \item \textbf{(10\songti{分})}\ 试求幂级数的收敛半径.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(5\songti{分})}
+                \[\sum_{n=1}^{\infty}\dfrac{\left(n!\right)^2}{(2n)!}x^n\]
+            \item \textbf{(5\songti{分})}
+                \[\sum_{n=1}^{\infty}\dfrac{(-1)^n+(-2)^n+3^n}{n(n+1)(n+2)}x^n\]
+
+        \end{enumerate}
+
+    \item \textbf{(10\songti{分})}\ 求微分方程
+        \[y''+y'=x^2+x\]
+        的通解.
+
+    \item \textbf{(10\songti{分})}\ 判断下列级数的敛散性.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(5\songti{分})}
+                \[\sum_{n=2}^{\infty}\dfrac{1}{(\ln n)^{\ln n}}\]
+            \item \textbf{(5\songti{分})}
+                \[\sum_{n=2}^{\infty}\dfrac{(-1)^n}{\sqrt{n}+(-1)^n}\]
+
+        \end{enumerate}
+        
+    \item \textbf{(15\songti{分})}\ 证明函数
+        \[f(x)=\sum_{n=2}^{+\infty}\left(\dfrac{x\sin x}{\ln n}\right)^n\]
+        是$(-\infty,+\infty)$上的连续函数.
+
+    \item \textbf{(10\songti{分})}\ 计算含参变量$t$的无穷积分
+        \[I(t)=\int_0^{+\infty}\e^{-x^2}\cos(tx)\di x(-\infty<t<+\infty)\]
+        已知$I(0)=\dfrac{\sqrt{\pi}}{2}$.
+
+    \item \textbf{(12\songti{分})}\ 回答下列问题.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(2\songti{分})}\ 写出$\Gamma$函数的表达式.
+            \item \textbf{(5\songti{分})}\ 试证明$\Gamma(s)$在$s\in(0,+\infty)$上连续.
+            \item \textbf{(5\songti{分})}\ 用$\Gamma$函数表示积分
+                \[\int_0^{+\infty}\e^{-x^n}\di x\]
+                并求极限
+                \[\lim_{n\to+\infty}\int_0^{+\infty}\e^{-x^n}\di x\]
+
+        \end{enumerate}
+
+    \item \textbf{(13\songti{分})}
+        设函数
+        \[f(x)=\left\{\begin{array}{l}
+            x,0\leqslant x\leqslant 1\\
+            0,1<x\leqslant 2
+        \end{array}\right.\]
+        计算$f(x)$在$[0,2]$上的Fourier展开式,并证明
+        \[\sum_{n=0}^{\infty}\dfrac{1}{(2n+1)^2}=\dfrac{\pi^2}{8}\ \ \ \ \ \sum_{n=1}^{\infty}\dfrac{1}{n^2}=\dfrac{\pi^2}{6}\]
+
+    \item \textbf{(5\songti{分})}\ 试证明
+        \[\int_0^1\dfrac{1}{x^x}\di x=\sum_{n=1}^{\infty}\dfrac{1}{n^n}\]
+    
+\end{enumerate}
+\end{document}
