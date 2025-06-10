@@ -1,0 +1,204 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+
+\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2023-24高等数学B2期末考试
+\end{center}
+\begin{problem}[1.(14\songti{分})]
+    讨论下列级数的敛散性.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \[\sum_{n=1}^{\infty}2^n\left(\dfrac{n-1}{n}\right)^{n^2}\]
+        \item \[\sum_{n=2}^{\infty}\dfrac{1}{n\sqrt{\ln n}}\]
+    \end{enumerate}
+
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 令$u_n=2^n\left(\dfrac{n-1}{n}\right)^{n^2}$,于是
+            \[\lim_{n\to\infty}\sqrt[n]{u_n}=2\left(1-\dfrac1n\right)^n=\dfrac{2}{\e}<1\]
+            根据Cauchy判别法可知原级数收敛.
+        \item 令$u_n=\dfrac{1}{n\sqrt{\ln n}}$,这显然是一个单调下降的正项级数.采用积分判别法,有
+            \[\sum_{n=2}^{\infty}u_n>\int_2^{+\infty}\dfrac{1}{x\sqrt{\ln x}}\di x
+            =\left.\left(2\sqrt{\ln x}\right)\right|_0^{+\infty}\]
+            由于$\displaystyle\lim_{x\to+\infty}\sqrt{\ln x}=+infty$,于是上述积分发散,因而原级数发散.
+    \end{enumerate}
+\end{solution}
+\begin{problem}[2.(14\songti{分})]
+    判断下列级数的敛散性.如果收敛,请判断其为绝对收敛还是条件收敛.
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item \[\sum_{n=2}^{\infty}\dfrac{(-1)^n}{\sqrt{n}+(-1)^n}\]
+        \item \[\sum_{n=1}^{\infty}\dfrac{(-1)^{n-1}}{n^{1+\frac1n}}\]
+    \end{enumerate}
+
+\end{problem}
+\begin{solution}
+    \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+        \item 我们有
+            \[\dfrac{(-1)^n}{\sqrt{n}+(-1)^n}=\dfrac{(-1)^n\sqrt{n}-1}{n-1}\]
+            于是
+            \[\sum_{n=2}^{\infty}\dfrac{(-1)^n}{\sqrt{n}+(-1)^n}
+            =\sum_{n=2}^{\infty}\dfrac{\sqrt{n}}{n-1}(-1)^{n}+\sum_{n=2}^{\infty}\dfrac{1}{n-1}\]
+            注意到$a_n=\dfrac{\sqrt{n}}{n-1}$对$n$单调递减且有
+            \[\lim_{n\to\infty}a_n=\lim_{n\to\infty}\dfrac{1}{\sqrt{n}-\dfrac{1}{\sqrt{n}}}=0\]
+            于是根据Leibniz判别法可知第一部分收敛.又因为级数
+            \[\sum_{n=2}^{\infty}\dfrac{1}{n-1}=\sum_{n=1}^{\infty}\dfrac1n\]
+            发散,从而原级数发散.
+        \item 令$u_n=\dfrac{1}{n^{1+\frac1n}}$,于是$\ln u_n=-\dfrac{n+1}{n}\ln n$.令$f(x)=-\dfrac{x+1}{x}\ln x$,则有
+            \[f'(x)=\dfrac{\ln x}{x^2}-\dfrac{x+1}{x^2}=\dfrac{\ln x-x-1}{x^2}\]
+            当$x>2$时$f'(x)<0$,即$f(x)$在$x>2$时单调递减.于是$\left\{u_n\right\}_{n=2}^{\infty}$单调递减.此外有
+            \[\lim_{n\to\infty}u_n=\lim_{n\to\infty}\dfrac{1}{n}\cdot\dfrac{1}{n^{\frac1n}}=0\cdot1=0\]
+            于是根据Leibniz判别法可知原级数收敛.\\
+            现在考察其绝对收敛性.注意到
+            \[\lim_{n\to\infty}\dfrac{u_n}{\frac1n}=\lim_{n\to\infty}\dfrac{1}{n^{\frac1n}}=1\]
+            又因为级数
+            \[\sum_{n=1}^{\infty}\dfrac1n\]
+            发散,于是根据比较判别法可知
+            \[\sum_{n=1}^{\infty}\left|\dfrac{(-1)^{n-1}}{n^{1+\frac1n}}\right|=\sum_{n=1}^{\infty}u_n\]
+            发散.于是原级数条件收敛.
+    \end{enumerate}
+\end{solution}
+\begin{problem}[3.(16\songti{分})]
+    求幂级数
+    \[\sum_{n=1}^{\infty}\dfrac{(-1)^{n-1}}{(2n-1)(2n+1)}x^{2n+1}\]
+    的收敛半径,收敛区间,收敛域以及和函数.
+
+\end{problem}
+\begin{solution}
+    令$a_n=\dfrac{(-1)^{n-1}}{(2n-1)(2n+1)}$,则有
+    \[\lim_{n\to\infty}\left|\dfrac{a_{n+1}}{a_n}\right|=\lim_{n\to\infty}\dfrac{(2n-1)(2n+1)}{(2n+1)(2n+3)}=1\]
+    于是收敛半径$R=1$,收敛区间为$(-1,1)$.又当$|x|=1$时有
+    \[\sum_{n=1}^{\infty}\left|a_n\right|x^n=\sum_{n=1}^{\infty}\dfrac{1}{(2n-1)(2n+1)}=\dfrac12\lim_{n\to\infty}\left(1-\dfrac{1}{2n+1}\right)=\dfrac12\]
+    绝对收敛,因此该幂函数的收敛域为$[-1,1]$.令和函数为$S(x)$,对其逐项求导有
+    \[S'(x)=\sum_{n=1}^{\infty}\dfrac{(-1)^{n-1}}{2n-1}x^{2n}=x\sum_{n=1}^{\infty}\dfrac{(-1)^{n-1}}{2n-1}x^{2n-1}=x\arctan x\]
+    于是
+    \[\begin{aligned}
+        \int S'(x)\di x
+        &= \int x\arctan x\di x \\
+        &= x^2\arctan x-\int x\left(\arctan x+\dfrac{x}{1+x^2}\right)\di x \\
+        &= x^2\arctan x-\int S'(x)\di x-\int\left(1-\dfrac{1}{1+x^2}\right)\di x \\
+    \end{aligned}\]
+    于是
+    \[\int S'(x)\di x=\dfrac12\left(x^2\arctan x+\arctan x-x\right)\]
+    又因为$S(0)=0$,于是
+    \[S(x)=\dfrac12\left(x^2\arctan x+\arctan x-x\right)\]
+
+\end{solution}
+\begin{problem}[4.(12\songti{分})]
+    求含参变量$a$的积分
+    \[I(a)=\int_0^{\frac\pi2}\ln\left(a^2\sin^2x+\cos^2x\right)\di x(a>0)\]
+        
+\end{problem}
+\begin{solution}
+    记$f(x,a)=\ln\left(a^2\sin^2x+\cos^2x\right)$.%
+    注意到$a^2\sin^2x+\cos^2x>0$对所有$x\in\left[0,\dfrac\pi2\right]$和$a\neq0$成立,%
+    因此被积函数$f(x,a)$在$\left[0,\dfrac\pi2\right]\times(-\infty,0)$和$\left[0,\dfrac\pi2\right]\times(0,+\infty)$上有定义并且二元连续.考虑到$f(x,a)=f(x,-a)$,即$I(-a)=I(a)$,因此下面考虑$a>0$的情形即可.\\
+    同理,$\dfrac{\p f}{\p a}(x,a)=\dfrac{2a\sin^2x}{a^2\sin^2x+\cos^2x}$也在$\left[0,\dfrac\pi2\right]\times(0,+\infty)$上有定义并且二元连续.于是可以对$I(a)$求导得到
+    \[I'(a)
+    =\int_0^{\frac\pi2}\dfrac{\p f}{\p a}(x,a)\di x
+    =\int_0^{\frac\pi2}\dfrac{2a\sin^2x}{a^2\sin^2x+\cos^2x}
+    \xlongequal{u=\tan x}\int_0^{+\infty}\dfrac{2au^2}{\left(a^2u^2+1\right)\left(u^2+1\right)}\di u\]
+    当$a=1$时有
+    \[I'(a)=\int_0^{+\infty}\dfrac{2u^2}{\left(1+u^2\right)^2}\di u=\left.\left(\arctan u-\dfrac{u}{1+u^2}\right)\right|_0^{+\infty}=\dfrac\pi2\]
+    当$a\neq1$时有
+    \[\begin{aligned}
+        I'(a)
+        &= \int_0^{+\infty}\dfrac{2u^2}{\left(1+u^2\right)^2}\di u \\
+        &= \int_0^{+\infty}\dfrac{2}{1-a^2}\left(\dfrac{1}{a^2u^2+1}-\dfrac{1}{u^2+1}\right)\di u \\
+        &= \left.\dfrac{2}{1-a^2}\left(\dfrac1a\arctan u-\arctan u\right)\right|_0^{+\infty} \\
+        &= \dfrac{2}{1-a^2}\cdot\dfrac{1-a}{a}\cdot\dfrac\pi2 \\
+        &= \dfrac{\pi}{1+a}
+    \end{aligned}\]
+    从而$a>0$时$I(a)=\pi\ln(1+a)+C$.又因为
+    \[I(1)=\int_0^{\frac\pi2}\ln\left(\sin^2x+\cos^2x\right)\di x=\int_0^{\frac\pi2}0\di x=0\]
+    于是$a>0$时
+    \[I(a)=\pi\ln\dfrac{1+a}{2}\]
+    于是
+    \[I(a)=\pi\ln\dfrac{1+|a|}{2}\]
+
+\end{solution}
+\begin{problem}[5.(12\songti{分})]
+    判断广义积分
+    \[\int_0^{+\infty}\dfrac{1}{\left(1+x^2\right)\left(\sin^2 x\right)^\alpha}\di x\]
+    的敛散性,其中$0<\alpha<\dfrac12$.
+\end{problem}
+\begin{solution}
+    先考虑瑕积分
+    \[\int_0^{\frac\pi2}\dfrac{1}{\left(\sin x\right)^{2\alpha}}\di x\]
+    瑕点为$0$.由于
+    \[\lim_{x\to0^+}\dfrac{\frac{1}{\left(\sin x\right)^{2\alpha}}}{\frac{1}{x^{2\alpha}}}=\lim_{x\to0^+}\left(\dfrac{x}{\sin x}\right)^{\alpha}=1^{2\alpha}=1\]
+    于是上述瑕积分与
+    \[\int_0^{\frac\pi2}\dfrac{1}{x^{2\alpha}}\di x\]
+    同敛散.又因为$0<\alpha<\dfrac12$,于是$0<2\alpha<1$,从而上述瑕积分收敛,因而开始的瑕积分亦收敛.设其收敛于$C$.\\
+    我们有
+    \[\begin{aligned}
+        \int_0^{+\infty}\dfrac{1}{\left(1+x^2\right)\left(\sin^2 x\right)^\alpha}\di x
+        &= \lim_{A\to+\infty}\int_0^A\dfrac{1}{\left(1+x^2\right)\left(\sin^2 x\right)^\alpha}\di x \\
+        &= \lim_{A\to+\infty}\left(\int_{(n+1)\pi}^{A}\dfrac{1}{\left(1+x^2\right)\left(\sin^2 x\right)^\alpha}\di x+\sum_{n=0}\int_{n\pi}^{(n+1)\pi}\dfrac{1}{\left(1+x^2\right)\left(\sin^2 x\right)^\alpha}\di x\right)
+    \end{aligned}\]
+    其中$n\in\N$并且$(n+1)\pi<A<(n+2)\pi$,于是$A\to+\infty$时$n\to\infty$.并且我们有
+    \[0<\int_{(n+1)\pi}^A\dfrac{1}{\left(1+x^2\right)\left(\sin^2 x\right)^\alpha}\di x<\dfrac{1}{1+(n+1)^2\pi^2}\int_{n+1(\pi)}^{A}\dfrac{1}{\left(\sin^2 x\right)^\alpha}\di x<\dfrac{2C}{1+(n+1)^2\pi^2}\]
+    由夹逼准则可知
+    \[\lim_{A\to+\infty}\int_{(n+1)\pi}^A\dfrac{1}{\left(1+x^2\right)\left(\sin^2 x\right)^\alpha}\di x=0\]
+    于是
+    \[\int_0^{+\infty}\dfrac{1}{\left(1+x^2\right)\left(\sin^2 x\right)^\alpha}\di x
+    =\sum_{n=0}^{\infty}\int_{n\pi}^{(n+1)\pi}\dfrac{1}{\left(1+x^2\right)\left(\sin^2 x\right)^\alpha}\di x\]
+    考虑到$\sin x$的周期性,可将右边的积分改写为
+    \[\int_{n\pi}^{(n+1)\pi}\dfrac{1}{\left(1+x^2\right)\left(\sin^2 x\right)^\alpha}\di x
+    \xlongequal{u=x-n\pi}\int_0^{\pi}\dfrac{1}{\left(1+\left(u+n\pi\right)^2\right)\left(\sin^2x\right)^\alpha}\di u\]
+    而
+    \[\int_0^{\pi}\dfrac{1}{\left(1+\left(u+n\pi\right)^2\right)\left(\sin^2x\right)^\alpha}\di u
+    <\dfrac{1}{1+n^2\pi^2}\int_0^{\pi}\dfrac{1}{\left(\sin^2\right)^\alpha}\di x=\dfrac{2C}{1+n^2\pi^2}\]
+    于是
+    \[\int_0^{+\infty}\dfrac{1}{\left(1+x^2\right)\left(\sin^2 x\right)^\alpha}\di x
+    <2C\sum_{n=0}^{\infty}\dfrac{1}{1+n^2\pi^2}\]
+    收敛.
+\end{solution}
+\begin{problem}[6.(12\songti{分})]
+    讨论积分
+    \[\int_1^{+\infty}t\e^{-tx}\dfrac{\cos x}{x}\di x\]
+    在$0\leqslant t<+\infty$上的一致收敛性.
+\end{problem}
+\begin{solution}
+    令$f(x)=\dfrac1x,g(x)=\cos x$.不难看出$f(x)$单调递减且$\displaystyle\lim_{x\to+\infty}f(x)=0$,而对任意$A>a>1$有
+    \[\left|\int_a^Ag(x)\di x\right|=\left|\sin A-\sin a\right|\leqslant 2\]
+    即$\displaystyle\int_a^{A}g(x)\di x$一致有界.于是根据Dirichlet判别法可知
+    \[\int_1^{+\infty}\dfrac{\cos x}{x}\di x\]
+    一致收敛.\\
+    令$h(x,t)=t\e^{-tx}$.对于固定的$t\geqslant0$,$h(x,t)$总是对$x$单调递减,并且$h(x,t)=t\e^{-tx}<t\e^{-t}\leqslant\dfrac1\e$对$t\in[0,+\infty)$一致有界.\\
+    于是根据Abel判别法可知原级数对$t\in[0,+\infty)$一致收敛.
+\end{solution}
+\begin{problem}[7.(20\songti{分})]
+    设$f(x)$是以$2\pi$为周期的函数,满足$f(x)=|x|,x\in[-\pi,\pi]$.求出$f(x)$的傅里叶级数及其和函数,并求出级数
+    \[\sum_{n=1}^{\infty}\dfrac{1}{n^4}\]
+
+\end{problem}
+\begin{solution}
+    注意到$f(x)=|x|$为偶函数,因此考虑$a_n$即可.
+    \[a_0=\dfrac1\pi\int_{-\pi}^{\pi}|x|\di x=\pi\]
+    \[\begin{aligned}
+        a_n
+        &=\dfrac1\pi\int_{-\pi}^{\pi}|x|\di x=\dfrac2\pi\int_{0}^{\pi}x\cos nx\di x\xlongequal{u=nx}\dfrac{2}{\pi n^2}\int_0^{\pi}u\cos u\di u \\
+        &= \dfrac{2}{\pi n^2}\left.\left(u\sin u+\cos u\right)\right|_0^{n\pi}=\left\{\begin{array}{l}
+            0,n\text{为偶数}\\
+            -\dfrac{4}{\pi n^2},n\text{为奇数}
+        \end{array}\right.
+    \end{aligned}\]
+    于是$f(x)$的Fourier级数为
+    \[f(x)\sim\dfrac\pi2-\sum_{n=0}^{\infty}\dfrac{4\cos((2n+1)x)}{\pi(2n+1)^2}\]
+    由于$f(x)$在$[-\pi,\pi]$上分段连续且分段单调,又因为$f(-\pi)=f(\pi)$,没有间断点,因此根据Dirichlet定理可知上述Fourier级数收敛于$f(x)$.\\
+    根据Parseval等式有
+    \[\dfrac{\pi^2}{2}+\sum_{n=0}\dfrac{16}{\pi^2(2n+1)^4}=\dfrac1\pi\int_{-\pi}^{\pi}x^2\di x=\dfrac23\pi^2\]
+    于是
+    \[\sum_{n=0}^{\infty}\dfrac{1}{(2n+1)^4}=\dfrac{\pi^4}{96}\]
+    注意到
+    \[\sum_{n=1}^{\infty}\dfrac{1}{n^4}=\sum_{n=0}^{\infty}\dfrac{1}{(2n+1)^4}+\sum_{n=0}^{\infty}\dfrac{1}{(4n+2)^4}+\sum_{n=1}^{\infty}\dfrac{1}{(4n)^4}\]
+    于是
+    \[\sum_{n=1}^{\infty}\dfrac{1}{n^4}=\dfrac{1-\frac{1}{4^4}}{1+\frac{1}{2^4}}\sum_{n=0}^{\infty}\dfrac{1}{(2n+1)^4}
+    =\dfrac{16}{15}\cdot\dfrac{\pi^4}{96}=\dfrac{\pi^4}{90}\]
+
+\end{solution}
+\end{document}
