@@ -14,7 +14,7 @@
     其中积分区域$D=\left\{(r,\theta):0\leqslant r\leqslant\sec\theta,0\leqslant\theta\leqslant\dfrac\pi4\right\}$.
 \end{problem}
 \begin{solution}
-    做极坐标变换$x=r\cos\theta,y=r\sin\theta$的逆变换,变换的Jacobi矩阵
+    做极坐标变换$x=r\cos\theta,y=r\sin\theta$的逆变换,变换的Jacobi行列式的绝对值
     \[|J|=\begin{vmatrix}
         \dfrac{x}{\sqrt{x^2+y^2}}&\dfrac{y}{\sqrt{x^2+y^2}}\\
         -\dfrac{y}{x^2+y^2}&\dfrac{x}{x^2+y^2}
@@ -39,26 +39,12 @@
     其中曲线$L$是由曲面$4x^2+y^2=1$与平面$2x+y+z=1$所截得的曲线,其正向$L^+$规定为从$z$轴看的逆时针方向.
 \end{problem}
 \begin{solution}
-    令
-    \[P(x,y,z)=\dfrac{-y}{4x^2+y^2}\ \ \ \ \ Q(x,y,z)=\dfrac{x}{4x^2+y^2}\ \ \ \ \ R(x,y,z)=z\]
-    设$\Gamma:4x^2+y^2=\ep^2,z=1$,$0<\ep<1$,定向为顺时针方向.\\
-    在$L\cup\Gamma$所围的曲面$S$上运用Stokes公式有
-    \[\begin{aligned}
-        &\oint_{L^+\cup\Gamma^-}P\dx+Q\di y+R\di z\\
-        =&\iint_{S^+}\left(0-0\right)\di y\di z+\left(0-0\right)\di z\dx+\left(\dfrac{4x^2+y^2-8x^2+4x^2+y^2-2y^2}{\left(4x^2+y^2\right)^2}\right)\dx\di y \\
-        =&\iint_{S}0\di S \\
-        =&0
-    \end{aligned}\]
-    又因为
-    \[\begin{aligned}
-        \oint_{\Gamma^+}P\di x+Q\di y+R\di z
-        &= \oint_{\Gamma^+}\dfrac{-y\dx+x\di y}{\ep^2}\di s \\
-        &= \dfrac{1}{\ep^2}\iint_{4x^2+y^2\leqslant\ep^2}2\di x\di y \\
-        &= \pi
-    \end{aligned}\]
-    于是
-    \[\oint_{L^+}\dfrac{-y}{4x^2+y^2}\dx+\dfrac{x}{4x^2+y^2}\di y+z\di z=\pi\]
-
+依题意取参数方程
+    \[x=\dfrac12\cos t,\quad y=\sin t,\quad z=1-\cos t-\sin t,\qquad0\leqslant t\leqslant2\pi.\]
+    这一定向从$z$轴正方向看为逆时针方向,且$4x^2+y^2=1$.于是
+    \[\oint_{L^+}\dfrac{-y\di x+x\di y}{4x^2+y^2}
+      =\int_0^{2\pi}\dfrac12\di t=\pi.\]
+    又$\displaystyle\oint_{L^+}z\di z=\oint_{L^+}\di(z^2/2)=0$,因此$I=\pi$.
 \end{solution}
 \begin{problem}[3.(20\songti{分})]
     设$f:\R\to\R$是连续函数,求曲面积分
@@ -111,7 +97,7 @@
             又因为
             \[y(1)=\e^3\]
             于是
-            \[y=x\e^{2x+1}\]
+            \[y=x\e^{2x+1},\qquad x>0\]
         \item 
             \begin{enumerate}[label=\tbf{(\alph*)}]
                 \item 对应的齐次方程$y'=-y$的通解为$y=C\e^{-x}$.设$y=C(x)\e^{-x}$,代入原方程有
@@ -122,34 +108,14 @@
                     \[C(x)=\e^x(x-1)+C\]
                     从而方程的通解为
                     \[y=C\e^{-x}+x-1\]
-                \item 同样地,根据常数变易法可知方程的通解为
-                    \[y=\e^{-x}\left(\int_0^x\e^xf(x)\dx+y(0)\right)\]
-                    如果$y(x)=y(x+T)$对所有$x\in\R$成立,就有
-                    \[\e^{-x-T}\left(\int_0^{x+T}\e^xf(x)\dx+y(0)\right)=\e^{-x}\left(\int_0^x\e^xf(x)\dx+y(0)\right)\]
-                    即
-                    \[\e^{-T}\left(\int_0^{x+T}\e^xf(x)\dx+y(0)\right)=\int_0^x\e^xf(x)\dx+y(0)\]
-                    又因为
-                    \[\begin{aligned}
-                        \e^{-T}\int_0^{x+T}\e^{x}f(x)\dx
-                        &= \e^{-T}\int_{-T}^{x}\e^{x-T}f(x-T)\di(x-T) \\
-                        &= \int_{-T}^x\e^xf(x)\dx
-                    \end{aligned}\]
-                    于是
-                    \[\int_{-T}^{0}\e^{x}f(x)\dx=\left(1-\e^{-T}\right)y(0)\]
-                    这样,原方程的以$T$为周期的周期函数解即为
-                    \[y=\e^{-x}\left(\int_0^x\e^xf(x)\dx+\dfrac{1}{1-\e^{-T}}\int_{-T}^0\e^{x}f(x)\dx\right)\]
-                    为了证明解的唯一性,假定存在不同的以$T$为周期的周期函数$y_1,y_2$使得
-                    \[y_1+y_1'=y_2+y_2'=f(x)\]
-                    令$u(x)=y_2-y_1$,于是
-                    \[u(x)+u'(x)=0\]
-                    这齐次方程的通解为
-                    \[u(x)=C\e^{-x}\]
-                    如果$y_1,y_2$均以$T$为周期,就对任意$x\in\R$有
-                    \[y_2(x+T)=y_1(x+T)+C\e^{-x-T}=y_1(x)+C\e^{-x-T}=y_2(x)+C\e^{-x-T}-C\e^{-x}\]
-                    又因为$y_2(x+T)=y_2(x)$,于是
-                    \[C\left(\e^{-x-T}-\e^{-x}\right)=0\]
-                    对任意$x\in\R$成立,这要求$C=0$,即$y_1=y_2$.这与我们的假设相悖.\\
-                    于是该常微分方程有唯一以$T$为周期的解.
+
+                \item 设$T>0$.令
+                    \[y_*(x)=\dfrac{1}{1-\e^{-T}}\int_{x-T}^x\e^{t-x}f(t)\di t.\]
+                    由$f(x-T)=f(x)$及积分求导公式可得
+                    \[y_*'(x)=\dfrac{f(x)-\e^{-T}f(x-T)}{1-\e^{-T}}-y_*(x)=f(x)-y_*(x).\]
+                    作代换$t=s+T$,利用$f(s+T)=f(s)$可知$y_*(x+T)=y_*(x)$,故$y_*$是一个$T$周期解.
+                    若$y_1,y_2$都是$T$周期解,则$u=y_1-y_2$满足$u'+u=0$,所以$u=C\e^{-x}$.
+                    周期性要求$C\e^{-x}(1-\e^{-T})=0$,从而$C=0$,故周期解唯一.
             \end{enumerate}
     \end{enumerate}  
 \end{solution}
@@ -171,7 +137,7 @@
     \[D_z=\left\{(x,y,z):x^2\leqslant 1-z,0\leqslant y\leqslant 2-z\right\}\]
     于是
     \[\begin{aligned}
-        \iiint_Vy\di V
+        \iiint_{\Omega}y\di V
         &= \int_0^1\di z\int_0^{2-z}\di y\int_{-\sqrt{1-z}}^{\sqrt{1-z}}y\dx \\
         &= \int_0^1\di z\int_0^{2-z}2\sqrt{1-z}y\di y \\
         &= \int_0^1\left(2-z\right)^2\sqrt{1-z}\di z \\
@@ -189,15 +155,16 @@
     其中$\mbf r=(x,y)$,$\mbf n$是$L$的单位外法向量.
 \end{problem}
 \begin{solution}
+    校订注:若原点位于$L$上,原被积函数在该点无定义,题设需另作补充.以下讨论$(0,0)\notin L$的情形.
     我们有
     \[\cos\left(\mbf r,\mbf n\right)=\dfrac{\mbf r\cdot\mbf n}{\left|\mbf r\right|\left|\mbf n\right|}\]
-    设$\mbf n=(\cos\alpha,\cos\beta)$,那么沿$L$的逆时针方向单位切向量即为$\mbf m=(-\cos\beta,\cos\alpha)$,于是$\mbf n\di s=\left(-\di y,\dx\right)$,于是
+    设$\mbf n=(\cos\alpha,\cos\beta)$,那么沿$L$的逆时针方向单位切向量即为$\mbf m=(-\cos\beta,\cos\alpha)$,于是$\mbf n\di s=\left(\di y,-\dx\right)$,于是
     \[\oint_{L}\dfrac{\cos\left(\mbf r,\mbf n\right)}{\left|\mbf r\right|}\di s
     =\oint_{L}\dfrac{\mbf r\cdot\mbf n}{\left|\mbf r\right|^2}\di s
     =\oint_{L}\dfrac{x\di y-y\di x}{x^2+y^2}\]
     设$D$为$L$所围的区域.\\
     若$(0,0)\notin D$,则在$D$上运用Green公式有
-    \[\oint_{L}\dfrac{x\di y-y\di x}{x^2+y^2}=\iint_D\dfrac{\left(y^2-x^2\right)-\left(x^2-y^2\right)}{\left(x^2+y^2\right)^2}\di\sigma=0\]
+    \[\oint_{L}\dfrac{x\di y-y\di x}{x^2+y^2}=\iint_D\dfrac{\left(y^2-x^2\right)-\left(y^2-x^2\right)}{\left(x^2+y^2\right)^2}\di\sigma=0\]
     若$(0,0)\in D$,则必然存在$(0,0)$的邻域$D_\ep:x^2+y^2\leqslant\ep^2$使得$D_\ep\subset D$.设$D_\ep$的边界为$\Gamma_\ep$.\\
     在$D\backslash D_\ep$上运用Green公式,同理有
     \[\oint_{L\cup\Gamma^-}\dfrac{x\di y-y\di x}{x^2+y^2}=0\]

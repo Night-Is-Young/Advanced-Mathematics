@@ -78,26 +78,26 @@
 
 \end{solution}
 \begin{problem}[3.(12\songti{分})]
-    计算由封闭曲面
-    \[S=\left\{(x,y,z)\in\R^3:\left(x^2+\dfrac{y^2}{4}+\dfrac{z^2}{5}\right)^2\leqslant x\right\}\]
-    围成区域的体积.
+    计算区域
+    \[S=\left\{(x,y,z)\in\R^3:\left(x^2+\dfrac{y^2}{4}+\dfrac{z^2}{9}\right)^2\leqslant x\right\}\]
+    的体积.
 
 \end{problem}
 \begin{solution}
     做变换
-    \[x=\rho\cos\varphi\ \ \ \ \ y=2\rho\sin\varphi\cos\theta\ \ \ \ \ z=\sqrt{5}\rho\sin\varphi\sin\theta\]
-    这变换的Jacobi矩阵
-    \[|J|=2\sqrt{5}\rho^2\sin\varphi\]
-    曲面$S$围成的区域变换后即为
+    \[x=\rho\cos\varphi\ \ \ \ \ y=2\rho\sin\varphi\cos\theta\ \ \ \ \ z=3\rho\sin\varphi\sin\theta\]
+    该变换的Jacobi行列式的绝对值
+    \[|J|=6\rho^2\sin\varphi\]
+    区域$S$变换后即为
     \[\Omega=\left\{(\rho,\theta,\varphi):0\leqslant\varphi\leqslant\dfrac\pi2,0\leqslant\theta\leqslant2\pi,0\leqslant\rho^3\leqslant\cos\varphi\right\}\]
     于是
     \[\begin{aligned}
         V
         &= \iiint_{\Omega}|J|\di\rho\di\theta\di\varphi \\
-        &= 2\sqrt{5}\int_0^{2\pi}\di\theta\int_0^{\frac\pi2}\di\varphi\int_0^{\sqrt[3]{\cos\varphi}}\rho^2\sin\varphi\di\rho \\
-        &= \dfrac{2\sqrt{5}}{3}\int_0^{2\pi}\di\theta\int_0^{\frac\pi2}\cos\varphi\sin\varphi\di\varphi \\
-        &\xlongequal{u=\sin\varphi} \dfrac{2\sqrt5}{3}\int_0^{2\pi}\di\theta\int_0^1u\di u \\
-        &= \dfrac{2\sqrt5\pi}{3}
+        &= 6\int_0^{2\pi}\di\theta\int_0^{\frac\pi2}\di\varphi\int_0^{\sqrt[3]{\cos\varphi}}\rho^2\sin\varphi\di\rho \\
+        &= \dfrac{6}{3}\int_0^{2\pi}\di\theta\int_0^{\frac\pi2}\cos\varphi\sin\varphi\di\varphi \\
+        &\xlongequal{u=\sin\varphi} \dfrac{6}{3}\int_0^{2\pi}\di\theta\int_0^1u\di u \\
+        &= 2\pi
     \end{aligned}\]
 
 \end{solution}
@@ -106,7 +106,7 @@
     \[I=\oiint_{S^+}\dfrac{x\di y\di z+y\di z\dx+z\dx\di y}{\left(x^2+4y^2+9z^2\right)^{\frac32}}\]  
 \end{problem}
 \begin{solution}
-    考虑球体$\Omega:x^2+y^2+z^2\leqslant 1$和小椭球$\Omega':x^2+4y^2+9z^2\leqslant\ep^2$,$\ep<1$,并记$S_\ep^+$为$\Omega_\ep$的表面的外侧.\\
+    考虑球体$\Omega:x^2+y^2+z^2\leqslant 1$和小椭球$\Omega':x^2+4y^2+9z^2\leqslant\ep^2$,$0<\ep<1$,并记$\Omega_\ep=\Omega'$,$S_\ep^+$为其表面的外侧.\\
     在$\Omega\backslash\Omega'$上运用Gauss公式有
     \[\begin{aligned}
         &\oiint_{S^+\cup S_\ep^-}\dfrac{x\di y\di z+y\di z\dx+z\dx\di y}{\left(x^2+4y^2+9z^2\right)^{\frac32}}\\
@@ -131,19 +131,12 @@
 
 \end{problem}
 \begin{solution}
-    考虑区域$D_1:0\leqslant z\leqslant y\leqslant x\leqslant 1$,于是
-    \[I_1=\int_0^1\dx\int_0^x\di y\int_0^yf(z)\di z=\iiint_{D_1}f(z)\di V\]
-    考虑区域$D_2:0\leqslant z\leqslant x\leqslant y\leqslant 1$,于是
-    \[I_2=\int_0^1\dx\int_x^1\di y\int_0^y f(z)\di z=\iiint_{D_2}f(z)\di V\]
-    注意到被积函数$f(z)$关于平面$x=y$对称,而$D_1$和$D_2$也关于平面$x=y$对称,于是$I_1=I_2$.考虑积分
+将积分区域$0\leqslant z\leqslant y\leqslant x\leqslant1$按$z$先分层,有
     \[\begin{aligned}
-        I_3=I_1+I_2
-        &= \iiint_{D_1\cup D_2}f(z)\di V = \int_0^1\di z\iint_{[z,1]\times[z,1]}f(z)\di x\di y \\
-        &= \int_0^1\left(1-z\right)^2f(z)\di z = 3-2\cdot 2+1=0
+        I&=\int_0^1 f(z)\di z\int_z^1\di x\int_z^x\di y\\
+        &=\dfrac12\int_0^1(1-z)^2f(z)\di z\\
+        &=\dfrac12(1-2\cdot2+3)=0.
     \end{aligned}\]
-    于是
-    \[I=\dfrac12I_3=0\]
-
 \end{solution}
 \begin{problem}[6.(10\songti{分})]
     设
@@ -154,7 +147,7 @@
 \end{problem}
 \begin{solution}
     做球坐标变换
-    \[x=\rho\sin\varphi\cos\theta\ \ \ \ \ y=\rho\sin\varphi\sin\theta\ \ \ \ \ z=\rho\cos\theta\]
+    \[x=\rho\sin\varphi\cos\theta\ \ \ \ \ y=\rho\sin\varphi\sin\theta\ \ \ \ \ z=\rho\cos\varphi\]
     则
     \[\begin{aligned}
         F(t)
@@ -178,25 +171,13 @@
     \[I_r=\iint_{x^2+y^2\leqslant r^2}f(x,y)\dx\di y\ \ \ \ \ J_{\rho}=\iint_{-\rho\leqslant x,y\leqslant\rho}f(x,y)\dx\di y\]
     试证明:当极限$\displaystyle\lim_{r\to+\infty}I_r$与极限$\displaystyle\lim_{\rho\to+\infty}J_\rho$之一存在且有限时,另一个极限必然也存在且有限,并且两者相等.
 \end{problem}
-\begin{proof}
-    首先假定$\displaystyle\lim_{r\to+\infty}I_r$存在有限,不妨记为$I$.我们有
-    \[\left\{(x,y):x^2+y^2\leqslant r^2\right\}
-    \subset\left\{(x,y):-r\leqslant x,y\leqslant r\right\}
-    \subset\left\{(x,y):x^2+y^2\leqslant 2r^2\right\}\]
-    又因为$f(x,y)$非负,于是
-    \[I_r\leqslant J_r\leqslant I_{\sqrt{2}r}\]
-    两边取极限,有$\displaystyle\lim_{r\to+\infty}I_{\sqrt2r}=\lim_{r\to+\infty}I_{r}=I$.由夹逼准则可知
-    \[I\leqslant\lim_{r\to+\infty}J_r\leqslant I\]
-    于是
-    \[\lim_{r\to+\infty}J_r=I\]
-    现在假定$\displaystyle\lim_{r\to\infty}J_r$存在有限,不妨记为$J$.我们有
-    \[\left\{(x,y):-\rho\leqslant x,y\leqslant\rho\right\}
-    \subset\left\{(x,y):x^2+y^2\leqslant 2\rho^2\right\}
-    \subset\left\{(x,y):-\sqrt2\rho\leqslant x,y\leqslant\sqrt2\rho\right\}\]
-    同理夹逼可得
-    \[J\leqslant\lim_{\rho\to+\infty}I_{\sqrt2\rho}\leqslant J\]
-    于是
-    \[\lim_{\rho\to+\infty}I_{\rho}=J\]
-    从而命题得证.
-\end{proof}
+\begin{solution}
+记$B_r=\{x^2+y^2\leqslant r^2\}$,$Q_r=[-r,r]^2$.由
+    \[B_r\subset Q_r\subset B_{\sqrt2r}\]
+    及$f\geqslant0$,有$I_r\leqslant J_r\leqslant I_{\sqrt2r}$.
+    若$I_r\to I<+\infty$,两端均趋于$I$,由夹逼准则得$J_r\to I$.
+    反之,由$Q_{r/\sqrt2}\subset B_r\subset Q_r$得
+    \[J_{r/\sqrt2}\leqslant I_r\leqslant J_r.\]
+    若$J_r\to J<+\infty$,同样由夹逼准则得$I_r\to J$.故两极限同时存在且相等.
+\end{solution}
 \end{document}

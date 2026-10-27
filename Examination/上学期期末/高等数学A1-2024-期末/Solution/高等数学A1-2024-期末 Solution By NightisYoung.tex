@@ -1,70 +1,39 @@
 \documentclass{ctexart}
-\usepackage{geometry}
-\usepackage[dvipsnames,svgnames]{xcolor}
-\usepackage[strict]{changepage}
-\usepackage{framed}
-\usepackage{enumerate}
-\usepackage{amsmath,amsthm,amssymb}
-\usepackage{enumitem}
 \usepackage{template}
-
-\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
-
+\usepackage{esint,extarrows,tikz}
 \begin{document}\pagestyle{empty}
 \begin{center}\Large
-    北京大学数学科学学院2023-24高等数学A1期末考试
+北京大学数学科学学院2024-25高等数学A1期末考试
 \end{center}
 \begin{problem}[1.(11\songti{分})]
-    求极限\[\lim_{(x,y)\to(0,0)}\left(x^2+y^2\right)^{x^2}\]
+求极限\[\lim_{(x,y)\to(0,0)}\left(x^2+y^2\right)^{x^2}\]
 \end{problem}
 \begin{solution}
-    当$x^2+y^2<1$时,我们有
-    \[\left(x^2+y^2\right)^{x^2+y^2}\leqslant\left(x^2+y^2\right)^{x^2}\leqslant 1\]
-    令$u=x^2+y^2$,则有
-    \[\begin{aligned}
-        \lim_{(x,y)\to(0,0)}\left(x^2+y^2\right)^{x^2+y^2}
-        &= \lim_{u\to0^+}u^u = \text{exp}\left(\lim_{u\to0^+}u\ln u\right) \\
-        &= \text{exp}\left(\lim_{u\to0^+}\dfrac{\ln u}{\frac{1}{u}}\right)=\text{exp}\left(\lim_{u\to0^+}\dfrac{\frac{1}{u}}{-\frac{1}{u^2}}\right) \\
-        &= \e^0=1
-    \end{aligned}\]
-    根据夹逼准则可知
-    \[\lim_{(x,y)\to(0,0)}\left(x^2+y^2\right)^{x^2}=0\]
+令$r^2=x^2+y^2$.当$0<r<1$时,$0\leqslant x^2\leqslant r^2$,于是
+\[(r^2)^{r^2}\leqslant(r^2)^{x^2}\leqslant1\]
+而$\lim_{u\to0^+}u^u=\exp(\lim_{u\to0^+}u\ln u)=1$,故由夹逼定理,所求极限为$1$.
 \end{solution}
 \begin{problem}[2.(11\songti{分})]
-    求极限\[\lim_{x\to+\infty}\left(\dfrac{\pi}{2}-\arctan x\right)^{\frac{1}{\ln x}}\]
+求极限\[\lim_{x\to+\infty}\left(\dfrac{\pi}{2}-\arctan x\right)^{\frac{1}{\ln x}}\]
 \end{problem}
 \begin{solution}
-    令$f(x)=\left(\dfrac\pi2-\arctan x\right)^{\frac{1}{\ln x}}$,则$\ln f(x)=\dfrac{\ln\left(\dfrac{\pi}{2}-\arctan x\right)}{\ln x}$.我们有
-    \[\lim_{x\to+\infty}\dfrac{\ln\left(\dfrac{\pi}{2}-\arctan x\right)}{\ln x}
-        =\lim_{x\to+\infty}\dfrac{-\dfrac{x}{1+x^2}}{\left(\dfrac{\pi}{2}-\arctan x\right)}
-        =\lim_{x\to+\infty}\dfrac{\dfrac{\left(1+x^2\right)-2x^2}{\left(1+x^2\right)^2}}{\dfrac{1}{1+x^2}}
-        =\lim_{x\to+\infty}\dfrac{1-x^2}{1+x^2}
-        =-1
-    \]于是
-    \[\lim_{x\to+\infty}\left(\dfrac{\pi}{2}-\arctan x\right)^{\frac{1}{\ln x}}=\e^{-1}=\dfrac{1}{\e}\]
+当$x>0$时,$\pi/2-\arctan x=\arctan(1/x)\sim1/x$.所以
+\[\dfrac{\ln(\pi/2-\arctan x)}{\ln x}=-1+o(1)\]
+将其指数化,得到所求极限为$\e^{-1}$.
 \end{solution}
 \begin{problem}[3.(11\songti{分})]
-    求函数\[f(x)=\cos(2x)\cdot\ln(1+x)\]在$x=0$处的四阶泰勒多项式.
+求函数\[f(x)=\cos(2x)\cdot\ln(1+x)\]在$x=0$处的四阶泰勒多项式.
 \end{problem}
 \begin{solution}
-    我们有
-    \[\cos(2x)=1-\dfrac{(2x)^2}{2}+\dfrac{(2x)^4}{4!}+o(x^4)\]
-    \[\ln(1+x)=x-\dfrac12x^2+\dfrac13x^3-\dfrac14x^4+o(x^4)\]
-    于是
-    \[\begin{aligned}
-        f(x)
-        &= \cos(2x)\cdot\ln(1+x) \\
-        &= \left(1-\dfrac{(2x)^2}{2}+\dfrac{(2x)^4}{4!}+o(x^4)\right)\left(x-\dfrac12x^2+\dfrac13x^3-\dfrac14x^4+o(x^4)\right) \\
-        &= \left(1-2x^2+\dfrac23x^4+o(x^4)\right)\left(x-\dfrac12x^2+\dfrac13x^3-\dfrac14x^4+o(x^4)\right) \\
-        &= x-\dfrac12x^2+\dfrac13x^3-\dfrac14x^4-2x^3+x^4+o(x^4) \\
-        &= x-\dfrac12x^2-\dfrac53x^3+\dfrac34x^4+o(x^4)
-    \end{aligned}\]
+由$\cos2x=1-2x^2+O(x^4)$和$\ln(1+x)=x-x^2/2+x^3/3-x^4/4+o(x^4)$,有
+\[f(x)=x-\dfrac12x^2-\dfrac53x^3+\dfrac34x^4+o(x^4)\]
+故四阶泰勒多项式为$T_4(x)=x-x^2/2-5x^3/3+3x^4/4$.
 \end{solution}
 \begin{problem}[4.(12\songti{分})]
-    设$f(x)$在$[a,b]$二阶可导,满足$f(a)=f(b)=0$且存在$c\in(a,b)$使得$f(c)>0$.试证明:存在$\xi\in(a,b)$使得$f''(\xi)<0$.
+设$f(x)$在$[a,b]$二阶可导,满足$f(a)=f(b)=0$且存在$c\in(a,b)$使得$f(c)>0$.试证明:存在$\xi\in(a,b)$使得$f''(\xi)<0$.
 \end{problem}
-\begin{proof}
-    考虑$f(x)$在$x=x_0$处取到极大值,则$f(x_0)\geqslant f(c)>0$且$f'(x_0)=0$.将$f(x)$在$x=x_0$处做泰勒展开.
+\begin{solution}
+考虑$f(x)$在$x=x_0$处取到极大值,则$f(x_0)\geqslant f(c)>0$且$f'(x_0)=0$.将$f(x)$在$x=x_0$处做泰勒展开.
     \[f(x)=f(x_0)+(x-x_0)f'(x_0)+\dfrac{(x-x_0)^2f''(\xi)}{2}\]
     将$f'(x_0)=0,f(a)=f(b)=0$代入有
     \[\left\{\begin{array}{l}
@@ -72,53 +41,81 @@
         0=f(x_0)+\dfrac{(x_0-b)^2f''(\xi_2)}{2},x_0<\xi_2<b
     \end{array}\right.\]
     因为$f(x_0)>0,(x_0-a)^2>0,(x_0-b)^2>0$,于是$f''(\xi_1)<0,f''(\xi_2)<0$,命题得证.
-\end{proof}
+\end{solution}
 \begin{problem}[5.(10\songti{分})]
-    回答下列问题.本题只需给出结果,无需证明.
-    \begin{enumerate}[label=\tbf{(\arabic*)}]
-        \item \textbf{(5\songti{分})}\ 设平面$\Sigma$过点$P_0$,其法向量为$\vec{n}$.点$P_1$是平面$\Sigma$之外的一点.试用$\overrightarrow{P_0P_1}$和$\vec{n}$表示$P_1$到$\Sigma$的距离.
-        \item \textbf{(3\songti{分})}\ 设直线$L$过点$P_0$,其方向向量为$\vec{\tau}$.点$P_1$是直线$L$之外的一点.试用$\overrightarrow{P_0P_1}$和$\vec{\tau}$表示$P_1$到$L$的距离.
-        \item \textbf{(2\songti{分})}\ 设异面直线$L_1,L_2$的方向向量分别为$\vec{\tau_1},\vec{\tau_2}$.点$P_1,P_2$分别是$L_1,L_2$上的点.试用$\overrightarrow{P_1P_2}$和$\vec{\tau_1},\vec{\tau_2}$表示$L_1$\\和$L_2$间的距离.
-    \end{enumerate}
+回答下列问题.本题只需给出结果,无需证明.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(5\songti{分})}\ 设平面$\Sigma$过点$P_0$,其法向量为$\vec{n}$.点$P_1$是平面$\Sigma$之外的一点.试用$\overrightarrow{P_0P_1}$和$\vec{n}$表示$P_1$到$\Sigma$的距离.
+            \item \textbf{(3\songti{分})}\ 设直线$L$过点$P_0$,其方向向量为$\vec{\tau}$.点$P_1$是直线$L$之外的一点.试用$\overrightarrow{P_0P_1}$和$\vec{\tau}$表示$P_1$到$L$的距离.
+            \item \textbf{(2\songti{分})}\ 设异面直线$L_1,L_2$的方向向量分别为$\vec{\tau_1},\vec{\tau_2}$.点$P_1,P_2$分别是$L_1,L_2$上的点.试用$\overrightarrow{P_1P_2}$和$\vec{\tau_1},\vec{\tau_2}$表示$L_1$和$L_2$间的距离.
+        \end{enumerate}
 \end{problem}
 \begin{solution}
-    
+\begin{enumerate}[label=\tbf{(\arabic*)},leftmargin=*]
+\item $\displaystyle d(P_1,\Sigma)=\dfrac{|\overrightarrow{P_0P_1}\cdot\vec n|}{|\vec n|}$.
+\item $\displaystyle d(P_1,L)=\dfrac{|\overrightarrow{P_0P_1}\times\vec\tau|}{|\vec\tau|}$.
+\item $\displaystyle d(L_1,L_2)=\dfrac{|\overrightarrow{P_1P_2}\cdot(\vec\tau_1\times\vec\tau_2)|}{|\vec\tau_1\times\vec\tau_2|}$.
+\end{enumerate}
 \end{solution}
 \begin{problem}[6.(10\songti{分})]
-    设二元函数\[f(x,y)=\left\{\begin{array}{l}
-        y\arctan\dfrac{1}{\sqrt{x^2+y^2}},(x,y)\neq(0,0)\\
-        0,(x,y)=(0,0)
-    \end{array}\right.\]讨论$f(x,y)$在$(0,0)$处是否可微.
+设二元函数\[f(x,y)=\left\{\begin{array}{l}
+            y\arctan\dfrac{1}{\sqrt{x^2+y^2}},(x,y)\neq(0,0)\\
+            0,(x,y)=(0,0)
+        \end{array}\right.\]讨论$f(x,y)$在$(0,0)$处是否可微.
 \end{problem}
+\begin{solution}
+令$r=\sqrt{x^2+y^2}$.当$r>0$时,$\arctan(1/r)=\pi/2-\arctan r$,因此
+\[f(x,y)-\dfrac\pi2y=-y\arctan r\]
+由于$|y\arctan r|\leqslant |y|r\leqslant r^2=o(r)$,故$f$在原点可微,
+\[f_x(0,0)=0,\qquad f_y(0,0)=\dfrac\pi2,\qquad \di f(0,0)=\dfrac\pi2\di y\]
+\end{solution}
 \begin{problem}[7.(10\songti{分})]
-    \begin{enumerate}[label=\tbf{(\arabic*)}]
-        \item \textbf{(5\songti{分})}\ 设二元函数\[f(x,y)=\left\{\begin{array}{l}
-                \dfrac{2xy^3}{x^2+y^4},(x,y)\neq(0,0)\\
-                0,(x,y)=(0,0)
-            \end{array}\right.\]计算方向导数$\left.\dfrac{\p f}{\p\mbf{l}}\right|_{(0,0)}$.其中单位向量$\mbf{l}=(\cos\alpha,\sin\alpha)$,$\alpha\in[0,2\pi)$.
-        \item \textbf{(3\songti{分})}\ 若二元函数$g(x,y)$在$(x_0,y_0)$处取到极小值,那么对于某一$\alpha\in[0,2\pi)$,$t=0$是否一定是$h(t)=g(x_0+t\cos\alpha,y_0+t\sin\alpha)$的极小值点?说明理由.
-        \item \textbf{(2\songti{分})}\ 若对于任意$\alpha\in[0,2\pi)$,$t=0$是是$h(t)=g(x_0+t\cos\alpha,y_0+t\sin\alpha)$的极小值点,那么$(x_0,y_0)$是否一定是$g(x,y)$的极小值点?说明理由.
-    \end{enumerate}
+回答下列问题.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(5\songti{分})}\ 设二元函数\[f(x,y)=\left\{\begin{array}{l}
+                    \dfrac{2xy^3}{x^2+y^4},(x,y)\neq(0,0)\\
+                    0,(x,y)=(0,0)
+                \end{array}\right.\]计算方向导数$\left.\dfrac{\p f}{\p\mbf{l}}\right|_{(0,0)}$.其中单位向量$\mbf{l}=(\cos\alpha,\sin\alpha)$,$\alpha\in[0,2\pi)$.
+            \item \textbf{(3\songti{分})}\ 若二元函数$g(x,y)$在$(x_0,y_0)$处取到极小值,那么对于某一$\alpha\in[0,2\pi)$,$t=0$是否一定是$h(t)=g(x_0+t\cos\alpha,y_0+t\sin\alpha)$的极小值点?说明理由.
+            \item \textbf{(2\songti{分})}\ 若对于任意$\alpha\in[0,2\pi)$,$t=0$是$h(t)=g(x_0+t\cos\alpha,y_0+t\sin\alpha)$的极小值点,那么$(x_0,y_0)$是否一定是$g(x,y)$的极小值点?说明理由.
+        \end{enumerate}
 \end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)},leftmargin=*]
+\item 记$c=\cos\alpha,s=\sin\alpha$.若$c\neq0$,则
+\[\dfrac{f(tc,ts)-f(0,0)}t=\dfrac{2tc s^3}{c^2+t^2s^4}\to0\]
+若$c=0$,则$f(0,ts)=0$,方向导数仍为$0$.所以所有给定方向的方向导数均为$0$.
+\item 一定.若在某个二维邻域内有$g(x,y)\geqslant g(x_0,y_0)$,则每条经过$(x_0,y_0)$的直线在充分小的参数邻域内也满足该不等式.
+\item 不一定.取$g(x,y)=(y-x^2)(y-2x^2)$.沿每条过原点的直线,原点都是局部极小值点:若$y=kx$且$k\neq0$,主项为$k^2x^2>0$;沿$x$轴有$g(x,0)=2x^4\geqslant0$;沿$y$轴有$g(0,y)=y^2\geqslant0$.
+但沿抛物线$y=3x^2/2$,有$g(x,3x^2/2)=-x^4/4<0$,故原点不是二元局部极小值点.
+\end{enumerate}
+\end{solution}
 \begin{problem}[8.(15\songti{分})]
-    设二元函数$z=z(x,y)$是由方程
-    \[(x^2+y^2)z+\ln z+2(x+y+1)=0\]确定的隐函数,试求$z=z(x,y)$的极值.
+设二元函数$z=z(x,y)$是由方程
+        \[(x^2+y^2)z+\ln z+2(x+y+1)=0\]确定的隐函数,试求$z=z(x,y)$的极值.
 \end{problem}
+\begin{solution}
+令$F(x,y,z)=(x^2+y^2)z+\ln z+2(x+y+1)$,其中$z>0$.
+对固定$(x,y)$,$F$关于$z$严格递增,且在$z\to0^+,\infty$时分别趋于$-\infty,+\infty$,所以存在唯一正根$z(x,y)$.
+又$F_z=x^2+y^2+1/z>0$,故$z$在$\R^2$上光滑,并且
+\[z_x=-\dfrac{2xz+2}{F_z},\qquad z_y=-\dfrac{2yz+2}{F_z}\]
+驻点必须满足$x=y=-1/z$.代回方程得到$\ln z+2-2/z=0$.
+此式左端在$z>0$上严格递增,唯一根为$z=1$,故唯一驻点为$(-1,-1)$.
+此外$F(x,y,1)=(x+1)^2+(y+1)^2\geqslant0$,由单调性得$z(x,y)\leqslant1$,等号仅在$(-1,-1)$成立.
+所以$z$的唯一极值为在$(-1,-1)$处取得的严格极大值$1$,且也是全局最大值.由于处处$z>0$且无其他驻点,没有极小值.
+\end{solution}
 \begin{problem}[9.(10\songti{分})]
-    设函数$f:[a,b]\to\R$在闭区间$[a,b]$上二阶可导,满足$f(a)=f(b)=f'(a)=f'(b)=0$,且对于任意$x\in[a,b]$都有$|f''(x)|\leqslant M$.试证明:对于任意$x\in[a,b]$,都有$|f(x)|\leqslant\dfrac{M}{16}(b-a)^2$.
+设函数$f:[a,b]\to\R$在闭区间$[a,b]$上二阶可导,满足$f(a)=f(b)=f'(a)=f'(b)=0$,且对于任意$x\in[a,b]$都有$|f''(x)|\leqslant M$.试证明:对于任意$x\in[a,b]$,都有$|f(x)|\leqslant\dfrac{M}{16}(b-a)^2$.
 \end{problem}
-\begin{proof}
-    考虑$|f(x)|$在$x=x_0$处取到极大值,于是$f'(x_0)=0$.\\
-    考虑$x\in(a,x_0)$.将$f(x)$在$x=x_0$和$x=a$处分别做泰勒展开有
-    \[f(x)=f(x_0)+(x-x_0)f'(x_0)+\dfrac{1}{2}(x-x_0)^2f''(\xi_1)\]
-    \[f(x)=f(a)+(x-a)f'(a)+\dfrac{1}{2}(x-a)^2f''(\xi_2)\]
-    其中$a<\xi_2<x<\xi_1<x_0$.于是我们有
-    \[f(x_0)+\dfrac{1}{2}(x-x_0)^2f''(\xi_1)=\dfrac{1}{2}(x-a)^2f''(\xi_2)\]
-    令$x=\dfrac{x_0+a}{2}$,则有
-    \[f(x_0)=\dfrac{(x_0-a)^2}{8}\left(f''(\xi_2)-f''(\xi_1)\right)\leqslant\dfrac{M(x_0-a)^2}{4}\]
-    同理,考虑$x\in(x_0,b)$可得
-    \[f(x_0)\leqslant\dfrac{M(x_0-b)^2}{4}\]
-    两式相加可得
-    \[f(x_0)\leqslant\dfrac{1}{2}\left(\dfrac{M(x_0-a)^2}{4}+\dfrac{M(x_0-b)^2}{4}\right)=\dfrac{M}{8}\left((x_0-a)^2+(b-x_0)^2\right)\leqslant\dfrac{M}{16}(b-a)^2\]
-\end{proof}
+\begin{solution}
+若$f\equiv0$,结论显然.否则,必要时将$f$替换为$-f$,可取$x_0\in(a,b)$使$f(x_0)=\max|f|>0$,此时$f'(x_0)=0$.
+令$m=(a+x_0)/2$,分别在$a$与$x_0$处作Taylor展开,利用$f(a)=f'(a)=f'(x_0)=0$,得到
+\[f(x_0)=\dfrac{(x_0-a)^2}{8}\bigl(f''(\xi_1)-f''(\xi_2)\bigr)\]
+其中$\xi_1\in(a,m)$,$\xi_2\in(m,x_0)$,故$|f(x_0)|\leqslant M(x_0-a)^2/4$.
+同理,利用$b$端点的两个条件可得$|f(x_0)|\leqslant M(b-x_0)^2/4$.
+取两上界的较小者,
+\[|f(x)|\leqslant|f(x_0)|\leqslant\dfrac M4\min\{(x_0-a)^2,(b-x_0)^2\}
+\leqslant\dfrac M{16}(b-a)^2\]
+原解答最后对两个上界取平均不能推出此结论,应取最小值.
+\end{solution}
 \end{document}

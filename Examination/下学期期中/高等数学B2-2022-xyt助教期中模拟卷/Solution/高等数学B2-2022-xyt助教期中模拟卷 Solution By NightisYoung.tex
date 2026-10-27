@@ -6,7 +6,7 @@
 
 \begin{document}\pagestyle{empty}
 \begin{center}\Large
-    北京大学数学科学学院2022-23高等数学B2期中模拟考试
+    北京大学数学科学学院2021-22高等数学B2期中模拟考试
 \end{center}
 \begin{problem}[1.(10\songti{分})]
     设$D$是由直线$x=1,y=x,y=2x$所围成的有界闭区域,求二重积分
@@ -48,17 +48,10 @@
     其中$L$是圆周$x^2+y^2-2x=0$在$y\leqslant 0$的部分,沿逆时针方向.
 \end{problem}
 \begin{solution}
-    考虑二元函数
-    \[P(x,y)=-\dfrac{1}{x-y+1}\ \ \ Q(x,y)=\dfrac{1}{x-y+1}\]
-    将半圆周按方向补成半圆周$S$,在半圆$D:\left\{(x,y):(x-1)^2+y^2\leqslant1,y\leqslant0\right\}$上根据Green公式有
-    \[\begin{aligned}
-        \oint_SP\dx+Q\di y
-        &= \iint_{D}\left(\dfrac{\p Q}{\p y}-\dfrac{\p P}{\p x}\right)\di\sigma \\
-        &= \iint_{D}\dfrac{1-1}{(x-y+1)^2}\di\sigma \\
-        &= 0
-    \end{aligned}\]
-    于是可将路径变换为半圆的直径,方向向右.于是
-    \[\oint_{L}P\di x+Q\di y=\int_0^2\dfrac{\dx}{x+1}=\ln3\]
+在包含下半圆弧的区域内,$x-y+1>0$,且
+    \[\dfrac{\di y-\di x}{x-y+1}=-\di\ln(x-y+1).\]
+    圆周的下半部分沿逆时针方向由$(0,0)$走向$(2,0)$,故
+    \[I=-\left[\ln(x-y+1)\right]_{(0,0)}^{(2,0)}=-\ln3.\]
 \end{solution}
 \begin{problem}[4.(15\songti{分})]
     求曲面积分
@@ -79,10 +72,10 @@
         &= \dfrac{1}{\sqrt5}\iint_{D}y^2\sqrt{5-x^2-y^2}\sqrt{1+\dfrac{x^2+y^2}{5-x^2-y^2}}\dx\di y \\
         &= \iint_{D}y^2\dx\di y \\
         &= \int_0^{2\pi}\di\theta\int_0^2 r^3\sin^2\theta\di r \\
-        &= 2\pi
+        &= 4\pi
     \end{aligned}\]
     于是
-    \[\iint_Sy(x-z)\di y\di z+x^2\di z\di x+\left(y^2+xz\right)\di x\di y=2\pi\]
+    \[\iint_Sy(x-z)\di y\di z+x^2\di z\di x+\left(y^2+xz\right)\di x\di y=4\pi\]
 
 \end{solution}
 \begin{problem}[5.(10\songti{分})]
@@ -97,8 +90,8 @@
     \[u'=x\sin x\]
     两端积分可得
     \[u=-x\cos x+\sin x+C\]
-    当$x=0$时,$y=0$,不是满足题设条件的特解.当$x\neq0$时,原方程的通解为
-    \[y=-\dfrac{x\cos x-\sin x}{x^2}+C\]
+    在包含$x=\pi$且不经过$0$的区间上,原方程的通解为
+    \[y=\dfrac{\sin x-x\cos x+C}{x^2}\]
     令$y(\pi)=\dfrac1\pi$,可得$C=0$,于是
     \[y=\dfrac{\sin x-x\cos x}{x^2}\]
 \end{solution}
@@ -147,7 +140,7 @@
 
 \end{problem}
 \begin{solution}
-    考虑Newton-Lebniz公式,对任意$(x,y)\in D$有
+    考虑Newton-Leibniz公式,对任意$(x,y)\in D$有
     \[u(x,y)=\int_a^x\dfrac{\p u}{\p x}(t,y)\di t=\int_c^y\dfrac{\p u}{\p y}(x,s)\di s\]
     于是
     \[\left|u(x,y)\right|\leqslant\int_a^x\left|\dfrac{\p u}{\p x}(t,y)\right|\di t\leqslant\int_a^b\left|\dfrac{\p u}{\p x}(t,y)\right|\di t\]
@@ -169,9 +162,9 @@
         u''(x)+\lambda u(x)=0\\
         -a_1u'(0)+a_2u(0)=b_1u'(L)+b_2u(L)=0
     \end{array}\right.\]
-    中,我们想求解定义在$[0,L]$上的函数$u(x)$,其中参数$a_1,a_2,b_1,b_2,L$都是给定的函数.\\
-    对于大多数参数$\lambda$,上述常微分方程并没有解.如果对于某个$\lambda$,上述方程存在不恒等于$0$的解,%
-    我们就成$\lambda$为一个\tbf{本征值},对应的解$u_\lambda(x)$称为\tbf{本征函数}.据此,回答下列问题.
+    中,我们想求解定义在$[0,L]$上的函数$u(x)$,其中参数$a_1,a_2,b_1,b_2,L$都是给定的常数,且$L>0$.\\
+    对于大多数参数$\lambda$,上述常微分方程并没有非零解.如果对于某个$\lambda$,上述方程存在不恒等于$0$的解,%
+    我们就称$\lambda$为一个\tbf{本征值},对应的解$u_\lambda(x)$称为\tbf{本征函数}.据此,回答下列问题.
     \begin{enumerate}[label=\tbf{(\arabic*)}]
         \item 当$a_1=-1,b_1=1,a_2=b_2=0$时,试证明$0$是本征值.
         \item 对于$a_1=-1,b_1=1,a_2=b_2=0$以及$a_1=b_1=0,a_2=b_2=1$的情形,分别求解所有本征值和每个本征值对应的所有本征函数.
@@ -181,65 +174,30 @@
 
     \end{enumerate}
 \end{problem}
-\begin{proof}
-    \begin{enumerate}[label=\tbf{(\arabic*)}]
-        \item 由题意有
-            \[u'(0)=u'(L)=0\]
-            不妨令$u(x)=C(C\neq0)$,于是$u''(x)=0$且有$u'(0)=u'(L)=0$.\\
-            于是$0$是方程的本征值.
-        \item 对于$-a_1=b_1=1,a_2=b_2=0$的情形有$u'(0)=u'(L)=0$.\\
-            对于$a_1=b_1=0,a_2=b_2=1$的情形有$u(0)=u(L)=0$.\\
-            若$\lambda\leqslant0$,则特征根为重根$\sqrt{-\lambda}$,通解为$u(x)=\e^{\sqrt{-\lambda} x}\left(C_1x+C_2\right)$,其中$C_1,C_2$不全为$0$.\\
-            此时又有$u'(x)=\e^{\sqrt{-\lambda} x}\left(\sqrt{-\lambda} C_1x+\sqrt{-\lambda} C_2+C_1\right)$.\\
-            要求$u'(0)=u'(L)=0$,则$\sqrt{-\lambda} C_2+C_1=\e^{\sqrt{-\lambda} L}\left(\sqrt{-\lambda} C_1L+\sqrt{-\lambda} C_2+C_1\right)$,这只有$\lambda=0$时才成立.\\
-            要求$u(0)=u(L)=0$,则$C_2=\e^{\sqrt{-\lambda} L}\left(C_1 L+C_2\right)$,这也只有$\lambda=0$时才成立.\\
-            若$\lambda>0$,则特征根为共轭复根$\pm\sqrt{\lambda}i$,通解为$u(x)=C_1\sin\sqrt{\lambda}x+C_2\cos\sqrt{\lambda}x$,其中$C_1,C_2$不全为$0$.\\
-            要求$u'(0)=u'(L)=0$,则$C_1=C_1\cos\sqrt{\lambda}L-C_2\sin\sqrt{\lambda}L=0$.于是$L=\dfrac{k\pi}{\sqrt{\lambda}}$.\\
-            要求$u(0)=u(L)=0$,则$C_2=C_1\sin\sqrt\lambda L+C_2\cos\sqrt\lambda L$,于是$L=\dfrac{k\pi}{\sqrt\lambda}$.\\
-            于是对于$-a_1=b_1=1,a_2=b_2=0$的情形,本征值$\lambda\geqslant0$,对应的本征函数为
-            \[u(x)=\left\{\begin{array}{l}
-                C(C\neq0),\lambda=0\\
-                C\cos\dfrac{k\pi x}{L}(C\neq0,k\in\mathbb{Z}),\lambda>0
-            \end{array}\right.\]
-            对于$a_1=b_1=0,a_2=b_2=1$的情形,本征值$\lambda\geqslant0$,对应的本征函数为
-            \[u(x)=\left\{\begin{array}{l}
-                C(C\neq0),\lambda=0\\
-                C\sin\dfrac{k\pi x}{L}(C\neq0,k\in\mathbb{Z}),\lambda>0
-            \end{array}\right.\]
-        \item 在$u''(x)+\lambda u(x)=0$两端同乘$u(x)$后在$[0,L]$上定积分有
-            \[\begin{aligned}
-                0
-                &= \int_0^Lu''(x)u(x)\dx+\lambda\int_0^L\left(u(x)\right)^2\dx \\
-                &= \left.u(x)u'(x)\right|_0^L-\int_0^L\left(u'(x)\right)^2\dx+\lambda\int_0^L\left(u(x)\right)^2\dx \\
-                &= -\dfrac{b_2}{b_1}\left(u(L)\right)^2-\dfrac{a_2}{a_1}\left(u(0)\right)^2-\int_0^L\left(u'(x)\right)^2\dx+\lambda\int_0^L\left(u(x)\right)^2\dx
-            \end{aligned}\]
-            前三项都是非正的,这就要求$\lambda\geqslant0$.\\
-            又$\lambda=0$时要求
-            \[\left(u(L)\right)^2=\left(u(0)\right)^2=0\ \ \ \ \ \left(u'(x)\right)^2\equiv0\]
-            于是$u(x)\equiv0$,这与$\lambda$是本征值相悖.\\
-            于是必有$\lambda>0$.
-        \item 我们有
-            \[\left\{\begin{array}{l}
-                u_\lambda''(x)+\lambda u_\lambda(x)=0 \\
-                u_\mu''(x)+\mu u_\mu(x)=0
-            \end{array}\right.\]
-            分别同乘$u_\mu(x)$和$u_\lambda(x)$在$[0,L]$上定积分有
-            \[\left\{\begin{array}{l}
-                \displaystyle\int_0^Lu_\lambda''(x)u_\mu(x)\dx+\lambda\int_0^Lu_\lambda(x)u_\mu(x)\dx=0 \\
-                \displaystyle\int_0^Lu_\mu''(x)u_\lambda(x)\dx+\mu\int_0^Lu_\mu(x)u_\lambda(x)\dx=0 
-            \end{array}\right.\]
-            而
-            \[\begin{aligned}
-                &\int_0^Lu_\lambda''(x)u_\mu(x)\dx-\int_0^Lu_\mu''(x)u_\lambda(x)\dx \\
-                =&\left.u_\mu(x)u_\lambda'(x)\right|_0^L-\int_0^Lu_\lambda'(x)u_\mu'(x)\dx-\left(\left.u_\lambda(x)u_\mu'(x)\right|_0^L-\int_0^Lu_\mu'(x)u_\lambda'(x)\dx\right) \\
-                =&\left.u_\mu(x)u_\lambda'(x)-u_\mu'(x)u_\lambda(x)\right|_0^L \\
-                =&0
-            \end{aligned}\]
-            于是
-            \[(\lambda-\mu)\int_0^Lu_\lambda(x)u_\mu(x)\dx=0\]
-            如果后面的定积分不为$0$,这就要求$\lambda=\mu$,与题设不符.于是
-            \[\int_0^Lu_\lambda(x)u_\mu(x)\dx=0\]
-
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)}]
+        \item 此时边界条件为$u'(0)=u'(L)=0$.取$u(x)=C\neq0$,即得$\lambda=0$的本征函数,故$0$是本征值.
+        \item 先讨论$\lambda<0$,记$k=\sqrt{-\lambda}>0$,则
+            \[u(x)=A\cosh(kx)+B\sinh(kx).\]
+            Neumann条件先给出$B=0$,再给出$A\sinh(kL)=0$,从而$A=0$;Dirichlet条件先给出$A=0$,再给出$B\sinh(kL)=0$,从而$B=0$.故两类问题均无负本征值.
+            当$\lambda=0$时,$u=Ax+B$.Neumann条件给出$A=0$,允许任意非零常数;Dirichlet条件要求$A=B=0$,因此$0$不是Dirichlet本征值.
+            当$\lambda>0$时,$u=A\cos(\sqrt\lambda x)+B\sin(\sqrt\lambda x)$.代入边界条件得到全部本征值及本征函数如下:
+            \[\begin{array}{ll}
+                \text{Neumann:}&\lambda_n=(n\pi/L)^2,\quad
+                    u_n(x)=C\cos(n\pi x/L),\quad n=0,1,2,\ldots,\\[3pt]
+                \text{Dirichlet:}&\lambda_n=(n\pi/L)^2,\quad
+                    u_n(x)=C\sin(n\pi x/L),\quad n=1,2,\ldots,
+            \end{array}\]
+            其中$C\in\R\backslash\{0\}$.
+        \item 将方程乘以$u$并分部积分,利用边界条件可得
+            \[\lambda\int_0^Lu^2\di x
+                =\int_0^L(u')^2\di x+\dfrac{a_2}{a_1}u(0)^2+\dfrac{b_2}{b_1}u(L)^2.\]
+            右端非负,且若为零,则$u'\equiv0$且$u(0)=u(L)=0$,推出$u\equiv0$,与本征函数非零矛盾.所以右端为正,又$\int_0^Lu^2\di x>0$,故$\lambda>0$.
+        \item 将两个方程分别乘以$u_\mu,u_\lambda$后相减并积分,得到
+            \[(\lambda-\mu)\int_0^Lu_\lambda u_\mu\di x
+                =\left[u_\lambda u_\mu'-u_\lambda'u_\mu\right]_0^L.\]
+            在$x=0$处两函数都满足$u'=a_2u/a_1$,在$x=L$处都满足$u'=-b_2u/b_1$,故右端为零.
+            因$\lambda\neq\mu$,于是$\int_0^Lu_\lambda(x)u_\mu(x)\di x=0$.
     \end{enumerate}
-\end{proof}
+\end{solution}
 \end{document}

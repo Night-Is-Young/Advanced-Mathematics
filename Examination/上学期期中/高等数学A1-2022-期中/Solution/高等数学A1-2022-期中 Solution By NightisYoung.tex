@@ -1,0 +1,127 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{extarrows}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2022-23高等数学A1期中考试
+\end{center}
+\begin{problem}[1.(5\songti{分})]
+回答下列问题.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item 有理数的有理数次幂是否一定是有理数?
+            \item 无理数的无理数次幂是否一定是无理数?
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item 不一定.例如$2^{1/2}=\sqrt2$不是有理数.
+\item 不一定.令$u=(\sqrt2)^{\sqrt2}$.若$u$为有理数,这就是反例;若$u$为无理数,则$u^{\sqrt2}=2$是反例.
+\end{enumerate}
+\end{solution}
+\begin{problem}[2.(15\songti{分})]
+计算下列函数极限.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item $\displaystyle\lim_{x\to+\infty}\dfrac{\sqrt{x+2\sqrt{x+2\sqrt{x}}}}{\sqrt{x+4}}$
+            \item $\displaystyle\lim_{x\to1}(\dfrac{1}{x-1}-\dfrac{2}{x^2-1}+\dfrac{3}{x^3-1}-\dfrac{4}{x^4-1})$
+            \item $\displaystyle\lim_{x\to+\infty}(2021\sqrt{x+2021}+2023\sqrt{x+2023}-2\cdot2022\sqrt{x+2022})$
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item 分子分母同除以$\sqrt x$,得到
+\[\dfrac{\sqrt{1+2\sqrt{x+2\sqrt x}/x}}{\sqrt{1+4/x}}\to1.\]
+\item 令$h=x-1$.对$k=1,2,3,4$,有$\dfrac{k}{x^k-1}=\dfrac1h-\dfrac{k-1}{2}+O(h)$.
+交错相加可得极限$0+1/2-1+3/2=1$.
+\item 对固定$c$,有$\sqrt{x+c}=\sqrt x+c/(2\sqrt x)+O(x^{-3/2})$.
+代入后$\sqrt x$项的系数为$2021+2023-2\cdot2022=0$,剩余各项趋于$0$,故所求极限为$0$.
+\end{enumerate}
+\end{solution}
+\begin{problem}[3.(10\songti{分})]
+解下列微分方程.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item 已知函数$f(x)$满足$$f'(x)=1+e^{-x}$$求$f(x)$.
+            \item 已知函数$g(x)$满足$$g(x)+g'(x)=1+e^{-x}$$求$g(x)$.
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item 直接积分得到$f(x)=x-\e^{-x}+C$.
+\item 两边乘以$\e^x$,有$(\e^xg(x))'=\e^x+1$.故$g(x)=1+(x+C)\e^{-x}$.
+\end{enumerate}
+\end{solution}
+\begin{problem}[4.(10\songti{分})]
+是否存在实数序列$\left\{a_n\right\}$满足$\displaystyle\lim_{n\to\infty}a_n=1,\lim_{n\to\infty}a_n^n=1.001$?说明理由.
+\end{problem}
+\begin{solution}
+存在.取$a_n=1.001^{1/n}$,则$a_n\to1$,并且对所有$n$有$a_n^n=1.001$.
+\end{solution}
+\begin{problem}[5.(10\songti{分})]
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item 求函数$$f(x)=(x^2+2x+2)\e^{-x}$$的$n$阶导函数$f^{(n)}(x)$.
+            \item 求函数$$g(x)=\int_{\cot x}^{\tan x}\sqrt{1+t^2}\di t$$的导函数$g'(x)$.
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item 由Leibniz公式,多项式只有零至二阶导数非零,因此
+\[f^{(n)}(x)=(-1)^n\e^{-x}\bigl[x^2+(2-2n)x+n^2-3n+2\bigr].\]
+该公式对$n=0,1$也直接成立.
+\item 在$\sin x\cos x\neq0$处,由变上下限积分求导公式,
+\[g'(x)=\sqrt{1+\tan^2x}\sec^2x+\sqrt{1+\cot^2x}\csc^2x
+=\dfrac1{|\cos x|^3}+\dfrac1{|\sin x|^3}.\]
+\end{enumerate}
+\end{solution}
+\begin{problem}[6.(10\songti{分})]
+已知函数$f(x):[a,b]\to\R$,其中$x_0\in(a,b)$.
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item 若$f(x)$在$x=x_0$处可导,试证明:$f(x)$在$x=x_0$的一个邻域$(x_0-\delta,x_0+\delta)$连续.
+            \item 若$f(x)$在$x=x_0$处二阶可导,试证明:$f(x)$在$x=x_0$的一个邻域$(x_0-\delta,x_0+\delta)$连续.
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+\item \textbf{校订说明：原命题不成立.}点处可导只能推出该点连续,不能保证某个邻域内处处连续.令$f(x_0)=0$,当$x\neq x_0$为有理数时令$f(x)=(x-x_0)^2$,当$x\neq x_0$为无理数时令$f(x)=0$.
+则$|f(x)/(x-x_0)|\leqslant|x-x_0|\to0$,故$f'(x_0)=0$.
+但是$f$在每个$x\neq x_0$处都不连续,因此不存在所述邻域.
+\item 按二阶可导的通常定义,$f'$在$x_0$的某个邻域内有定义,且在$x_0$可导.因此$f$在这个邻域的每一点可导,从而在该邻域连续.第二个命题正确.
+\end{enumerate}
+\end{solution}
+\begin{problem}[7.(10\songti{分})]
+已知函数$f(x):[a,b]\to\R$在$[a,b]$上连续且Riemann可积.记$\displaystyle F(x)=\int_a^xf(t)\di t$.试证明:
+        \begin{enumerate}[label=\textbf{(\arabic*)}]
+            \item $F(x)$在$[a,b]$上连续.
+            \item $F(x)$在$(a,b)$上可导（端点处取单侧导数）,且$\forall x\in(a,b),F'(x)=f(x)$.
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+记$M=\max_{[a,b]}|f|$.对任意$x,y\in[a,b]$,有
+\[|F(y)-F(x)|=\left|\int_x^yf(t)\di t\right|\leqslant M|y-x|,\]
+所以$F$在$[a,b]$上连续.对于$x\in(a,b)$,由$f$在$x$处连续,
+\[\left|\dfrac{F(x+h)-F(x)}h-f(x)\right|
+\leqslant\sup_{|t-x|\leqslant|h|}|f(t)-f(x)|\to0.\]
+故$F'(x)=f(x)$;端点处同理得到相应的单侧导数.
+\end{solution}
+\begin{problem}[8.(10\songti{分})]
+序列$\left\{a_n\right\}$满足
+        $$a_1=\sqrt{2},a_2=\sqrt{2}^{a_1},\cdots,a_{n+1}=\sqrt{2}^{a_n}$$
+        判断$\displaystyle\lim_{n\to\infty}a_n$是否存在.若存在,请求出其值;若不存在,说明理由.
+\end{problem}
+\begin{solution}
+由归纳法,$a_n<2$:起始项$\sqrt2<2$,而$a_n<2$时$a_{n+1}=2^{a_n/2}<2$.
+又$a_2>a_1$,且映射$x\mapsto2^{x/2}$严格递增,故序列严格递增.于是存在极限$L\in[\sqrt2,2]$,满足$L=2^{L/2}$.
+函数$q(x)=2^{x/2}-x$在此区间上有$q'(x)\leqslant\ln2-1<0$,且$q(2)=0$,故唯一可能为$L=2$.
+\end{solution}
+\begin{problem}[9.(10\songti{分})]
+求序列$\left\{\xi_n\right\}$满足
+        \begin{enumerate}[label=\textbf{(\alph*)}]
+            \item $\displaystyle\lim_{n\to\infty}\left(\xi_n-\e^n\right)=0$.
+            \item 令$f(x)=x\ln x$,$\displaystyle\lim_{n\to\infty}{\left(f(\xi_n)-f(\e^n)\right)}\neq0$.
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+取$\xi_n=\e^n+1/n$.显然$\xi_n-\e^n\to0$.由Lagrange中值定理,存在$c_n\in(\e^n,\e^n+1/n)$,使
+\[f(\xi_n)-f(\e^n)=\dfrac{\ln c_n+1}{n}\to1\neq0.\]
+其中$\ln c_n=n+\ln(c_n/\e^n)=n+o(1)$.
+\end{solution}
+\end{document}

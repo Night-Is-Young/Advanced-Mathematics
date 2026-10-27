@@ -1,14 +1,6 @@
 \documentclass{ctexart}
-\usepackage{geometry}
-\usepackage[dvipsnames,svgnames]{xcolor}
-\usepackage[strict]{changepage}
-\usepackage{framed}
-\usepackage{enumerate}
-\usepackage{amsmath,amsthm,amssymb}
-\usepackage{enumitem}
 \usepackage{template}
-
-\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+\usepackage{extarrows}
 
 \begin{document}\pagestyle{empty}
 \begin{center}\Large
@@ -23,7 +15,7 @@
         \item $\displaystyle\lim_{n\to\infty}\left[\dfrac{1}{n^2}\sum_{i=1}^{n}i\ln(n+i)-\dfrac{n+1}{2n}\ln{n}\right]$
     \end{enumerate}
 \end{problem}
-\begin{solution}[Solution.]
+\begin{solution}
     \begin{enumerate}[leftmargin=*,label=\textbf{(\arabic*)}]
         \item 当$n\geqslant6$时有
             $$0<\dfrac{3^n}{n!}\leqslant\dfrac{3^5}{5!}\cdot\dfrac{3^{n-5}}{6^{n-5}}=\dfrac{6^5}{5!}\cdot\dfrac{1}{2^n}$$
@@ -75,26 +67,27 @@
             \\求$\dfrac{\di}{\dx}\left(F'(x)\sin x-F(x)\cos x\right)$.
     \end{enumerate}
 \end{problem}
-\begin{solution}[Solution.]
+\begin{solution}
     \begin{enumerate}[leftmargin=*,label=\textbf{(\arabic*)}]
         \item $\displaystyle\dfrac{\di y}{\dx}
             =\sqrt{1+x^2}+\dfrac{x^2}{\sqrt{1+x^2}}+\dfrac{1}{x+\sqrt{1+x^2}}\cdot\left(1+\dfrac{x}{\sqrt{1+x^2}}\right)
             =2\sqrt{1+x^2}$
         \item 当$x\neq0$时有
             $$\dfrac{\di y}{\dx}=4x^3\sin{\dfrac{1}{x}}+x^4\cos\dfrac{1}{x}\cdot\left(-\dfrac{1}{x^2}\right)=4x^3\sin{\dfrac{1}{x}}-x^2\cos{\dfrac{1}{x}}$$
-            $$\dfrac{\di^2y}{\dx^2}=12x^2\sin\dfrac{1}{x}-4x\cos\dfrac{1}{x}-2x\cos\dfrac{1}{x}+\sin\dfrac{1}{x}=\dfrac{\di^2y}{\dx^2}=12x^2\sin\dfrac{1}{x}-6x\cos\dfrac{1}{x}+\sin\dfrac{1}{x}$$
-            而$$\lim_{x\to 0}{\dfrac{4x^3\sin{\dfrac{1}{x}}-x^2\cos{\dfrac{1}{x}}-0}{x-0}}=\lim_{x\to0}\left(4x^2\sin{\dfrac{1}{x}}-x\cos\dfrac{1}{x}\right)=0$$
+            $$\dfrac{\di^2y}{\dx^2}=12x^2\sin\dfrac{1}{x}-4x\cos\dfrac{1}{x}-2x\cos\dfrac{1}{x}-\sin\dfrac{1}{x}=12x^2\sin\dfrac{1}{x}-6x\cos\dfrac{1}{x}-\sin\dfrac{1}{x}$$
+            由定义,$y'(0)=\displaystyle\lim_{h\to0}h^3\sin(1/h)=0$.再由
+            $$\lim_{x\to 0}{\dfrac{4x^3\sin{\dfrac{1}{x}}-x^2\cos{\dfrac{1}{x}}-0}{x-0}}=\lim_{x\to0}\left(4x^2\sin{\dfrac{1}{x}}-x\cos\dfrac{1}{x}\right)=0$$
             从而
             $$\dfrac{\di^2 y}{\dx^2}=\left\{
             \begin{array}{l}
-                12x^2\sin\dfrac{1}{x}-6x\cos\dfrac{1}{x}+\sin\dfrac{1}{x},\ x\neq 0 \\
+                12x^2\sin\dfrac{1}{x}-6x\cos\dfrac{1}{x}-\sin\dfrac{1}{x},\ x\neq 0 \\
                 0,\ x=0
             \end{array}
             \right.$$
         \item 由题意$$y=\int_{\cot x}^{\tan x}\sqrt{1+t^2}\di t=\int_{0}^{\tan x}\sqrt{1+t^2}\di t-\int_{0}^{\cot x}\sqrt{1+t^2}\di t$$
             从而$$\dfrac{\di y}{\dx}=\dfrac{\sqrt{1+\tan^2x}}{\cos^2x}+\dfrac{\sqrt{1+\cot^2x}}{\sin^2x}=\dfrac{1}{\left|\cos^3x\right|}+\dfrac{1}{\left|\sin^3x\right|}$$
-        \item 由题意$$F''(x)=f''(x)-f^{(4)}(x)+\cdots+(-1)^{2n+2}f^{(2n+2)}(x)$$
-            从而$$F(x)+F''(x)=f(x)+(-1)^{2n+2}f^{(2n+2)}(x)$$
+        \item 由题意$$F''(x)=f''(x)-f^{(4)}(x)+\cdots+(-1)^nf^{(2n+2)}(x)$$
+            从而$$F(x)+F''(x)=f(x)+(-1)^nf^{(2n+2)}(x)$$
             而$$\dfrac{\di}{\dx}\left(F'(x)\sin x-F(x)\cos x\right)=(F(x)+F''(x))\sin x$$
             而$f(x)=x^n(1-x)^n$为$2n$次多项式,从而$f^{(2n+2)}(x)=0$.\\
             故$$\dfrac{\di}{\dx}\left(F'(x)\sin x-F(x)\cos x\right)=x^n(1-x)^n\sin x$$
@@ -108,7 +101,7 @@
             \item 设$y=y(x)$是由方程$y^2(x-y)=x^2$确定的隐函数,求$\displaystyle\int{\dfrac{\dx}{y^2}}$.
         \end{enumerate}
 \end{problem}
-\begin{solution}[Solution]
+\begin{solution}
     \begin{enumerate}[leftmargin=*,label=\textbf{(\arabic*)}]
         \item 置$\displaystyle I=\int\sqrt{1+x^2}\dx$,则
             $$\begin{aligned}
@@ -133,19 +126,19 @@
                 \int\dfrac{\dx}{y^2}
                 &= \int{\dfrac{(t-1)^2}{t^4}\cdot\dfrac{2t^3-3t^2}{(t-1)^2}\di t} \\
                 &= \int{\left(\dfrac{2}{t}-\dfrac{3}{t^2}\right)\di t} \\
-                &= 2ln\left|t\right|+\dfrac{3}{t}+C \\
-                &= 2ln\left|x\right|-2ln\left|y\right|+\dfrac{3x}{y}+C
+                &= 2\ln\left|t\right|+\dfrac{3}{t}+C \\
+                &= 2\ln\left|x\right|-2\ln\left|y\right|+\dfrac{3y}{x}+C
             \end{aligned}$$
     \end{enumerate}
 \end{solution}
 \begin{problem}[4.(10\songti{分})]
     试确定实数$a,b$使得函数$$f(x)=\lim_{n\to\infty}{\dfrac{x^{2n-1}+ax^2+bx}{x^{2n}+1}}$$成为$\R$上的连续函数.
 \end{problem}
-\begin{solution}[Solution.]
+\begin{solution}
     当$\left|x\right|>1$时,有$$f(x)=\lim_{n\to\infty}{\dfrac{x^{2n-1}+ax^2+bx}{x^{2n}+1}}=\lim_{n\to\infty}\left(\dfrac{1}{x+\dfrac{1}{x^{2n-1}}}+\dfrac{a}{x^{2n-2}+\dfrac{1}{x^2}}+\dfrac{b}{x^{2n-1}+\dfrac{1}{x}}\right)=\dfrac{1}{x}$$
     当$\left|x\right|<1$时,有$$f(x)=\lim_{n\to\infty}{\dfrac{x^{2n-1}+ax^2+bx}{x^{2n}+1}}=ax^2+bx$$
-    故$f(x)$在$x=1$处的左右极限分别为$$\lim_{x\to1^+}=1,\lim_{x\to1^-}=a+b$$
-    在$x=-1$处的左右极限分别为$$\lim_{x\to-1^-}=-1,\lim_{x\to-1^+}=a-b$$
+    故$f(x)$在$x=1$处的左右极限分别为$$\lim_{x\to1^+}f(x)=1,\lim_{x\to1^-}f(x)=a+b$$
+    在$x=-1$处的左右极限分别为$$\lim_{x\to-1^-}f(x)=-1,\lim_{x\to-1^+}f(x)=a-b$$
     由于$f(x)$在$\R$上连续,则有
     $$\left\{\begin{array}{l}
         a+b=1 \\
@@ -162,16 +155,16 @@
         \item $\displaystyle\int_{0}^{\pi}\left(\int_{0}^{x}\dfrac{\sin t}{\pi-t}\di t\right)\dx$
     \end{enumerate}
 \end{problem}
-\begin{solution}[Solution.]
+\begin{solution}
     \begin{enumerate}[label=\textbf{(\arabic*)}]
         \item 置$t=\sqrt{x}$,则$\dfrac{\di t}{\dx}=\dfrac{1}{2\sqrt{x}}=\dfrac{1}{2t}$.于是
             $$\int_0^1\dfrac{\sqrt{x}}{1+\sqrt{x}}\dx=2\int_0^1\dfrac{t^2\di t}{1+t}=2\left(\int_0^1(t-1)\di t+\int_0^1\dfrac{\di t}{1+t}\right)=2\ln2-1$$
-        \item 置$t=-x$,于是\\
+        \item 置$t=-x$,于是
             $$\begin{aligned}
                 \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\dfrac{\sin^2x}{1+\e^x}\dx
                 &= \int_{-\frac{\pi}{2}}^{0}\dfrac{\sin^2x}{1+\e^x}\dx+\int_{0}^{\frac{\pi}{2}}\dfrac{\sin^2x}{1+\e^x}\dx \\
                 &= \int_{0}^{\frac{\pi}{2}}\dfrac{\sin^2t}{1+\e^{-t}}\di t+\int_{0}^{\frac{\pi}{2}}\dfrac{\sin^2x}{1+\e^x}\dx \\
-                &= \int_{0}^{\frac{\pi}{2}}\left(\dfrac{\sin^2x}{1+\e^x}-\dfrac{\sin^2x}{1+\e^{-x}}\right)\dx \\
+                &= \int_{0}^{\frac{\pi}{2}}\left(\dfrac{\sin^2x}{1+\e^x}+\dfrac{\sin^2x}{1+\e^{-x}}\right)\dx \\
                 &= \int_{0}^{\frac{\pi}{2}}\sin^2x\dx \\
                 &= \dfrac{\pi}{4}
             \end{aligned}$$
@@ -180,7 +173,7 @@
                 \int_{0}^{\pi}\left(\int_{0}^{x}\dfrac{\sin t}{\pi-t}\di t\right)\dx
                 &= \int_{0}^{\pi}f(x)\dx \\
                 &= \left.xf(x)\right|_0^{\pi}-\int_0^\pi xf'(x)\dx \\
-                &= \pi\int_0^\pi\dfrac{\sin t}{\pi-t}\di t-\int_0^\pi\dfrac{x\sin x}{\pi-x} \\
+                &= \pi\int_0^\pi\dfrac{\sin t}{\pi-t}\di t-\int_0^\pi\dfrac{x\sin x}{\pi-x}\dx \\
                 &= \int_0^\pi\dfrac{(\pi-x)\sin x}{\pi-x}\dx \\
                 &= \int_0^\pi\sin x\dx \\
                 &= 2
@@ -190,30 +183,20 @@
 \begin{problem}[6.(10\songti{分})]
     设$f(x)$在$[0,1]$上Riemann可积,求$$\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}(-1)^{i-1}f\left(\dfrac{i}{n}\right)$$
 \end{problem}
-\begin{solution}[Solution.]
-    我们有
-    $$\begin{aligned}
-        \dfrac{1}{n}\sum_{i=1}^{n}(-1)^{i-1}f\left(\dfrac{i}{n}\right)
-        &= \dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i-1}{n}\right)-\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right)
-    \end{aligned}$$
-    根据Riemann积分的定义有
-    $$\int_0^1f(x)\dx=\lim_{n\to\infty}\dfrac{1}{m}\sum_{i=1}^{m}f\left(\dfrac{i}{m}\right)=\lim_{n\to\infty}{\dfrac{2}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right)}$$
-    于是
-    $$\begin{aligned}
-        \lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}(-1)^{i-1}f\left(\dfrac{i}{n}\right)
-        &= \lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i-1}{n}\right)-\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right) \\
-        &= \lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i-1}{n}\right)+\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right)-2\lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right) \\
-        &= \lim_{n\to\infty}\dfrac{1}{n}\sum_{i=1}^{n}f\left(\dfrac{i}{n}\right)-\lim_{n\to\infty}\dfrac{2}{n}\sum_{i=1}^{\left[\frac{n}{2}\right]}f\left(\dfrac{2i}{n}\right) \\
-        &= \int_0^1f(x)\dx-\int_0^1f(x)\dx \\
-        &= 0
-    \end{aligned}$$
+\begin{solution}
+记$m=\lfloor n/2\rfloor$.对所有$n$都有恒等式
+    \[\dfrac1n\sum_{i=1}^n(-1)^{i-1}f(i/n)
+    =\dfrac1n\sum_{i=1}^nf(i/n)-\dfrac2n\sum_{i=1}^mf(2i/n).\]
+    第一项是$[0,1]$上的Riemann和,趋于$\int_0^1f(x)\dx$.
+    第二项对应区间$[0,2m/n]$上步长为$2/n$的Riemann和;剩余区间长度至多$1/n$,而$f$有界,故它也趋于同一个积分.
+    因而所求极限为$0$.这也涵盖$n$为奇数时末尾未配对的一项.
 \end{solution}
 \begin{problem}[7.(10\songti{分})]
     设$f(x)$在$[0,+\infty)$上连续,$f(0)=0$,且$\forall x>0,0<f(x)<x$.
     令$$a_1=f(1),a_2=f(a_1),\cdots,a_n=f(a_{n-1}),n=2,3,\cdots$$
     证明:$\displaystyle\lim_{n\to\infty}a_n=0$.
 \end{problem}
-\begin{solution}[Proof.]
+\begin{solution}
     由$\forall x>0,0<f(x)<x$有$\forall n\in\N^*,0<a_{n+1}=f(a_n)<a_n$.\\
     即$\left\{a_n\right\}$单调递减且有下界$0$.不妨设$\displaystyle\lim_{n\to\infty}{a_n}=A$.\\
     由$f(x)$在$[0,+\infty)$连续,对递推式求极限有$$A=\lim_{n\to\infty}f\left(a_{n-1}\right)=\lim_{n\to\infty}f\left(a_n\right)=f(A)$$

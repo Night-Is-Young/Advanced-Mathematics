@@ -31,7 +31,8 @@
     于是
     \[u(x)=-1-\left(1+x^2\right)\ln(1+x^2)+C\left(1+x^2\right)\]
     $y(0)=1$要求$u(0)=1$,于是$C=2$,即原方程的解为
-    \[y=\dfrac{1}{\sqrt{1+2x^2+\left(1+x^2\right)\ln\left(1+x^2\right)}}\]
+    \[y=\dfrac{1}{\sqrt{1+2x^2-\left(1+x^2\right)\ln\left(1+x^2\right)}}\]
+    解取分母根式为正且包含$x=0$的最大开区间.
 \end{solution}
 \begin{problem}[2.(10\songti{分})]
     求常微分方程
@@ -59,7 +60,7 @@
     的满足$y(0)=-\dfrac{7}{20},y'(0)=\dfrac{38}{15}$的解.
 \end{problem}
 \begin{solution}
-    原方程对应的齐次方程的特征根为$\lambda_1=1,\lambda_2=-2$,于是原方程的通解为
+    原方程对应的齐次方程的特征根为$\lambda_1=1,\lambda_2=-2$,于是齐次方程的通解为
     \[y=C_1\e^{x}+C_2\e^{-2x}\]
     考虑方程$y''+y'-2y=x$的特解,设$y=Ax^2+Bx+C$,则
     \[2A+(2Ax+B)-2\left(Ax^2+Bx+C\right)=x\]
@@ -88,24 +89,13 @@
     \[\lim_{R\to\infty}I(R)=0\]
     其中积分方向为圆周的逆时针方向.
 \end{problem}
-\begin{proof}
-    考虑二元函数
-    \[P(x,y)=\dfrac{-y}{\left(x^2+xy+y^2\right)^2}\ \ \ \ \ Q(x,y)=\dfrac{x}{\left(x^2+xy+y^2\right)^2}\]
-    积分曲线$S_R:x^2+y^2=R^2$的单位切向量为$\mbf n=\frac{1}{R}(-y,x)$,于是
-    \[\begin{aligned}
-        I(R)
-        &= \oint_{S_R^+}\left(P,Q\right)\cdot\mbf n\di s \\
-        &= \oint_S\dfrac{x^2+y^2}{R\left(x^2+xy+y^2\right)^2}\di s \\
-        &= \int_0^{2\pi}\dfrac{R}{\left(R^2\left(1+\cos t\sin t\right)\right)^2}\di t \\
-        &\leqslant \int_0^{2\pi}\dfrac{4}{R^3}\di t \\
-        &= \dfrac{8\pi}{R^3}
-    \end{aligned}\]
-    于是
-    \[0\leqslant I(R)\leqslant \dfrac{8\pi}{R^3}\]
-    由夹逼准证可知
-    \[\lim_{R\to+\infty}I(R)=0\]
-
-\end{proof}
+\begin{solution}
+取参数$x=R\cos t,y=R\sin t$, $0\leqslant t\leqslant2\pi$,则
+    \[I(R)=\dfrac1{R^2}\int_0^{2\pi}\dfrac{\di t}{(1+\sin t\cos t)^2}.\]
+    因$1+\sin t\cos t\geqslant1/2$,有
+    \[0\leqslant I(R)\leqslant\dfrac{8\pi}{R^2}\to0\qquad(R\to+\infty).\]
+    由夹逼准则得证.
+\end{solution}
 \begin{problem}[5.(10\songti{分})]
     设$L$为空间曲线
     \[\left\{\begin{array}{l}
@@ -117,21 +107,10 @@
 
 \end{problem}
 \begin{solution}
-    令$P(x,y,z)=y-z+\sin^2x,Q(x,y,z)=z-x+\sin^2y,R(x,y,z)=x-y+\sin^2z$.%
-    于是$P,Q,R$在$\R^3$上可微.$L$围成的空间曲面$S:z=1-x,x^2+y^2\leqslant 1$,其单位外法向量为$\mbf n=\dfrac{(1,0,1)}{\sqrt2}$.\\
-    于是据Stokes公式有
-    \[\begin{aligned}
-        \int_LP\di x+Q\di y+R\di z
-        &= \iint_{S^+}\begin{vmatrix}
-            \di x\di y&\di y\di z&\di z\di x\\
-            \dfrac{\p}{\p x}&\dfrac{\p}{\p y}&\dfrac{\p}{\p z}\\
-            P&Q&R
-        \end{vmatrix}\\
-        &= -2\iint_{S^+}\dx\di y+\di y\di z+\di z\di x \\
-        &= -4\iint_{x^2+y^2\leqslant 1}\di\sigma \\
-        &= -4\pi
-    \end{aligned}\]
-    
+设$\mbf F=(y-z+\sin^2x,z-x+\sin^2y,x-y+\sin^2z)$,则
+    \[\nabla\times\mbf F=(-2,-2,-2).\]
+    取平面曲面$S:z=1-x$, $x^2+y^2\leqslant1$,向上定向与题设边界方向一致,且有向面积元为$(1,0,1)\di x\di y$.由Stokes公式,
+    \[I=\iint_{x^2+y^2\leqslant1}(-2,-2,-2)\cdot(1,0,1)\di x\di y=-4\pi.\]
 \end{solution}
 \begin{problem}[6.(10\songti{分})]
     设$D$是单位圆$x^2+y^2\leqslant1$,求积分
@@ -156,7 +135,7 @@
 
 \end{problem}
 \begin{solution}
-    首先考虑第一项,有
+    在$y=0$处按连续延拓$\sin y/y=1$理解被积函数.首先考虑第一项,有
     \[\begin{aligned}
         \iint_D\dfrac{3x^2\sin y}{y}\di x\di y
         &= \int_{-1}^0\di y\int_{\sqrt[3]y}^{y}\dfrac{3x^2\sin y}{y}\di x+\int_{0}^1\di y\int_{y}^{\sqrt[3]y}\dfrac{3x^2\sin y}{y}\di x \\
@@ -190,7 +169,7 @@
     于是
     \[\begin{aligned}
         &\iiint_{\Omega}\dfrac{(x+y+z)^2\sqrt{1+x^2+y^2}}{\left(x^2+y^2+z^2\right)\left(1+x^2+y^2+z^2\right)}\di V \\
-        =&\iiint_{\Omega'}\dfrac{\left(r^2+z^2+r^2\sin\theta\cos\theta+2rz\left(\sin\theta+\cos\theta\right)\right)\sqrt{1+r^2}}{\left(r^2+z^2\right)\left(1+r^2+z^2\right)}r\di V \\
+        =&\iiint_{\Omega'}\dfrac{\left(r^2+z^2+2r^2\sin\theta\cos\theta+2rz\left(\sin\theta+\cos\theta\right)\right)\sqrt{1+r^2}}{\left(r^2+z^2\right)\left(1+r^2+z^2\right)}r\di V \\
         =&\int_0^{2\pi}\di\theta\int_0^1\di r\int_{\sqrt{1+r^2}}^{\sqrt3\sqrt{1+r^2}}\dfrac{r\sqrt{1+r^2}}{\left(z^2+r^2+1\right)}\di z \\
         =&\int_0^{2\pi}\di\theta\int_0^1\di r\left.\left(r\arctan\dfrac{z}{\sqrt{1+r^2}}\right)\right|_{\sqrt{1+r^2}}^{\sqrt3\sqrt{1+r^2}} \\
         =&\int_0^{2\pi}\di\theta\int_0^1\dfrac{\pi}{12}r\di r \\
@@ -214,7 +193,7 @@
     首先有
     \[\dfrac{\p A}{\p y}=\dfrac{\p B}{\p x}=0\]
     在$\R^2$上成立,于是据Green公式有
-    \[\oint_{L}A\di x+B\di y=\iint_{\Omega}0\di\sigma=0\]
+    \[\oint_{\Gamma}A\di x+B\di y=\iint_{\Omega}0\di\sigma=0\]
     考虑小椭圆$\Omega_\ep:4x^2+y^2\leqslant\ep^2$和其边界$S_\ep$,其中$0<\ep<3$.在$\Omega\backslash\Omega_\ep$上根据Green公式有
     \[\begin{aligned}
         \oint_{\Gamma+S_\ep^-}P\di x+Q\di y
@@ -256,7 +235,7 @@
         \item 在$D_1$面上有
             \[I_1=\iint_{D_1}-1(x-y)z\di S=0\]
             在$D_2$面上有
-            \[I_2=\iint_{D_1}-1(x-y)z\di S=-\iint_{x^2+y^2\leqslant 1}(x-y)\di\sigma=0\]
+            \[I_2=\iint_{D_2}(x-y)z\di S=\iint_{x^2+y^2\leqslant 1}(x-y)\di\sigma=0\]
             在$D_3$面上有
             \[I_3=\iint_{D_3}x|x|(y-z)+y|y|(z-x)\di S=0\]
             于是

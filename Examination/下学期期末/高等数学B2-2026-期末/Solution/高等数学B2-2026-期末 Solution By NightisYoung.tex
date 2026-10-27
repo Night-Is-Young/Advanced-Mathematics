@@ -1,0 +1,169 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+北京大学2025-2026学年第二学期期末试题\\
+    高等数学B2
+\end{center}
+\begin{problem}[1.(15\songti{分})]
+判断无穷级数
+\[\sum_{n=3}^{\infty}\frac1{n(\ln n)^p}\qquad(p>0)\]
+是否收敛.
+\end{problem}
+\begin{solution}
+令$g(x)=\dfrac1{x(\ln x)^p}$, $x\geqslant3$.对于$p>0$,函数$g$为正且单调递减.
+根据积分判别法,原级数与$\int_3^{+\infty}g(x)\di x$同敛散.作代换$u=\ln x$,得到
+\[\int_3^{+\infty}\frac{\di x}{x(\ln x)^p}
+=\int_{\ln3}^{+\infty}\frac{\di u}{u^p}.\]
+右端在$p>1$时收敛,其值为$\dfrac{(\ln3)^{1-p}}{p-1}$;
+在$0<p\leqslant1$时发散于$+\infty$.因此原级数在$p>1$时收敛,在$0<p\leqslant1$时发散.
+\end{solution}
+\begin{problem}[2.(15\songti{分})]
+设
+\[a_n=\int_0^{n\pi}x|\sin x|\di x\qquad(n=1,2,\ldots)\]
+求级数$\displaystyle\sum_{n=1}^{\infty}a_n/3^n$的和.
+（提示：计算$a_n$时可作代换$x=n\pi-t$.）
+\end{problem}
+\begin{solution}
+在$a_n$的积分中作代换$x=n\pi-t$.由于$n$为整数,有
+$|\sin(n\pi-t)|=|\sin t|$,因而
+\[a_n=\int_0^{n\pi}(n\pi-t)|\sin t|\di t
+=n\pi\int_0^{n\pi}|\sin t|\di t-a_n.\]
+又因为$|\sin t|$的周期为$\pi$,每个周期上的积分为$2$,所以
+\[2a_n=n\pi\cdot2n=2n^2\pi,\qquad a_n=n^2\pi.\]
+由几何级数$\sum_{n=0}^{\infty}r^n=(1-r)^{-1}$在$|r|<1$内逐项求导,得到
+\[\sum_{n=1}^{\infty}nr^n=\frac{r}{(1-r)^2},\qquad
+\sum_{n=1}^{\infty}n^2r^n
+=r\frac{\di}{\di r}\left(\frac{r}{(1-r)^2}\right)
+=\frac{r(1+r)}{(1-r)^3}.\]
+取$r=1/3$,可得
+\[\sum_{n=1}^{\infty}\frac{a_n}{3^n}
+=\pi\frac{\frac13(1+\frac13)}{(1-\frac13)^3}=\frac{3\pi}{2}.\]
+\end{solution}
+\begin{problem}[3.(15\songti{分})]
+解答下列问题.
+\begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item 求$f(x)=\arctan\dfrac{2-2x}{1+4x}$在$x=0$处的Taylor级数.（提示：先求导数.）
+\item 求幂级数$\displaystyle\sum_{n=0}^{\infty}(-1)^n\dfrac{x^{2n}}{(2n)!!}$的和函数,其中$0!!=1$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item 取$\arctan$的主值于$(-\pi/2,\pi/2)$,原函数的定义域为$\R\setminus\{-1/4\}$.
+在此定义域内求导,得到
+\[f'(x)=\frac{-10}{(1+4x)^2+(2-2x)^2}=-\frac2{1+4x^2}.\]
+当$|x|<1/2$时,几何级数给出
+\[-\frac2{1+4x^2}=-2\sum_{n=0}^{\infty}(-1)^n4^nx^{2n}.\]
+在含$0$的定义域分支$x>-1/4$内,由$f(0)=\arctan2$及逐项积分,得到Taylor级数
+\[\arctan2-\sum_{n=0}^{\infty}\frac{(-1)^n(2x)^{2n+1}}{2n+1}
+=\arctan2-2x+\frac{8x^3}{3}-\frac{32x^5}{5}+\cdots.\]
+此幂级数的收敛半径为$1/2$,在$x=\pm1/2$时均由Leibniz判别法收敛,
+故其收敛域为$[-1/2,1/2]$.记其和为$S(x)$,由反正切的幂级数及端点连续性,有
+\[S(x)=\arctan2-\arctan(2x),\qquad-\frac12\leqslant x\leqslant\frac12.\]
+还须区分此和与原函数的主值.由正切的差角公式及取值范围,可知
+\[f(x)=\begin{cases}
+\arctan2-\arctan(2x),&x>-1/4,\\
+\arctan2-\arctan(2x)-\pi,&x<-1/4.
+\end{cases}\]
+因此Taylor级数在$-1/4<x\leqslant1/2$时等于$f(x)$,
+在$-1/2\leqslant x<-1/4$时等于$f(x)+\pi$.
+在$x=-1/4$处级数的和为$\pi/2$,但原函数没有定义.
+\item 由$(2n)!!=2^nn!$,有
+\[\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n}}{(2n)!!}
+=\sum_{n=0}^{\infty}\frac{(-x^2/2)^n}{n!}=\e^{-x^2/2}.\]
+对每个实数$x$,相邻项绝对值之比为$\frac{x^2}{2n+2}\to0$,故收敛半径为$+\infty$,
+和函数为$\e^{-x^2/2}$, $x\in\R$.
+\end{enumerate}
+\end{solution}
+\begin{problem}[4.(15\songti{分})]
+判断瑕积分
+\[\int_0^1\frac{\sin(1/x)}{x^p}\di x\qquad(0<p\leqslant2)\]
+的敛散性;若收敛,判断其为条件收敛还是绝对收敛.
+\end{problem}
+\begin{solution}
+作代换$t=1/x$,将瑕积分化为无穷积分
+\[\int_0^1\frac{\sin(1/x)}{x^p}\di x
+=\int_1^{+\infty}t^{p-2}\sin t\di t.\]
+当$0<p<2$时,$t^{p-2}$单调递减且趋于$0$,而$\sin t$的原函数有界,
+根据Dirichlet判别法,该积分收敛.当$p=2$时,
+\[\int_1^A\sin t\di t=\cos1-\cos A\]
+在$A\to+\infty$时没有极限,故积分发散.
+
+现在考察绝对收敛性.当$0<p<1$时,
+\[0\leqslant t^{p-2}|\sin t|\leqslant t^{p-2},\qquad
+\int_1^{+\infty}t^{p-2}\di t<+\infty,\]
+因此原积分绝对收敛.当$1\leqslant p<2$时,对每个整数$k\geqslant1$,在
+$[k\pi+\pi/6,k\pi+5\pi/6]$上有$|\sin t|\geqslant1/2$,从而
+\[\int_{k\pi}^{(k+1)\pi}t^{p-2}|\sin t|\di t
+\geqslant\frac12\int_{k\pi+\pi/6}^{k\pi+5\pi/6}t^{p-2}\di t
+\geqslant\frac\pi3\big((k+1)\pi\big)^{p-2}.\]
+由于$\sum_{k=1}^{\infty}(k+1)^{p-2}$在$p\geqslant1$时发散,绝对值积分发散.
+综上,原积分在$0<p<1$时绝对收敛,在$1\leqslant p<2$时条件收敛,在$p=2$时发散.
+\end{solution}
+\begin{problem}[5.(15\songti{分})]
+将$f(x)=2+|x|$ $(-1\leqslant x\leqslant1)$作周期为$2$的Fourier展开,并用此展开式求$\displaystyle\sum_{n=1}^{\infty}1/(2n-1)^2$的和.
+\end{problem}
+\begin{solution}
+将$f$按周期$2$延拓.由于$f$为偶函数,Fourier系数$b_n=0$,而
+\[a_0=\int_{-1}^1(2+|x|)\di x=5.\]
+当$n\geqslant1$时,有
+\[\begin{aligned}
+a_n&=2\int_0^1(2+x)\cos(n\pi x)\di x\\
+&=2\left[\frac{(2+x)\sin(n\pi x)}{n\pi}
++\frac{\cos(n\pi x)}{n^2\pi^2}\right]_0^1
+=\frac{2\big((-1)^n-1\big)}{n^2\pi^2}.
+\end{aligned}\]
+于是$a_n=0$（$n$为偶数）, $a_n=-4/(n^2\pi^2)$（$n$为奇数）,得到
+\[f(x)=\frac52-\frac4{\pi^2}\sum_{n=1}^{\infty}
+\frac{\cos((2n-1)\pi x)}{(2n-1)^2}.\]
+由于周期延拓后的$f$在$\R$上连续,且在每个周期内分段光滑,
+根据Dirichlet定理,此展开式对每个$x\in\R$均成立.其和函数在
+$2k-1\leqslant x\leqslant2k+1$时为$2+|x-2k|$,其中$k\in\mathbb Z$.
+令$x=0$,由$f(0)=2$,得到
+\[2=\frac52-\frac4{\pi^2}\sum_{n=1}^{\infty}\frac1{(2n-1)^2},\]
+从而$\displaystyle\sum_{n=1}^{\infty}\frac1{(2n-1)^2}=\frac{\pi^2}{8}$.
+\end{solution}
+\begin{problem}[6.(15\songti{分})]
+计算积分
+\[I=\int_0^{+\infty}\frac{\e^{-\alpha x}-\e^{-\beta x}}x\sin x\di x,
+\qquad 0<\alpha<\beta\]
+\end{problem}
+\begin{solution}
+这里$\alpha$, $\beta$是固定参数,$x$是积分变量.当$x\to0^+$时,
+$(\e^{-\alpha x}-\e^{-\beta x})/x\to\beta-\alpha$,故被积函数在$0$附近可积;
+当$x\geqslant1$时,其绝对值不超过$2\e^{-\alpha x}$,所以原积分绝对收敛.
+引入辅助积分变量$t$,有
+\[\frac{\e^{-\alpha x}-\e^{-\beta x}}x=\int_\alpha^\beta\e^{-tx}\di t.\]
+由于
+\[\int_\alpha^\beta\int_0^{+\infty}\e^{-tx}|\sin x|\di x\di t
+\leqslant(\beta-\alpha)\int_0^{+\infty}\e^{-\alpha x}\di x
+=\frac{\beta-\alpha}{\alpha}<+\infty,\]
+可由绝对可积性交换积分次序.于是
+\[I=\int_\alpha^\beta\left(\int_0^{+\infty}\e^{-tx}\sin x\di x\right)\di t.\]
+对$t>0$,直接积分得到
+\[\int_0^{+\infty}\e^{-tx}\sin x\di x
+=\left[-\frac{\e^{-tx}(t\sin x+\cos x)}{1+t^2}\right]_0^{+\infty}
+=\frac1{1+t^2}.\]
+因此
+\[I=\int_\alpha^\beta\frac{\di t}{1+t^2}=\arctan\beta-\arctan\alpha.\]
+\end{solution}
+\begin{problem}[7.(10\songti{分})]
+判断级数
+\[\sum_{n=1}^{\infty}\left(\frac1n-\ln\frac{n+1}{n}\right)\]
+的敛散性,再利用所得结论判断极限$\displaystyle\lim_{n\to\infty}\dfrac{1+1/2+\cdots+1/n}{\ln n}$是否存在,并求其值.
+\end{problem}
+\begin{solution}
+令$\displaystyle u_n=\frac1n-\ln\frac{n+1}{n}$.利用对数的积分表达式,有
+\[u_n=\int_0^1\left(\frac1n-\frac1{n+t}\right)\di t
+=\int_0^1\frac{t}{n(n+t)}\di t.\]
+于是$0<u_n\leqslant\int_0^1\frac{t}{n^2}\di t=\frac1{2n^2}$.
+由于$\sum_{n=1}^{\infty}n^{-2}$收敛,根据比较判别法,原级数收敛.
+记其和为$L$,又记$H_n=1+1/2+\cdots+1/n$.由对数项的消去可知
+\[\sum_{k=1}^nu_k=H_n-\ln(n+1)\to L.\]
+从而$H_n=\ln(n+1)+L+o(1)$,故
+\[\lim_{n\to\infty}\frac{H_n}{\ln n}
+=\lim_{n\to\infty}\left(\frac{\ln(n+1)}{\ln n}
++\frac{L+o(1)}{\ln n}\right)=1.\]
+\end{solution}
+\end{document}

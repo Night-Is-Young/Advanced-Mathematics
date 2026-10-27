@@ -1,0 +1,296 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+北京大学2025-26学年第1学期高数B期中试题
+\end{center}
+
+\begin{problem}[1.(10\songti{分})]
+求序列极限.
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*,topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item \[\lim_{n\to\infty}\sqrt[n]{3^{2n}+4^n}\]
+\item \[\lim_{n\to\infty}\sum_{k=1}^n\dfrac{(n+k)^2}{n^3}\]
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\tbf{(a)} 由$3^{2n}=9^n$及$0<4^n\leqslant9^n$可知
+\[
+9\leqslant\sqrt[n]{3^{2n}+4^n}\leqslant9\sqrt[n]{2}.
+\]
+因为$\displaystyle\lim_{n\to\infty}9\sqrt[n]{2}=9$,由夹逼准则得
+\[
+{\lim_{n\to\infty}\sqrt[n]{3^{2n}+4^n}=9.}
+\]
+\tbf{(b)} 将原式写成Riemann和,有
+\[
+\begin{aligned}
+\lim_{n\to\infty}\sum_{k=1}^n\dfrac{(n+k)^2}{n^3}
+&=\lim_{n\to\infty}\dfrac1n\sum_{k=1}^n\left(1+\dfrac{k}{n}\right)^2\\
+&=\int_0^1(1+t)^2\di t
+=\left.\dfrac{(1+t)^3}{3}\right|_0^1
+={\dfrac73}.
+\end{aligned}
+\]
+\end{solution}
+
+\begin{problem}[2.(10\songti{分})]
+求函数极限.
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*,topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item \[\lim_{x\to4}\dfrac{\sqrt{2x+1}-3}{\sqrt{x-2}-\sqrt2}\]
+\item \[\lim_{x\to+\infty}\left(\sin\sqrt{x+1}-\sin\sqrt x\right)\]
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\tbf{(a)} 将分子、分母分别有理化,当$x\ne4$时有
+\[
+\dfrac{\sqrt{2x+1}-3}{\sqrt{x-2}-\sqrt2}
+=\dfrac{2(x-4)}{\sqrt{2x+1}+3}\cdot
+\dfrac{\sqrt{x-2}+\sqrt2}{x-4}
+=\dfrac{2(\sqrt{x-2}+\sqrt2)}{\sqrt{2x+1}+3}.
+\]
+因此
+\[
+{\lim_{x\to4}\dfrac{\sqrt{2x+1}-3}{\sqrt{x-2}-\sqrt2}
+=\dfrac{2\sqrt2}{3}.}
+\]
+\tbf{(b)} 由Lagrange中值定理及$|\cos t|\leqslant1$可知
+\[
+\left|\sin\sqrt{x+1}-\sin\sqrt x\right|
+\leqslant\sqrt{x+1}-\sqrt x
+=\dfrac1{\sqrt{x+1}+\sqrt x}\longrightarrow0.
+\]
+由夹逼准则得
+\[
+{\lim_{x\to+\infty}\left(\sin\sqrt{x+1}-\sin\sqrt x\right)=0.}
+\]
+\end{solution}
+
+\begin{problem}[3.(10\songti{分})]
+求导数.
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*,topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item 求$\left(x^{x^a}\right)'$, $x>0$,其中$a>0$是常数.
+\item 求$\displaystyle\dfrac{\di}{\di x}\int_{\sin x}^{\tan x}\sqrt{1+t^2}\di t$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\tbf{(a)} 令$y=x^{x^a}$,两边取对数,有
+\[
+\ln y=x^a\ln x,\qquad
+\dfrac{y'}y=ax^{a-1}\ln x+x^{a-1}.
+\]
+因此
+\[
+{\left(x^{x^a}\right)'=x^{x^a}x^{a-1}(a\ln x+1).}
+\]
+\tbf{(b)} 由变上限积分的求导公式及复合函数求导法则,在$\tan x$有定义处有
+\[
+{\dfrac{\di}{\di x}\int_{\sin x}^{\tan x}\sqrt{1+t^2}\di t
+=\dfrac{\sqrt{1+\tan^2x}}{\cos^2x}
+-\sqrt{1+\sin^2x}\cos x.}
+\]
+\end{solution}
+
+\begin{problem}[4.(10\songti{分})]
+求多阶导数.
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*,topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item 设函数$y=y(x)$由参数方程
+\[\begin{cases}x=R(t-\sin t),\\ y=R(1-\cos t),\end{cases}\qquad t\in(0,2\pi)\]
+确定,其中$R>0$是常数.求$y'(x)$, $y''(x)$.
+\item 设$f(x)=x^2\e^{-x^2}$.求$f^{(n)}(x)$, $n=1,2,3$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\tbf{(a)} 因为$t\in(0,2\pi)$,所以
+\[
+\dfrac{\di x}{\di t}=R(1-\cos t)>0,\qquad
+\dfrac{\di y}{\di t}=R\sin t.
+\]
+由参数方程的求导公式得
+\[
+{y'(x)=\dfrac{\di y/\di t}{\di x/\di t}
+=\dfrac{\sin t}{1-\cos t}=\cot\dfrac t2.}
+\]
+再对$x$求导,有
+\[
+\begin{aligned}
+y''(x)
+&=\dfrac1{R(1-\cos t)}\dfrac{\di}{\di t}
+\left(\dfrac{\sin t}{1-\cos t}\right)\\
+&=\dfrac1{R(1-\cos t)}
+\cdot\dfrac{\cos t(1-\cos t)-\sin^2t}{(1-\cos t)^2}
+={-\dfrac1{R(1-\cos t)^2}}.
+\end{aligned}
+\]
+\tbf{(b)} 逐次应用乘积求导法则,得到
+\par\nobreak\vspace{0.4\baselineskip}
+\[
+\begin{aligned}
+f'(x)
+&=2x\e^{-x^2}-2x^3\e^{-x^2}
+={(2x-2x^3)\e^{-x^2}},\\
+f''(x)
+&=\bigl[2-6x^2-2x(2x-2x^3)\bigr]\e^{-x^2}
+={(2-10x^2+4x^4)\e^{-x^2}},\\
+f'''(x)
+&=\bigl[-20x+16x^3-2x(2-10x^2+4x^4)\bigr]\e^{-x^2}\\
+&={(-24x+36x^3-8x^5)\e^{-x^2}}.
+\end{aligned}
+\]
+\end{solution}
+
+\begin{problem}[5.(18\songti{分})]
+求不定积分.
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*,topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item \[\int x\ln\sqrt{1+x^2}\di x\]
+\item \[\int\dfrac{x^2+2x+3}{(x+2)^2(x+3)^2}\di x\]
+\item \[\int x^2\sqrt{1-x^2}\di x\]
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\tbf{(a)} 令$u=1+x^2$,则$\di u=2x\di x$.由分部积分得
+\[
+\begin{aligned}
+\int x\ln\sqrt{1+x^2}\di x
+&=\dfrac14\int\ln u\di u
+=\dfrac14(u\ln u-u)+C\\
+&={\dfrac14\bigl[(1+x^2)\ln(1+x^2)-(1+x^2)\bigr]+C}.
+\end{aligned}
+\]
+\tbf{(b)} 令$u=x+2$,原有理式可作部分分式分解:
+\[
+\dfrac{x^2+2x+3}{(x+2)^2(x+3)^2}
+=\dfrac{u^2-2u+3}{u^2(u+1)^2}
+=-\dfrac8u+\dfrac3{u^2}+\dfrac8{u+1}+\dfrac6{(u+1)^2}.
+\]
+于是
+\[
+\begin{aligned}
+\int\dfrac{x^2+2x+3}{(x+2)^2(x+3)^2}\di x
+&=-8\ln|u|-\dfrac3u+8\ln|u+1|-\dfrac6{u+1}+C\\
+&={8\ln\left|\dfrac{x+3}{x+2}\right|
+-\dfrac3{x+2}-\dfrac6{x+3}+C}.
+\end{aligned}
+\]
+\tbf{(c)} 令$x=\sin t$,其中$-\dfrac\pi2\leqslant t\leqslant\dfrac\pi2$,则
+$\sqrt{1-x^2}=\cos t$.因此
+\[
+\begin{aligned}
+\int x^2\sqrt{1-x^2}\di x
+&=\int\sin^2t\cos^2t\di t
+=\dfrac18\int(1-\cos4t)\di t\\
+&=\dfrac t8-\dfrac{\sin4t}{32}+C\\
+&={\dfrac18\bigl[\arcsin x-x(1-2x^2)\sqrt{1-x^2}\bigr]+C}.
+\end{aligned}
+\]
+\end{solution}
+
+\begin{problem}[6.(12\songti{分})]
+求定积分.
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*,topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item \[\int_{1/2}^1\sqrt{x(1-x)}\di x\]
+\item \[\int_0^{\pi/2}\dfrac{\sin^2x}{\sin x+\cos x}\di x\]
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\tbf{(a)} 令$x=\dfrac{1+\sin t}{2}$,则
+$\sqrt{x(1-x)}=\dfrac{\cos t}{2}$,
+$\di x=\dfrac{\cos t}{2}\di t$,且积分上下限对应于$t=0,\dfrac\pi2$.于是
+\[
+\begin{aligned}
+\int_{1/2}^1\sqrt{x(1-x)}\di x
+&=\dfrac14\int_0^{\pi/2}\cos^2t\di t
+=\dfrac18\int_0^{\pi/2}(1+\cos2t)\di t\\
+&=\left.\left(\dfrac t8+\dfrac{\sin2t}{16}\right)\right|_0^{\pi/2}
+={\dfrac\pi{16}}.
+\end{aligned}
+\]
+\tbf{(b)} 记原积分为$I$.作代换$x=\dfrac\pi2-t$,可得
+\[
+I=\int_0^{\pi/2}\dfrac{\cos^2t}{\sin t+\cos t}\di t.
+\]
+将两式相加,再令$u=x-\dfrac\pi4$,有
+\[
+\begin{aligned}
+2I
+&=\int_0^{\pi/2}\dfrac{\di x}{\sin x+\cos x}
+=\dfrac1{\sqrt2}\int_{-\pi/4}^{\pi/4}\sec u\di u\\
+&=\left.\dfrac1{\sqrt2}\ln|\sec u+\tan u|\right|_{-\pi/4}^{\pi/4}
+=\dfrac1{\sqrt2}\ln\dfrac{\sqrt2+1}{\sqrt2-1}
+=\sqrt2\ln(1+\sqrt2).
+\end{aligned}
+\]
+因此
+\[
+{I=\dfrac1{\sqrt2}\ln(1+\sqrt2).}
+\]
+\end{solution}
+
+\begin{problem}[7.(20\songti{分})]
+设$D$是由抛物线$y=2x^2$与直线$y=8$所围成的有界区域,$B$是由区域$D$绕$y$轴旋转一周所形成的旋转体.
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*,topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item 求区域$D$的面积$A$.
+\item 求旋转体$B$的体积$V$.
+\item 求$B$的表面积$S$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\tbf{(a)} 由$2x^2=8$得两曲线的交点横坐标为$x=\pm2$.因此
+\[
+{A=\int_{-2}^2(8-2x^2)\di x
+=\left.\left(8x-\dfrac23x^3\right)\right|_{-2}^2
+=\dfrac{64}{3}.}
+\]
+\tbf{(b)} 在高度$y\in[0,8]$处,旋转体的水平截面为半径$\sqrt{y/2}$的圆盘.
+由截面积积分得
+\[
+{V=\pi\int_0^8\left(\sqrt{\dfrac y2}\right)^2\di y
+=\left.\dfrac\pi4y^2\right|_0^8=16\pi.}
+\]
+\tbf{(c)} $B$的边界由曲线$y=2x^2$在$0\leqslant x\leqslant2$的部分绕$y$轴
+旋转形成的抛物面,以及$y=8$处半径为$2$的圆盘组成.
+抛物面的面积为
+\[
+\begin{aligned}
+S_1
+&=2\pi\int_0^2x\sqrt{1+\left(\dfrac{\di y}{\di x}\right)^2}\di x
+=2\pi\int_0^2x\sqrt{1+16x^2}\di x\\
+&=\left.\dfrac\pi{24}(1+16x^2)^{3/2}\right|_0^2
+=\dfrac\pi{24}(65\sqrt{65}-1).
+\end{aligned}
+\]
+顶部圆盘的面积为$S_2=\pi\cdot2^2=4\pi$,故总表面积为
+\[
+{S=S_1+S_2=\dfrac\pi{24}(65\sqrt{65}+95).}
+\]
+\end{solution}
+
+\begin{problem}[8.(10\songti{分})]
+设函数$f(x)=x^8-x^4-\cos x$, $x\in\R$.判断$f(x)$在$\R$上有多少个零点,给出证明.
+\end{problem}
+\begin{solution}
+由$f(-x)=f(x)$可知$f$为偶函数,且$f(0)=-1$.先考察$x>0$的情形.
+
+当$0<x\leqslant1$时,有$x^8-x^4\leqslant0$且$\cos x>0$,从而
+\[
+f(x)=x^8-x^4-\cos x<0.
+\]
+当$x\geqslant1$时,有
+\[
+f'(x)=8x^7-4x^3+\sin x
+=4x^3(2x^4-1)+\sin x
+\geqslant4x^3-1\geqslant3>0.
+\]
+因此$f$在$[1,+\infty)$上严格单调递增.又因为
+\[
+f(1)=-\cos1<0,\qquad f(2)=240-\cos2>0,
+\]
+由零点存在定理及严格单调性可知,$f$在$[1,+\infty)$上恰有一个零点$\xi$,
+且$\xi\in(1,2)$.
+
+综上,$f$在$(0,+\infty)$上只有一个零点$\xi$.由偶性及$f(0)\ne0$,可知
+$f$在$\R$上恰有${2}$个零点,即${\xi,-\xi}$.
+\end{solution}
+
+\end{document}

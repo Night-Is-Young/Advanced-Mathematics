@@ -1,0 +1,949 @@
+{
+  "exams": [
+    {
+      "section": "上学期期中",
+      "exam": "高等数学A1-2022-期中",
+      "questions": 9,
+      "score": 90,
+      "problem": "上学期期中/高等数学A1-2022-期中/Problem/高等数学A1-2022-期中.tex",
+      "solution": "上学期期中/高等数学A1-2022-期中/Solution/高等数学A1-2022-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期中",
+      "exam": "高等数学A1-2023-期中",
+      "questions": 7,
+      "score": 100,
+      "problem": "上学期期中/高等数学A1-2023-期中/Problem/高等数学A1-2023-期中.tex",
+      "solution": "上学期期中/高等数学A1-2023-期中/Solution/高等数学A1-2023-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期中",
+      "exam": "高等数学A1-2024-期中",
+      "questions": 6,
+      "score": 100,
+      "problem": "上学期期中/高等数学A1-2024-期中/Problem/高等数学A1-2024-期中.tex",
+      "solution": "上学期期中/高等数学A1-2024-期中/Solution/高等数学A1-2024-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期中",
+      "exam": "高等数学B1-2021-期中",
+      "questions": 6,
+      "score": 100,
+      "problem": "上学期期中/高等数学B1-2021-期中/Problem/高等数学B1-2021-期中.tex",
+      "solution": "上学期期中/高等数学B1-2021-期中/Solution/高等数学B1-2021-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期中",
+      "exam": "高等数学B1-2021-期中模拟",
+      "questions": 9,
+      "score": 100,
+      "problem": "上学期期中/高等数学B1-2021-期中模拟/Problem/高等数学B1-2021-期中模拟.tex",
+      "solution": "上学期期中/高等数学B1-2021-期中模拟/Solution/高等数学B1-2021-期中模拟 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期中",
+      "exam": "高等数学B1-2022-期中",
+      "questions": 6,
+      "score": 100,
+      "problem": "上学期期中/高等数学B1-2022-期中/Problem/高等数学B1-2022-期中.tex",
+      "solution": "上学期期中/高等数学B1-2022-期中/Solution/高等数学B1-2022-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期中",
+      "exam": "高等数学B1-2023-期中",
+      "questions": 9,
+      "score": 100,
+      "problem": "上学期期中/高等数学B1-2023-期中/Problem/高等数学B1-2023-期中.tex",
+      "solution": "上学期期中/高等数学B1-2023-期中/Solution/高等数学B1-2023-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期中",
+      "exam": "高等数学B1-2024-期中",
+      "questions": 8,
+      "score": 95,
+      "problem": "上学期期中/高等数学B1-2024-期中/Problem/高等数学B1-2024-期中.tex",
+      "solution": "上学期期中/高等数学B1-2024-期中/Solution/高等数学B1-2024-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期中",
+      "exam": "高等数学B1-2024-期中模拟",
+      "questions": 8,
+      "score": 100,
+      "problem": "上学期期中/高等数学B1-2024-期中模拟/Problem/高等数学B1-2024-期中模拟.tex",
+      "solution": "上学期期中/高等数学B1-2024-期中模拟/Solution/高等数学B1-2024-期中模拟 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期中",
+      "exam": "高等数学B1-2025-期中",
+      "questions": 8,
+      "score": 100,
+      "problem": "上学期期中/高等数学B1-2025-期中/Problem/高等数学B1-2025-期中.tex",
+      "solution": "上学期期中/高等数学B1-2025-期中/Solution/高等数学B1-2025-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期末",
+      "exam": "高等数学A1-2022-期末",
+      "questions": 6,
+      "score": 100,
+      "problem": "上学期期末/高等数学A1-2022-期末/Problem/高等数学A1-2022-期末.tex",
+      "solution": "上学期期末/高等数学A1-2022-期末/Solution/高等数学A1-2022-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期末",
+      "exam": "高等数学A1-2023-期末",
+      "questions": 5,
+      "score": 100,
+      "problem": "上学期期末/高等数学A1-2023-期末/Problem/高等数学A1-2023-期末.tex",
+      "solution": "上学期期末/高等数学A1-2023-期末/Solution/高等数学A1-2023-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期末",
+      "exam": "高等数学A1-2024-期末",
+      "questions": 9,
+      "score": 100,
+      "problem": "上学期期末/高等数学A1-2024-期末/Problem/高等数学A1-2024-期末.tex",
+      "solution": "上学期期末/高等数学A1-2024-期末/Solution/高等数学A1-2024-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期末",
+      "exam": "高等数学B1-2020-期末",
+      "questions": 6,
+      "score": 100,
+      "problem": "上学期期末/高等数学B1-2020-期末/Problem/高等数学B1-2020-期末.tex",
+      "solution": "上学期期末/高等数学B1-2020-期末/Solution/高等数学B1-2020-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期末",
+      "exam": "高等数学B1-2021-期末",
+      "questions": 7,
+      "score": 100,
+      "problem": "上学期期末/高等数学B1-2021-期末/Problem/高等数学B1-2021-期末.tex",
+      "solution": "上学期期末/高等数学B1-2021-期末/Solution/高等数学B1-2021-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期末",
+      "exam": "高等数学B1-2022-期末",
+      "questions": 9,
+      "score": 100,
+      "problem": "上学期期末/高等数学B1-2022-期末/Problem/高等数学B1-2022-期末.tex",
+      "solution": "上学期期末/高等数学B1-2022-期末/Solution/高等数学B1-2022-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期末",
+      "exam": "高等数学B1-2022-期末模拟",
+      "questions": 8,
+      "score": 100,
+      "problem": "上学期期末/高等数学B1-2022-期末模拟/Problem/高等数学B1-2022-期末模拟.tex",
+      "solution": "上学期期末/高等数学B1-2022-期末模拟/Solution/高等数学B1-2022-期末模拟 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期末",
+      "exam": "高等数学B1-2023-期末",
+      "questions": 9,
+      "score": 100,
+      "problem": "上学期期末/高等数学B1-2023-期末/Problem/高等数学B1-2023-期末.tex",
+      "solution": "上学期期末/高等数学B1-2023-期末/Solution/高等数学B1-2023-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期末",
+      "exam": "高等数学B1-2024-期末",
+      "questions": 8,
+      "score": 100,
+      "problem": "上学期期末/高等数学B1-2024-期末/Problem/高等数学B1-2024-期末.tex",
+      "solution": "上学期期末/高等数学B1-2024-期末/Solution/高等数学B1-2024-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期末",
+      "exam": "高等数学B1-2024-期末模拟",
+      "questions": 9,
+      "score": 100,
+      "problem": "上学期期末/高等数学B1-2024-期末模拟/Problem/高等数学B1-2024-期末模拟.tex",
+      "solution": "上学期期末/高等数学B1-2024-期末模拟/Solution/高等数学B1-2024-期末模拟 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "上学期期末",
+      "exam": "高等数学B1-2025-期末",
+      "questions": 8,
+      "score": null,
+      "problem": "上学期期末/高等数学B1-2025-期末/Problem/高等数学B1-2025-期末.tex",
+      "solution": "上学期期末/高等数学B1-2025-期末/Solution/高等数学B1-2025-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期中",
+      "exam": "高等数学A2-2023-期中",
+      "questions": 7,
+      "score": 100,
+      "problem": "下学期期中/高等数学A2-2023-期中/Problem/高等数学A2-2023-期中.tex",
+      "solution": "下学期期中/高等数学A2-2023-期中/Solution/高等数学A2-2023-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期中",
+      "exam": "高等数学A2-2024-期中",
+      "questions": 6,
+      "score": 100,
+      "problem": "下学期期中/高等数学A2-2024-期中/Problem/高等数学A2-2024-期中.tex",
+      "solution": "下学期期中/高等数学A2-2024-期中/Solution/高等数学A2-2024-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期中",
+      "exam": "高等数学A2-2025-期中",
+      "questions": 6,
+      "score": 100,
+      "problem": "下学期期中/高等数学A2-2025-期中/Problem/高等数学A2-2025-期中.tex",
+      "solution": "下学期期中/高等数学A2-2025-期中/Solution/高等数学A2-2025-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期中",
+      "exam": "高等数学B2-2021-期中",
+      "questions": 9,
+      "score": 100,
+      "problem": "下学期期中/高等数学B2-2021-期中/Problem/高等数学B2-2021-期中.tex",
+      "solution": "下学期期中/高等数学B2-2021-期中/Solution/高等数学B2-2021-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期中",
+      "exam": "高等数学B2-2022-xyt助教期中模拟卷",
+      "questions": 9,
+      "score": 100,
+      "problem": "下学期期中/高等数学B2-2022-xyt助教期中模拟卷/Problem/高等数学B2-2022-xyt助教期中模拟卷.tex",
+      "solution": "下学期期中/高等数学B2-2022-xyt助教期中模拟卷/Solution/高等数学B2-2022-xyt助教期中模拟卷 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期中",
+      "exam": "高等数学B2-2022-期中",
+      "questions": 9,
+      "score": 100,
+      "problem": "下学期期中/高等数学B2-2022-期中/Problem/高等数学B2-2022-期中.tex",
+      "solution": "下学期期中/高等数学B2-2022-期中/Solution/高等数学B2-2022-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期中",
+      "exam": "高等数学B2-2023-期中",
+      "questions": 10,
+      "score": 100,
+      "problem": "下学期期中/高等数学B2-2023-期中/Problem/高等数学B2-2023-期中.tex",
+      "solution": "下学期期中/高等数学B2-2023-期中/Solution/高等数学B2-2023-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期中",
+      "exam": "高等数学B2-2024-期中",
+      "questions": 9,
+      "score": 100,
+      "problem": "下学期期中/高等数学B2-2024-期中/Problem/高等数学B2-2024-期中.tex",
+      "solution": "下学期期中/高等数学B2-2024-期中/Solution/高等数学B2-2024-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期中",
+      "exam": "高等数学B2-2025-期中",
+      "questions": 8,
+      "score": 100,
+      "problem": "下学期期中/高等数学B2-2025-期中/Problem/高等数学B2-2025-期中.tex",
+      "solution": "下学期期中/高等数学B2-2025-期中/Solution/高等数学B2-2025-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期中",
+      "exam": "高等数学B2-2026-期中",
+      "questions": 7,
+      "score": 100,
+      "problem": "下学期期中/高等数学B2-2026-期中/Problem/高等数学B2-2026-期中.tex",
+      "solution": "下学期期中/高等数学B2-2026-期中/Solution/高等数学B2-2026-期中 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期末",
+      "exam": "高等数学A2-2024-期末",
+      "questions": 9,
+      "score": 100,
+      "problem": "下学期期末/高等数学A2-2024-期末/Problem/高等数学A2-2024-期末.tex",
+      "solution": "下学期期末/高等数学A2-2024-期末/Solution/高等数学A2-2024-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期末",
+      "exam": "高等数学B2-2021-期末",
+      "questions": 7,
+      "score": 100,
+      "problem": "下学期期末/高等数学B2-2021-期末/Problem/高等数学B2-2021-期末.tex",
+      "solution": "下学期期末/高等数学B2-2021-期末/Solution/高等数学B2-2021-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期末",
+      "exam": "高等数学B2-2022-期末",
+      "questions": 8,
+      "score": 100,
+      "problem": "下学期期末/高等数学B2-2022-期末/Problem/高等数学B2-2022-期末.tex",
+      "solution": "下学期期末/高等数学B2-2022-期末/Solution/高等数学B2-2022-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期末",
+      "exam": "高等数学B2-2023-期末",
+      "questions": 8,
+      "score": 100,
+      "problem": "下学期期末/高等数学B2-2023-期末/Problem/高等数学B2-2023-期末.tex",
+      "solution": "下学期期末/高等数学B2-2023-期末/Solution/高等数学B2-2023-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期末",
+      "exam": "高等数学B2-2024-期末",
+      "questions": 9,
+      "score": 100,
+      "problem": "下学期期末/高等数学B2-2024-期末/Problem/高等数学B2-2024-期末.tex",
+      "solution": "下学期期末/高等数学B2-2024-期末/Solution/高等数学B2-2024-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期末",
+      "exam": "高等数学B2-2025-期末",
+      "questions": 7,
+      "score": 100,
+      "problem": "下学期期末/高等数学B2-2025-期末/Problem/高等数学B2-2025-期末.tex",
+      "solution": "下学期期末/高等数学B2-2025-期末/Solution/高等数学B2-2025-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期末",
+      "exam": "高等数学B2-2026-期末",
+      "questions": 7,
+      "score": 100,
+      "problem": "下学期期末/高等数学B2-2026-期末/Problem/高等数学B2-2026-期末.tex",
+      "solution": "下学期期末/高等数学B2-2026-期末/Solution/高等数学B2-2026-期末 Solution By NightisYoung.tex"
+    },
+    {
+      "section": "下学期期末",
+      "exam": "高等数学B2-20xx-期末",
+      "questions": 9,
+      "score": 100,
+      "problem": "下学期期末/高等数学B2-20xx-期末/Problem/高等数学B2-20xx-期末.tex",
+      "solution": "下学期期末/高等数学B2-20xx-期末/Solution/高等数学B2-20xx-期末 Solution By NightisYoung.tex"
+    }
+  ],
+  "sources": 78,
+  "pdfs": [
+    {
+      "path": "上学期期中/高等数学A1-2022-期中/Problem/高等数学A1-2022-期中.pdf",
+      "bytes": 49716,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学A1-2022-期中/Solution/高等数学A1-2022-期中 Solution By NightisYoung.pdf",
+      "bytes": 79462,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学A1-2023-期中/Problem/高等数学A1-2023-期中.pdf",
+      "bytes": 46729,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学A1-2023-期中/Solution/高等数学A1-2023-期中 Solution By NightisYoung.pdf",
+      "bytes": 75585,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 6,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学A1-2024-期中/Problem/高等数学A1-2024-期中.pdf",
+      "bytes": 48806,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学A1-2024-期中/Solution/高等数学A1-2024-期中 Solution By NightisYoung.pdf",
+      "bytes": 81315,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 6,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2021-期中/Problem/高等数学B1-2021-期中.pdf",
+      "bytes": 53037,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2021-期中/Solution/高等数学B1-2021-期中 Solution By NightisYoung.pdf",
+      "bytes": 78786,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2021-期中模拟/Problem/高等数学B1-2021-期中模拟.pdf",
+      "bytes": 57827,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2021-期中模拟/Solution/高等数学B1-2021-期中模拟 Solution By NightisYoung.pdf",
+      "bytes": 88303,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 6,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2022-期中/Problem/高等数学B1-2022-期中.pdf",
+      "bytes": 50057,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2022-期中/Solution/高等数学B1-2022-期中 Solution By NightisYoung.pdf",
+      "bytes": 75599,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2023-期中/Problem/高等数学B1-2023-期中.pdf",
+      "bytes": 53172,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2023-期中/Solution/高等数学B1-2023-期中 Solution By NightisYoung.pdf",
+      "bytes": 78786,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2024-期中/Problem/高等数学B1-2024-期中.pdf",
+      "bytes": 46596,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2024-期中/Solution/高等数学B1-2024-期中 Solution By NightisYoung.pdf",
+      "bytes": 67338,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2024-期中模拟/Problem/高等数学B1-2024-期中模拟.pdf",
+      "bytes": 46712,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2024-期中模拟/Solution/高等数学B1-2024-期中模拟 Solution By NightisYoung.pdf",
+      "bytes": 77751,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2025-期中/Problem/高等数学B1-2025-期中.pdf",
+      "bytes": 49058,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期中/高等数学B1-2025-期中/Solution/高等数学B1-2025-期中 Solution By NightisYoung.pdf",
+      "bytes": 80757,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学A1-2022-期末/Problem/高等数学A1-2022-期末.pdf",
+      "bytes": 54985,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学A1-2022-期末/Solution/高等数学A1-2022-期末 Solution By NightisYoung.pdf",
+      "bytes": 87437,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学A1-2023-期末/Problem/高等数学A1-2023-期末.pdf",
+      "bytes": 51954,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学A1-2023-期末/Solution/高等数学A1-2023-期末 Solution By NightisYoung.pdf",
+      "bytes": 79547,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 3,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学A1-2024-期末/Problem/高等数学A1-2024-期末.pdf",
+      "bytes": 57817,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学A1-2024-期末/Solution/高等数学A1-2024-期末 Solution By NightisYoung.pdf",
+      "bytes": 86440,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2020-期末/Problem/高等数学B1-2020-期末.pdf",
+      "bytes": 56301,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2020-期末/Solution/高等数学B1-2020-期末 Solution By NightisYoung.pdf",
+      "bytes": 82116,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 3,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2021-期末/Problem/高等数学B1-2021-期末.pdf",
+      "bytes": 52991,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2021-期末/Solution/高等数学B1-2021-期末 Solution By NightisYoung.pdf",
+      "bytes": 84371,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 3,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2022-期末/Problem/高等数学B1-2022-期末.pdf",
+      "bytes": 58279,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2022-期末/Solution/高等数学B1-2022-期末 Solution By NightisYoung.pdf",
+      "bytes": 95625,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2022-期末模拟/Problem/高等数学B1-2022-期末模拟.pdf",
+      "bytes": 54207,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2022-期末模拟/Solution/高等数学B1-2022-期末模拟 Solution By NightisYoung.pdf",
+      "bytes": 84815,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2023-期末/Problem/高等数学B1-2023-期末.pdf",
+      "bytes": 61155,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2023-期末/Solution/高等数学B1-2023-期末 Solution By NightisYoung.pdf",
+      "bytes": 96389,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2024-期末/Problem/高等数学B1-2024-期末.pdf",
+      "bytes": 51082,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2024-期末/Solution/高等数学B1-2024-期末 Solution By NightisYoung.pdf",
+      "bytes": 81718,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2024-期末模拟/Problem/高等数学B1-2024-期末模拟.pdf",
+      "bytes": 58960,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2024-期末模拟/Solution/高等数学B1-2024-期末模拟 Solution By NightisYoung.pdf",
+      "bytes": 91566,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2025-期末/Problem/高等数学B1-2025-期末.pdf",
+      "bytes": 46951,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "上学期期末/高等数学B1-2025-期末/Solution/高等数学B1-2025-期末 Solution By NightisYoung.pdf",
+      "bytes": 84746,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学A2-2023-期中/Problem/高等数学A2-2023-期中.pdf",
+      "bytes": 59078,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学A2-2023-期中/Solution/高等数学A2-2023-期中 Solution By NightisYoung.pdf",
+      "bytes": 84515,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学A2-2024-期中/Problem/高等数学A2-2024-期中.pdf",
+      "bytes": 52128,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学A2-2024-期中/Solution/高等数学A2-2024-期中 Solution By NightisYoung.pdf",
+      "bytes": 85048,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学A2-2025-期中/Problem/高等数学A2-2025-期中.pdf",
+      "bytes": 52352,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学A2-2025-期中/Solution/高等数学A2-2025-期中 Solution By NightisYoung.pdf",
+      "bytes": 89705,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 6,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2021-期中/Problem/高等数学B2-2021-期中.pdf",
+      "bytes": 49792,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2021-期中/Solution/高等数学B2-2021-期中 Solution By NightisYoung.pdf",
+      "bytes": 81368,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2022-xyt助教期中模拟卷/Problem/高等数学B2-2022-xyt助教期中模拟卷.pdf",
+      "bytes": 58226,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2022-xyt助教期中模拟卷/Solution/高等数学B2-2022-xyt助教期中模拟卷 Solution By NightisYoung.pdf",
+      "bytes": 93942,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 6,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2022-期中/Problem/高等数学B2-2022-期中.pdf",
+      "bytes": 53218,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2022-期中/Solution/高等数学B2-2022-期中 Solution By NightisYoung.pdf",
+      "bytes": 90577,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2023-期中/Problem/高等数学B2-2023-期中.pdf",
+      "bytes": 48448,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2023-期中/Solution/高等数学B2-2023-期中 Solution By NightisYoung.pdf",
+      "bytes": 88050,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 8,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2024-期中/Problem/高等数学B2-2024-期中.pdf",
+      "bytes": 49730,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2024-期中/Solution/高等数学B2-2024-期中 Solution By NightisYoung.pdf",
+      "bytes": 73605,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2025-期中/Problem/高等数学B2-2025-期中.pdf",
+      "bytes": 47544,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2025-期中/Solution/高等数学B2-2025-期中 Solution By NightisYoung.pdf",
+      "bytes": 84443,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2026-期中/Problem/高等数学B2-2026-期中.pdf",
+      "bytes": 43830,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期中/高等数学B2-2026-期中/Solution/高等数学B2-2026-期中 Solution By NightisYoung.pdf",
+      "bytes": 79980,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学A2-2024-期末/Problem/高等数学A2-2024-期末.pdf",
+      "bytes": 50514,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学A2-2024-期末/Solution/高等数学A2-2024-期末 Solution By NightisYoung.pdf",
+      "bytes": 83693,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2021-期末/Problem/高等数学B2-2021-期末.pdf",
+      "bytes": 49035,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2021-期末/Solution/高等数学B2-2021-期末 Solution By NightisYoung.pdf",
+      "bytes": 81297,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2022-期末/Problem/高等数学B2-2022-期末.pdf",
+      "bytes": 50921,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2022-期末/Solution/高等数学B2-2022-期末 Solution By NightisYoung.pdf",
+      "bytes": 81532,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2023-期末/Problem/高等数学B2-2023-期末.pdf",
+      "bytes": 45087,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2023-期末/Solution/高等数学B2-2023-期末 Solution By NightisYoung.pdf",
+      "bytes": 80198,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2024-期末/Problem/高等数学B2-2024-期末.pdf",
+      "bytes": 48917,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2024-期末/Solution/高等数学B2-2024-期末 Solution By NightisYoung.pdf",
+      "bytes": 83801,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2025-期末/Problem/高等数学B2-2025-期末.pdf",
+      "bytes": 43713,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2025-期末/Solution/高等数学B2-2025-期末 Solution By NightisYoung.pdf",
+      "bytes": 88263,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 6,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2026-期末/Problem/高等数学B2-2026-期末.pdf",
+      "bytes": 45998,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 1,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-2026-期末/Solution/高等数学B2-2026-期末 Solution By NightisYoung.pdf",
+      "bytes": 84030,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 4,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-20xx-期末/Problem/高等数学B2-20xx-期末.pdf",
+      "bytes": 52372,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 2,
+      "issues": [],
+      "bold_font": true
+    },
+    {
+      "path": "下学期期末/高等数学B2-20xx-期末/Solution/高等数学B2-20xx-期末 Solution By NightisYoung.pdf",
+      "bytes": 91220,
+      "producer": "xdvipdfmx (20240407)",
+      "pages": 5,
+      "issues": [],
+      "bold_font": true
+    }
+  ],
+  "pages": 243,
+  "source_issues": [],
+  "missing_pdfs": [],
+  "original_reference_count": 18,
+  "modified_original_references": [],
+  "template_sha256": "f3ab1df7db91d42338aad1d4f9508d85034299f38c89518d7c2a1e6262b13693"
+}

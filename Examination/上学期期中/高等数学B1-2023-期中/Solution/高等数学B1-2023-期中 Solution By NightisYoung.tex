@@ -1,14 +1,6 @@
 \documentclass{ctexart}
-\usepackage{geometry}
-\usepackage[dvipsnames,svgnames]{xcolor}
-\usepackage[strict]{changepage}
-\usepackage{framed}
-\usepackage{enumerate}
-\usepackage{amsmath,amsthm,amssymb}
-\usepackage{enumitem}
 \usepackage{template}
-
-\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
+\usepackage{extarrows}
 
 \begin{document}\pagestyle{empty}
 \begin{center}\Large
@@ -17,7 +9,7 @@
 \begin{problem}[1.(10\songti{分})]
     求序列极限$$\lim_{n\to\infty}{\left(1+\dfrac{1}{n\e}\right)^n}$$
 \end{problem}
-\begin{solution}[Solution.]
+\begin{solution}
     置$t=n\e$,则
     $$
     \lim_{n\to\infty}{\left(1+\dfrac{1}{n\e}\right)^n}
@@ -29,7 +21,7 @@
 \begin{problem}[2.(10\songti{分})]
     设$[x]$为不超过$x$的最大整数,求函数极限$$\lim_{x\to+\infty}{x\sin{\dfrac{1}{[x]}}}$$
 \end{problem}
-\begin{solution}[Solution.]
+\begin{solution}
     由$[x]\leqslant x<[x]+1$有
     $$[x]\sin{\dfrac{1}{[x]}}\leqslant x\sin{\dfrac{1}{[x]}}<([x]+1)\sin{\dfrac{1}{[x]}}$$
     置$y=\dfrac{1}{x}$,则有$$\lim_{x\to+\infty}{x\sin{\dfrac{1}{x}}}=\lim_{y\to 0^+}{\dfrac{\sin y}{y}}=1$$
@@ -40,7 +32,7 @@
 \begin{problem}[3.(10\songti{分})]
     设$x>0$,求函数$$f(x)=\int_{0}^{\ln{x}}{\sqrt{1+\e^t}\di t}$$的导函数.
 \end{problem}
-\begin{solution}[Solution.]
+\begin{solution}
     置$y=\ln{x}$,则
     $$\dfrac{\di f}{\dx}=\dfrac{\di f}{\di y}\cdot\dfrac{\di y}{\dx}
     =\dfrac{\di\int_{0}^{y}{\sqrt{1+\e^t}\di t}}{\di y}\cdot\dfrac{1}{x}
@@ -49,7 +41,7 @@
 \begin{problem}[4.(10\songti{分})]
     求不定积分$$\int{\dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}\dx}$$
 \end{problem}
-\begin{solution}[Solution.]
+\begin{solution}
     设
     \begin{align*}
         \dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}
@@ -66,14 +58,14 @@
     从而\begin{align*}
         \int{\dfrac{4x^2+4x-11}{(2x-1)(2x+3)(2x-5)}\dx}
         &= \int\left(\dfrac{1}{2}\cdot\dfrac{1}{2x-1}-\dfrac{1}{4}\cdot\dfrac{1}{2x+3}+\dfrac{3}{4}\cdot\dfrac{1}{2x-5}\right)\dx\\
-        &= -\dfrac{1}{2}\int{\dfrac{\dx}{2x-1}}+\dfrac{1}{4}\int{\dfrac{\dx}{2x+3}}+\dfrac{3}{4}\int{\dfrac{\dx}{2x-5}} \\
-        &= -\dfrac{1}{4}\ln{\left|2x-1\right|}+\dfrac{1}{8}\ln{\left|2x+3\right|}+\dfrac{3}{8}\ln{\left|2x-5\right|}+C
+        &= \dfrac{1}{2}\int{\dfrac{\dx}{2x-1}}-\dfrac{1}{4}\int{\dfrac{\dx}{2x+3}}+\dfrac{3}{4}\int{\dfrac{\dx}{2x-5}} \\
+        &= \dfrac{1}{4}\ln{\left|2x-1\right|}-\dfrac{1}{8}\ln{\left|2x+3\right|}+\dfrac{3}{8}\ln{\left|2x-5\right|}+C
     \end{align*}
 \end{solution}
 \begin{problem}[5.(10\songti{分})]
     求欧氏平面直角坐标系中曲线$$y=\dfrac{1}{2}x\sqrt{x^2-1}-\dfrac{1}{2}\ln{\left(x+\sqrt{x^2-1}\right)}$$在$x=1$到$x=2$的弧长.
 \end{problem}
-\begin{solution}[Solution.]
+\begin{solution}
     \begin{align*}
         y'
         &= \dfrac{1}{2}\left(\sqrt{x^2-1}+\dfrac{x^2}{\sqrt{x^2-1}}-\dfrac{1}{x+\sqrt{x^2-1}}\cdot\left(1+\dfrac{x}{\sqrt{x^2-1}}\right)\right) \\
@@ -83,22 +75,20 @@
     故$$s=\int_{1}^{2}{\sqrt{1+y'^2}\dx}=\int_{1}^{2}{x\dx}=\left.\dfrac{x^2}{2}\right|_1^2=\dfrac{3}{2}$$
 \end{solution}
 \begin{problem}[6.(10\songti{分})]
-    设欧氏空间中$V$是曲线弧$\displaystyle y=\dfrac{\ln{x}}{\sqrt{2\pi}}(1\leqslant x\leqslant 2)$与直线$x=1,x=2$围成的曲边三角形绕$x$轴旋转一周形成的旋转体,求$V$的体积.
+    设欧氏空间中$V$是曲线弧$\displaystyle y=\dfrac{\ln{x}}{\sqrt{2\pi}}(1\leqslant x\leqslant 2)$与直线$x=1,x=2,y=0$围成的曲边梯形绕$x$轴旋转一周形成的旋转体,求$V$的体积.
 \end{problem}
-\begin{solution}[Solution.]
-    \begin{align*}
-        V
-        &= \pi\int_1^2{y^2\dx}=\pi\int_1^2{\dfrac{\left(\ln x\right)^2\dx}{2\pi}}=\dfrac{1}{2}\int_1^2\left(\ln x\right)^2\dx \\
-        &= \dfrac{1}{2}\left(\left.x\left(\ln x\right)^2\right|_1^2+\int_1^2x\di\left(\ln x\right)^2\right) \\
-        &= \dfrac{1}{2}\left(2\left(\ln 2\right)^2+\int_1^2 2\ln x\dx\right) \\
-        &= \left(\ln 2\right)^2+\left.\left(x\ln x-x\right)\right|_1^2 \\
-        &= \left(\ln 2\right)^2+2\ln2-1
-    \end{align*}
+\begin{solution}
+根据旋转体体积公式及分部积分,有
+    \[\begin{aligned}
+        V&=\pi\int_1^2y^2\dx=\dfrac12\int_1^2(\ln x)^2\dx\\
+         &=\dfrac12\left(\left.x(\ln x)^2\right|_1^2-2\int_1^2\ln x\dx\right)\\
+         &=(\ln2)^2-2\ln2+1.
+    \end{aligned}\]
 \end{solution}
 \begin{problem}[7.(10\songti{分})]
-    无穷序列$\left\{a_n\right\},\left\{a_n\right\}$满足$0<b_1<a_1$,且有以下递推关系$$a_{n+1}=\dfrac{a_n+b_n}{2},b_{n+1}=\sqrt{a_nb_n}$$试证明$\displaystyle\lim_{n\to\infty}{a_n}$存在.
+    无穷序列$\left\{a_n\right\},\left\{b_n\right\}$满足$0<b_1<a_1$,且有以下递推关系$$a_{n+1}=\dfrac{a_n+b_n}{2},b_{n+1}=\sqrt{a_nb_n}$$试证明$\displaystyle\lim_{n\to\infty}{a_n}$存在.
 \end{problem}
-\begin{solution}[Proof.]
+\begin{solution}
     据均值不等式有$a_{n+1}=\dfrac{a_n+b_n}{2}\geqslant\sqrt{a_nb_n}=b_{n+1}$,当且仅当$a_n=b_n$时取等.\\
     由$a_1>b_1>0$有$\forall n\in\N^*,a_n>b_n>0.$\\
     从而$$a_{n+1}-a_n=\dfrac{a_n+b_n}{2}-a_n=\dfrac{b_n-a_n}{2}<0$$
@@ -112,57 +102,44 @@
             \item \textbf{(10\songti{分})}\ 试证明$$\int_{0}^{\frac{\pi}{2}}{\dfrac{\dx}{\sqrt{4\cos^2{x}+\sin^2{x}}}}=\int_{0}^{\frac{\pi}{2}}{\dfrac{\dx}{\sqrt{\frac{9}{4}\cos^2{x}+2\sin^2{x}}}}$$
         \end{enumerate}
 \end{problem}
-\begin{solution}[Solution.]
-    \begin{enumerate}[label=\textbf{(\arabic*)}]
-        \item \textbf{Proof.}\\
-            记$\phi(x)=\dfrac{4\sin x}{3+\sin^2 x}$,则$\phi(-x)=\phi(x)$.当$x=0$时原式显然成立.\\
-            当$x\in\left(0,\dfrac{\pi}{2}\right)$时$\sin x\in(0,1)$,则$\phi(x)=\dfrac{4}{\sin{x}+\dfrac{3}{\sin x}}<\dfrac{4}{4}=1$.\\
-            同理当$x\in\left(-\dfrac{\pi}{2},0\right)$时$\phi(x)>-1$.综上可知原命题成立.
-        \item \textbf{Solution.}
-            \begin{align*}
-                f'(x)
-                &= \dfrac{1}{\sqrt{1-\left(\dfrac{4\sin x}{3+\sin^2 x}\right)^2}}\cdot\dfrac{4\cos x\left(3+\sin^2 x\right)-4\sin x\left(2\sin x\cos x\right)}{\left(3+\sin^2 x\right)^2} \\
-                &= \dfrac{3+\sin^2 x}{\sqrt{\sin^4 x-10\sin^2 x+9}}\cdot\dfrac{4\cos x\left(3-\sin^2 x\right)}{\left(3+\sin^2 x\right)^2} \\
-                &= \dfrac{4\cos x\left(3-\sin^2 x\right)}{\sqrt{1-\sin^2 x}\cdot\sqrt{9-\sin^2 x}\cdot\left(3+\sin^2 x\right)} \\
-                &= \dfrac{4\left(3-\sin^2 x\right)}{\left(3+\sin^2 x\right)\sqrt{9-\sin^2 x}}
-            \end{align*}
-        \item \textbf{Proof.}
-            $$\dfrac{1}{\sqrt{4\cos^2 x+\sin^2 x}}=\dfrac{1}{\sqrt{4-3\sin^2 x}}$$
-            $$\dfrac{1}{\sqrt{\frac{9}{4}\cos^2 x+2\sin^2 x}}=\dfrac{1}{\sqrt{\frac{9}{4}-\frac{1}{4}\sin^2 x}}=\dfrac{2}{\sqrt{9-\sin^2 x}}$$
-            从而\begin{align*}
-                \int_{0}^{\frac{\pi}{2}}{\dfrac{\dx}{\sqrt{\frac{9}{4}\cos^2{x}+2\sin^2{x}}}}
-                &= \int_{0}^{\frac{\pi}{2}}\dfrac{1}{\sqrt{\frac{9}{4}-\frac{1}{4}\sin^2 x}}=\dfrac{2}{\sqrt{9-\sin^2 x}} \\
-                &= \int_{0}^{\frac{\pi}{2}}\dfrac{f'(x)\left(3+\sin^2 x\right)}{2\left(3-\sin^2 x\right)}\dx\\
-                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}\dfrac{\left(3+\sin^2 x\right)}{2\left(3-\sin^2 x\right)}\di f(x)
-            \end{align*}
-            而\begin{align*}
-                \int_{0}^{\frac{\pi}{2}}{\dfrac{\dx}{\sqrt{4\cos^2{x}+\sin^2{x}}}}
-                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}{\dfrac{\di f(x)}{\sqrt{4-3\sin^2{f(x)}}}} \\
-                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}{\dfrac{\di f(x)}{\sqrt{4-3\sin^2{f(x)}}}} \\
-                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}{\dfrac{\di f(x)}{\sqrt{4-3\left(\dfrac{4\sin x}{3+\sin^2 x}\right)^2}}} \\
-                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}{\dfrac{\left(3+\sin^2 x\right)\di f(x)}{2\sqrt{\sin^4 x+6\sin^2 x+9-12\sin^2 x}}} \\
-                &= \int_{f(0)}^{f\left(\frac{\pi}{2}\right)}\dfrac{\left(3+\sin^2 x\right)}{2\left(3-\sin^2 x\right)}\di f(x)
-            \end{align*}
-            从而原命题得证.
+\begin{solution}
+\begin{enumerate}[label=\textbf{(\arabic*)}]
+        \item 令$u=\sin x\in(-1,1)$.当$0\leqslant u<1$时,
+            \[3+u^2-4u=(1-u)(3-u)>0,\]
+            因而$0\leqslant\dfrac{4u}{3+u^2}<1$.再由该表达式关于$u$为奇函数,可得
+            \[-1<\dfrac{4\sin x}{3+\sin^2x}<1.\]
+        \item 在给定开区间内$\cos x>0$,所以
+            \[\begin{aligned}
+            f'(x)&=\dfrac{4\cos x(3-\sin^2x)}{(3+\sin^2x)\sqrt{(1-\sin^2x)(9-\sin^2x)}}\\
+            &=\dfrac{4(3-\sin^2x)}{(3+\sin^2x)\sqrt{9-\sin^2x}}.
+            \end{aligned}\]
+        \item 将$f$连续延拓到$[0,\pi/2]$,则$f(0)=0,f(\pi/2)=\pi/2$,且$f$严格递增.记$u=f(x)$,有
+            \[\sqrt{4-3\sin^2f(x)}=\dfrac{2(3-\sin^2x)}{3+\sin^2x}.\]
+            结合上一问的导数公式,得到
+            \[\begin{aligned}
+              \int_0^{\pi/2}\dfrac{\di u}{\sqrt{4-3\sin^2u}}
+              &=\int_0^{\pi/2}\dfrac{f'(x)\dx}{\sqrt{4-3\sin^2f(x)}}\\
+              &=\int_0^{\pi/2}\dfrac{2\dx}{\sqrt{9-\sin^2x}}\\
+              &=\int_0^{\pi/2}\dfrac{\dx}{\sqrt{\frac94\cos^2x+2\sin^2x}}.
+            \end{aligned}\]
+            左端即为题目中的第一个积分,故等式成立.
     \end{enumerate}
 \end{solution}
 \begin{problem}[9.(10\songti{分})]
-    设函数$f:[0,1]\to\R,g:[0,1]\to\R$在$[0,1]$上连续,满足$f(0)=g(0),\sin(f(1))=\sin(g(1)),\cos(f(1))=\cos(g(1))$,且
+    设函数$f,g:[0,1]\to\R$在$[0,1]$上连续,满足
+    \[f(0)=g(0),\quad\sin(f(1))=\sin(g(1)),\quad\cos(f(1))=\cos(g(1)),\]
+    且
     $$\forall x\in[0,1],\left(\cos(f(x))+\cos(g(x))\right)^2+\left(\sin(f(x))+\sin(g(x))\right)^2\neq 0$$
     证明:$f(1)=g(1)$.
 \end{problem}
-\begin{solution}[Proof.]
-    置$h(x)=f(x)-g(x)$,则$h(x)$在$[0,1]$连续.下面证明$h(1)=0$.\\
-    由题意$$\sin h(1)=\sin \left(f(1)-g(1)\right)=\sin f(1)\cos g(1)-\sin g(1)\cos f(1)=0$$
-    $$\cos h(1)=\cos \left(f(1)-g(1)\right)=\cos f(1)\cos g(1)+\sin f(1)\sin g(1)=1$$
-    从而$\exists n\in\N^*\st h(1)=2n\pi$.\\
-    下面采取反证法说明$n=0$.\\
-    若$n>0$,则有$$h(0)=0<\pi\leqslant 2n\pi=h(1)$$
-    据介值定理,$\exists a\in[0,1]\st h(a)=\pi$,从而
-    $$\sin g(a)=\sin f(a)\cos h(a)-\sin h(a)\cos f(a)=-\sin f(a)$$
-    $$\cos g(a)=\cos f(a)\cos h(a)+\sin f(a)\sin h(a)=-\cos f(a)$$
-    则$$\left(\cos(f(x))+\cos(g(x))\right)^2+\left(\sin(f(x))+\sin(g(x))\right)^2=0$$与题设矛盾.\\
-    若$n<0$,同理亦可推出矛盾.\\
-    从而$n=0$,即$f(1)=g(1)$,原命题得证.
+\begin{solution}
+令$h(x)=f(x)-g(x)$,则$h$在$[0,1]$上连续,$h(0)=0$.
+    由端点的正弦、余弦分别相等可知$h(1)=2k\pi$,其中$k\in\mathbb Z$.
+    另一方面,对每个$x\in[0,1]$有
+    \[(\cos f(x)+\cos g(x))^2+(\sin f(x)+\sin g(x))^2
+    =2+2\cos h(x)>0.\]
+    因而$h(x)$不能等于任何奇数倍的$\pi$.
+    若$k\geqslant1$,介值定理保证某处$h(x)=\pi$;若$k\leqslant-1$,则某处$h(x)=-\pi$.
+    两者均与上式矛盾,所以$k=0$,即$f(1)=g(1)$.
 \end{solution}
 \end{document}

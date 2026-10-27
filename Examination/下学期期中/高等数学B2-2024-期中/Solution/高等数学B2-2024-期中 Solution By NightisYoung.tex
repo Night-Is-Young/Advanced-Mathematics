@@ -26,7 +26,7 @@
 \begin{solution}
     令
     \[P(x,y)=\dfrac{-y}{x^2+y^2}\ \ \ \ \ Q(x,y)=\dfrac{x}{x^2+y^2}\]
-    设$E$所围的区域为$D$,令$D_\ep=\left\{(x,y)\in\R^2:x^2+y^2\leqslant\ep^2\right\}$,其中$\ep>0$,记$D_\ep$的正向边界为$S_{\ep}^+$.%
+    设$E$所围的区域为$D$,令$D_\ep=\left\{(x,y)\in\R^2:x^2+y^2\leqslant\ep^2\right\}$,其中$0<\ep<1$,记$D_\ep$的正向边界为$S_{\ep}^+$.%
     在区域$D\backslash D_\ep$上运用Green公式有
     \[\begin{aligned}
         &\oint_{E}\dfrac{-y\di x+x\di y}{x^2+y^2}+\oint_{S_{\ep}^-}\dfrac{-y\di x+x\di y}{x^2+y^2}\\
@@ -47,22 +47,11 @@
 
 \end{problem}
 \begin{solution}
-    做代换$u=y-x,v=y$,于是积分区域变为$D'=\left\{(u,v)\in\R^2:0\leqslant u,v\leqslant 2\right\}$.\\
-    变换的Jacobi行列式
-    \[\left|D\right|=\begin{vmatrix}
-        u_x&u_y\\v_x&v_y
-    \end{vmatrix}=\begin{vmatrix}
-        -1&1\\0&1
-    \end{vmatrix}=1\]
-    于是
-    \[\begin{aligned}
-        \iint_{D}\left(\dfrac12x-y\right)\di x\di y
-        &= \iint_{D'}-\dfrac12(v+u)\di v\di u \\
-        &= -\dfrac12\int_0^2\di u\int_0^2(u+v)\di v \\
-        &= -\dfrac12\int_0^2(2u+2)\di u \\
-        &= -4
-    \end{aligned}\]
-
+令$u=y-x,v=y$,则$D$变为$D'=[0,2]^2$,反变换为$x=v-u,y=v$.
+    其Jacobi行列式的绝对值为
+    \[\left|\dfrac{\p(x,y)}{\p(u,v)}\right|=\left|\begin{vmatrix}-1&1\\0&1\end{vmatrix}\right|=1.\]
+    因而
+    \[I=-\dfrac12\int_0^2\di u\int_0^2(u+v)\di v=-4.\]
 \end{solution}
 \begin{problem}[4.(10\songti{分})]
     设曲面$M=\left\{(x,y,z)\in\R^3:x^2+z^2=1,x^2+y^2\leqslant1,x\geqslant0,y\geqslant0,z\geqslant0\right\}$,求曲面积分
@@ -87,13 +76,12 @@
         的皮卡序列的前两项$y_1,y_2$.
 \end{problem}
 \begin{solution}
-    所求的初值问题与积分方程
-    \[y=\int_0^x\left(x+y^2\right)\dx\]
-    等价.将$y=y_0(x)\equiv0$代入上式右端,得到
-    \[y_1(x)=\int_0^xx\dx=\dfrac12x^2\]
-    再将$y=y_1(x)=\dfrac12x^2$代入上式右端,得到
-    \[y_2(x)=\int_0^x\left(x+\dfrac14x^4\right)\dx=\dfrac12x^2+\dfrac{1}{20}x^5\]
-
+初值问题等价于积分方程
+    \[y(x)=\int_0^x\left(t+y(t)^2\right)\di t.\]
+    取$y_0(x)=0$,Picard迭代给出
+    \[y_1(x)=\int_0^xt\di t=\dfrac{x^2}{2},\]
+    \[y_2(x)=\int_0^x\left(t+\dfrac{t^4}{4}\right)\di t
+        =\dfrac{x^2}{2}+\dfrac{x^5}{20}.\]
 \end{solution}
 \begin{problem}[6.(10\songti{分})]
     求二阶常微分方程
@@ -101,7 +89,7 @@
         的通解.
 \end{problem}
 \begin{solution}
-    对应的齐次方程$y''-2y'+y=0$的特征根为$\lambda_1=\lambda_2=1$,于是方程的通解为
+    对应的齐次方程$y''-2y'+y=0$的特征根为$\lambda_1=\lambda_2=1$,于是齐次方程的通解为
     \[y=C_1\e^x+C_2x\e^x\]
     设方程的特解为$y=Ax^2\e^x$,代入原方程有
     \[A\e^x\left(x^2+4x+2-2x^2-4x+x^2\right)=\e^x\]
@@ -120,7 +108,7 @@
     \[P(x,y,z)=x^2+y\sin z\ \ \ \ \ Q(x,y,z)=-2y-z\cos x\ \ \ \ \ R(x,y,z)=-2xz+x\sin y\]
     在$V$上运用Gauss公式有
     \[\begin{aligned}
-        &\iint_{S^+}Q\di y\di z+Q\di z\di x+R\di x\di y\\
+        &\iint_{S^+}P\di y\di z+Q\di z\di x+R\di x\di y\\
         =&\iiint_V\left(\dfrac{\p P}{\p x}+\dfrac{\p Q}{\p y}+\dfrac{\p R}{\p z}\right)\di V \\
         =&\iiint_V\left(2x-2-2x\right)\di V \\
         =&-2\iiint_V\di V
@@ -134,14 +122,14 @@
         &= \dfrac{3\pi}{2}
     \end{aligned}\]
     于是
-    \[\iint_{S^-}Q\di y\di z+Q\di z\di x+R\di x\di y=2\iiint_{V}\di V=3\pi\]
+    \[\iint_{S^-}P\di y\di z+Q\di z\di x+R\di x\di y=2\iiint_{V}\di V=3\pi\]
 
 \end{solution}
 \begin{problem}[8.(15\songti{分})]
     设$r>0$,$f:(-r,r)\to\R$连续,$f(0)=0$,且$f$在$x=0$处可导.对于$t>0$,定义
     \[V(t)=\left\{(x,y,z)\in\R^3:x^2+16y^2+\dfrac{z^2}{25}\leqslant t^2\right\}\]
     试证明
-    \[\lim_{t\to0}\dfrac{1}{t^5}\iiint_{V(t)}f\left(x^2+16y^2+\dfrac{z^2}{25}\right)\di x\di y\di z=\pi f'(0)\]
+    \[\lim_{t\to0^+}\dfrac{1}{t^5}\iiint_{V(t)}f\left(x^2+16y^2+\dfrac{z^2}{25}\right)\di x\di y\di z=\pi f'(0)\]
 
 \end{problem}
 \begin{solution}
@@ -162,9 +150,9 @@
     \[\lim_{x\to0}\dfrac{f\left(x^2\right)-f(0)}{x^2}=\lim_{x\to0}\dfrac{f\left(x^2\right)}{x^2}=f'(0)\]
     于是
     \[\begin{aligned}
-        &\lim_{t\to0}\dfrac{1}{t^5}\iiint_{V(t)}f\left(x^2+16y^2+\dfrac{z^2}{25}\right)\di x\di y\di z \\
-        =&\lim_{t\to0}\dfrac{5\pi}{t^5}\int_0^{t}\rho^2f\left(\rho^2\right)\di\rho \\
-        =&\lim_{t\to0}\dfrac{\pi t^2f\left(t^2\right)}{t^4} \\
+        &\lim_{t\to0^+}\dfrac{1}{t^5}\iiint_{V(t)}f\left(x^2+16y^2+\dfrac{z^2}{25}\right)\di x\di y\di z \\
+        =&\lim_{t\to0^+}\dfrac{5\pi}{t^5}\int_0^{t}\rho^2f\left(\rho^2\right)\di\rho \\
+        =&\lim_{t\to0^+}\dfrac{\pi t^2f\left(t^2\right)}{t^4} \\
         =&\pi f'(0)
     \end{aligned}\]
 
@@ -183,8 +171,8 @@
     \[\begin{aligned}
         I=\int_0^1xf(x)\dx
         &= \int_0^1\left(Cx\e^{\frac12x^2}-Ix\right)\dx \\
-        &= \left.\left(\dfrac12C\e^{\frac12x^2}-\dfrac{1}{2}Ix^2\right)\right|_0^1 \\
-        &= \dfrac{1}{2}C\left(\sqrt\e-1\right)-\dfrac{1}{4}I
+        &= \left.\left(C\e^{\frac12x^2}-\dfrac{1}{2}Ix^2\right)\right|_0^1 \\
+        &= C\left(\sqrt\e-1\right)-\dfrac{1}{2}I
     \end{aligned}\]
     于是
     \[I=\dfrac{2}{3}C\left(\sqrt\e-1\right)\]

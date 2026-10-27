@@ -1,44 +1,35 @@
 \documentclass{ctexart}
-\usepackage{geometry}
-\usepackage[dvipsnames,svgnames]{xcolor}
-\usepackage[strict]{changepage}
-\usepackage{framed}
-\usepackage{enumerate}
-\usepackage{amsmath,amsthm,amssymb}
-\usepackage{enumitem}
 \usepackage{template}
-
-\geometry{left=2cm, right=2cm, top=2.5cm, bottom=2.5cm}
-
+\usepackage{esint,extarrows,tikz}
 \begin{document}\pagestyle{empty}
 \begin{center}\Large
-    北京大学数学科学学院2020-21高等数学B1期末考试
+北京大学数学科学学院2020-21高等数学B1期末考试
 \end{center}
 \begin{problem}[1.(15\songti{分})]
-    下面函数的极限存在吗?若存在,请求出其值;若不存在,请说明理由.
-    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{x\to0}\dfrac{2\cos x-2+x^2}{x^4}$.
-        \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{(x,y)\to(0,0)}\dfrac{x^5y^3}{x^8+y^8}$.
-        \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{(x,y)\to(0,0)}(x+\sin y)\cos\dfrac{1}{|x|+|y|}$.
-    \end{enumerate}
+下面函数的极限存在吗?若存在,请求出其值;若不存在,请说明理由.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{x\to0}\dfrac{2\cos x-2+x^2}{x^4}$.
+            \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{(x,y)\to(0,0)}\dfrac{x^5y^3}{x^8+y^8}$.
+            \item \textbf{(5\songti{分})}\ $\displaystyle\lim_{(x,y)\to(0,0)}(x+\sin y)\cos\dfrac{1}{|x|+|y|}$.
+        \end{enumerate}
 \end{problem}
 \begin{solution}
-    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+\begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
         \item 我们有
             \[\lim_{x\to0}\dfrac{2\cos x-2+x^2}{x^4}=\lim_{x\to0}\dfrac{2x-2\sin x}{4x^3}=\lim_{x\to0}\dfrac{1-\cos x}{6x^2}=\lim_{x\to0}\dfrac{\sin x}{12 x}=\dfrac1{12}\]
         \item 设$y=kx$.于是
             \[\lim_{(x,y)\to(0,0)}\dfrac{x^5y^3}{x^8+y^8}=\lim_{x\to0}\dfrac{k^3x^8}{x^8+k^8x^8}=\dfrac{k^3}{1+k^8}\]
             于是从不同路径接近$(0,0)$将得到不同的极限值,因而原函数在$(0,0)$处的极限不存在.
         \item 注意到$\left|\cos\dfrac{1}{|x|+|y|}\right|\leqslant1,|\sin y|\leqslant|y|$.于是我们有
-            \[0<\left|(x+\sin y)\cos\dfrac{1}{|x|+|y|}\right|\leqslant\left|x+\sin y\right|\leqslant|x|+|y|\]
+            \[0\leqslant\left|(x+\sin y)\cos\dfrac{1}{|x|+|y|}\right|\leqslant\left|x+\sin y\right|\leqslant|x|+|y|\]
             又$\displaystyle\lim_{(x,y)\to(0,0)}|x|+|y|=0$,于是$\displaystyle\lim_{(x,y)\to(0,0)}(x+\sin y)\cos\dfrac{1}{|x|+|y|}=0$.
     \end{enumerate}
 \end{solution}
 \begin{problem}[2.(15\songti{分})]
-    求闭区间$[-1,1]$上的函数$f(x)=x^{\frac23}-\left(x^2-1\right)^\frac13$的所有最小值点.
+求闭区间$[-1,1]$上的函数$f(x)=x^{\frac23}-\left(x^2-1\right)^\frac13$的所有最小值点.
 \end{problem}
 \begin{solution}
-    对$f(x)$求导可得
+对$f(x)$求导可得
     \[f'(x)=\dfrac23x^{-\frac13}-\dfrac{2x}3(x^2-1)^{-\frac23}=\dfrac{2}{3}x^{-\frac13}(x^2-1)^{-\frac23}\left[(x^2-1)^{\frac23}-x^{\frac43}\right]\]
     令$f'(x)=0$可知$x=\pm\dfrac{\sqrt2}{2}$.当$f'(x)$不存在时$x=0$.\\
     我们有
@@ -46,46 +37,43 @@
     由于$f(x)$在闭区间上的最小值必然是边界点/不可导点/稳定点中的一种,于是$f(x)$的最小值点为$0,\pm1$.
 \end{solution}
 \begin{problem}[3.(20\songti{分})]
-    回答下列问题.
-    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item \textbf{(15\songti{分})}\ 设$a,b\in\R$且$b\neq0$.求$f(x,y)=\arctan\dfrac xy$在$(a,b)$处的二阶泰勒多项式.
-        \item \textbf{(5\songti{分})}\ 设$a<b$且$n\in\N^*$.函数$f:(a,b)\to\R$在开区间$(a,b)$中有$n+1$阶导数.定义二元函数$T:(a,b)\times(a,b)\to\R$为
-            \[T(x,y)=f(x)-f(y)-\sum_{k=1}^n\dfrac{f^{(k)}(y)}{k!}(x-y)^k\]
-            求出$T(x,y)$对$y$的一阶偏导函数$\dfrac{\p T}{\p y}$.
-    \end{enumerate}
+回答下列问题.
+        \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+            \item \textbf{(15\songti{分})}\ 设$a,b\in\R$且$b\neq0$.求$f(x,y)=\arctan\dfrac xy$在$(a,b)$处的二阶泰勒多项式.
+            \item \textbf{(5\songti{分})}\ 设$a<b$且$n\in\N^*$.函数$f:(a,b)\to\R$在开区间$(a,b)$中有$n+1$阶导数.定义二元函数$T:(a,b)\times(a,b)\to\R$为
+                \[T(x,y)=f(x)-f(y)-\sum_{k=1}^n\dfrac{f^{(k)}(y)}{k!}(x-y)^k\]
+                求出$T(x,y)$对$y$的一阶偏导函数$\dfrac{\p T}{\p y}$.
+        \end{enumerate}
 \end{problem}
 \begin{solution}
-    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item 计算各阶偏导数,有
-            \[\dfrac{\p f}{\p x}=\dfrac{1}{1+\left(\dfrac xy\right)^2}\cdot\dfrac1y=\dfrac{y}{x^2+y^2}\]
-            \[\dfrac{\p f}{\p y}=\dfrac{1}{1+\left(\dfrac xy\right)^2}\cdot\left(-\dfrac{x}{y^2}\right)=-\dfrac{x}{x^2+y^2}\]
-            \[\dfrac{\p^2f}{\p x^2}=-\dfrac{2xy}{(x^2+y^2)^2}\ \ \ \ \ \dfrac{\p^2f}{\p y^2}=\dfrac{2xy}{(x^2+y^2)^2}\]
-            \[\dfrac{\p^2f}{\p x\p y}=\dfrac{(x^2+y^2)-2y^2}{(x^2+y^2)^2}=\dfrac{x^2-y^2}{(x^2+y^2)^2}\]
-            于是\[f(x,y)=\arctan\dfrac ab+\dfrac{b(x-a)+a(y-b)}{a^2+b^2}+\dfrac{ab(y-b)-ab(x-a)+(a^2-b^2)(x-a)(y-b)}{(a^2+b^2)^2}\]
-        \item 我们有
-            \[\begin{aligned}
-                \dfrac{\p T}{\p y}
-                &= -f'(y)-\sum_{k=1}^n\dfrac{1}{k!}\left(f^{(k)}(y)(x-y)^k\right)' \\
-                &= -f'(y)-\sum_{k=1}^n\dfrac{1}{k!}\left(f^{(k+1)}(y)(x-y)^k-kf^{(k)}(x-y)^{k-1}\right) \\
-                &= -\dfrac{f^{(n+1)}(y)}{n!}(x-y)^n
-            \end{aligned}\]
-    \end{enumerate}
+\begin{enumerate}[label=\tbf{(\arabic*)},leftmargin=*]
+\item 记$X=x-a,Y=y-b,D=a^2+b^2$.在$(a,b)$处,
+\[f_x=b/D,\quad f_y=-a/D,\quad f_{xx}=-2ab/D^2,\quad
+f_{xy}=(a^2-b^2)/D^2,\quad f_{yy}=2ab/D^2\]
+故二阶泰勒多项式为
+\[T_2(x,y)=\arctan\dfrac ab+\dfrac{bX-aY}{D}
++\dfrac{-abX^2+(a^2-b^2)XY+abY^2}{D^2}\]
+\item 逐项对$y$求导,中间项相消,得到
+\[T_y=-f'(y)-\sum_{k=1}^n\left(\dfrac{f^{(k+1)}(y)}{k!}(x-y)^k
+-\dfrac{f^{(k)}(y)}{(k-1)!}(x-y)^{k-1}\right)
+=-\dfrac{f^{(n+1)}(y)}{n!}(x-y)^n\]
+\end{enumerate}
 \end{solution}
 \begin{problem}[4.(10\songti{分})]
-    证明:对任意给定的实数$p$,存在$1$的开邻域$U$和$W$使得存在唯一的函数$y=f(x):U\to W$满足$x^p+y^p-2xy=0$.
+证明:对任意给定的实数$p$,存在$1$的开邻域$U$和$W$使得存在唯一的函数$y=f(x):U\to W$满足$x^p+y^p-2xy=0$.
 \end{problem}
-\begin{proof}
-    设$F(x,y)=x^p+y^p-2xy$.于是$F(1,1)=0$.\\
+\begin{solution}
+设$F(x,y)=x^p+y^p-2xy$.于是$F(1,1)=0$.\\
     考虑$F$的偏导,有$\dfrac{\p F}{\p x}=px^{p-1}-2y,\dfrac{\p F}{\p y}=py^{p-1}-2x$.\\
     若$p=2$,则有$x^2+y^2-2xy=0$,当且仅当$y=x$时成立,此时$f(x)=x$.\\
     若$p\neq 2$,则有$\left.\dfrac{\p F}{\p y}\right|_{(1,1)}=p-2$.由于$\dfrac{\p F}{\p y}$连续,于是存在$1$的开邻域$U$和$W$使得在$U\times W$上满足$\dfrac{\p F}{\p y}\neq0$.\\
     根据隐函数存在定理,存在唯一的函数$y=f(x)$使得$F(x,y)\equiv0$,且$\dfrac{\di y}{\dx}=-\dfrac{px^{p-1}-2y}{py^{p-1}-2x}$.
-\end{proof}
+\end{solution}
 \begin{problem}[5.(15\songti{分})]
-    设在$\R^3$空间中$Oxy$平面之外的点$(x,y,z)$处的电势$V=\left(\dfrac{2y}z\right)^x$.求出在点$\left(1,\dfrac12,1\right)$处电势$V$下降最快的方向上的单位向量.
+设在$\R^3$空间中$Oxy$平面之外的点$(x,y,z)$处的电势$V=\left(\dfrac{2y}z\right)^x$.求出在点$\left(1,\dfrac12,1\right)$处电势$V$下降最快的方向上的单位向量.
 \end{problem}
 \begin{solution}
-    我们有
+我们有
     \[V_x(x,y,z)=\left(\dfrac{2y}{z}\right)^x\ln\left(\dfrac{2y}{z}\right)\]
     \[V_y(x,y,z)=\left(\dfrac2z\right)^xxy^{x-1}\]
     \[V_z(x,y,z)=-(2y)^xxz^{-x-1}\]
@@ -93,39 +81,30 @@
     取负梯度后单位化可得所求向量为$\left(0,-\dfrac{2\sqrt5}{5},\dfrac{\sqrt5}{5}\right)$.
 \end{solution}
 \begin{problem}[6.(25\songti{分})]
-    设$\R^3$空间中的平面$K:x+2y+3z=6$与$x,y,z$三轴分别交于$A,B,C$三点.动点$H\in\R^3$与$K$的距离恒为$1$,其在$K$上的垂直投影记为$M$.设$M$在$\triangle ABC$中,其到三条边$BC,CA,AB$的距离分别为$p,q,r$.
-    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item \textbf{(5\songti{分})}\ 求出$\triangle ABC$的面积.
-        \item \textbf{(5\songti{分})}\ 用$p,q,r$表示以$A,B,C,H$为顶点的四面体的表面积$S(p,q,r)$.
-        \item \textbf{(5\songti{分})}\ 写出$p,q,r$必须满足的约束条件.
-        \item \textbf{(10\songti{分})}\ 求出$S(p,q,r)$的条件极值的稳定点.
-    \end{enumerate}
+设$\R^3$空间中的平面$K:x+2y+3z=6$与$x,y,z$三轴分别交于$A,B,C$三点.动点$H\in\R^3$与$K$的距离恒为$1$,其在$K$上的垂直投影记为$M$.设$M$在$\triangle ABC$中,其到三条边$BC,CA,AB$的距离分别为$p,q,r$.
+            \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
+                \item \textbf{(5\songti{分})}\ 求出$\triangle ABC$的面积.
+                \item \textbf{(5\songti{分})}\ 用$p,q,r$表示以$A,B,C,H$为顶点的四面体的表面积$S(p,q,r)$.
+                \item \textbf{(5\songti{分})}\ 写出$p,q,r$必须满足的约束条件.
+                \item \textbf{(10\songti{分})}\ 求出$S(p,q,r)$的条件极值的稳定点.
+            \end{enumerate}
 \end{problem}
 \begin{solution}
-    \begin{enumerate}[label=\textbf{(\arabic*)},leftmargin=*]
-        \item 分别令$x,y,z$三者中两者为$0$可解得$A(6,0,0),B(0,2,0),C(0,0,3)$.于是
-            $$a=|BC|=\sqrt{13},b=|AC|=3\sqrt{5},c=|AB|=2\sqrt{10}$$
-            于是$\cos C=\dfrac{a^2+b^2-c^2}{2ab}=\dfrac{18}{6\sqrt{65}}=\dfrac{3}{\sqrt{65}}$,则$\sin C=\sqrt{1-\cos^2C}=\dfrac{2\sqrt{14}}{\sqrt{65}}$.\\
-            于是$S_{\triangle ABC}=\dfrac{1}{2}ab\sin C=3\sqrt{14}$.
-        \item 设$H$在$BC$边上的垂足为$D$.根据立体几何知识可知$HM\bot MD$.我们有
-            \[S_{\triangle BCH}=\dfrac12|BC||HD|=\dfrac12|BC|\sqrt{|HM|^2+|MD|^2}=\dfrac12\cdot\sqrt{13}\cdot\sqrt{p^2+1}\]
-            同理可知$S_{\triangle ACH}=\dfrac{3\sqrt5}{2}\sqrt{q^2+1},S_{\triangle ABH}=\sqrt{10}\sqrt{r^2+1}$.\\
-            于是\[S(p,q,r)=3\sqrt{14}+\dfrac{\sqrt{13}}{2}\sqrt{p^2+1}+\dfrac{3\sqrt5}{2}\sqrt{q^2+1}+\sqrt{10}\sqrt{r^2+1}\]
-        \item 注意到
-            \[S_{\triangle ABC}=S_{\triangle ABM}+S_{\triangle BCM}+S_{\triangle ACM}\]
-            于是
-            \[3\sqrt{14}=\dfrac12\left(\sqrt{13}p+3\sqrt{5}q+2\sqrt{10}r\right)\]
-            于是满足的约束条件为
-            \[\sqrt{13}p+3\sqrt{5}q+2\sqrt{10}r-6\sqrt{14}=0\]
-        \item 令$\phi(p,q,r)=\sqrt{13}p+3\sqrt{5}q+2\sqrt{10}r-6\sqrt{14}$.构造辅助函数$F(p,q,r,\lambda)=S(p,q,r)-\lambda\phi(p,q,r)$.\\
-            求$F(p,q,r,\lambda)$的各偏导,并令它们为$0$,有
-            \[\dfrac{\p F}{\p p}=\dfrac{\sqrt{13}}{2}\cdot\dfrac{p}{\sqrt{p^2+1}}-\sqrt{13}\lambda=0\]
-            \[\dfrac{\p F}{\p q}=\dfrac{3\sqrt5}{2}\cdot\dfrac{q}{\sqrt{q^2+1}}-3\sqrt{5}\lambda=0\]
-            \[\dfrac{\p F}{\p r}=\sqrt{10}\cdot\dfrac{r}{\sqrt{r^2+1}}-2\sqrt{10}\lambda=0\]
-            \[\dfrac{\p F}{\p \lambda}=\phi(p,q,r)=0\]
-            于是我们有$\dfrac{p}{\sqrt{p^2+1}}=\dfrac{q}{\sqrt{q^2+1}}=\dfrac{r}{\sqrt{r^2+1}}=2\lambda$.\\
-            由于$p,q,r>0$,于是有$p=q=r=\dfrac{2\lambda}{\sqrt{1-4\lambda^2}}$.\\
-            代回$\phi(p,q,r)=0$可知稳定点满足$p=q=r=\dfrac{6\sqrt{14}}{\sqrt{13}+3\sqrt{15}+2\sqrt{10}}$.
-    \end{enumerate}
+\begin{enumerate}[label=\tbf{(\arabic*)},leftmargin=*]
+\item 平面截距为$A=(6,0,0),B=(0,3,0),C=(0,0,2)$.
+因此$|BC|=\sqrt{13}$,$|CA|=2\sqrt{10}$,$|AB|=3\sqrt5$,且
+\[S_{\triangle ABC}=\dfrac12|(-6,3,0)\times(-6,0,2)|=3\sqrt{14}\]
+\item 由$HM=1$且$HM$垂直于底面,各侧面对应的高分别为$\sqrt{1+p^2},\sqrt{1+q^2},\sqrt{1+r^2}$.所以
+\[S=3\sqrt{14}+\dfrac12\left(\sqrt{13}\sqrt{1+p^2}
++2\sqrt{10}\sqrt{1+q^2}+3\sqrt5\sqrt{1+r^2}\right)\]
+\item 由三个小三角形面积之和等于底面面积,可得
+\[\sqrt{13}p+2\sqrt{10}q+3\sqrt5r=6\sqrt{14},\qquad p,q,r\geqslant0\]
+若要求$M$位于三角形内部,则三个距离均严格为正.
+\item 对内部的条件驻点应用Lagrange乘子法,得到
+\[\dfrac{p}{\sqrt{1+p^2}}=\dfrac{q}{\sqrt{1+q^2}}=\dfrac{r}{\sqrt{1+r^2}}\]
+由于$t/\sqrt{1+t^2}$严格递增,故$p=q=r$.结合约束条件,唯一内部驻点为
+\[p=q=r=\dfrac{6\sqrt{14}}{\sqrt{13}+2\sqrt{10}+3\sqrt5}\]
+对应$M$为内心.目标函数严格凸,所以该点也是约束区域上的唯一最小值点.
+\end{enumerate}
 \end{solution}
 \end{document}

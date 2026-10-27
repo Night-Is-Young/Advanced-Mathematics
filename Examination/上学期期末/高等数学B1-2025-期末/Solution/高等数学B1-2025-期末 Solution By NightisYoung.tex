@@ -1,0 +1,209 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint}
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+北京大学2025-26学年第1学期高数B期末试题
+\end{center}
+\begin{problem}[1.]
+试求如下极限.
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*,topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item \[\lim_{x\to0}\dfrac{1-x^2-\e^{-x^2}}{x^2\sin^2x}\]
+\item \[\lim_{(x,y)\to(0,0)}\dfrac{xy(x+y)}{x^2+y^2}\]
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*]
+\item 利用指数函数在原点的Taylor展开式,有
+\[\e^{-x^2}=1-x^2+\dfrac{x^4}{2}+o(x^4)\]
+又因为$\sin x/x\to1$,故
+\[\lim_{x\to0}\dfrac{1-x^2-\e^{-x^2}}{x^2\sin^2x}
+=\lim_{x\to0}\dfrac{-\frac12x^4+o(x^4)}{x^4\left(\frac{\sin x}{x}\right)^2}
+=-\dfrac12\]
+\item 当$(x,y)\ne(0,0)$时,由$2|xy|\leqslant x^2+y^2$,可得
+\[0\leqslant\left|\dfrac{xy(x+y)}{x^2+y^2}\right|
+\leqslant\dfrac{|x+y|}{2}
+\leqslant\dfrac{|x|+|y|}{2}\]
+右端在$(x,y)\to(0,0)$时趋于$0$.由夹逼定理,所求极限为$0$.
+\end{enumerate}
+\end{solution}
+\begin{problem}[2.]
+设
+\[f(x)=\dfrac{\di^3}{\di x^3}(x^2-1)^3\]
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*,topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item 求$f(x)$的显式表达式.
+\item 求$f(x)$的单调区间.
+\item 求$f(x)$的极值点.
+\item 求$f(x)$的凹凸区间.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*]
+\item 先展开被求导的多项式:
+\[(x^2-1)^3=x^6-3x^4+3x^2-1\]
+连续求三次导数,得到
+\[f(x)=120x^3-72x=24x(5x^2-3)\]
+\item 对$f$求导,有
+\[f'(x)=360x^2-72=72(5x^2-1)\]
+因此当$x<-1/\sqrt5$或$x>1/\sqrt5$时,$f'(x)>0$;
+当$-1/\sqrt5<x<1/\sqrt5$时,$f'(x)<0$.
+故$f$在$(-\infty,-1/\sqrt5)$和$(1/\sqrt5,+\infty)$上严格递增,
+在$(-1/\sqrt5,1/\sqrt5)$上严格递减.
+\item 在$x=-1/\sqrt5$处,$f'$由正变负,故该点为极大值点,且
+\[f\left(-\dfrac1{\sqrt5}\right)=\dfrac{48}{\sqrt5}\]
+在$x=1/\sqrt5$处,$f'$由负变正,故该点为极小值点,且
+\[f\left(\dfrac1{\sqrt5}\right)=-\dfrac{48}{\sqrt5}\]
+\item 再求一次导数,有$f''(x)=720x$.
+因此在$(-\infty,0)$上,$f''<0$,曲线为凸弧;
+在$(0,+\infty)$上,$f''>0$,曲线为凹弧.
+曲线的拐点为$(0,0)$.
+\end{enumerate}
+\end{solution}
+\begin{problem}[3.]
+已知直线$L_1,L_2$分别为
+\[L_1:x=\dfrac y2=\dfrac z3,\qquad L_2:x=-y=z-1\]
+若$L_1\subset\pi$, $L_2\parallel\pi$,求平面$\pi$的方程.
+\end{problem}
+\begin{solution}
+由直线方程可知,$L_1$经过原点,方向向量为$\vect a=(1,2,3)$;
+$L_2$的方向向量为$\vect b=(1,-1,1)$.
+因为$L_1\subset\pi$且$L_2\parallel\pi$,平面$\pi$的法向量应同时垂直于$\vect a$和$\vect b$.
+取
+\[\vect n=\vect a\times\vect b=
+\begin{vmatrix}
+\vect i&\vect j&\vect k\\
+1&2&3\\
+1&-1&1
+\end{vmatrix}=(5,2,-3)\]
+又因为平面经过原点,故所求平面方程为
+\[5x+2y-3z=0\]
+将$L_2$上的点$(s,-s,s+1)$代入左端,恒得$-3\ne0$,
+所以$L_2$确与此平面平行且不在平面内.
+\end{solution}
+\begin{problem}[4.]
+设函数
+\[f(x,y)=\begin{cases}1,&x^2+y^2\leqslant1,\\x^2+y^2,&x^2+y^2>1,\end{cases}\qquad \alpha\in(0,\pi/2)\]
+证明:在点$(\cos\alpha,\sin\alpha)$处,偏导数$f_x(\cos\alpha,\sin\alpha)$与$f_y(\cos\alpha,\sin\alpha)$均不存在.
+\end{problem}
+\begin{solution}
+记$a=\cos\alpha$, $b=\sin\alpha$.由于$0<\alpha<\pi/2$,有$a>0$, $b>0$且$a^2+b^2=1$,从而$f(a,b)=1$.
+先沿$x$方向考察差商.当$0<|h|<a$时,
+\[(a+h)^2+b^2-1=h(2a+h)\]
+其符号与$h$相同.因此
+\[\dfrac{f(a+h,b)-f(a,b)}h=
+\begin{cases}
+0,&-a<h<0,\\
+2a+h,&0<h<a.
+\end{cases}\]
+左、右极限分别为$0$与$2a$,二者不相等,故$f_x(a,b)$不存在.
+
+同理,当$0<|k|<b$时,$a^2+(b+k)^2-1=k(2b+k)$,于是
+\[\dfrac{f(a,b+k)-f(a,b)}k=
+\begin{cases}
+0,&-b<k<0,\\
+2b+k,&0<k<b.
+\end{cases}\]
+左、右极限分别为$0$与$2b$,亦不相等.故$f_y(a,b)$也不存在.
+\end{solution}
+\begin{problem}[5.]
+考虑方程
+\[F(x,y,z)=xy+yz+\e^{2xz}-4=0\]
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*,topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item 求一点$M_0(x_0,y_0,z_0)$,使得在$M_0$的某邻域内该方程可唯一确定隐函数$z=z(x,y)$,并验证隐函数存在定理的条件.
+\item 设在某解点邻域内由方程确定$z=z(x,y)$,求$\dfrac{\p z}{\p x}$, $\dfrac{\p z}{\p y}$.
+\end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\alph*)},leftmargin=*]
+\item 取$M_0=(0,1,3)$.有
+\[F(0,1,3)=0+3+1-4=0\]
+函数$F$在$\R^3$上具有连续的各阶偏导数,并且
+\[F_z(x,y,z)=y+2x\e^{2xz},\qquad F_z(0,1,3)=1\ne0\]
+故由隐函数存在定理,在$(0,1)$的某邻域内存在唯一的连续可微函数$z=z(x,y)$,
+满足$z(0,1)=3$及$F(x,y,z(x,y))=0$,且其图像位于$M_0$的某邻域内.
+\item 对恒等式$F(x,y,z(x,y))=0$分别关于$x,y$求偏导,得到
+\[\begin{aligned}
+y+2z\e^{2xz}+(y+2x\e^{2xz})z_x&=0,\\
+x+z+(y+2x\e^{2xz})z_y&=0.
+\end{aligned}\]
+在$F_z=y+2x\e^{2xz}\ne0$的邻域内,故有
+\[\dfrac{\p z}{\p x}=-\dfrac{y+2z\e^{2xz}}{y+2x\e^{2xz}},\qquad
+\dfrac{\p z}{\p y}=-\dfrac{x+z}{y+2x\e^{2xz}}\]
+式中的$z$均指$z(x,y)$.
+\end{enumerate}
+\end{solution}
+\begin{problem}[6.]
+设$z=f(u(x,y),v(x,y))$,其中$u(x,y)=\e^x\cos y$, $v(x,y)=\e^x\sin y$.求$\dfrac{\p^2z}{\p y^2}$.
+\end{problem}
+\begin{solution}
+在$f$具有连续二阶偏导数的条件下,应用复合函数求导法则.
+由$u=\e^x\cos y$, $v=\e^x\sin y$,可得
+\[u_y=-v,\qquad v_y=u,\qquad u_{yy}=-u,\qquad v_{yy}=-v\]
+所以
+\[z_y=f_u u_y+f_v v_y=-vf_u+uf_v\]
+再关于$y$求导,有
+\[\begin{aligned}
+z_{yy}
+&=f_{uu}u_y^2+2f_{uv}u_yv_y+f_{vv}v_y^2+f_u u_{yy}+f_v v_{yy}\\
+&=v^2f_{uu}-2uvf_{uv}+u^2f_{vv}-uf_u-vf_v.
+\end{aligned}\]
+代回$u,v$的表达式,即得
+\[\begin{aligned}
+\dfrac{\p^2z}{\p y^2}
+={}&\e^{2x}\bigl(\sin^2y\,f_{uu}-2\sin y\cos y\,f_{uv}+\cos^2y\,f_{vv}\bigr)\\
+&-\e^x\bigl(\cos y\,f_u+\sin y\,f_v\bigr).
+\end{aligned}\]
+上式中$f$的各偏导数均在$(u,v)=(\e^x\cos y,\e^x\sin y)$处取值.
+\end{solution}
+\begin{problem}[7.]
+设$F(x,y)=f(x^2+y^2)$,写出$F(x,y)$在$(x_0,y_0)$附近的二阶Taylor展开式,并用佩亚诺余项表示.
+\end{problem}
+\begin{solution}
+记
+\[s_0=x_0^2+y_0^2,\qquad h=x-x_0,\qquad k=y-y_0,\qquad \rho=\sqrt{h^2+k^2}\]
+为使用二阶Taylor公式,假设$f$在$s_0$附近二阶连续可微.
+由复合函数求导法则,在$(x_0,y_0)$处有
+\[\begin{aligned}
+F_x&=2x_0f'(s_0),&F_y&=2y_0f'(s_0),\\
+F_{xx}&=2f'(s_0)+4x_0^2f''(s_0),&
+F_{xy}&=4x_0y_0f''(s_0),\\
+F_{yy}&=2f'(s_0)+4y_0^2f''(s_0).
+\end{aligned}\]
+将它们代入二元函数的二阶Taylor公式,整理得到
+\[\begin{aligned}
+F(x_0+h,y_0+k)
+={}&f(s_0)+2f'(s_0)(x_0h+y_0k)\\
+&+f'(s_0)(h^2+k^2)+2f''(s_0)(x_0h+y_0k)^2\\
+&+o(h^2+k^2),\qquad \rho\to0.
+\end{aligned}\]
+其中$o(h^2+k^2)$即二阶Peano余项.
+\end{solution}
+\begin{problem}[8.]
+设$f(x,y,z)=x^2-xy+y^2+z^2$,约束条件为平面$x+y+z=1$.求$f$在该平面上的最小值及其取值点,并证明所得结论.
+\end{problem}
+\begin{solution}
+先用Lagrange乘数法寻找可能的极小值点.设
+\[\Phi(x,y,z,\lambda)=x^2-xy+y^2+z^2-\lambda(x+y+z-1)\]
+约束函数的梯度为$(1,1,1)\ne(0,0,0)$,故条件极值点必须满足
+\[\begin{cases}
+2x-y=\lambda,\\
+-x+2y=\lambda,\\
+2z=\lambda,\\
+x+y+z=1.
+\end{cases}\]
+前两式相减,得$x=y$;再代入各式,得到唯一候选点
+\[(x,y,z)=\left(\dfrac25,\dfrac25,\dfrac15\right),\qquad f(x,y,z)=\dfrac15\]
+
+为证明这确为整个约束平面上的最小值,令
+\[a=x-\dfrac25,\qquad b=y-\dfrac25,\qquad c=z-\dfrac15\]
+则$a+b+c=0$.直接展开,得到
+\[\begin{aligned}
+f(x,y,z)
+&=\dfrac15+\dfrac25(a+b+c)+a^2-ab+b^2+c^2\\
+&=\dfrac15+\dfrac12(a-b)^2+\dfrac12(a^2+b^2)+c^2\\
+&\geqslant\dfrac15.
+\end{aligned}\]
+等号当且仅当$a=b=c=0$成立.因此$f$在该平面上的最小值为$1/5$,
+且仅在$\left(2/5,2/5,1/5\right)$处取得.
+\end{solution}
+\end{document}

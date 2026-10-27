@@ -87,7 +87,7 @@
         &= \int_0^{+\infty}\di y\int_0^{+\infty}\e^{-x^2-y^2}\di x \\
         &= \iint_{x,y\geqslant 0}\e^{-x^2-y^2}\di x\di y \\
         &= \iint_{0\leqslant\theta\leqslant\frac\pi2,r\geqslant 0}r\e^{-r^2}\di r\di \theta\\
-        &\xlongequal{t=r^2} \int_0^{\frac\pi2}\di\theta\int_0^{+\infty}\e^{-t}\di t \\
+        &\xlongequal{t=r^2} \dfrac12\int_0^{\frac\pi2}\di\theta\int_0^{+\infty}\e^{-t}\di t \\
         &= \dfrac{\pi}{4}
     \end{aligned}\]
     于是
@@ -132,25 +132,16 @@
     写出$y=y(x)$满足的一阶常微分方程,并求解该方程对应的初值问题$y(0)=1$.
 \end{problem}
 \begin{solution}
-    设$M(x_M,y\left(x_M\right))$,则此处的切线方程$l_m:y=y'\left(x_M\right)\left(x-x_M\right)+y\left(x_M\right)$.\\
-    于是$l_M$交$x$轴于$A\left(-\dfrac{y\left(x_M\right)}{y'\left(x_M\right)}+x_M,0\right)$.由$\left|MA\right|\equiv1$可知
-    \[\left(\dfrac{y}{y'}\right)^2+y^2=1\]
-    由于$y(x)$恒正且严格递减,于是$y>0>y'$.于是$\dfrac{y}{y'}=-\sqrt{1-y^2}$,即
-    \[\dfrac{\sqrt{1-y^2}\di y}{y}=-\dx\]
-    而
-    \[\begin{aligned}
-        \int\dfrac{\sqrt{1-y^2}}{y}\di y
-        &\xlongequal{y=\sin t}\int\dfrac{\cos^2 t}{\sin t}\di t \\
-        &= \int\left(\dfrac{1}{\sin t}-\sin t\right)\di t \\
-        &= \dfrac{1}{2}\ln\left|\dfrac{1-\cos t}{1+\cos t}\right|+\cos t+C \\
-        &= \dfrac12\ln\left|\dfrac{1-\sqrt{1-y^2}}{1+\sqrt{1-y^2}}\right|+\sqrt{1-y^2}+C
-    \end{aligned}\]
-    于是对上式两边积分可得
-    \[\dfrac{1}{2}\ln\left|\dfrac{1-\sqrt{1-y^2}}{1+\sqrt{1-y^2}}\right|+\sqrt{1-y^2}+C=-x\]
-    即
-    \[\ln\left(1-\sqrt{1-y^2}\right)-\ln y+\sqrt{1-y^2}+x=C\]
-    代入初值$y(0)=1$可得该初值问题的解为
-    \[\ln\left(1-\sqrt{1-y^2}\right)-\ln y+\sqrt{1-y^2}+x=1\]
+校订注:按原题在$x=0$处也可导且具有通常切线的要求,不存在这样的函数.事实上,若$y'(0)=0$,该点切线为$y=1$,不与$x$轴相交;若$y'(0)$有限且非零,则$|MA|^2=1+1/y'(0)^2>1$,同样矛盾.
+    以下给出通常所指的曳物线:仅要求在$x>0$可导,在$x=0$连续并满足$y(0)=1$.
+    对$x>0$,$M=(x,y)$处的切线交$x$轴于$A=(x-y/y',0)$.因而
+    \[\left(\dfrac{y}{y'}\right)^2+y^2=1,\qquad
+    y'=-\dfrac{y}{\sqrt{1-y^2}},\quad0<y<1.\]
+    分离变量并积分,结合$x\to0^+$时$y\to1$,得
+    \[x=\ln\dfrac{1+\sqrt{1-y^2}}{y}-\sqrt{1-y^2}.\]
+    等价的参数形式为
+    \[x=t-\tanh t,\qquad y=\dfrac1{\cosh t},\qquad t\geqslant0.\]
+    对$t>0$有$\di x/\di t=\tanh^2t>0$,故给出$x>0$上的唯一严格递减正函数;其在$x=0$处为竖直切线,不满足原题的端点可导条件.
 \end{solution}
 \begin{problem}[8.(10\songti{分})]
     求常微分方程
@@ -158,7 +149,7 @@
     的通解.
 \end{problem}
 \begin{solution}
-    对应的齐次方程的特征根为$\lambda_{1,2}=\pm2\i$,于是原方程的通解为
+    对应的齐次方程的特征根为$\lambda_{1,2}=\pm2\i$,于是齐次方程的通解为
     \[y=C_1\cos2x+C_2\sin2x\]
     令$y=\alpha\sin3x$,代入原方程可得
     \[-9\alpha\sin3x+4\alpha\sin3x=\sin3x\]
@@ -172,19 +163,22 @@
     \begin{enumerate}[label=\tbf{(\arabic*)}]
         \item 设$D=\R^2\backslash\left\{(x,0)\in\R^2:x\geqslant 0\right\}$,写出一个在$D$上可微的函数$T:D\to\R$且满足
             \[\dfrac{\p T}{\p x}=\dfrac{-y}{x^2+y^2}\ \ \ \ \ \dfrac{\p T}{\p y}=\dfrac{x}{x^2+y^2}\]
-        \item 设$\Omega=\R^2\backslash\left\{(0,0)\right\}$,试证明:不存在函数$U\to\R$使得$U$在$\Omega$上可微,且满足
+        \item 设$\Omega=\R^2\backslash\left\{(0,0)\right\}$,试证明:不存在函数$U:\Omega\to\R$使得$U$在$\Omega$上可微,且满足
             \[\dfrac{\p U}{\p x}=\dfrac{-y}{x^2+y^2}\ \ \ \ \ \dfrac{\p U}{\p y}=\dfrac{x}{x^2+y^2}\]
     \end{enumerate}
 
 \end{problem}
 \begin{solution}
     \begin{enumerate}[label=\tbf{(\arabic*)}]
-        \item 令$T=\arctan\dfrac yx$即可.
-        \item 令圆周$C:x^2+y^2=1(\ep>0)$,定向为逆时针方向.考虑第二型曲线积分
+        \item 令$r=\sqrt{x^2+y^2}$.在$D$上恒有$r-x>0$,可取
+            \[T(x,y)=\pi-2\arctan\dfrac{y}{r-x}.\]
+            它是在去掉非负$x$轴后取值于$(0,2\pi)$的辐角函数,在$D$上可微.直接求导得$T_x=-y/(x^2+y^2)$, $T_y=x/(x^2+y^2)$.
+
+        \item 令圆周$C:x^2+y^2=1$,定向为逆时针方向.考虑第二型曲线积分
             \[\oint_{C^+}\dfrac{-y\dx+x\di y}{x^2+y^2}=\oint_{C^+}\left(\dfrac{\p U}{\p x}\dx+\dfrac{\p U}{\p y}\di y\right)=U(1,0)-U(1,0)=0\]
             另一方面
             \[\oint_{C^+}\dfrac{-y\dx+x\di y}{x^2+y^2}=\oint_{C}\dfrac{y^2\di s+x^2\di s}{x^2+y^2}=\oint_{C}\di s=2\pi\]
-            这与题设矛盾,因而命题不成立.
+            这与所设$U$存在矛盾,因此这样的$U$不存在,命题得证.
     \end{enumerate}
 \end{solution}
 \end{document}

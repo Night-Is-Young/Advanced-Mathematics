@@ -17,9 +17,9 @@
 \begin{solution}
     我们有
     \[\left(|x|+y\right)^2=x^2+y^2+2y|x|\]
-    注意到$2y|x|$关于$x$轴反对称,积分区域$D$关于$y$轴对称,故此项最终为$0$.于是
+    注意到$2y|x|$关于$x$轴反对称,积分区域$D$关于$x$轴对称,故此项最终为$0$.于是
     \[\iint_{D}\left(|x|+y\right)^2\di\sigma
-    =\iint_{D}\left(x^2+y^2\right)\di\sigma=\int_0^{2\pi}\di\theta\int_0^ar^3\di r=\dfrac{\pi a^4}{2}\]
+    =\iint_{D}\left(x^2+y^2\right)\di\sigma=\int_0^{2\pi}\di\theta\int_0^{|a|}r^3\di r=\dfrac{\pi a^4}{2}\]
 
 \end{solution}
 \begin{problem}[2.(12\songti{分})]
@@ -34,7 +34,7 @@
         \iint_{S_1}\di S
         &= \iint_{D_1}\sqrt{1+z_x^2+z_y^2}\di x\di y \\
         &= \iint_{D_1}\dfrac{R}{\sqrt{R^2-x^2}}\di x\di y \\
-        &\xlongequal{\text{极坐标换元}}\int_0^{\frac\pi4}\int_0^R\dfrac{R}{\sqrt{R^2-r^2\cos^2\theta}}r\di r \\
+        &\xlongequal{\text{极坐标换元}}\int_0^{\frac\pi4}\int_0^R\dfrac{R}{\sqrt{R^2-r^2\cos^2\theta}}r\di r\di\theta \\
         &= \int_0^{\frac\pi4}\left(\left.-\dfrac{R\sqrt{R^2-r^2\cos^2\theta}}{\cos^2\theta}\right|_0^R\right)\di\theta \\
         &= \int_0^{\frac\pi4}\dfrac{R^2\left(1-\sin\theta\right)}{\cos^2\theta}\di\theta \\
         &= R^2\left.\left(\tan\theta-\dfrac{1}{\cos\theta}\right)\right|_0^{\frac\pi4} \\
@@ -69,27 +69,10 @@
         
 \end{problem}
 \begin{solution}
-    \tbf{Method I.}\\
-    将$z=-(x+y)$代入$x^2+y^2+z^2=a^2$有
-    \[\left(y+\dfrac x2\right)^2+\left(\dfrac{\sqrt3}{2}x\right)^2=\left(\dfrac{\sqrt2}{2}a\right)^2\]
-    令$\dfrac{\sqrt3}{2}x=\dfrac{\sqrt2}{2}a\cos t,y+\dfrac x2=\dfrac{\sqrt2}{2}a\sin t$,就有
-    \[\left\{\begin{array}{l}
-        x=\frac{\sqrt6}{3}a\cos t \\
-        y=\frac{\sqrt2}{2}a\sin t-\frac{\sqrt6}{6}a\cos t \\
-        z=-\frac{\sqrt2}{2}a\sin t-\frac{\sqrt6}{6}a\cos t
-    \end{array}\right.\]
-    曲线沿$C^+$方向的单位切向量为
-    \[\mbf n=\left(-\dfrac{\sqrt6}{3}\sin t,\dfrac{\sqrt2}{2}\cos t+\frac{\sqrt6}{6}\sin t,-\dfrac{\sqrt2}{2}\cos t+\frac{\sqrt6}{6}\sin t\right)\]
-    于是
-    \[\begin{aligned}
-        &\oint_{C^+}y\dx+z\di y+x\di z \\
-        =&\oint_C(y,z,x)\cdot\mbf n\di s \\
-        =&\oint_Ca\left(-\frac{\sqrt3}{3}\sin^2 t+\frac13\sin t\cos t-\frac23\sin t\cos t-\frac{\sqrt3}{6}-\frac{\sqrt3}{3}\cos^2t+\frac13\sin t\cos t\right)\di s \\
-        =&\int_0^{2\pi}-\dfrac{\sqrt3}{2}a\sqrt{\left(x'(t)\right)^2+\left(y'(t)\right)^2+\left(z'(t)\right)^2}\di t \\
-        =&\int_0^{2\pi}-\dfrac{\sqrt3}{2}a^2\di t \\
-        =&-\sqrt3\pi a^2
-    \end{aligned}\]
-
+令$\mbf F=(y,z,x)$,则$\nabla\times\mbf F=(-1,-1,-1)$.
+    取平面$x+y+z=0$内半径为$|a|$的圆盘$D$,其单位法向量取$\mbf n=(1,1,1)/\sqrt3$.
+    因$n_x>0$,此定向与从$x$轴正方向观察为逆时针的$C^+$相容.由Stokes公式,
+    \[I=\iint_D(-1,-1,-1)\cdot\mbf n\di S=-\sqrt3\,\pi a^2.\]
 \end{solution}
 \begin{problem}[5.(14\songti{分})]
     求第二型曲面积分
@@ -109,17 +92,13 @@
     的通解.
 \end{problem}
 \begin{solution}
-    移项整理可得
-    \[y'=\left(1+\dfrac{y}{x}\right)\ln\left(1+\dfrac{y}{x}\right)+\dfrac{y}{x}\]
-    令$u=\dfrac yx$,则$y'=u+u'x$.代入上式有
-    \[u=\dfrac{(1+u)\ln(1+u)}{x}\]
-    移项积分可得
-    \[\ln\ln(1+u)=\ln x+C\]
-    于是
-    \[u=\e^{Cx}-1\]
-    于是
-    \[y=x\e^{Cx}-x\]
-
+原方程的定义域要求$x\neq0$且$1+y/x>0$.令$u=y/x$,则$y'=u+xu'$,原方程化为
+    \[xu'=(1+u)\ln(1+u).\]
+    再令$v=\ln(1+u)$,则$u'=(1+u)v'$,从而
+    \[xv'=v.\]
+    在任一不经过$0$的区间上,其全部解为$v=Cx$,包括$C=0$的情形.因此
+    \[y=x\left(\e^{Cx}-1\right),\qquad C\in\R,\quad x>0\text{或}x<0.\]
+    这些解均满足$1+y/x=\e^{Cx}>0$,代回原方程成立.
 \end{solution}
 \begin{problem}[7.(15\songti{分})]
     求微分方程
@@ -127,11 +106,11 @@
     的通解.
 \end{problem}
 \begin{solution}
-    对应的齐次方程的特征根$\lambda_1=-1,\lambda_2=-2$,于是通解为$y=C_1\e^{-x}+C_2\e^{-2x}$.令
+    对应的齐次方程的特征根$\lambda_1=-1,\lambda_2=-2$,于是齐次方程的通解为$y=C_1\e^{-x}+C_2\e^{-2x}$.令
     \[y=C_1(x)\e^{-x}+C_2(x)\e^{-2x}\]
     代入原方程得
     \[\left\{\begin{array}{l}
-        C_1'(x)\e^{-x}+C_2'\e^{-2x}=0\\
+        C_1'(x)\e^{-x}+C_2'(x)\e^{-2x}=0\\
         -C_1'(x)\e^{-x}-2C_2'(x)\e^{-2x}=\dfrac{1}{2+\e^x}
     \end{array}\right.\]
     解得

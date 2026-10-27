@@ -1,0 +1,188 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows}
+
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+    北京大学数学科学学院2023-24高等数学A2期末考试
+\end{center}
+\begin{problem}[1.(15\songti{分})]
+回答下列问题并简述理由.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(5\songti{分})}\ 设$\left\{a_n\right\}_{n=1}^{+\infty}$是一给定数列,$\displaystyle\lim_{n\to\infty}na_n=0$,问级数$\displaystyle\sum_{n=1}^{\infty}a_n$的敛散性如何:
+                \begin{center}
+                    $(a)$一定收敛\ \ \ \ \ $(b)$一定发散\ \ \ \ \ $(c)$敛散性不确定
+                \end{center}
+            \item \textbf{(5\songti{分})}\ 设$\left\{a_n\right\}_{n=1}^{+\infty}$是一给定数列,$\displaystyle\lim_{n\to\infty}na_n$不存在,问级数$\displaystyle\sum_{n=1}^{\infty}a_n$的敛散性如何:
+                \begin{center}
+                    $(a)$一定收敛\ \ \ \ \ $(b)$一定发散\ \ \ \ \ $(c)$敛散性不确定
+                \end{center}
+            \item \textbf{(5\songti{分})}\ 设$\left\{a_n\right\}_{n=1}^{+\infty}$是一给定数列,$\displaystyle\lim_{n\to\infty}\left|na_n\right|=+\infty$,问级数$\displaystyle\sum_{n=1}^{\infty}a_n$的敛散性如何:
+                \begin{center}
+                    $(a)$一定收敛\ \ \ \ \ $(b)$一定发散\ \ \ \ \ $(c)$敛散性不确定
+                \end{center}
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item 选$(c)$.取$a_n=1/n^2$时收敛;取$a_1=0$, $a_n=1/(n\ln n)$ $(n\geqslant2)$时发散.两者都满足$na_n\to0$.
+\item 选$(c)$.取$a_n=(-1)^n/n$时条件收敛,但$na_n=(-1)^n$无极限;取$a_n=(-1)^n$时通项不趋于$0$,级数发散,且$na_n$也无极限.
+\item 选$(c)$.取$a_n=(-1)^n/n^{2/3}$时条件收敛,且$|na_n|=n^{1/3}\to+\infty$;取$a_n=1$时级数发散,也满足题设条件.
+\end{enumerate}
+\end{solution}
+
+\begin{problem}[2.(10\songti{分})]
+试求幂级数的收敛半径.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(5\songti{分})}
+                \[\sum_{n=1}^{\infty}\dfrac{\left(n!\right)^2}{(2n)!}x^n\]
+            \item \textbf{(5\songti{分})}
+                \[\sum_{n=1}^{\infty}\dfrac{(-1)^n+(-2)^n+3^n}{n(n+1)(n+2)}x^n\]
+
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item 令$c_n=(n!)^2/(2n)!$,则
+\[\lim_{n\to\infty}\frac{c_{n+1}}{c_n}
+=\lim_{n\to\infty}\frac{(n+1)^2}{(2n+1)(2n+2)}=\frac14\]
+故收敛半径$R=4$.
+\item 令$c_n=\dfrac{(-1)^n+(-2)^n+3^n}{n(n+1)(n+2)}$.由于
+\[c_n=\frac{3^n\bigl(1+(-1/3)^n+(-2/3)^n\bigr)}{n(n+1)(n+2)}\]
+有$\displaystyle\lim_{n\to\infty}\sqrt[n]{|c_n|}=3$,因此收敛半径$R=\dfrac13$.
+\end{enumerate}
+\end{solution}
+
+\begin{problem}[3.(10\songti{分})]
+求微分方程
+        \[y''+y'=x^2+x\]
+        的通解.
+\end{problem}
+\begin{solution}
+对应齐次方程的特征方程为$r(r+1)=0$,故齐次通解为$C_1+C_2\e^{-x}$.
+取特解$y_p=Ax^3+Bx^2+Cx$,代入得
+\[3Ax^2+(6A+2B)x+(2B+C)=x^2+x\]
+因此$A=1/3$, $B=-1/2$, $C=1$.原方程的通解为
+\[y=C_1+C_2\e^{-x}+\frac{x^3}{3}-\frac{x^2}{2}+x\]
+\end{solution}
+
+\begin{problem}[4.(10\songti{分})]
+判断下列级数的敛散性.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(5\songti{分})}
+                \[\sum_{n=2}^{\infty}\dfrac{1}{(\ln n)^{\ln n}}\]
+            \item \textbf{(5\songti{分})}
+                \[\sum_{n=2}^{\infty}\dfrac{(-1)^n}{\sqrt{n}+(-1)^n}\]
+
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item 由于$(\ln n)^{\ln n}=n^{\ln\ln n}$,取整数$N>\e^{\e^2}$,则$n\geqslant N$时
+\[0<\frac{1}{(\ln n)^{\ln n}}=\frac{1}{n^{\ln\ln n}}\leqslant\frac1{n^2}\]
+由比较判别法可知原级数收敛.
+\item 有
+\[\frac{(-1)^n}{\sqrt n+(-1)^n}=\frac{(-1)^n\sqrt n}{n-1}-\frac1{n-1}\]
+其中$\sqrt n/(n-1)$单调递减趋于$0$,故第一项所成的交错级数收敛.对部分和作上述拆分,第二部分是趋于$+\infty$的调和级数部分和,因此原级数发散于$-\infty$.
+\end{enumerate}
+\end{solution}
+
+\begin{problem}[5.(15\songti{分})]
+证明函数
+        \[f(x)=\sum_{n=2}^{+\infty}\left(\dfrac{x\sin x}{\ln n}\right)^n\]
+        是$(-\infty,+\infty)$上的连续函数.
+\end{problem}
+\begin{solution}
+对任意$M>0$,在$[-M,M]$上有$|x\sin x|\leqslant M$.取$N$使$n\geqslant N$时$\ln n\geqslant2M$,则
+\[\left|\left(\frac{x\sin x}{\ln n}\right)^n\right|\leqslant\left(\frac{M}{\ln n}\right)^n\leqslant2^{-n}\]
+由Weierstrass判别法,原级数在每个$[-M,M]$上一致收敛.各项均连续,故和函数在每个有限闭区间上连续,从而在$\R$上连续.这里使用的是局部一致收敛,无需声称在整个$\R$上一致收敛.
+\end{solution}
+
+\begin{problem}[6.(10\songti{分})]
+计算含参变量$t$的无穷积分
+        \[I(t)=\int_0^{+\infty}\e^{-x^2}\cos(tx)\di x\qquad(-\infty<t<+\infty)\]
+        已知$I(0)=\dfrac{\sqrt{\pi}}{2}$.
+\end{problem}
+\begin{solution}
+由$|\e^{-x^2}\cos(tx)|\leqslant\e^{-x^2}$及
+\[\left|\frac{\p}{\p t}(\e^{-x^2}\cos(tx))\right|\leqslant x\e^{-x^2},\qquad
+\int_0^{+\infty}x\e^{-x^2}\di x=\frac12\]
+可知原积分及偏导数的积分在$t\in\R$上一致收敛,因此可以在积分号下求导.分部积分得
+\[\begin{aligned}
+I'(t)&=-\int_0^{+\infty}x\e^{-x^2}\sin(tx)\di x\\
+&=\frac12\int_0^{+\infty}\sin(tx)\di(\e^{-x^2})\\
+&=\frac12\left.\e^{-x^2}\sin(tx)\right|_0^{+\infty}
+-\frac t2\int_0^{+\infty}\e^{-x^2}\cos(tx)\di x=-\frac t2 I(t)
+\end{aligned}\]
+由$I(0)=\sqrt\pi/2$可得
+\[I(t)=\frac{\sqrt\pi}{2}\e^{-t^2/4},\qquad t\in\R\]
+\end{solution}
+
+\begin{problem}[7.(12\songti{分})]
+回答下列问题.
+        \begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+            \item \textbf{(2\songti{分})}\ 写出$\Gamma$函数的表达式.
+            \item \textbf{(5\songti{分})}\ 试证明$\Gamma(s)$在$s\in(0,+\infty)$上连续.
+            \item \textbf{(5\songti{分})}\ 用$\Gamma$函数表示积分
+                \[\int_0^{+\infty}\e^{-x^n}\di x\]
+                并求极限
+                \[\lim_{n\to+\infty}\int_0^{+\infty}\e^{-x^n}\di x\]
+
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)},topsep=0pt,parsep=0pt,itemsep=0pt,partopsep=0pt]
+\item $\displaystyle\Gamma(s)=\int_0^{+\infty}u^{s-1}\e^{-u}\di u$,其中$s>0$.
+\item 任取$0<a<b$.当$s\in[a,b]$时,有
+\[0\leqslant u^{s-1}\e^{-u}\leqslant
+\begin{cases}u^{a-1},&0<u\leqslant1,\\u^{b-1}\e^{-u},&u\geqslant1.\end{cases}\]
+右端在$(0,+\infty)$上可积,而被积函数对$s$连续,因此由含参积分的连续性定理,$\Gamma(s)$在$[a,b]$上连续.由于$a,b$任意,故在$(0,+\infty)$上连续.
+\item 作代换$u=x^n$,得到
+\[\int_0^{+\infty}\e^{-x^n}\di x
+=\frac1n\int_0^{+\infty}u^{1/n-1}\e^{-u}\di u
+=\frac1n\Gamma(1/n)=\Gamma(1+1/n)\]
+由$\Gamma(s)$的连续性及$\Gamma(1)=1$,可知所求极限为$1$.
+\end{enumerate}
+\end{solution}
+
+\begin{problem}[8.(13\songti{分})]
+设函数
+        \[f(x)=\left\{\begin{array}{l}
+            x,0\leqslant x\leqslant 1\\
+            0,1<x\leqslant 2
+        \end{array}\right.\]
+        计算$f(x)$在$[0,2]$上的Fourier展开式,并证明
+        \[\sum_{n=0}^{\infty}\dfrac{1}{(2n+1)^2}=\dfrac{\pi^2}{8}\ \ \ \ \ \sum_{n=1}^{\infty}\dfrac{1}{n^2}=\dfrac{\pi^2}{6}\]
+\end{problem}
+\begin{solution}
+将$f$作周期为$2$的延拓,其Fourier系数为
+\[a_0=\int_0^2 f(x)\di x=\frac12\]
+\[a_n=\int_0^1x\cos(n\pi x)\di x=\frac{(-1)^n-1}{n^2\pi^2},\qquad
+b_n=\int_0^1x\sin(n\pi x)\di x=\frac{(-1)^{n+1}}{n\pi}\]
+因此Fourier展开式为
+\[f(x)\sim\frac14+\sum_{n=1}^{\infty}\left[
+\frac{(-1)^n-1}{n^2\pi^2}\cos(n\pi x)+\frac{(-1)^{n+1}}{n\pi}\sin(n\pi x)\right]\]
+由Dirichlet定理,在$(0,1)\cup(1,2)$上级数和等于$f(x)$;在$x=1$处等于$1/2$,在$x=0,2$处等于$0$.
+令$x=0$,得到
+\[0=\frac14-\frac{2}{\pi^2}\sum_{k=0}^{\infty}\frac1{(2k+1)^2}\]
+于是奇数项之和为$\pi^2/8$.再记$T=\sum_{n=1}^{\infty}1/n^2$,按奇偶项拆分得
+\[T=\frac{\pi^2}{8}+\frac14T,\qquad T=\frac{\pi^2}{6}\]
+\end{solution}
+
+\begin{problem}[9.(5\songti{分})]
+试证明
+        \[\int_0^1\dfrac{1}{x^x}\di x=\sum_{n=1}^{\infty}\dfrac{1}{n^n}\]
+\end{problem}
+\begin{solution}
+对$0<x\leqslant1$,有$0\leqslant-x\ln x\leqslant1/\e$,并在$x=0$处取连续延拓值$0$.因此
+\[x^{-x}=\e^{-x\ln x}=\sum_{n=0}^{\infty}\frac{x^n(-\ln x)^n}{n!}\]
+且每项绝对值不超过$\e^{-n}/n!$.由Weierstrass判别法,该级数在$[0,1]$上一致收敛,可逐项积分.令$u=-\ln x$,再令$v=(n+1)u$,得到
+\[\begin{aligned}
+\int_0^1\frac{x^n(-\ln x)^n}{n!}\di x
+&=\frac1{n!}\int_0^{+\infty}\e^{-(n+1)u}u^n\di u\\
+&=\frac{\Gamma(n+1)}{n!(n+1)^{n+1}}=\frac1{(n+1)^{n+1}}
+\end{aligned}\]
+故$\displaystyle\int_0^1x^{-x}\di x=\sum_{n=0}^{\infty}\frac1{(n+1)^{n+1}}=\sum_{n=1}^{\infty}\frac1{n^n}$.
+\end{solution}
+
+\end{document}

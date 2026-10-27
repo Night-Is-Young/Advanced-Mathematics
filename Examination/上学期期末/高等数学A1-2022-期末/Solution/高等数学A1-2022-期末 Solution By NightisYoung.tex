@@ -1,0 +1,137 @@
+\documentclass{ctexart}
+\usepackage{template}
+\usepackage{esint,extarrows,tikz}
+\begin{document}\pagestyle{empty}
+\begin{center}\Large
+北京大学数学科学学院2022-23高等数学A1期末考试
+\end{center}
+\begin{problem}[1.(16\songti{分})]
+回答下列问题。
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(8\songti{分})}\ 证明:直线$l:\left\{\begin{array}{l}
+                    x-2y+z=0\\
+                    5x+2y-5z=-6
+                \end{array}\right.$过点$(1,2,3)$,并把此一般方程化为标准方程.
+            \item \textbf{(8\songti{分})}\ 求曲线$S:\left\{\begin{array}{l}
+                    x=7t-14\\
+                    y=4t^2\\
+                    z=3t^3    
+                \end{array}\right.$在参数$t=1$对应的点$P$处的法平面方程.
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)},leftmargin=*]
+\item 将$(1,2,3)$代入两平面方程,分别得到$0$和$-6$,故该点在直线上.两法向量的叉积为
+\[(1,-2,1)\times(5,2,-5)=(8,10,12)\]
+可取方向向量$(4,5,6)$,所以标准方程为
+\[\dfrac{x-1}{4}=\dfrac{y-2}{5}=\dfrac{z-3}{6}\]
+\item $P=(-7,4,3)$,曲线在$t=1$处的切向量为$(7,8,9)$.因此法平面为
+\[7(x+7)+8(y-4)+9(z-3)=0\]
+即$7x+8y+9z-10=0$.
+\end{enumerate}
+\end{solution}
+\begin{problem}[2.(20\songti{分})]
+回答下列问题.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(10\songti{分})}\ 设函数$z=\arctan\dfrac{(x-3)y+(x^2+x-1)y^2}{(x-2)y+(x-3)^2y^4}$,求$\left.\dfrac{\p z}{\p y}\right|_{(3,0)}$.
+            \item \textbf{(10\songti{分})}\ 设函数$z=z(x,y)$由方程\[m\left(x+\dfrac zy\right)^n+n\left(y+\dfrac zx\right)^m=1\]确定,其中$m,n\in\N$.计算并化简\[x\dfrac{\p z}{\p x}+y\dfrac{\p z}{\p y}+xy\]
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)},leftmargin=*]
+\item 原题所写的分式在$(3,0)$处为$0/0$,函数在该点未定义,严格说来原题的偏导数不存在定义.
+若按其在该点附近的连续延拓理解,对$y\neq0$约去公因子$y$,可得
+\[\widetilde z(x,y)=\arctan\dfrac{x-3+(x^2+x-1)y}{x-2+(x-3)^2y^3}\]
+延拓函数在$(3,0)$附近光滑,且$\widetilde z(3,y)=\arctan(11y)$,故
+\[\widetilde z_y(3,0)=11\]
+此数值对应连续延拓后的问题.
+\item 在方程有定义且满足隐函数非退化条件的点上,令$w=z+xy$,则原方程变成
+\[m(w/y)^n+n(w/x)^m=1\]
+记$D=x\partial_x+y\partial_y$.对上式应用$D$,得到
+\[mn\left(\dfrac{(w/y)^{n-1}}{y}+\dfrac{(w/x)^{m-1}}{x}\right)(Dw-w)=0\]
+括号前的系数即原方程对$z$的偏导数,在非退化点不为零,于是$Dw=w$.
+又$Dw=Dz+2xy$,故所求结果为
+\[xz_x+yz_y+xy=z\]
+若未假设非退化条件,应另核实隐函数的存在性与可微性.
+\end{enumerate}
+\end{solution}
+\begin{problem}[3.(24\songti{分})]
+下列极限是否存在?若存在,请求出其值;若不存在,请说明理由.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(8\songti{分})}\ \(\displaystyle\lim_{x\to0}\dfrac{\displaystyle\int_0^{x^3}\sin^32t\di t}{\displaystyle\int_0^{x^2}\tan t^5\di t}\).
+            \item \textbf{(8\songti{分})}\ \(\displaystyle\lim_{(x,y)\to(0,0)}\dfrac{x^2y}{x^4+y^2}\).
+            \item \textbf{(8\songti{分})}\ \(\displaystyle\lim_{n\to\infty}\sum_{k=1}^{n}\dfrac{n}{n^2+k^2}\).
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)},leftmargin=*]
+\item 当$t\to0$时,$\sin^3(2t)\sim8t^3$,$\tan(t^5)\sim t^5$.由积分的局部展开,
+\[\int_0^{x^3}\sin^3(2t)\di t=2x^{12}+o(x^{12}),\qquad
+\int_0^{x^2}\tan(t^5)\di t=\dfrac{x^{12}}6+o(x^{12})\]
+因此极限为$12$.
+\item 沿$y=0$趋近时函数值恒为$0$;沿$y=x^2$趋近时函数值恒为$1/2$.故二元极限不存在.
+\item 将和式写成黎曼和,
+\[\sum_{k=1}^n\dfrac{n}{n^2+k^2}
+=\dfrac1n\sum_{k=1}^n\dfrac{1}{1+(k/n)^2}
+\longrightarrow\int_0^1\dfrac{\di t}{1+t^2}=\dfrac\pi4\]
+\end{enumerate}
+\end{solution}
+\begin{problem}[4.(24\songti{分})]
+回答下列问题.
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(8\songti{分})}\ 设$P_1(a_1,b_1,c_1),P_2(a_2,b_2,c_2)$是单位球面$S:x^2+y^2+z^2=1$上的两个不同的点,$O(0,0,0)$是坐标原点.求\[\left|\overrightarrow{OP_1}\times\overrightarrow{OP_2}\right|^2+\left(\overrightarrow{OP_1}\cdot\overrightarrow{OP_2}\right)\]
+            \item \textbf{(8\songti{分})}\ 计算$\displaystyle\int_{-1}^1\left(\dfrac{\sin^2x}{1+\e^x}+\dfrac{\cos^2x}{1+\e^{-x}}\right)\dx$.
+            \item \textbf{(8\songti{分})}\ 计算\(\displaystyle\int_{0}^{\frac{\pi}{4}}\ln\dfrac{\sin\left(x+\frac\pi4\right)}{\cos x}\dx\).
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)},leftmargin=*]
+\item 记$c=\overrightarrow{OP_1}\cdot\overrightarrow{OP_2}=a_1a_2+b_1b_2+c_1c_2$.
+由拉格朗日恒等式及两向量长度均为$1$,有
+\[|\overrightarrow{OP_1}\times\overrightarrow{OP_2}|^2=1-c^2\]
+因此按现有题干,所求为$1-c^2+c$,一般不是常数.
+若原意是点积的平方,则结果才恒为$1$;因未找到扫描原件,这里保留现有题干,不补写未经证实的平方.
+\item 将积分中的第二项作代换$x=-t$,则$\cos^2(-t)=\cos^2t$,从而原积分等于
+\[\int_{-1}^1\dfrac{\sin^2x+\cos^2x}{1+\e^x}\di x
+=\int_{-1}^1\dfrac{\di x}{1+\e^x}\]
+利用$\dfrac1{1+\e^x}+\dfrac1{1+\e^{-x}}=1$,得到积分值为$1$.
+\item 对第一项令$u=x+\pi/4$,对第二项令$u=\pi/2-x$,则
+\[\int_0^{\pi/4}\ln\sin(x+\pi/4)\di x
+=\int_{\pi/4}^{\pi/2}\ln\sin u\di u
+=\int_0^{\pi/4}\ln\cos x\di x\]
+因此所求积分为$0$.
+\end{enumerate}
+\end{solution}
+\begin{problem}[5.(8\songti{分})]
+设$f(x)$在$(a,b)$上二阶可导,$f(a)=f(b)=0$,$f\left(\dfrac{a+b}{2}\right)>0$.试证明:存在$\xi\in(a,b)$使得$f''(\xi)<0$.
+\end{problem}
+\begin{solution}
+现有题干只假设开区间内二阶可导,未假设在端点连续,按字面命题不成立.
+例如令$f(x)=1$对$x\in(a,b)$成立,并单独指定$f(a)=f(b)=0$,则$f''\equiv0$.
+若补充$f\in C[a,b]$,令$c=(a+b)/2$,由两次Lagrange中值定理,
+存在$u\in(a,c)$和$v\in(c,b)$使
+\[f'(u)=\dfrac{f(c)}{c-a}>0,\qquad f'(v)=-\dfrac{f(c)}{b-c}<0\]
+再对$f'$在$[u,v]$上应用中值定理,得某$\xi\in(u,v)$满足
+\[f''(\xi)=\dfrac{f'(v)-f'(u)}{v-u}<0\]
+故补充端点连续条件后结论成立.
+\end{solution}
+\begin{problem}[6.(8\songti{分})]
+设$f(x)$在$[0,2]$上有连续的导数,$f(0)=f(2)=0$,记$M=\displaystyle\max_{x\in[0,2]}\left\{|f(x)|\right\}$.试证明:
+        \begin{enumerate}[label=\tbf{(\arabic*)}]
+            \item \textbf{(4\songti{分})}\ 存在$\xi\in(0,2)$使得$\left|f'(\xi)\right|\geqslant M$.
+            \item \textbf{(4\songti{分})}\ 若对于任意$x\in(0,2)$都有$\left|f'(x)\right|\leqslant M$,则$f(x)\equiv0$.
+        \end{enumerate}
+\end{problem}
+\begin{solution}
+\begin{enumerate}[label=\tbf{(\arabic*)},leftmargin=*]
+\item 若$M=0$,则$f\equiv0$,结论显然.若$M>0$,取$c\in(0,2)$使$|f(c)|=M$.
+对$[0,c]$和$[c,2]$分别应用中值定理,得到导数绝对值分别为$M/c$和$M/(2-c)$的两个点.
+由于$\min(c,2-c)\leqslant1$,其中至少一个导数的绝对值不小于$M$.
+\item 反设$M>0$,必要时将$f$替换成$-f$,取$c\in(0,2)$使$f(c)=M$.此时$f'(c)=0$.
+若$c\leqslant1$,由$f'$连续且$|f'|\leqslant M$,在$c$附近有严格小于$M$的上界,所以
+\[M=f(c)-f(0)=\int_0^c f'(x)\di x<Mc\leqslant M\]
+矛盾.若$c\geqslant1$,同理有$M=-\int_c^2 f'(x)\di x<M(2-c)\leqslant M$,仍矛盾.
+因此$M=0$,即$f\equiv0$.
+\end{enumerate}
+\end{solution}
+\end{document}
